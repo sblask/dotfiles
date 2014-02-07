@@ -17,3 +17,10 @@ function my_parse_git_branch {
 }
 PS1='[$(date "+%a, %d %b %Y, %k:%M:%S")] ${debian_chroot:+($debian_chroot)}\[\033[00m\]\u@\h \[\033[0;34m\]$(my_parse_git_branch)\[\033[00m\]\w \$\[\033[00m\] '
 
+# more colors if available
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
+
