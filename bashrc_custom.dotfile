@@ -11,3 +11,9 @@ PROMPT_COMMAND='history -a'
 mkdir -p ~/.bash_history_archive
 cp ~/.bash_history ~/.bash_history_archive/.bash_history.$(date +"%Y-%m-%d_%H-%M-%S")
 
+# show date, time and git branch in prompt
+function my_parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
+}
+PS1='[$(date "+%a, %d %b %Y, %k:%M:%S")] ${debian_chroot:+($debian_chroot)}\[\033[00m\]\u@\h \[\033[0;34m\]$(my_parse_git_branch)\[\033[00m\]\w \$\[\033[00m\] '
+
