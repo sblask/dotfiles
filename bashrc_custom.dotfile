@@ -1,0 +1,13 @@
+HISTSIZE=1000000
+HISTFILESIZE=2000000
+
+# append to history, don't overwrite
+shopt -s histappend
+
+# write to histoy file after each command execution
+PROMPT_COMMAND='history -a'
+
+# keep backups, just in case
+mkdir -p ~/.bash_history_archive
+cp ~/.bash_history ~/.bash_history_archive/.bash_history.$(date +"%Y-%m-%d_%H-%M-%S")
+
