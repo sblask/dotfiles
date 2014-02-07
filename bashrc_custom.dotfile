@@ -35,3 +35,9 @@ bind '"\e[1;5C": forward-word'
 bind 'set completion-ignore-case on'
 bind 'set skip-completed-text on'
 
+# various exports
+export EDITOR=vim
+export PAGER='less -K'
+export PATH=~/.bin:$PATH
+export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
+
