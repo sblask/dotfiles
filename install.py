@@ -56,12 +56,23 @@ def get_entry_file():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         'entry_file',
-        help='The file that should be referenced in .bashrc',
+        help='The file in this directory whose link should be referenced in'
+             ' .bashrc',
+        nargs='?',
+        default='bashrc_custom.dotfile',
     )
     arguments = parser.parse_args()
-    if not os.path.exists(os.path.join(HOME_DIRECTORY, arguments.entry_file)):
+    if not os.path.exists(os.path.join(BASE_DIRECTORY, arguments.entry_file)):
         raise Exception('No entry file given')
-    return arguments.entry_file
+    return get_link_file_name(arguments.entry_file)
+
+
+def get_link_file_name(input_file_name):
+    file_name, file_extension = os.path.splitext(input_file_name)
+    if file_extension == SYMLINK_EXTENSION:
+        return file_name
+    if file_extension == DOTFILE_EXTENSION:
+        return '.' + file_name
 
 
 def main():
@@ -69,7 +80,7 @@ def main():
     Go through all files and directories in this directory and create symlinks
     in home directory (plus relative path if necessary) for everything that
     ends with SYMLINK_EXTENSION or DOTFILE_EXTENSION.
-    Also make sure that given files are referenced in .bashrc
+    Also make sure that given file is referenced in .bashrc
     '''
     entry_file = get_entry_file()
     for relative_path, directories, files in os.walk(BASE_DIRECTORY):
@@ -78,11 +89,9 @@ def main():
             # has been handled earlier
             continue
         for thing in directories + files:
-            file_name, file_extension = os.path.splitext(thing)
-            if file_extension == SYMLINK_EXTENSION:
-                create_link(relative_path, file_name, thing)
-            if file_extension == DOTFILE_EXTENSION:
-                create_link(relative_path, '.' + file_name, thing)
+            link_file_name = get_link_file_name(thing)
+            if link_file_name:
+                create_link(relative_path, link_file_name, thing)
     ensure_reference(entry_file)
 
 
