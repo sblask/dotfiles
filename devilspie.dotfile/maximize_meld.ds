@@ -1,0 +1,8 @@
+(if
+    (and
+        (is (window_class) "Meld")
+        (is (application_name) "Meld")
+    )
+    (maximize)
+)
+

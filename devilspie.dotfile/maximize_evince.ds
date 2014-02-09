@@ -1,0 +1,8 @@
+(if
+    (and
+        (is (window_class) "Evince")
+        (is (application_name) "Document Viewer")
+    )
+    (maximize)
+)
+

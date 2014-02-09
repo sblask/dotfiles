@@ -1,0 +1,4 @@
+(println window_name)
+(println window_class)
+(println application_name)
+

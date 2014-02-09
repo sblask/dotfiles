@@ -1,0 +1,8 @@
+(if
+    (and
+        (contains (window_name) "Eclipse Platform")
+        (is (window_class) "Eclipse")
+    )
+    (minimize)
+)
+
