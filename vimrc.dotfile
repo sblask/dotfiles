@@ -1,0 +1,99 @@
+set backspace=indent,eol,start
+set visualbell
+
+" Vundle stuff
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'gmarik/vundle'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'mitsuhiko/vim-jinja'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/netrw.vim'
+filetype plugin indent on
+
+" have tree view enabled be default (:Vexplore)
+let g:netrw_liststyle=3
+" open document to the right of the browser
+let g:netrw_browse_split=4
+" change to directory of current document in browser
+set autochdir
+
+let g:airline_theme = 'luna'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_python_checkers=['pylint', 'pep8']
+let g:syntastic_python_pylint_args='--disable C0111'
+let g:syntastic_python_pep8_args='--ignore W391'
+
+" autocommands
+if !exists("autocommands_loaded")
+    let autocommands_loaded = 1
+    " automatic skeleton for new code files
+    autocmd BufNewFile *.py  0r ~/.skeletons/skeleton.py
+    autocmd BufNewFile *.sh  0r ~/.skeletons/skeleton.sh
+    autocmd BufEnter *.jinja  set syntax=jinja
+    autocmd BufEnter *.jsm    set syntax=javascript
+endif
+
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+vmap <C-S-C> "+y
+
+" show line numbers
+set nu
+
+" highlight search results
+set hls
+syntax on
+
+" window stuff
+set laststatus=2
+set showmode
+set ruler
+set so=4 "gives you 4 lines of context around scrolls
+
+set nocp
+set nowrap
+
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+set autoindent
+set cinoptions=(0
+set fileformat=unix
+
+set pastetoggle=<F2>
+
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+set wrap
+set encoding=utf-8
+
+set t_Co=256 "256 colors
+
+colorscheme solarized
+set background=dark
+" see syntastic_enable_signs
+highlight SignColumn ctermbg=bg
+
+highlight RedundantWhitespace ctermbg=red guibg=red
+match RedundantWhitespace /\s\+$\|\t/
+
+" autocomplete with ctrl-space
+inoremap <Nul> <C-n>
+
+
