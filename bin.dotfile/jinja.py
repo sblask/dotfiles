@@ -9,11 +9,13 @@ import jinja2
 import json
 import sys
 
+
 def from_json(thing):
     try:
         return json.loads(thing)
     except Exception:
         return json.loads('["%s"]' % thing)[0]
+
 
 def main():
     file_name = sys.argv[1]
@@ -24,8 +26,8 @@ def main():
         context_variables = {
             arguments[index][2:]: from_json(arguments[index + 1])
             for index in range(0, len(arguments) / 2 + 1, 2)
-            if arguments[index].startswith('--') and
-               not arguments[index + 1].startswith('--')
+            if (arguments[index].startswith('--') and
+                not arguments[index + 1].startswith('--'))
         }
     else:
         context_variables = {}
