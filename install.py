@@ -9,29 +9,34 @@ BASE_DIRECTORY = os.path.dirname(__file__)
 HOME_DIRECTORY = os.path.expanduser('~')
 
 
-def create_link(relative_path, from_file_name, to_file_name):
-    from_path = os.path.join(HOME_DIRECTORY, relative_path, from_file_name)
-    from_path = os.path.abspath(from_path)
-    to_path = os.path.join(BASE_DIRECTORY, relative_path, to_file_name)
-    to_path = os.path.abspath(to_path)
+def has_error(relative_path, from_path, to_path):
+    subdirectory = os.path.abspath(os.path.join(HOME_DIRECTORY, relative_path))
     if os.path.islink(from_path):
         link_target = os.path.realpath(from_path)
         if link_target != to_path:
             message = 'Link `%s` exists, but points to `%s`, not `%s`' % \
                       (from_path, link_target, to_path)
             sys.stderr.write(message + '\n')
-            return
+        return True
     if os.path.isfile(from_path):
         sys.stderr.write('File `%s` exists\n' % from_path)
-        return
+        return True
     if os.path.isdir(from_path):
         sys.stderr.write('Directory `%s` exists\n' % from_path)
-        return
-    directory = os.path.abspath(os.path.join(HOME_DIRECTORY, relative_path))
-    if not os.path.isdir(directory):
-        sys.stderr.write('Directory `%s`  does not exists\n' % directory)
-        return
-    os.symlink(to_path, from_path)
+        return True
+    if not os.path.isdir(subdirectory):
+        sys.stderr.write('Directory `%s`  does not exists\n' % subdirectory)
+        return True
+    return False
+
+
+def create_link(relative_path, from_file_name, to_file_name):
+    from_path = os.path.join(HOME_DIRECTORY, relative_path, from_file_name)
+    from_path = os.path.abspath(from_path)
+    to_path = os.path.join(BASE_DIRECTORY, relative_path, to_file_name)
+    to_path = os.path.abspath(to_path)
+    if not has_error(relative_path, from_path, to_path):
+        os.symlink(to_path, from_path)
 
 
 def get_link_file_name(input_file_name):
