@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+Bundle 'chriskempson/base16-vim'
 Bundle 'gmarik/vundle'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'mitsuhiko/vim-jinja'
@@ -42,7 +43,7 @@ if !exists("autocommands_loaded")
     autocmd BufNewFile *.py  0r ~/.skeletons/skeleton.py
     autocmd BufNewFile *.sh  0r ~/.skeletons/skeleton.sh
     autocmd BufEnter *.jinja  set syntax=jinja
-    autocmd BufEnter *.jsm    set syntax=javascript
+    autocmd BufEnter *.jsm    set filetype=javascript
 endif
 
 set mouse=a
@@ -85,15 +86,17 @@ set encoding=utf-8
 
 set t_Co=256 "256 colors
 
-colorscheme solarized
+colorscheme base16-eighties
 set background=dark
-" see syntastic_enable_signs
+
+highlight LineNr ctermbg=bg
+highlight Search cterm=NONE ctermbg=yellow ctermfg=black 
 highlight SignColumn ctermbg=bg
+highlight Visual cterm=reverse ctermbg=0
 
 highlight RedundantWhitespace ctermbg=red guibg=red
 match RedundantWhitespace /\s\+$\|\t/
 
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
-
 
