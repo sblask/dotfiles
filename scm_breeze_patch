@@ -1,0 +1,13 @@
+diff --git lib/git/shell_shortcuts.sh lib/git/shell_shortcuts.sh
+index 9bdbe14..cae0bb7 100644
+--- lib/git/shell_shortcuts.sh
++++ lib/git/shell_shortcuts.sh
+@@ -112,7 +112,7 @@ unalias ll > /dev/null 2>&1; unset -f ll > /dev/null 2>&1
+ function ls_with_file_shortcuts {
+   local ll_output
+   if [ "$_ls_bsd" != "BSD" ]; then
+-  	ll_output="$(\ls -lhv --group-directories-first --color "$@")"
++  	ll_output="$(\ls -lhac --group-directories-first --color "$@")"
+   else
+     ll_output="$(CLICOLOR_FORCE=1 \ls -l -G "$@")"
+   fi
