@@ -90,7 +90,10 @@ colorscheme base16-eighties
 set background=dark
 
 highlight LineNr ctermbg=bg
-highlight Search cterm=NONE ctermbg=yellow ctermfg=black 
+highlight Normal ctermfg=grey
+highlight Pmenu ctermfg=black ctermbg=grey
+highlight PmenuSel ctermfg=lightGrey ctermbg=black
+highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 highlight SignColumn ctermbg=bg
 highlight Visual cterm=reverse ctermbg=0
 
