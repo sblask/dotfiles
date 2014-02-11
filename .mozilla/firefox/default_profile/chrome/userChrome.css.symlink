@@ -1,0 +1,3 @@
+#navigator-toolbox > #TabsToolbar {
+    -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar") !important;
+}
