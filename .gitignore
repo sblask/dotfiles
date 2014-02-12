@@ -1,4 +1,5 @@
 bin.dotfile/*
 dotfiles.tgz
 scm_breeze.dotfile/
+.vim/bundle/vundle.symlink
 

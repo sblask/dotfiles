@@ -1,11 +1,14 @@
 #!/bin/bash
 
 DOTFILES_DIRECTORY=$(dirname $0)
+VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.symlink
 SCM_BREEZE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/scm_breeze.dotfile
+
+rm -rf $VUNDLE_CLONE_DIRECTORY
+git clone git@github.com:gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 
 rm -rf $SCM_BREEZE_CLONE_DIRECTORY
 git clone git@github.com:sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY
-
 patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < scm_breeze_patch
 
 EXCLUDED_LINKS=$(find . -type l | tr "\\n" "|" | sed "s/|$//" | sed "s/|/ --exclude /g")
