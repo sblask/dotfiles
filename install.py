@@ -54,6 +54,7 @@ def main():
     ends with SYMLINK_EXTENSION or DOTFILE_EXTENSION.
     Also make sure that given file is referenced in .bashrc
     '''
+    os.chdir(BASE_DIRECTORY)  # relative path is wrong otherwise
     for relative_path, directories, files in os.walk(BASE_DIRECTORY):
         if SYMLINK_EXTENSION in relative_path or \
            DOTFILE_EXTENSION in relative_path:
