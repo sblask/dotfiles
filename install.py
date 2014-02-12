@@ -5,8 +5,8 @@ import sys
 DOTFILE_EXTENSION = '.dotfile'
 SYMLINK_EXTENSION = '.symlink'
 
-BASE_DIRECTORY = os.path.dirname(__file__)
-HOME_DIRECTORY = os.path.expanduser('~')
+BASE_DIRECTORY = os.path.abspath(os.path.dirname(__file__))
+HOME_DIRECTORY = os.path.abspath(os.path.expanduser('~'))
 
 
 def has_error(relative_path, from_path, to_path):
@@ -54,11 +54,13 @@ def main():
     ends with SYMLINK_EXTENSION or DOTFILE_EXTENSION.
     Also make sure that given file is referenced in .bashrc
     '''
-    os.chdir(BASE_DIRECTORY)  # relative path is wrong otherwise
-    for relative_path, directories, files in os.walk(BASE_DIRECTORY):
+    for root, directories, files in os.walk(BASE_DIRECTORY):
+        relative_path = os.path.relpath(root, BASE_DIRECTORY)
         if SYMLINK_EXTENSION in relative_path or \
            DOTFILE_EXTENSION in relative_path:
             # has been handled earlier (don't support nesting)
+            continue
+        if '.git' in relative_path:
             continue
         for thing in directories + files:
             link_file_name = get_link_file_name(thing)
