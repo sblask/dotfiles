@@ -8,5 +8,6 @@ git clone git@github.com:sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY
 
 patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < scm_breeze_patch
 
-tar cvzf $DOTFILES_DIRECTORY/dotfiles.tgz $DOTFILES_DIRECTORY/* --exclude-vcs
+EXCLUDED_LINKS=$(find . -type l | tr "\\n" "|" | sed "s/|$//" | sed "s/|/ --exclude /g")
+tar cvzf $DOTFILES_DIRECTORY/dotfiles.tgz $DOTFILES_DIRECTORY/ --exclude-vcs --exclude dotfiles.tgz --exclude $EXCLUDED_LINKS --transform 's/^./dotfiles/'
 
