@@ -1,5 +1,7 @@
 #!/usr/bin/env python
+import argparse
 import os
+import shutil
 import sys
 
 DOTFILE_EXTENSION = '.dotfile'
@@ -30,11 +32,16 @@ def has_error(relative_path, from_path, to_path):
     return False
 
 
-def create_link(relative_path, from_file_name, to_file_name):
+def create_link(relative_path, from_file_name, to_file_name, arguments):
     from_path = os.path.join(HOME_DIRECTORY, relative_path, from_file_name)
     from_path = os.path.abspath(from_path)
     to_path = os.path.join(BASE_DIRECTORY, relative_path, to_file_name)
     to_path = os.path.abspath(to_path)
+    if arguments.replace_existing:
+        if os.path.isfile(from_path) or os.path.islink(from_path):
+            os.remove(from_path)
+        elif os.path.isdir(from_path):
+            shutil.rmtree(from_path)
     if not has_error(relative_path, from_path, to_path):
         os.symlink(to_path, from_path)
 
@@ -47,6 +54,17 @@ def get_link_file_name(input_file_name):
         return '.' + file_name
 
 
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-r',
+        '--replace-existing',
+        action='store_true',
+        help='Remove target path before creating a link in its place',
+    )
+    return parser.parse_args()
+
+
 def main():
     '''
     Go through all files and directories in this directory and create symlinks
@@ -54,6 +72,7 @@ def main():
     ends with SYMLINK_EXTENSION or DOTFILE_EXTENSION.
     Also make sure that given file is referenced in .bashrc
     '''
+    arguments = get_arguments()
     for root, directories, files in os.walk(BASE_DIRECTORY):
         relative_path = os.path.relpath(root, BASE_DIRECTORY)
         if SYMLINK_EXTENSION in relative_path or \
@@ -65,7 +84,7 @@ def main():
         for thing in directories + files:
             link_file_name = get_link_file_name(thing)
             if link_file_name:
-                create_link(relative_path, link_file_name, thing)
+                create_link(relative_path, link_file_name, thing, arguments)
 
 
 if __name__ == '__main__':
