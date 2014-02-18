@@ -1,13 +1,32 @@
 diff --git lib/git/shell_shortcuts.sh lib/git/shell_shortcuts.sh
-index 9bdbe14..cae0bb7 100644
+index 9bdbe14..e5bd33f 100644
 --- lib/git/shell_shortcuts.sh
 +++ lib/git/shell_shortcuts.sh
-@@ -112,7 +112,7 @@ unalias ll > /dev/null 2>&1; unset -f ll > /dev/null 2>&1
+@@ -112,11 +112,17 @@ unalias ll > /dev/null 2>&1; unset -f ll > /dev/null 2>&1
  function ls_with_file_shortcuts {
    local ll_output
    if [ "$_ls_bsd" != "BSD" ]; then
 -  	ll_output="$(\ls -lhv --group-directories-first --color "$@")"
-+  	ll_output="$(\ls -lhac --group-directories-first --color "$@")"
++    ll_output="$(\ls -lh --color "$@")"
    else
      ll_output="$(CLICOLOR_FORCE=1 \ls -l -G "$@")"
+   fi
+ 
++  if ! $(command -v ruby &> /dev/null); then
++    echo -e "\033[33mRuby not available. Running plain ll command...\033[0m"
++    echo "$ll_output"
++    return 1
++  fi
++
+   if [[ $shell == "zsh" ]]; then
+     # Ensure sh_word_split is on
+     if setopt | grep -q shwordsplit; then SHWORDSPLIT_ON=true; fi
+@@ -169,7 +175,7 @@ EOF
+   local file=''
+ 
+   if [ -z $_ls_bsd ]; then
+-    ll_files="$(\ls -v --group-directories-first --color=never "$@")"
++    ll_files="$(\ls --color=never "$@")"
+   else
+     ll_files="$(\ls "$@")"
    fi
