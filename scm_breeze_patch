@@ -1,5 +1,18 @@
+diff --git lib/git/aliases.sh lib/git/aliases.sh
+index 91d95de..16d3e2f 100644
+--- lib/git/aliases.sh
++++ lib/git/aliases.sh
+@@ -95,7 +95,7 @@ if [ "$git_setup_aliases" = "yes" ]; then
+   __git_alias "$git_reset_hard_alias"  "git" "reset" "--hard"
+   __git_alias "$git_rm_alias"          "git" "rm"
+   __git_alias "$git_blame_alias"       "git" "blame"
+-  __git_alias "$git_diff_alias"        "git" "diff" "--"
++  __git_alias "$git_diff_alias"        "git" "diff"
+   __git_alias "$git_diff_word_alias"   "git" "diff" "--word-diff"
+   __git_alias "$git_diff_cached_alias" "git" "diff" "--cached --"
+   __git_alias "$git_add_patch_alias"   "git" "add" "-p"
 diff --git lib/git/shell_shortcuts.sh lib/git/shell_shortcuts.sh
-index 9bdbe14..e5bd33f 100644
+index 9bdbe14..7da74e4 100644
 --- lib/git/shell_shortcuts.sh
 +++ lib/git/shell_shortcuts.sh
 @@ -112,11 +112,17 @@ unalias ll > /dev/null 2>&1; unset -f ll > /dev/null 2>&1
