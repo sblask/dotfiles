@@ -27,7 +27,7 @@ def has_error(relative_path, from_path, to_path):
         sys.stderr.write('Directory `%s` exists\n' % from_path)
         return True
     if not os.path.isdir(subdirectory):
-        sys.stderr.write('Directory `%s`  does not exists\n' % subdirectory)
+        sys.stderr.write('Directory `%s`  does not exist\n' % subdirectory)
         return True
     return False
 
