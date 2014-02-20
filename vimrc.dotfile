@@ -47,6 +47,8 @@ if !exists("autocommands_loaded")
     autocmd BufRead    *.jinja  set syntax=jinja
     autocmd BufNewFile *.jsm    set filetype=javascript
     autocmd BufRead    *.jsm    set filetype=javascript
+    autocmd BufNewFile *.sls    set syntax=yaml
+    autocmd BufRead    *.sls    set syntax=yaml
 endif
 
 set mouse=a
