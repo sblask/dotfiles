@@ -27,6 +27,7 @@ set autochdir
 let g:airline_theme = 'luna'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
