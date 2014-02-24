@@ -54,7 +54,7 @@ endif
 set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
-vmap <C-S-C> "+y
+map <C-S-C> "+y
 
 " show line numbers
 set nu
