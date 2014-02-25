@@ -101,6 +101,11 @@ highlight PmenuSel ctermfg=lightGrey ctermbg=black
 highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 highlight SignColumn ctermbg=bg
 highlight Visual cterm=reverse ctermbg=0
+highlight MatchParen cterm=bold ctermfg=yellow
+
+set cursorline
+highlight clear CursorLine
+highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 
 highlight RedundantWhitespace ctermbg=red guibg=red
 match RedundantWhitespace /\s\+$\|\t/
