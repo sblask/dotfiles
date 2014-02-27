@@ -1,5 +1,9 @@
 set nocompatible
 
+"
+" plugin related settings
+"
+
 " Vundle stuff
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -19,8 +23,6 @@ filetype plugin indent on
 let g:netrw_liststyle=3
 " open document to the right of the browser
 let g:netrw_browse_split=4
-" change to directory of current document in browser
-set autochdir
 
 let g:airline_theme = 'luna'
 let g:airline_powerline_fonts = 1
@@ -34,6 +36,10 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_python_checkers=['pylint', 'pep8']
 let g:syntastic_python_pylint_args='--disable C0111,C0103'
 let g:syntastic_python_pep8_args='--ignore W391'
+
+"
+" open or create a file
+"
 
 " autocommands
 if !exists("autocommands_loaded")
@@ -52,38 +58,52 @@ if !exists("autocommands_loaded")
     autocmd BufRead     *.sls          set syntax=yaml | set iskeyword+=- | set iskeyword+=.
 endif
 
-" show line numbers
-set nu
+set encoding=utf-8
+set fileformat=unix
+" change to directory of current document in browser
+set autochdir
 
-" highlight search results
-set hls
-syntax on
+"
+" display
+"
 
-" window stuff
+" always show statusline
 set laststatus=2
-set showmode
-set ruler
-set so=4 "gives you 4 lines of context around scrolls
+" show line numbers
+set number
+" keep 10 lines before or after current line visible when scrolling down or up, respectively
+set scrolloff=10
+" wrap long lines
+set wrap
 
-set nocp
-set nowrap
+"
+" behaviour
+"
 
+" indentation
+set autoindent
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 
-set autoindent
-set cinoptions=(0
-set fileformat=unix
+"
+" search
+"
 
-set pastetoggle=<F2>
-
+" update result as you type
 set incsearch
+" ignore case...
 set ignorecase
+" ...if pattern is lowercase, otherwise match using given case
 set smartcase
+" highlight search results
 set hlsearch
-set wrap
-set encoding=utf-8
+
+"
+" colours
+"
+
+syntax on
 
 set t_Co=256 "256 colors
 
@@ -98,11 +118,11 @@ highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 highlight SignColumn ctermbg=bg
 highlight Visual cterm=reverse ctermbg=0
 highlight MatchParen cterm=bold ctermfg=yellow
-
+" highlighting of current line
 set cursorline
 highlight clear CursorLine
 highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
-
+" highlight tabs and trailing whitespace
 highlight RedundantWhitespace ctermbg=red guibg=red
 match RedundantWhitespace /\s\+$\|\t/
 
@@ -118,6 +138,7 @@ set whichwrap+=<,>,h,l,[,]
 inoremap <Nul> <C-n>
 " copy with Control-Shift-C in visual mode
 vnoremap <C-S-C> "+y
+set pastetoggle=<F2>
 
 "
 " mouse settings
