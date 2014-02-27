@@ -110,17 +110,27 @@ set t_Co=256 "256 colors
 colorscheme base16-eighties
 set background=dark
 
+" background of line number column if shown
 highlight LineNr ctermbg=bg
+" normal text colour
 highlight Normal ctermfg=grey
+" autocompletion box
 highlight Pmenu ctermfg=black ctermbg=grey
+" currently selected line in autocompletion box
 highlight PmenuSel ctermfg=lightGrey ctermbg=black
+" highlight matches
 highlight Search cterm=NONE ctermbg=yellow ctermfg=black
+" background of column where warnings and erors are shown
 highlight SignColumn ctermbg=bg
+" selected text in visual mode
 highlight Visual cterm=reverse ctermbg=0
+" matching parentheses
 highlight MatchParen cterm=bold ctermfg=yellow
-" highlighting of current line
+" enable highlighting of current line
 set cursorline
+" don't actually highlight the line...
 highlight clear CursorLine
+" ...only the line number
 highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 " highlight tabs and trailing whitespace
 highlight RedundantWhitespace ctermbg=red guibg=red
@@ -138,7 +148,10 @@ set whichwrap+=<,>,h,l,[,]
 inoremap <Nul> <C-n>
 " copy with Control-Shift-C in visual mode
 vnoremap <C-S-C> "+y
+" toggle paste mode
 set pastetoggle=<F2>
+" toggle line numbers
+noremap <F4> :set nonumber!<CR>
 
 "
 " mouse settings
