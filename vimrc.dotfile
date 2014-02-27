@@ -1,8 +1,6 @@
-set backspace=indent,eol,start
-set visualbell
+set nocompatible
 
 " Vundle stuff
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -53,11 +51,6 @@ if !exists("autocommands_loaded")
     autocmd BufNewFile  *.sls          set syntax=yaml | set iskeyword+=- | set iskeyword+=.
     autocmd BufRead     *.sls          set syntax=yaml | set iskeyword+=- | set iskeyword+=.
 endif
-
-set mouse=a
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
-map <C-S-C> "+y
 
 " show line numbers
 set nu
@@ -113,6 +106,26 @@ highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 highlight RedundantWhitespace ctermbg=red guibg=red
 match RedundantWhitespace /\s\+$\|\t/
 
+"
+" keyboard settings
+"
+
+" usable backspace in insert mode
+set backspace=indent,eol,start
+" enable moving to next or previous line with left or right
+set whichwrap+=<,>,h,l,[,]
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
+" copy with Control-Shift-C in visual mode
+vnoremap <C-S-C> "+y
+
+"
+" mouse settings
+"
+
+" enabled in normal and visual mode only
+set mouse=nv
+" scroll 5 lines up or down
+map <ScrollWheelUp> 5<C-Y>
+map <ScrollWheelDown> 5<C-E>
 
