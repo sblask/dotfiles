@@ -16,6 +16,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/netrw.vim'
 filetype plugin indent on
 
