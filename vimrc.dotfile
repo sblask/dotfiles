@@ -120,8 +120,12 @@ highlight Pmenu ctermfg=black ctermbg=grey
 " currently selected line in autocompletion box
 highlight PmenuSel ctermfg=lightGrey ctermbg=black
 " highlight matches
-highlight Search cterm=NONE ctermbg=yellow ctermfg=black
-" background of column where warnings and erors are shown
+highlight clear Search
+highlight Search ctermbg=yellow ctermfg=brown
+" highlight while typing
+highlight clear IncSearch
+highlight IncSearch ctermbg=yellow ctermfg=brown
+" background of column where warnings and errors are shown
 highlight SignColumn ctermbg=bg
 " selected text in visual mode
 highlight Visual cterm=reverse ctermbg=0
@@ -136,6 +140,20 @@ highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 " highlight tabs and trailing whitespace
 highlight RedundantWhitespace ctermbg=red guibg=red
 match RedundantWhitespace /\s\+$\|\t/
+
+" vimdiff
+" background of column next to line numbers
+highlight FoldColumn ctermbg=bg
+" background of folded lines
+highlight Folded ctermbg=bg ctermfg=14
+" don't highlight added lines
+highlight clear DiffAdd
+" don't highlight delete lines
+highlight clear DiffDelete
+" highlight changed lines
+highlight DiffChange cterm=NONE ctermbg=yellow ctermfg=black
+" highlight of changed text
+highlight DiffText cterm=NONE ctermbg=brown ctermfg=black
 
 "
 " keyboard settings
