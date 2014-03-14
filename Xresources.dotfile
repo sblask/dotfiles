@@ -1,5 +1,6 @@
 XTerm*faceName: Liberation Mono for Powerline
 XTerm*faceSize: 9
+XTerm*allowBoldFonts: false
 
 *VT100.Translations: #override ~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD)
 
