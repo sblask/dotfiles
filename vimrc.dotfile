@@ -146,12 +146,12 @@ match RedundantWhitespace /\s\+$\|\t/
 highlight FoldColumn ctermbg=bg
 " background of folded lines
 highlight Folded ctermbg=bg ctermfg=14
-" don't highlight added lines
-highlight clear DiffAdd
-" don't highlight delete lines
-highlight clear DiffDelete
+" highlight added lines
+highlight DiffAdd ctermbg=green ctermfg=black
+" highlight deleted lines
+highlight DiffDelete ctermfg=red
 " highlight changed lines
-highlight DiffChange cterm=NONE ctermbg=yellow ctermfg=black
+highlight DiffChange ctermbg=yellow ctermfg=black
 " highlight of changed text
 highlight DiffText cterm=NONE ctermbg=brown ctermfg=black
 
