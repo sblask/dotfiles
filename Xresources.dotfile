@@ -9,43 +9,23 @@ XTerm*saveLines: 99999
   Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
   Shift Ctrl <Key> C:   copy-selection(CLIPBOARD) \n\
 
-! Base16 Eighties
-! Scheme: Chris Kempson (http://chriskempson.com)
-
-#define base00 #2d2d2d
-#define base01 #393939
-#define base02 #515151
-#define base03 #747369
-#define base04 #a09f93
-#define base05 #d3d0c8
-#define base06 #e8e6df
-#define base07 #f2f0ec
-#define base08 #f2777a
-#define base09 #f99157
-#define base0A #ffcc66
-#define base0B #99cc99
-#define base0C #66cccc
-#define base0D #6699cc
-#define base0E #cc99cc
-#define base0F #d27b53
-
-*.foreground: base05
-*.background: base00
-*.cursorColor: base05
-*.color0: base00
-*.color1: base08
-*.color2: base0B
-*.color3: base0A
-*.color4: base0D
-*.color5: base0E
-*.color6: base0C
-*.color7: base05
-*.color8: base03
-*.color9: base09
-*.color10: base01
-*.color11: base02
-*.color12: base04
-*.color13: base06
-*.color14: base0F
-*.color15: base07
+*.foreground:  #B3B3B3
+*.background:  #232323
+*.cursorColor: #5C5C5C
+*.color0:  #232323
+*.color1:  #FE7777
+*.color2:  #99CC99
+*.color3:  #FFCC66
+*.color4:  #6699CC
+*.color5:  #CC99CC
+*.color6:  #66CCCC
+*.color7:  #DCDCCC
+*.color8:  #777666
+*.color9:  #FE7777
+*.color10: #99CC99
+*.color11: #FFCC66
+*.color12: #6699CC
+*.color13: #CC99CC
+*.color14: #66CCCC
+*.color15: #FFFEEE
 
