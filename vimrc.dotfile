@@ -124,7 +124,7 @@ highlight clear Search
 highlight Search ctermbg=yellow ctermfg=brown
 " highlight while typing
 highlight clear IncSearch
-highlight IncSearch ctermbg=yellow ctermfg=brown
+highlight IncSearch ctermbg=blue ctermfg=white
 " background of column where warnings and errors are shown
 highlight SignColumn ctermbg=bg
 " selected text in visual mode
