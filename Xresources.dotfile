@@ -1,8 +1,6 @@
-XTerm*ScrollBar: true
 XTerm*allowBoldFonts: false
 XTerm*faceName: monospace
 XTerm*faceSize: 9
-XTerm*rightScrollBar: true
 XTerm*saveLines: 99999
 
 *VT100.Translations: #override \n\
