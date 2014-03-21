@@ -17,8 +17,24 @@ alias gmme="git merge --ff-only origin/master && sbt 'eclipse with-source=true'"
 alias clone_fetch="cd ~/Clones && find . -maxdepth 1 -type d -name \"[a-zA-Z]*\" -print0 | xargs -0 -I directory bash -c 'echo directory && cd directory && git fetch -p && git -c color.status=always status | grep --color=never -v \"nothing to commit\" | grep --color=never -v \"On branch master\" '"
 alias clone_status="cd ~/Clones && find . -maxdepth 1 -type d -name \"[a-zA-Z]*\" -print0 | xargs -0 -I directory bash -c 'echo directory && cd directory && git -c color.status=always status | grep --color=never -v \"nothing to commit\" | grep --color=never -v \"On branch master\" '"
 
+function dudir() {
+  if [ -n "$*" ];
+  then
+    ARGS="$*";
+  else
+    ARGS="*";
+  fi
+  du -Pshx $ARGS 2>/dev/null | sort -h
+}
+
 function sgrep() {
-  grep --color --recursive --no-messages --ignore-case --line-number --binary-files=without-match --exclude-dir .git --exclude-dir .tmp --exclude-dir .settings --exclude .project --exclude .pydevproject --exclude "*.pyc"
+  if [ -n "$*" ];
+  then
+    ARGS="$*";
+  else
+    ARGS=".";
+  fi
+  grep --color --recursive --no-messages --ignore-case --line-number --binary-files=without-match --exclude-dir .git --exclude-dir .tmp --exclude-dir .settings --exclude .project --exclude .pydevproject --exclude "*.pyc" $ARGS
 }
 
 function mcd() {
