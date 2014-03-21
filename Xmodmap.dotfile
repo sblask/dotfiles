@@ -1,0 +1,3 @@
+! disable caps lock
+keycode 66 =
+
