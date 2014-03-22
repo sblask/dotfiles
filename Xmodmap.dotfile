@@ -1,3 +1,7 @@
 ! disable caps lock
-keycode 66 =
+clear Lock
+keycode 66 = Multi_key
+! no back and forward, left and right instead
+keycode 166 = Left
+keycode 167 = Right
 
