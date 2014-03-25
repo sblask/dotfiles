@@ -1,8 +1,10 @@
 alias cal='echo -n "       Week "; week;ncal -wC'
 alias cd..='cd ..'
 alias less='less -K'
-alias ps='ps aufx'
-alias top='top -u $USER'
+alias pss='ps aufx'
+alias psgrep='ps aufx | grep'
+alias psless='ps aufx | less'
+alias top='top -u $USER -c'
 alias untar='tar -xzf'
 alias week='date +%W'
 
