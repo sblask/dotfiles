@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 import argparse
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_arguments():
@@ -13,7 +16,10 @@ def get_arguments():
 
 
 def main():
-    pass
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)5s - %(name)s - %(message)s',
+    )
 
 
 if __name__ == '__main__':
