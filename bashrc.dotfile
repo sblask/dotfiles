@@ -70,11 +70,25 @@ else
 fi
 unset color_prompt force_color_prompt
 
-function my_parse_git_branch {
+function git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
 }
-# show date, time and git branch in prompt
-PS1='[$(date "+%a, %d %b %Y, %k:%M:%S")] ${debian_chroot:+($debian_chroot)}\[\033[00m\]\u@\h \[\033[0;34m\]$(my_parse_git_branch)\[\033[00m\]\w \$\[\033[00m\] '
+
+function git_no_mail_warning {
+  git status 1>/dev/null 2>/dev/null
+  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" == "" ]; then
+    echo '(user.email not configured) '
+  fi
+}
+
+# show date, time and git stuff in prompt
+function set_prompt {
+  local NO_COLOUR="\[\033[00m\]"
+  local BLUE="\[\033[0;34m\]"
+  local RED="\[\033[0;31m\]"
+  PS1="[$(date "+%a, %d %b %Y, %k:%M:%S")] ${debian_chroot:+($debian_chroot)}\u@\h ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)${NO_COLOUR}\w \$ "
+}
+PROMPT_COMMAND='set_prompt'
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
