@@ -88,7 +88,7 @@ function set_prompt {
   local RED="\[\033[0;31m\]"
   PS1="[$(date "+%a, %d %b %Y, %k:%M:%S")] ${debian_chroot:+($debian_chroot)}\u@\h ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)${NO_COLOUR}\w \$ "
 }
-PROMPT_COMMAND='set_prompt'
+set_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
