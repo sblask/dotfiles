@@ -6,3 +6,5 @@
 	prompt = false
 [user]
 	name = Sebastian Blask
+[push]
+	default = simple
