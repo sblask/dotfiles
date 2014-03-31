@@ -76,7 +76,7 @@ function git_branch {
 
 function git_no_mail_warning {
   git status 1>/dev/null 2>/dev/null
-  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" == "" ]; then
+  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" == "" -a "$EMAIL" == "" ]; then
     echo '(user.email not configured) '
   fi
 }
