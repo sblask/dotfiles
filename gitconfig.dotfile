@@ -7,4 +7,4 @@
 [user]
 	name = Sebastian Blask
 [push]
-	default = simple
+	default = upstream
