@@ -70,6 +70,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
+function my_ip {
+  ip addr show dev eth0 | grep 'inet ' | awk '{split($0,a,"(/| +)"); print a[3]}'
+}
+
 function git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
 }
@@ -86,7 +90,7 @@ function set_prompt {
   local NO_COLOUR="\[\033[00m\]"
   local BLUE="\[\033[0;34m\]"
   local RED="\[\033[0;31m\]"
-  PS1="[\$(date '+%a, %d %b %Y, %k:%M:%S')] ${debian_chroot:+($debian_chroot)}\u@\h ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)${NO_COLOUR}\w \$ "
+  PS1="[\$(date '+%a, %d %b %Y, %k:%M:%S')] ${debian_chroot:+($debian_chroot)}\u ${BLUE}\h${NO_COLOUR} \$(my_ip) ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)${NO_COLOUR}\w \$ "
 }
 set_prompt
 
