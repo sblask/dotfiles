@@ -71,7 +71,11 @@ fi
 unset color_prompt force_color_prompt
 
 function my_ip {
-  ip addr show dev eth0 | grep 'inet ' | awk '{split($0,a,"(/| +)"); print a[3]}'
+  IP_LINE=$(ip addr show dev eth0 | grep 'inet ')
+  if [$IP_LINE == ""]; then
+    IP_LINE=$(ip addr show dev wlan0 | grep 'inet ')
+  fi
+  echo $IP_LINE | awk '{split($0,a,"(/| +)"); print a[2]}'
 }
 
 function git_branch {
