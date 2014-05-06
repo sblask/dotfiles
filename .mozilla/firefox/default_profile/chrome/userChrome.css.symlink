@@ -2,8 +2,8 @@
     -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar") !important;
 }
 
-#nav-bar .toolbarbutton-icon {
-    max-width: 18px !important;
-    max-height: 18px !important;
+#nav-bar toolbarbutton:not(#back-button) .toolbarbutton-icon {
+    max-width: 35px !important;
+    max-height: 35px !important;
 }
 
