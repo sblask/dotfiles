@@ -10,6 +10,8 @@ alias week='date +%W'
 
 alias jsonp='python -m json.tool'
 
+alias fix_locales='sudo locale-gen en_US.UTF-8 && sudo dpkg-reconfigure locales'
+
 alias gdiff="git diff > ~/.diff; gedit -b ~/.diff"
 alias gg="gitg"
 alias gl="git log --graph --decorate --pretty=format:'%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short"
