@@ -72,7 +72,7 @@ unset color_prompt force_color_prompt
 
 function my_ip {
   IP_LINE=$(ip addr show dev eth0 | grep 'inet ')
-  if [$IP_LINE == ""]; then
+  if ["$IP_LINE" == ""]; then
     IP_LINE=$(ip addr show dev wlan0 | grep 'inet ')
   fi
   echo $IP_LINE | awk '{split($0,a,"(/| +)"); print a[2]}'
