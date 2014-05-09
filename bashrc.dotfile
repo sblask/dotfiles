@@ -157,10 +157,6 @@ if [ -f ~/.bash_completions ]; then
     . ~/.bash_completions
 fi
 
-# better completion
-bind 'set completion-ignore-case on'
-bind 'set skip-completed-text on'
-
 # various exports
 export EDITOR=vim
 export PAGER='less -K'
