@@ -173,6 +173,9 @@ vnoremap <C-S-C> "+y
 set pastetoggle=<F2>
 " toggle line numbers
 noremap <F4> :set nonumber!<CR>
+" smart home key
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O><Home>
 
 "
 " mouse settings
