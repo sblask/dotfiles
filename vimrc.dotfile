@@ -89,6 +89,10 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+" splits
+set splitbelow
+set splitright
+
 "
 " search
 "
