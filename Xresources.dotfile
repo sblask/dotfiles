@@ -2,6 +2,7 @@ XTerm*allowBoldFonts: false
 XTerm*faceName: monospace
 XTerm*faceSize: 9
 XTerm*saveLines: 99999
+Xterm*termName: xterm-256color
 
 *VT100.Translations: #override \n\
   Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
