@@ -1,0 +1,7 @@
+bind-key y set-window-option synchronize-panes
+set-option -g pane-active-border-fg blue
+set-option -g status-bg blue
+set-option -s escape-time 0
+setw -g mode-keys vi
+setw -g utf8 on
+
