@@ -1,7 +1,16 @@
+bind-key - split-window -v
 bind-key y set-window-option synchronize-panes
+bind-key | split-window -h
 set-option -g pane-active-border-fg blue
-set-option -g status-bg blue
+set-option -g status-bg colour23
+set-option -g status-left "Session: #S  Window: |"
+set-option -g status-left-length 40
+set-option -g status-right ""
 set-option -s escape-time 0
-setw -g mode-keys vi
-setw -g utf8 on
+set-window-option -g mode-keys vi
+set-window-option -g utf8 on
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-format '#I:#W'
+set-window-option -g window-status-format '#I:#W'
+set-window-option -g window-status-separator ' | '
 
