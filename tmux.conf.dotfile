@@ -13,4 +13,5 @@ set-window-option -g window-status-current-fg white
 set-window-option -g window-status-current-format '#I:#W'
 set-window-option -g window-status-format '#I:#W'
 set-window-option -g window-status-separator ' | '
+set-window-option -g xterm-keys on
 
