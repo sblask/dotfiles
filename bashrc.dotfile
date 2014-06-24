@@ -182,3 +182,7 @@ set -o vi
 bind '"\e[1;5D": backward-word'
 bind '"\e[1;5C": forward-word'
 
+# home and end key didn't work with ssh in tmux
+bind '"\e[1~": beginning-of-line'
+bind '"\e[4~": end-of-line'
+
