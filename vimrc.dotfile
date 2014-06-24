@@ -83,6 +83,9 @@ set wrap
 " behaviour
 "
 
+" Copy to clipboard
+vmap "+y :!xclip -f -selection clip
+
 " indentation
 set autoindent
 set expandtab
