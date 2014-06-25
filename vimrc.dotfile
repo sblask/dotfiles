@@ -17,6 +17,7 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/CmdlineComplete'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/netrw.vim'
 filetype plugin indent on
@@ -26,18 +27,20 @@ let g:netrw_liststyle=3
 " open document to the right of the browser
 let g:netrw_browse_split=4
 
-let g:airline_theme = 'luna'
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
 let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
+let g:airline_theme = 'luna'
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_python_checkers=['pylint', 'pep8']
-let g:syntastic_python_pylint_args='--disable C0111,C0103,R0904'
 let g:syntastic_python_pep8_args='--ignore W391'
+let g:syntastic_python_pylint_args='--disable C0111,C0103,R0904'
+let g:syntastic_warning_symbol = '⚠'
 
 "
 " open or create a file
@@ -78,12 +81,15 @@ set number
 set scrolloff=10
 " wrap long lines
 set wrap
+" don't fold
+set nofoldenable
+set foldminlines=99999
 
 "
 " behaviour
 "
 
-" Copy to clipboard
+" copy to clipboard
 vmap "+y :!xclip -f -selection clip
 
 " indentation
@@ -95,6 +101,13 @@ set softtabstop=4
 " splits
 set splitbelow
 set splitright
+
+"
+" random utils
+"
+
+" write as sudo
+noremap <Leader>W :w !sudo tee % > /dev/null
 
 "
 " search
