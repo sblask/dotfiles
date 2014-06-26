@@ -169,10 +169,10 @@ export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
 # more colors if available
-if [ -e /lib/terminfo/s/screen-256color ]; then
-  export TERM='screen-256color'
+if [ -e /lib/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
 else
-  export TERM='screen-color'
+  export TERM='xterm-color'
 fi
 
 # vi mode instead of emacs mode
