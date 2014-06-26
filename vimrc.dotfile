@@ -142,7 +142,7 @@ highlight Normal ctermfg=grey
 " autocompletion box
 highlight Pmenu ctermfg=black ctermbg=grey
 " currently selected line in autocompletion box
-highlight PmenuSel ctermfg=lightGrey ctermbg=black
+highlight PmenuSel ctermfg=lightGrey ctermbg=darkGrey
 " highlight matches
 highlight clear Search
 highlight Search ctermbg=yellow ctermfg=brown
