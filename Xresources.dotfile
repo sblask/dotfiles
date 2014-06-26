@@ -1,3 +1,8 @@
+UXTerm*allowBoldFonts: false
+UXTerm*faceName: Liberation Mono for Powerline
+UXTerm*faceSize: 9
+UXTerm*saveLines: 99999
+UXterm*termName: xterm-256color
 XTerm*allowBoldFonts: false
 XTerm*faceName: monospace
 XTerm*faceSize: 9
