@@ -1,0 +1,9 @@
+(if
+    (and
+        (is (window_name) "uxterm")
+        (is (window_class) "UXTerm")
+        (is (application_name) "uxterm")
+    )
+    (maximize)
+)
+
