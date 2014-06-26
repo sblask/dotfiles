@@ -206,6 +206,8 @@ imap <silent> <Home> <C-O><Home>
 
 " enabled in normal and visual mode only
 set mouse=nv
+" fix problem with selecting a split not working
+set ttymouse=sgr
 " scroll 5 lines up or down
 map <ScrollWheelUp> 5<C-Y>
 map <ScrollWheelDown> 5<C-E>
