@@ -41,7 +41,9 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_python_checkers=['pylint', 'pep8']
 let g:syntastic_python_pep8_args='--ignore W391'
 let g:syntastic_python_pylint_args='--disable C0111,C0103,R0904'
-let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '✗'
+let g:syntastic_warning_symbol = '✗'
 
 "
 " open or create a file
@@ -151,6 +153,11 @@ highlight clear IncSearch
 highlight IncSearch ctermbg=blue ctermfg=white
 " background of column where warnings and errors are shown
 highlight SignColumn ctermbg=bg
+" colours for warnings and errors
+highlight SyntasticErrorSign ctermbg=bg ctermfg=red
+highlight SyntasticWarningSign ctermbg=bg ctermfg=darkyellow
+highlight SyntasticStyleErrorSign ctermbg=bg ctermfg=yellow
+highlight SyntasticStyleWarningSign ctermbg=bg ctermfg=yellow
 " selected text in visual mode
 highlight Visual cterm=reverse ctermbg=0
 " matching parentheses
