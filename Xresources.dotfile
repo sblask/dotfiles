@@ -1,6 +1,6 @@
 UXTerm*allowBoldFonts: false
 UXTerm*cursorColor: #FE7777
-UXTerm*faceName: Liberation Mono for Powerline
+UXTerm*faceName: monospace
 UXTerm*faceSize: 9
 UXTerm*saveLines: 99999
 UXTerm*termName: xterm-256color
