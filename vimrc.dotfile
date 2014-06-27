@@ -35,7 +35,9 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
 let g:airline_theme = 'luna'
 
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open=1
+let g:syntastic_echo_current_error = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_python_checkers=['pylint', 'pep8']
@@ -87,6 +89,8 @@ set wrap
 " don't fold
 set nofoldenable
 set foldminlines=99999
+" show tabs and trailing whitespace
+:set list listchars=tab:»-,trail:·
 
 "
 " behaviour
@@ -168,9 +172,6 @@ set cursorline
 highlight clear CursorLine
 " ...only the line number
 highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
-" highlight tabs and trailing whitespace
-highlight RedundantWhitespace ctermbg=red guibg=red
-match RedundantWhitespace /\s\+$\|\t/
 
 " vimdiff
 " background of column next to line numbers
