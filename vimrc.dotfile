@@ -18,6 +18,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mitsuhiko/vim-jinja'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/CmdlineComplete'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/netrw.vim'
@@ -172,6 +173,8 @@ set cursorline
 highlight clear CursorLine
 " ...only the line number
 highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
+" colors for listchars
+highlight SpecialKey cterm=standout ctermfg=red
 
 " vimdiff
 " background of column next to line numbers
