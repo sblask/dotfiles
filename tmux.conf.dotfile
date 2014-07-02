@@ -1,6 +1,7 @@
 bind-key - split-window -v
 bind-key y set-window-option synchronize-panes
 bind-key | split-window -h
+set-option -g base-index 1
 set-option -g history-limit 99999
 set-option -g pane-active-border-fg blue
 set-option -g status-bg colour24
