@@ -1,16 +1,41 @@
+unbind-key p
+
+bind-key -n C-M-h next-window
+bind-key -n C-M-l previous-window
+bind-key -n C-h select-pane -L
+bind-key -n C-j select-pane -D
+bind-key -n C-k select-pane -U
+bind-key -n C-l select-pane -R
+
+bind-key -r , swap-pane -U
+bind-key -r . swap-pane -D
+bind-key -r < swap-window -t -1
+bind-key -r > swap-window -t +1
 bind-key -r H resize-pane -L 5
 bind-key -r J resize-pane -D 5
 bind-key -r K resize-pane -U 5
 bind-key -r L resize-pane -R 5
+bind-key -r _ split-window -v
 bind-key -r h select-pane -L
 bind-key -r j select-pane -D
 bind-key -r k select-pane -U
 bind-key -r l select-pane -R
-bind-key _ split-window -v
+bind-key -r | split-window -h
+
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+bind-key p paste-buffer
+bind-key Escape copy-mode
+
+bind-key N command-prompt 'rename-session %%'
+bind-key X kill-window
+bind-key n command-prompt 'rename-window %%'
 bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
+bind-key x kill-pane
 bind-key y set-window-option synchronize-panes
-bind-key | split-window -h
+
 set-option -g base-index 1
+set-option -g display-time 2000
 set-option -g history-limit 99999
 set-option -g pane-active-border-fg blue
 set-option -g status-bg colour24
@@ -18,6 +43,7 @@ set-option -g status-left "Session: #S  Window: |"
 set-option -g status-left-length 40
 set-option -g status-right ""
 set-option -s escape-time 0
+
 set-window-option -g mode-keys vi
 set-window-option -g utf8 on
 set-window-option -g window-status-current-fg white
