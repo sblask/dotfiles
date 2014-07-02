@@ -1,4 +1,5 @@
 bind-key - split-window -v
+bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
 bind-key y set-window-option synchronize-panes
 bind-key | split-window -h
 set-option -g base-index 1
