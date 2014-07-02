@@ -22,8 +22,8 @@ bind-key -r k select-pane -U
 bind-key -r l select-pane -R
 bind-key -r | split-window -h
 
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 bind-key p paste-buffer
 bind-key Escape copy-mode
 
