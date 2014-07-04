@@ -210,6 +210,7 @@ noremap <F4> :set nonumber!<CR>
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <expr> <silent> <kHome> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
+imap <silent> <kHome> <C-O><kHome>
 
 "
 " mouse settings
