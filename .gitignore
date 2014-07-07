@@ -1,4 +1,5 @@
 *.swp
+.fonts
 .vim/bundle/vundle.symlink
 bin.dotfile/*
 dotfiles.tgz
