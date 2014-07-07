@@ -34,7 +34,7 @@ bind-key x kill-pane
 bind-key y set-window-option synchronize-panes
 
 set-option -g base-index 1
-set-option -g default-terminal "xterm-256color"
+set-option -g default-terminal "screen-256color"
 set-option -g display-time 2000
 set-option -g history-limit 99999
 set-option -g mode-mouse on

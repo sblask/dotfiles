@@ -2,10 +2,12 @@ UXTerm*allowBoldFonts: false
 UXTerm*faceName: DejaVu Sans Mono for Powerline
 UXTerm*faceSize: 10
 UXTerm*saveLines: 99999
+UXterm*termName: screen-256color
 XTerm*allowBoldFonts: false
 XTerm*faceName: DejaVu Sans Mono for Powerline
 XTerm*faceSize: 10
 XTerm*saveLines: 99999
+Xterm*termName: screen-256color
 
 *VT100.Translations: #override \n\
   Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
