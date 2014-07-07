@@ -1,10 +1,8 @@
 UXTerm*allowBoldFonts: false
-UXTerm*cursorColor: #FE7777
 UXTerm*faceName: DejaVu Sans Mono for Powerline
 UXTerm*faceSize: 10
 UXTerm*saveLines: 99999
 XTerm*allowBoldFonts: false
-XTerm*cursorColor: #FE7777
 XTerm*faceName: DejaVu Sans Mono for Powerline
 XTerm*faceSize: 10
 XTerm*saveLines: 99999
@@ -18,31 +16,31 @@ XTerm*saveLines: 99999
 #define green   #99CC99
 #define orange  #FFCC66
 #define blue    #6699CC
-#define magenta #CC99CC
-#define cyan    #66CCCC
+#define magenta #D28445
+#define cyan    #70B0B0
 
-#define black     #232323
+#define black     #111111
 #define white     #FFFEEE
-#define grey      #DCDCCC
-#define lightgrey #777666
+#define lightgrey #B3B3B3
+#define darkgrey  #777666
 
-*.foreground:  #B3B3B3
-*.background:  #232323
-*.cursorColor: #5C5C5C
-*.color0:  black
-*.color1:  red
-*.color2:  green
-*.color3:  orange
-*.color4:  blue
-*.color5:  magenta
-*.color6:  cyan
-*.color7:  grey
-*.color8:  light grey
-*.color9:  red
-*.color10: green
-*.color11: orange
-*.color12: blue
-*.color13: magenta
-*.color14: cyan
-*.color15: white
+*.foreground:  lightgrey
+*.background:  black
+*.cursorColor: magenta
+*.color0:      black
+*.color1:      red
+*.color2:      green
+*.color3:      orange
+*.color4:      blue
+*.color5:      magenta
+*.color6:      cyan
+*.color7:      lightgrey
+*.color8:      darkgrey
+*.color9:      red
+*.color10:     green
+*.color11:     orange
+*.color12:     blue
+*.color13:     magenta
+*.color14:     cyan
+*.color15:     white
 
