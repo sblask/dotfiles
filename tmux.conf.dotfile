@@ -28,6 +28,7 @@ bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 bind-key p paste-buffer
 bind-key Escape copy-mode
 
+bind-key R send-keys -R \; clear-history
 bind-key N command-prompt 'rename-window %%'
 bind-key X kill-window
 bind-key n command-prompt 'rename-session %%'
