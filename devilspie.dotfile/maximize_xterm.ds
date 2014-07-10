@@ -3,6 +3,9 @@
         (is (window_class)  "XTerm")
         (is (window_class) "UXTerm")
     )
-    (maximize)
+    (begin
+        (maximize)
+        (undecorate)
+    )
 )
 
