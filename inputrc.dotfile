@@ -10,3 +10,14 @@ set show-all-if-ambiguous on
 
 set skip-completed-text on
 
+set editing-mode vi
+
+set keymap vi-insert
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+
+set keymap vi-command
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+v: ""
+
