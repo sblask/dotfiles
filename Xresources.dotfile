@@ -1,9 +1,11 @@
 UXTerm*allowBoldFonts: false
+UXTerm*eightBitInput: False
 UXTerm*faceName: DejaVu Sans Mono for Powerline
 UXTerm*faceSize: 10
 UXTerm*saveLines: 99999
 UXterm*termName: screen-256color
 XTerm*allowBoldFonts: false
+XTerm*eightBitInput: False
 XTerm*faceName: DejaVu Sans Mono for Powerline
 XTerm*faceSize: 10
 XTerm*saveLines: 99999
