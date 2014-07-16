@@ -102,6 +102,7 @@ fi
 # various exports
 export EDITOR=vim
 export LS_COLORS='di=34:ln=33:or=31:ex=32'
+export MANPAGER=vimpager
 export PAGER='less -K'
 export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache

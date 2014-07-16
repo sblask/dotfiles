@@ -71,7 +71,6 @@ if !exists("autocommands_loaded")
 endif
 
 set encoding=utf-8
-set fileformat=unix
 " change to directory of current document in browser
 set autochdir
 
