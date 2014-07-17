@@ -1,3 +1,5 @@
+unbind-key [
+unbind-key ]
 unbind-key p
 
 bind-key -r + resize-pane -U 10
@@ -25,7 +27,6 @@ bind-key -r | split-window -h
 
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
-bind-key p paste-buffer
 bind-key Escape copy-mode
 
 bind-key R send-keys -R \; clear-history
