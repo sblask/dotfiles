@@ -76,7 +76,9 @@ endif
 
 set encoding=utf-8
 " change to directory of current document in browser
-set autochdir
+if !&diff
+    set autochdir
+endif
 
 "
 " display
