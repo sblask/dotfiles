@@ -6,22 +6,24 @@ set nocompatible
 
 " Vundle stuff
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'chriskempson/base16-vim'
-Bundle 'gmarik/vundle'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mitsuhiko/vim-jinja'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-scripts/CmdlineComplete'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'vim-scripts/netrw.vim'
+if isdirectory(expand("~/.vim/bundle/vundle/"))
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'bling/vim-airline'
+    Bundle 'chriskempson/base16-vim'
+    Bundle 'gmarik/vundle'
+    Bundle 'jelera/vim-javascript-syntax'
+    Bundle 'junegunn/vim-easy-align'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'mitsuhiko/vim-jinja'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-unimpaired'
+    Bundle 'vim-scripts/CmdlineComplete'
+    Bundle 'vim-scripts/VimClojure'
+    Bundle 'vim-scripts/netrw.vim'
+endif
 filetype plugin indent on
 
 " have tree view enabled be default (:Vexplore)
@@ -29,12 +31,14 @@ let g:netrw_liststyle=3
 " open document to the right of the browser
 let g:netrw_browse_split=4
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
-let g:airline_theme = 'luna'
+if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+    let g:airline#extensions#whitespace#enabled = 0
+    let g:airline_powerline_fonts = 1
+    let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
+    let g:airline_theme = 'luna'
+endif
 
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open=1
@@ -138,7 +142,11 @@ syntax on
 
 set t_Co=256 "256 colors
 
-colorscheme base16-eighties
+if isdirectory(expand("~/.vim/bundle/base16-vim"))
+    colorscheme base16-eighties
+else
+    colorscheme darkblue
+endif
 set background=dark
 
 " background of line number column if shown
@@ -218,7 +226,11 @@ imap <silent> <kHome> <C-O><kHome>
 " enabled in normal and visual mode only
 set mouse=nv
 " fix problem with selecting a split not working
-set ttymouse=sgr
+try
+    set ttymouse=sgr
+catch
+    set ttymouse=xterm
+endtry
 " scroll 5 lines up or down
 map <ScrollWheelUp> 5<C-Y>
 map <ScrollWheelDown> 5<C-E>
