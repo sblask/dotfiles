@@ -2,11 +2,18 @@
 
 DOTFILES_DIRECTORY=$(dirname $0)
 
-# $DOTFILES_DIRECTORY/clone.sh
+$DOTFILES_DIRECTORY/clone.sh
 
 EXCLUDED_FILES="\
+    *.markdown
+    *.md
     *.swp
+    .config
     .fonts
+    .mozilla
+    LICENSE*
+    clone.sh
+    doc
     dotfiles.tgz
     pack.sh
     scm_breeze_patch
