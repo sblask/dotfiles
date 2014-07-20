@@ -6,7 +6,7 @@ alias vimpager="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodif
 alias psgrep='ps aufx | grep'
 alias psless='ps aufx | vimpager'
 alias tmux='tmux attach || tmux'
-alias top='top -u $USER -c'
+alias top='top -c'
 alias untar='tar -xzf'
 alias week='date +%W'
 
@@ -44,6 +44,10 @@ function sgrep() {
 }
 
 function mcd() {
-   mkdir $1 && cd $1
+  mkdir $1 && cd $1
+}
+
+function ptop() {
+  top -p $(pgrep -d',' -f $1)
 }
 
