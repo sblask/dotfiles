@@ -1,5 +1,16 @@
 set nocompatible
 
+set backup
+if exists('*mkdir') && !isdirectory(expand("~/.vim/backup"))
+    call mkdir(expand("~/.vim/backup"))
+endif
+set backupdir=~/.vim/backup
+
+if exists('*mkdir') && !isdirectory(expand("~/.vim/swap"))
+    call mkdir(expand("~/.vim/swap"))
+endif
+set directory=~/.vim/swap
+
 "
 " plugin related settings
 "
@@ -76,6 +87,7 @@ endif
 
 set encoding=utf-8
 " change to directory of current document in browser
+" makes less sense in diff mode and leads to errors in older vim versions
 if !&diff
     set autochdir
 endif
