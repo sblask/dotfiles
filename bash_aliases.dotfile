@@ -5,7 +5,6 @@ alias pss='ps aufx'
 alias vimpager="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist' -\""
 alias psgrep='ps aufx | grep'
 alias psless='ps aufx | vimpager'
-alias tmux='tmux attach || tmux'
 alias top='top -c'
 alias untar='tar -xzf'
 alias week='date +%W'
