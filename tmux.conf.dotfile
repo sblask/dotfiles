@@ -45,10 +45,10 @@ set-option -g mode-mouse off
 set-option -g mouse-resize-pane on
 set-option -g mouse-select-pane on
 set-option -g mouse-select-window on
-set-option -g pane-active-border-fg blue
+set-option -g pane-active-border-fg colour24
 set-option -g status-bg colour24
-set-option -g status-left "Session: #S  Window: |"
-set-option -g status-left-length 40
+set-option -g status-left "#H #[fg=white]#S #[fg=black]|"
+set-option -g status-left-length 50
 set-option -g status-right ""
 set-option -s escape-time 0
 
