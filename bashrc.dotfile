@@ -107,10 +107,3 @@ export PAGER='less -K'
 export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 
-# more colors if available
-if [ -e /lib/terminfo/s/screen-256color ] || [ -e /lib/terminfo/s/screen-256color ]; then
-  export TERM='screen-256color'
-else
-  export TERM='screen-color'
-fi
-
