@@ -1,9 +1,19 @@
 #!/bin/bash
 
 SERVERS="$@"
-SESSION_NAME="ssh_$(echo $SERVERS | awk '{split($0,a,"-"); printf "%s_%s", a[1], a[2]}')"
+WINDOW_NAME="ssh_$(echo $SERVERS | awk '{split($0,a,"-"); printf "%s_%s", a[1], a[2]}')"
 
-tmux new-session -d -s $SESSION_NAME
+if [[ -z "$TMUX" ]]; then
+  if tmux has-session; then
+    tmux new-window
+  else
+    tmux new-session -d
+  fi
+else
+  tmux new-window
+fi
+
+tmux rename-window $WINDOW_NAME
 
 shift
 for SERVER in $SERVERS; do
@@ -14,5 +24,4 @@ tmux kill-pane -t 0
 tmux select-pane -t 0
 tmux select-layout tiled
 tmux set-window-option synchronize-panes on
-tmux -2 attach -t $SESSION_NAME
 
