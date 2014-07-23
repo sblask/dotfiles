@@ -1,7 +1,17 @@
 #!/bin/bash
 
+FIRST_SERVER=$1
+
 SERVERS="$@"
-WINDOW_NAME="ssh_$(echo $SERVERS | awk '{split($0,a,"-"); printf "%s_%s", a[1], a[2]}')"
+SERVER_COUNT=$#
+
+if [ "$SERVER_COUNT" == "1" ]; then
+  COMMAND=ssh
+else
+  COMMAND=cssh
+fi
+
+WINDOW_NAME="${COMMAND}_$(echo $SERVERS | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
 
 if [[ -z "$TMUX" ]]; then
   if tmux has-session; then
@@ -15,7 +25,6 @@ fi
 
 tmux rename-window $WINDOW_NAME
 
-shift
 for SERVER in $SERVERS; do
   tmux split-window "ssh $SERVER"
   tmux select-layout tiled
