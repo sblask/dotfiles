@@ -7,11 +7,12 @@ SERVER_COUNT=$#
 
 if [ "$SERVER_COUNT" == "1" ]; then
   COMMAND=ssh
+  WINDOW_NAME="${COMMAND}_$SERVERS"
 else
   COMMAND=cssh
+  WINDOW_NAME="${COMMAND}_$(echo $SERVERS | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
 fi
 
-WINDOW_NAME="${COMMAND}_$(echo $SERVERS | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
 
 if [[ -z "$TMUX" ]]; then
   if tmux has-session; then
