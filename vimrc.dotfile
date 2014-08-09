@@ -114,6 +114,9 @@ set foldminlines=99999
 " behaviour
 "
 
+" switch back to normal mode more quickly
+set ttimeoutlen=0
+
 " copy to clipboard
 vmap "+y :!xclip -f -selection clip
 
