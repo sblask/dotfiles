@@ -29,6 +29,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'kien/ctrlp.vim'
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'scrooloose/syntastic'
+    Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-unimpaired'
     Bundle 'vim-scripts/CmdlineComplete'
