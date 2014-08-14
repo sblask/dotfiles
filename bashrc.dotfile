@@ -66,7 +66,7 @@ function set_prompt {
   local NO_COLOUR="\[\033[00m\]"
   local BLUE="\[\033[0;34m\]"
   local RED="\[\033[0;31m\]"
-  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h\a\][\$(date '+%a, %d %b %Y, %k:%M:%S')] ${debian_chroot:+($debian_chroot)}\u ${BLUE}\h${NO_COLOUR} \$(my_ip) ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)\n${NO_COLOUR}\w \$ "
+  PS1="\n[\$(date '+%a, %d %b %Y, %k:%M:%S')] ${BLUE}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV)) }${NO_COLOUR}\u ${BLUE}\h${NO_COLOUR} \$(my_ip) ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)\n${NO_COLOUR}\w \$ "
 }
 set_prompt
 
@@ -82,6 +82,11 @@ fi
 # load settings that are local to a specific machine
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
+fi
+
+# use virtualenvwrapper if available
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -106,4 +111,5 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodi
 export PAGER='less -K'
 export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
+export VIRTUAL_ENV_DISABLE_PROMPT=True
 

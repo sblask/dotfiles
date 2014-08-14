@@ -1,0 +1,2 @@
+ctags -f $VIRTUAL_ENV/tags -R $(virtualenvwrapper_get_site_packages_dir) &> /dev/null & disown
+
