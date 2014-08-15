@@ -23,6 +23,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'bling/vim-airline'
     Bundle 'chriskempson/base16-vim'
+    Bundle 'craigemery/vim-autotag'
     Bundle 'gmarik/vundle'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'junegunn/vim-easy-align'
@@ -35,6 +36,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'vim-scripts/CmdlineComplete'
     Bundle 'vim-scripts/VimClojure'
     Bundle 'vim-scripts/netrw.vim'
+    Bundle 'vim-scripts/taglist.vim'
 endif
 filetype plugin indent on
 
@@ -52,13 +54,17 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline_theme = 'luna'
 endif
 
+let g:autotagTagsFile = '.tags'
+
+let g:ctrlp_extensions = ['changes', 'tag']
+
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open = 1
 let g:syntastic_echo_current_error = 1
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_python_checkers=['pylint', 'pep8']
-let g:syntastic_python_pep8_args='--ignore W391'
+let g:syntastic_python_checkers = ['pylint', 'pep8']
+let g:syntastic_python_pep8_args = '--ignore W391'
 let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '✗'
@@ -92,6 +98,13 @@ set encoding=utf-8
 if !&diff
     set autochdir
 endif
+
+"
+" ctags
+"
+
+" check for .tags file in current directory or its parents and the active virtualenv
+set tags=./.tags;/,$VIRTUAL_ENV/.tags
 
 "
 " display
@@ -244,6 +257,8 @@ nnoremap <Down> gj
 " use original mappings to move up and down logical lines
 nnoremap gk k
 nnoremap gj j
+" open definition of word under cursor in vertical split
+map <F3> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "
 " mouse settings
