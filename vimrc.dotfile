@@ -96,6 +96,7 @@ if !exists("autocommands_loaded")
     autocmd BufNewFile    *.sls          set syntax=yaml | set iskeyword+=- | set iskeyword+=.
     autocmd BufRead       *.sls          set syntax=yaml | set iskeyword+=- | set iskeyword+=.
     autocmd BufWritePost  *              if &diff | diffupdate | endif
+    autocmd FileType      python         setlocal completeopt-=preview
 endif
 
 set encoding=utf-8
