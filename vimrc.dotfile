@@ -130,6 +130,9 @@ set nofoldenable
 set foldminlines=99999
 " show tabs and trailing whitespace
 :set list listchars=tab:»-,trail:·
+" better, shell-like command completion
+set wildmenu
+set wildmode=list:longest
 
 "
 " behaviour
