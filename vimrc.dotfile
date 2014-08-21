@@ -142,9 +142,6 @@ set wildmode=list:longest
 " switch back to normal mode more quickly
 set ttimeoutlen=0
 
-" copy to clipboard
-vmap "+y :!xclip -f -selection clip
-
 " indentation
 set autoindent
 set expandtab
@@ -252,8 +249,10 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
-" copy with Control-Shift-C in visual mode
-vnoremap <C-S-C> "+y
+" yank selection keeping cursor position
+vnoremap y ygv<Esc>
+" copy to system clipboard with Control-C keeping cursor position
+vnoremap <C-C> :!xclip -f -selection clip<CR>ugv<Esc>
 " toggle paste mode
 set pastetoggle=<F2>
 " toggle line numbers
