@@ -3,7 +3,6 @@ set completion-query-items 0
 
 # better completion
 set completion-ignore-case on
-set completion-map-case on
 
 # show alternatives directly, no more double tab
 set show-all-if-ambiguous on
