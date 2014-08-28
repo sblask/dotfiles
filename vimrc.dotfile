@@ -70,7 +70,6 @@ let g:syntastic_echo_current_error = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_python_checkers = ['pylint', 'pep8']
-let g:syntastic_python_pep8_args = '--ignore W391'
 let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '✗'
