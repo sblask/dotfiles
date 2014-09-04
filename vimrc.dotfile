@@ -159,7 +159,8 @@ set hidden
 "
 
 " write as sudo
-noremap <Leader>W :w !sudo tee % > /dev/null
+noremap <Leader>W :w !sudo tee % > /dev/null<CR>
+noremap <Leader>J :% !python -m json.tool<CR>
 
 "
 " search
