@@ -1,7 +1,14 @@
+[BASIC]
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|logger)$
+variable-rgx=(([a-z_][a-z0-9_]{2,30})|ip)$
+
+[DESIGN]
+max-args=8
+
 [MESSAGES CONTROL]
 
 # Use `pylint --help-msg=` to check the meaning of these
-disable=C0111,C0103,F0401,R0904,W0110,W0141,W0142,W0212,W0703
+disable=similarities,C0111,W0142,W0703
 
 
 [VARIABLES]
