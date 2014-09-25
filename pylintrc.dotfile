@@ -8,8 +8,7 @@ max-args=8
 [MESSAGES CONTROL]
 
 # Use `pylint --help-msg=` to check the meaning of these
-disable=similarities,C0111,W0142,W0703
-
+disable=broad-except,fixme,line-too-long,missing-docstring,similarities,star-args,too-few-public-methods
 
 [VARIABLES]
 
