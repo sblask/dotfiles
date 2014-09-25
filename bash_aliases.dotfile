@@ -20,7 +20,6 @@ alias gmm="git merge --ff-only origin/master"
 alias gmme="git merge --ff-only origin/master && sbt 'eclipse with-source=true'"
 
 alias clone_fetch="cd ~/Clones && find . -maxdepth 1 -type d -name \"[a-zA-Z]*\" -print0 | xargs -0 -I directory bash -c 'echo directory && cd directory && git fetch -p && git -c color.status=always status | grep --color=never -v \"nothing to commit\" | grep --color=never -v \"On branch master\" '"
-alias clone_status="cd ~/Clones && find . -maxdepth 1 -type d -name \"[a-zA-Z]*\" -print0 | xargs -0 -I directory bash -c 'echo directory && cd directory && git -c color.status=always status | grep --color=never -v \"nothing to commit\" | grep --color=never -v \"On branch master\" '"
 
 function dudir() {
   if [ -n "$*" ];

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+current_directory=$PWD
+
+for directory in $(find ~/Clones -mindepth 1 -maxdepth 1 -type d -name "[a-zA-Z]*")
+    do
+        echo $directory
+        cd $directory
+        git -c color.status=always status \
+            | grep --color=never -v "#$" \
+            | grep --color=never -v "On branch master" \
+            | grep --color=never -v "Your branch is up-to-date with 'origin/master'." \
+            | grep --color=never -v "nothing to commit" \
+
+    done
+
+cd $current_directory
+
