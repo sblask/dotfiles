@@ -1,6 +1,6 @@
 *.swp
 .fonts
-.vim/bundle/vundle.symlink
+.vim/bundle/vundle.copy
 bin.dotfile/*
 dotfiles.tgz
 scm_breeze.dotfile/
