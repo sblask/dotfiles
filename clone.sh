@@ -2,7 +2,7 @@
 
 DOTFILES_DIRECTORY=$(dirname $0)
 
-VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.symlink
+VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
 rm -rf $VUNDLE_CLONE_DIRECTORY
 git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 
