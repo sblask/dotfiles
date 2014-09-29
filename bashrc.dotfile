@@ -66,7 +66,16 @@ function set_prompt {
   local NO_COLOUR="\[\033[00m\]"
   local BLUE="\[\033[0;34m\]"
   local RED="\[\033[0;31m\]"
-  PS1="\[\e[$LINES;1H\]\n[\$(date '+%a, %d %b %Y, %k:%M:%S')] ${BLUE}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV)) }${NO_COLOUR}\u ${BLUE}\h${NO_COLOUR} \$(my_ip) ${BLUE}\$(git_branch)${RED}\$(git_no_mail_warning)\n${NO_COLOUR}\w \$ "
+  PS1="\n"
+  PS1=$PS1'\[$(retval=$?;tput cup "$LINES";exit $retval)\]'
+  PS1=$PS1"[\$(date '+%a, %d %b %Y, %k:%M:%S')] "
+  PS1=$PS1"${BLUE}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV)) }${NO_COLOUR}"
+  PS1=$PS1"\u "
+  PS1=$PS1"${BLUE}\h${NO_COLOUR} "
+  PS1=$PS1"\$(my_ip) "
+  PS1=$PS1"${BLUE}\$(git_branch)"
+  PS1=$PS1"${RED}\$(git_no_mail_warning)"
+  PS1=$PS1"\n${NO_COLOUR}\w \$ "
 }
 set_prompt
 
