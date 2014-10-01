@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse
+Icon=/home/sebastian/Eclipse/eclipse/icon.xpm
+Exec=/home/sebastian/Eclipse/eclipse/eclipse
+NoDisplay=false
+Categories=Development;
+StartupNotify=false
+Terminal=false
