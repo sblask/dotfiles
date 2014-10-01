@@ -1,0 +1,6 @@
+style "scrollbar"
+{
+  GtkScrollbar::trough-border = 0
+  GtkScrollbar::slider-width = 12
+}
+class "Gtk*Scrollbar" style "scrollbar"
