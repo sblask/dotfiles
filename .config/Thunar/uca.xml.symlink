@@ -37,4 +37,14 @@
 	<directories/>
 	<text-files/>
 </action>
+<action>
+	<icon>edit-copy</icon>
+	<name>Copy Path</name>
+	<unique-id>1412605118982484-9</unique-id>
+	<command>echo -n %f | xclip -selection &quot;clipboard&quot;</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
 </actions>
