@@ -27,4 +27,14 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+	<icon>meld</icon>
+	<name>Compare Files/Directories</name>
+	<unique-id>1412604731106701-7</unique-id>
+	<command>meld %F</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
 </actions>
