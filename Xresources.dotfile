@@ -1,20 +1,20 @@
-UXTerm*allowBoldFonts: false
-UXTerm*eightBitInput: False
-UXTerm*faceName: DejaVu Sans Mono for Powerline
-UXTerm*faceSize: 10
-UXTerm*saveLines: 99999
-UXTerm*termName: xterm-256color
-XTerm*allowBoldFonts: false
-XTerm*eightBitInput: False
-XTerm*faceName: DejaVu Sans Mono for Powerline
-XTerm*faceSize: 10
-XTerm*saveLines: 99999
-XTerm*termName: xterm-256color
-
-*VT100.Translations: #override \n\
-  Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
-  Shift Ctrl <Key> C:   copy-selection(CLIPBOARD) \n\
-
+xterm.*.allowBoldFonts: false
+xterm.*.eightBitInput: False
+xterm.*.faceName: DejaVu Sans Mono for Powerline
+xterm.*.faceSize:  10 ! default
+xterm.*.faceSize1:  3 ! unredable
+xterm.*.faceSize2:  6 ! tiny
+xterm.*.faceSize3: 10 ! small
+xterm.*.faceSize4: 15 ! medium
+xterm.*.faceSize5: 20 ! large
+xterm.*.faceSize6: 30 ! huge
+xterm.*.saveLines: 99999
+xterm.*.termName: xterm-256color
+xterm.*.translations: #override \n\
+  Shift Ctrl <Key> V:     insert-selection(CLIPBOARD) \n\
+  Shift Ctrl <Key> C:       copy-selection(CLIPBOARD) \n\
+        Ctrl <Key> minus:  smaller-vt-font() \n\
+        Ctrl <Key> plus:    larger-vt-font() \n\
 
 #define red     #FE7777
 #define green   #99CC99
