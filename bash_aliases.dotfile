@@ -17,7 +17,7 @@ alias gdiff="git diff > ~/.diff; gedit -b ~/.diff"
 alias gg="gitg"
 alias gl="git log --graph --decorate --pretty=format:'%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short"
 alias gmm="git merge --ff-only origin/master"
-alias gmme="git merge --ff-only origin/master && sbt 'eclipse with-source=true'"
+alias gmme="git merge --ff-only origin/master && ./sbt 'eclipse with-source=true'"
 
 alias clone_fetch="cd ~/Clones && find . -maxdepth 1 -type d -name \"[a-zA-Z]*\" -print0 | xargs -0 -I directory bash -c 'echo directory && cd directory && git fetch -p && git -c color.status=always status | grep --color=never -v \"nothing to commit\" | grep --color=never -v \"On branch master\" '"
 
