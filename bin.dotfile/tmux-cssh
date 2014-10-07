@@ -13,7 +13,7 @@ else
   WINDOW_NAME="${COMMAND}_$(echo $SERVERS | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
 fi
 
-
+# create a window from within tmux or when there is a session, create session otherwise
 if [[ -z "$TMUX" ]]; then
   if tmux has-session; then
     tmux new-window
@@ -33,5 +33,10 @@ done
 tmux kill-pane -t 0
 tmux select-pane -t 0
 tmux select-layout tiled
-tmux set-window-option synchronize-panes on
+
+if [ "$SERVER_COUNT" == "1" ]; then
+  tmux set-window-option synchronize-panes off
+else
+  tmux set-window-option synchronize-panes on
+fi
 
