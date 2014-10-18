@@ -83,8 +83,8 @@ let g:syntastic_warning_symbol = '✗'
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
     " automatic skeleton for new code files
-    autocmd BufNewFile    *.py           0r ~/.skeletons/skeleton.py
-    autocmd BufNewFile    *.sh           0r ~/.skeletons/skeleton.sh
+    autocmd BufNewFile    *.py           0r ~/.skeletons/skeleton.py | $d
+    autocmd BufNewFile    *.sh           0r ~/.skeletons/skeleton.sh | $d
     " set filetype or syntax explicitely when creating or opening file
     autocmd BufRead       bash*.dotfile  set filetype=sh
     autocmd BufRead       .bash*         set filetype=sh
