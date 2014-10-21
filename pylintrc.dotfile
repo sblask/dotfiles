@@ -8,7 +8,7 @@ max-args=8
 [MESSAGES CONTROL]
 
 # Use `pylint --help-msg=` to check the meaning of these
-disable=broad-except,fixme,line-too-long,missing-docstring,similarities,star-args,too-few-public-methods
+disable=broad-except,fixme,line-too-long,missing-docstring,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods
 
 [VARIABLES]
 
