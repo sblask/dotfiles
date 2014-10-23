@@ -1,0 +1,144 @@
+# enable color names instead of codes
+autoload -U colors
+colors
+# open files according to mime type
+autoload -U zsh-mime-setup
+zsh-mime-setup
+
+#
+# prompt helper functions
+#
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
+}
+function git_no_mail_warning {
+  git status 1>/dev/null 2>/dev/null
+  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
+    echo -n '(user.email not configured) '
+  fi
+}
+function my_ip {
+  IP_LINE="$(ip addr show dev eth0 | grep 'inet ')"
+  if [ "$IP_LINE" = "" ]; then
+    IP_LINE="$(ip addr show dev wlan0 | grep 'inet ')"
+  fi
+  echo -n $IP_LINE | awk '{split($0,a,"(/| +)"); print a[3],""}'
+}
+function virtual_env {
+  if [ "$VIRTUAL_ENV" = "" ]; then
+      echo ""
+  else
+      echo "($(basename $VIRTUAL_ENV)) "
+  fi
+}
+
+#
+# set up the prompt
+#
+function insert-mode { echo "-- INSERT --" }
+function normal-mode { echo "-- NORMAL --" }
+function preexec     { print -rn -- $terminfo[el]; }
+function set-prompt  {
+    PS1=""
+    PS1=$PS1"%{$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$1$terminfo[rc]%}"
+    PS1=$PS1"%~ $ "
+}
+# just print the first two lines to avoid the problem with multi-line and reset-prompt
+function precmd {
+    FIRST_LINE="\n"
+    FIRST_LINE=$FIRST_LINE"[%D{%a, %d %b %Y, %H:%M:%S}] "
+    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(virtual_env)%{$reset_color%}"
+    FIRST_LINE=$FIRST_LINE"%n "
+    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}%m%{$reset_color%} "
+    FIRST_LINE=$FIRST_LINE"$(my_ip)"
+    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(git_branch)%{$reset_color%}"
+    FIRST_LINE=$FIRST_LINE"%{$fg[red]%}$(git_no_mail_warning)%{$reset_color%}"
+
+    print -P "$FIRST_LINE"
+    # initial prompt and fix for problem with Ctrl+C and Enter
+    set-prompt "$(insert-mode)"
+}
+function zle-line-init zle-keymap-select {
+    if [ "${KEYMAP}" = "vicmd" ]; then
+        set-prompt "$(normal-mode)"
+    else
+        set-prompt "$(insert-mode)"
+    fi
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+#
+# Setup completions
+#
+autoload -U compinit
+compinit
+_comp_options+=(globdots)
+# complete in both directions
+setopt completeinword
+# complete case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+#
+# Setup history
+#
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE=~/.zsh_history
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt INC_APPEND_HISTORY
+
+#
+# Keybindings
+#
+bindkey '^r' history-incremental-search-backward
+# Use vim cli mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+# backspace working even after returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+
+#
+# Various settings
+#
+
+# enable vi mode
+bindkey -v
+export KEYTIMEOUT=1
+# enable using comments in command line
+setopt interactivecomments
+# propose action if command was not found
+source /etc/zsh_command_not_found
+
+#
+# External files
+#
+
+# load scm breeze here to allow overwriting aliases
+if [ -f ~/.scm_breeze/scm_breeze.sh ]; then
+    . ~/.scm_breeze/scm_breeze.sh
+fi
+# aliases
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
+fi
+# load settings that are local to a specific machine
+if [ -f ~/.zsh_local ]; then
+    . ~/.zsh_local
+fi
+# use virtualenvwrapper if available
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
+
+# various exports
+export EDITOR=vim
+export LS_COLORS='di=34:ln=33:or=31:ex=32'
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nonumber' -\""
+export PAGER='less -K'
+export PATH=~/.bin:$PATH
+export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
+export VIRTUAL_ENV_DISABLE_PROMPT=True
