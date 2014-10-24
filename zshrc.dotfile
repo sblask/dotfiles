@@ -79,6 +79,8 @@ _comp_options+=(globdots)
 setopt completeinword
 # complete case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# highlight current selection and make suggestions navigable
+zstyle ':completion:*' menu select
 
 #
 # Setup history
@@ -93,13 +95,12 @@ setopt INC_APPEND_HISTORY
 #
 # Keybindings
 #
-bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward
 # Use vim cli mode
 bindkey '^P' up-history
 bindkey '^N' down-history
 # backspace working even after returning from command mode
 bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
 
 #
 # Various settings
