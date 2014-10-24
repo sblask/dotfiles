@@ -84,8 +84,8 @@ if [ -f ~/.scm_breeze/scm_breeze.sh ]; then
     . ~/.scm_breeze/scm_breeze.sh
 fi
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 # load settings that are local to a specific machine
