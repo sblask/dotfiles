@@ -1,3 +1,5 @@
+# enable vi mode
+bindkey -v
 # enable color names instead of codes
 autoload -U colors
 colors
@@ -109,9 +111,6 @@ bindkey '^?' backward-delete-char
 #
 # Various settings
 #
-
-# enable vi mode
-bindkey -v
 export KEYTIMEOUT=1
 # enable using comments in command line
 setopt interactivecomments
