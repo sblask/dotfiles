@@ -74,9 +74,12 @@ zle -N zle-keymap-select
 #
 autoload -U compinit
 compinit
-_comp_options+=(globdots)
 # complete in both directions
 setopt completeinword
+# enable # ~ ^ in globs
+setopt extendedglob
+# complete directly and do not wait for another tab
+setopt menu_complete
 # complete case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # highlight current selection and make suggestions navigable
@@ -90,6 +93,7 @@ SAVEHIST=1000000
 HISTFILE=~/.zsh_history
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_DUPS
+setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
 
 #
@@ -113,6 +117,8 @@ export KEYTIMEOUT=1
 setopt interactivecomments
 # propose action if command was not found
 source /etc/zsh_command_not_found
+# no need for cd
+setopt auto_cd
 
 #
 # External files
