@@ -11,6 +11,9 @@ if exists('*mkdir') && !isdirectory(expand("~/.vim/swap"))
 endif
 set directory=~/.vim/swap//
 
+" some stuff requires this to be set, so do it as early as possible
+set term=xterm-256color
+
 "
 " plugin related settings
 "
@@ -136,6 +139,17 @@ set wildmenu
 set wildmode=list:longest
 
 "
+" mouse cursor
+" 35: bar 31: block
+"
+
+" make sure we are always start in normal mode
+autocmd FocusGained * silent execute '!echo -e -n "\x1b[\x31 q"'
+autocmd VimEnter    * silent execute '!echo -e -n "\x1b[\x31 q"'
+let &t_SI = "\x1b[\x35 q"
+let &t_EI = "\x1b[\x31 q"
+
+"
 " behaviour
 "
 
@@ -179,7 +193,6 @@ set hlsearch
 "
 " colours
 "
-set term=xterm-256color
 
 syntax on
 
