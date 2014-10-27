@@ -80,8 +80,6 @@ compinit
 setopt completeinword
 # enable # ~ ^ in globs
 setopt extendedglob
-# complete directly and do not wait for another tab
-setopt menu_complete
 # complete case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # highlight current selection and make suggestions navigable
