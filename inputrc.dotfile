@@ -7,16 +7,19 @@ set completion-ignore-case on
 # show alternatives directly, no more double tab
 set show-all-if-ambiguous on
 
+# complete foo<tab>bar to foobar instead of foobarbar
 set skip-completed-text on
 
 set editing-mode vi
 
+# make Ctrl+Arrow work
 set keymap vi-insert
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
-
 set keymap vi-command
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+
+# disable visual mode on command line which brings up vim
 v: ""
 
