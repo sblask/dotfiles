@@ -102,7 +102,7 @@ setopt INC_APPEND_HISTORY
 #
 # Keybindings
 #
-bindkey '^R' history-incremental-search-backward
+
 # use vim cli mode
 bindkey '^P' up-history
 bindkey '^N' down-history
@@ -123,8 +123,14 @@ bindkey -M vicmd '/' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-forward
 # allow going back in selection menu using Shift-Tab
 bindkey -M viins '^[[Z' reverse-menu-complete
-# undo last completion with Ctrl+Z
+# undo last completion/change with Ctrl+Z and u
 bindkey -M viins '^Z' undo
+bindkey -M vicmd '^Z' undo
+bindkey -M vicmd 'u' undo
+# redo with Ctrl+R and U
+bindkey -M viins '^R' redo
+bindkey -M vicmd '^R' redo
+bindkey -M vicmd 'U' redo
 # clear prompt, but return after next command
 bindkey -M vicmd 'q' push-line
 
