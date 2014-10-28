@@ -284,6 +284,8 @@ nnoremap <Down> gj
 " use original mappings to move up and down logical lines
 nnoremap gk k
 nnoremap gj j
+" better redo combination
+nnoremap U <C-R>
 " open definition of word under cursor in vertical split
 map <F3> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
