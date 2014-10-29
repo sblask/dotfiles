@@ -93,6 +93,12 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*:processes' sort false
+# make sure we do not get the same suggestion twice
+zstyle ':completion:*:diff:*' ignore-line yes
+zstyle ':completion:*:kill:*' ignore-line yes
+zstyle ':completion:*:rm:*' ignore-line yes
+
+
 
 #
 # Setup history
