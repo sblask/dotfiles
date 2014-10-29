@@ -119,6 +119,8 @@ bindkey -M viins '^[[F' end-of-line
 bindkey -M vicmd '^[[H' beginning-of-line
 bindkey -M vicmd '^[[F' end-of-line
 # vim type incremental search
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '^R' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-forward
 # allow going back in selection menu using Shift-Tab
@@ -127,9 +129,7 @@ bindkey -M viins '^[[Z' reverse-menu-complete
 bindkey -M viins '^Z' undo
 bindkey -M vicmd '^Z' undo
 bindkey -M vicmd 'u' undo
-# redo with Ctrl+R and U
-bindkey -M viins '^R' redo
-bindkey -M vicmd '^R' redo
+# redo with U
 bindkey -M vicmd 'U' redo
 # clear prompt, but return after next command
 bindkey -M vicmd 'q' push-line
