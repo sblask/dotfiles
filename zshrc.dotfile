@@ -222,3 +222,14 @@ alias -s mp3="xdg-open"
 alias -s pdf="xdg-open"
 alias -s png="xdg-open"
 alias -s wmv="xdg-open"
+
+#
+# Global Aliases
+#
+alias -g H="| head"
+alias -g T="| tail"
+alias -g C="| wc -l"
+alias -g L="| less"
+alias -g G="| grep"
+alias -g S="| sed -e"
+alias -g A="| awk"
