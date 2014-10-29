@@ -3,9 +3,6 @@ bindkey -v
 # enable color names instead of codes
 autoload -U colors
 colors
-# open files according to mime type
-autoload -U zsh-mime-setup
-zsh-mime-setup
 
 #
 # prompt helper functions
@@ -191,3 +188,26 @@ export PAGER='less -K'
 export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 export VIRTUAL_ENV_DISABLE_PROMPT=True
+
+#
+# Suffix Aliases
+#
+
+# install .deb files including their dependencies
+alias -s deb="sudo gdebi"
+# run python files
+alias -s py="python"
+#
+alias -s txt="vim"
+# use the same association as XFCE
+alias -s avi="xdg-open"
+alias -s flac="xdg-open"
+alias -s gif="xdg-open"
+alias -s jpeg="xdg-open"
+alias -s jpg="xdg-open"
+alias -s mpeg="xdg-open"
+alias -s mpg="xdg-open"
+alias -s mp3="xdg-open"
+alias -s pdf="xdg-open"
+alias -s png="xdg-open"
+alias -s wmv="xdg-open"
