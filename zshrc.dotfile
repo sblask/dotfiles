@@ -114,10 +114,7 @@ setopt INC_APPEND_HISTORY
 #
 # Keybindings
 #
-
-# use vim cli mode
-bindkey '^P' up-history
-bindkey '^N' down-history
+bindkey -M viins '^P' expand-or-complete-prefix
 # make backspace work after returning from command mode
 bindkey -M viins '^?' backward-delete-char
 # make Ctrl+Arrow work
