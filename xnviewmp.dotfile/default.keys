@@ -170,8 +170,8 @@ cmd_equalize
 cmd_export Ctrl+Alt+S
 cmd_fileFirst Home
 cmd_fileLast End
-cmd_fileNext PgDown
-cmd_filePrevious PgUp
+cmd_fileNext Space
+cmd_filePrevious 
 cmd_filter 
 cmd_fitAll 
 cmd_fitHeight 
