@@ -15,3 +15,6 @@ FONTS_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.fonts
 mkdir -p $FONTS_CLONE_DIRECTORY
 wget https://github.com/Lokaltog/powerline-fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf -O $FONTS_CLONE_DIRECTORY/DejaVu\ Sans\ Mono\ for\ Powerline.ttf.symlink
 
+ZSH_SYNTAX_HIGHLIGHTING_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.zsh/plugins/zsh-syntax-highlighting.symlink
+rm -rf $ZSH_SYNTAX_HIGHLIGHTING_CLONE_DIRECTORY
+git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_SYNTAX_HIGHLIGHTING_CLONE_DIRECTORY

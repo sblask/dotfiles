@@ -233,3 +233,9 @@ alias -g L="| less"
 alias -g G="| grep"
 alias -g S="| sed -e"
 alias -g A="| awk"
+
+#
+# Plugins
+#
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,8 +1,8 @@
 *.swp
 .fonts
 .vim/bundle/vundle.copy
+.zsh/plugins
 bin.dotfile/*
 dotfiles.tgz
 scm_breeze.dotfile/
 xnviewmp.dotfile/*
-
