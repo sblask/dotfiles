@@ -82,10 +82,10 @@ compinit
 setopt COMPLETE_IN_WORD
 # enable # ~ ^ in globs
 setopt EXTENDED_GLOB
-# complete case insensitive
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# highlight current selection and make suggestions navigable
-zstyle ':completion:*' menu select
+# general options
+zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # complete case insensitive
+zstyle ':completion:*' menu select # highlight current selection and make suggestions navigable
 
 #
 # Various Completions
