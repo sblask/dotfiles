@@ -74,6 +74,8 @@ zle -N zle-keymap-select
 #
 # Setup completions
 #
+# enable more completions
+fpath=(~/.zsh/completions.d $fpath)
 autoload -U compinit
 compinit
 # complete in both directions
@@ -230,6 +232,11 @@ alias -g L="| less"
 alias -g G="| grep"
 alias -g S="| sed -e"
 alias -g A="| awk"
+
+#
+# Other Aliases
+#
+alias git='hub'
 
 #
 # Plugins

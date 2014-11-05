@@ -8,13 +8,13 @@ EXCLUDED_FILES="\
     *.markdown
     *.md
     *.swp
+    *.tgz
     .config
     .fonts
     .mozilla
     LICENSE*
     clone.sh
     doc
-    dotfiles.tgz
     pack.sh
     scm_breeze_patch
     xnviewmp.dotfile
