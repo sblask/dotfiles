@@ -236,7 +236,49 @@ alias -g A="| awk"
 #
 # Other Aliases
 #
+
+alias vimpager="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist' -\""
+# misc
+alias cal='echo -n "       Week "; week;ncal -wC'
+alias cd..='cd ..'
+alias fix_locales='sudo locale-gen en_GB.UTF-8 && sudo dpkg-reconfigure locales'
+alias jsonp='python -m json.tool'
+alias less='less -K'
+alias psgrep='ps aufx | grep'
+alias psless='ps aufx | vimpager'
+alias pss='ps aufx'
+alias sbte='./sbt "eclipse with-source=true"'
+alias top='top -c'
+alias untar='tar -xzf'
+alias week='date +%W'
+# apt-get
+alias autoremove='sudo apt-get autoremove --purge'
+alias install='sudo apt-get install'
+alias policy='apt-cache policy'
+alias uninstall='sudo apt-get purge'
+# virtualenv stuff
+alias mkenv='mkvirtualenv'
+alias on='workon'
+alias off="deactivate"
+# top
+alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
+alias tophead='top -b -n1 | head -n 5'
+alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
+# git
+GIT_LOG_FORMAT='%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold blue)<%an (%ae)>%Creset'
 alias git='hub'
+alias gl='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=short'
+alias gla='gl --all'
+alias gld='gl --left-right --graph --cherry-mark'
+alias gldo='gl --left-right --graph'
+alias gmm='git merge --ff-only origin/master'
+
+#
+# Functions
+#
+function mcd() {
+  mkdir $1 && cd $1
+}
 
 #
 # Plugins

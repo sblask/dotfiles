@@ -1,0 +1,12 @@
+#!/bin/sh
+
+current_directory=$PWD
+
+for directory in $(find ~/Clones -mindepth 1 -maxdepth 1 -type d -name "[a-zA-Z]*")
+    do
+        echo $directory
+        cd $directory
+        git fetch --prune
+    done
+
+cd $current_directory

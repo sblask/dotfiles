@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -n "$*" ];
+then
+    ARGS="$*";
+else
+    ARGS="*";
+fi
+
+du -Pshx $ARGS 2>/dev/null | sort -h
