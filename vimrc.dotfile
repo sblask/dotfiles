@@ -134,9 +134,10 @@ set nofoldenable
 set foldminlines=99999
 " show tabs and trailing whitespace
 :set list listchars=tab:»-,trail:·
-" better, shell-like command completion
+" zsh-like command completion
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest,full
+set wildignore=.git,*.pyc
 
 "
 " mouse cursor
@@ -213,6 +214,9 @@ highlight Normal ctermfg=grey
 highlight Pmenu ctermfg=black ctermbg=grey
 " currently selected line in autocompletion box
 highlight PmenuSel ctermfg=lightGrey ctermbg=darkGrey
+" wild menu highlighting
+highlight StatusLine ctermfg=lightGrey ctermbg=bg
+highlight WildMenu ctermfg=black ctermbg=lightGrey
 " highlight matches
 highlight clear Search
 highlight Search ctermbg=yellow ctermfg=brown
