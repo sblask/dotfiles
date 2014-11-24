@@ -1,3 +1,8 @@
+# autostart tmux
+if [ "$TMUX" = "" ] && [ "$(hostname)" = "arraia" ];
+    then exec tmux;
+fi
+
 # enable vi mode
 bindkey -v
 # enable color names instead of codes
