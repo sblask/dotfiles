@@ -270,6 +270,8 @@ set whichwrap+=<,>,h,l,[,]
 inoremap <Nul> <C-n>
 " yank selection keeping cursor position
 vnoremap y ygv<Esc>
+" do not fill register with overwritten text when pasting
+xnoremap p "_dP
 " copy to system clipboard with Control-C keeping cursor position
 vnoremap <C-C> :!xclip -f -selection clip<CR>ugv<Esc>
 " toggle paste mode
