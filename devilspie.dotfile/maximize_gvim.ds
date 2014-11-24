@@ -1,8 +1,0 @@
-(if
-    (and
-        (is (window_class) "Gvim")
-        (is (application_name) "Vim")
-    )
-    (maximize)
-)
-

@@ -1,9 +1,0 @@
-(if
-    (and
-        (not (is (window_name) "Find"))
-        (is (window_class) "Terminal")
-        (is (application_name) "Terminal")
-    )
-    (maximize)
-)
-
