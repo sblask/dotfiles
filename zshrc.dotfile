@@ -182,10 +182,6 @@ setopt NO_FLOW_CONTROL
 if [ -f ~/.scm_breeze/scm_breeze.sh ]; then
     . ~/.scm_breeze/scm_breeze.sh
 fi
-# aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
 # load settings that are local to a specific machine
 if [ -f ~/.zsh_local ]; then
     . ~/.zsh_local
