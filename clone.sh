@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x -o errexit -o nounset -o pipefail
+
 DOTFILES_DIRECTORY=$(dirname $0)
 
 VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
@@ -25,7 +27,20 @@ git clone git@github.com:olivierverdier/zsh-git-prompt.git $ZSH_PLUGIN_DIRECTORY
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
 
 ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/ $ZSH_COMPLETION_DIRECTORY
+mkdir $ZSH_COMPLETION_DIRECTORY
+
+pushd $ZSH_COMPLETION_DIRECTORY
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_httpie
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_jq
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_salt
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_sbt
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_scala
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_setup.py
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_vagrant
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_virtualbox
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/_watch
+popd
+
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
 tar \
   --extract \
@@ -36,7 +51,6 @@ tar \
   --strip-component 1 \
   --directory bin.dotfile \
   "*/hub"
-
 tar \
   --extract \
   --verbose \

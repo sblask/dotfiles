@@ -11,6 +11,7 @@ EXCLUDED_FILES="\
     *.md
     *.swp
     *.tgz
+    *test*
     .config
     .fonts
     .mozilla
