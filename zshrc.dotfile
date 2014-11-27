@@ -1,6 +1,6 @@
 # autostart tmux
 if [ "$TMUX" = "" ] && [ "$(hostname)" = "arraia" ];
-    then exec tmux;
+    then exec tmux attach;
 fi
 
 # enable vi mode
