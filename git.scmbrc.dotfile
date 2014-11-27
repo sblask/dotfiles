@@ -50,7 +50,7 @@ git_blame_alias="gbl"
 git_diff_alias="gd"
 git_diff_word_alias="gdw"
 git_diff_cached_alias="gdc"
-git_difftool_alias="gdt"
+git_difftool_alias="gdt_scm_breeze"
 # 3. Standard commands
 git_clone_alias="gcl"
 git_fetch_alias="gf"
@@ -108,5 +108,5 @@ git_commit_all_with_ci_skip_keys="\C-xv"  # CTRL+x, v    (Appends [ci skip] to c
 # Expand numbered args for common shell commands
 shell_command_wrapping_enabled="true"
 # Here you can tweak the list of wrapped commands.
-scmb_wrapped_shell_commands="vim cat rm mv"
+scmb_wrapped_shell_commands="vim cat rm mv gdt"
 
