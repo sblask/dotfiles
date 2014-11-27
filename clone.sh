@@ -24,7 +24,7 @@ mkdir $ZSH_PLUGIN_DIRECTORY
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
 
 ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
-mkdir $ZSH_COMPLETION_DIRECTORY
+svn export https://github.com/zsh-users/zsh-completions/trunk/src/ $ZSH_COMPLETION_DIRECTORY
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
 tar \
   --extract \
