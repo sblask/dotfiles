@@ -21,6 +21,7 @@ mkdir $ZSH_DIRECTORY
 
 ZSH_PLUGIN_DIRECTORY=$ZSH_DIRECTORY/plugins
 mkdir $ZSH_PLUGIN_DIRECTORY
+git clone git@github.com:olivierverdier/zsh-git-prompt.git $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
 
 ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
