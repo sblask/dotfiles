@@ -107,8 +107,6 @@ zstyle ':completion:*:diff:*' ignore-line yes
 zstyle ':completion:*:kill:*' ignore-line yes
 zstyle ':completion:*:rm:*' ignore-line yes
 
-
-
 #
 # Setup history
 #
@@ -126,16 +124,25 @@ setopt INC_APPEND_HISTORY
 bindkey -M viins '^P' expand-or-complete-prefix
 # make backspace work after returning from command mode
 bindkey -M viins '^?' backward-delete-char
+# make del key work over ssh
+bindkey -M viins '^[[3~' delete-char
 # make Ctrl+Arrow work
 bindkey -M viins '^[[1;5C' forward-word
 bindkey -M viins '^[[1;5D' backward-word
 bindkey -M vicmd '^[[1;5C' forward-word
 bindkey -M vicmd '^[[1;5D' backward-word
-# make home and end work
-bindkey -M viins '^[[H' beginning-of-line
-bindkey -M viins '^[[F' end-of-line
+# make home key work
 bindkey -M vicmd '^[[H' beginning-of-line
+bindkey -M viins '^[[H' beginning-of-line
+# make home key work over ssh
+bindkey -M vicmd '^[[1~' beginning-of-line
+bindkey -M viins '^[[1~' beginning-of-line
+# make end key work
 bindkey -M vicmd '^[[F' end-of-line
+bindkey -M viins '^[[F' end-of-line
+# make end key work over ssh
+bindkey -M viins '^[[4~' end-of-line
+bindkey -M vicmd '^[[4~' end-of-line
 # vim type incremental search
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
