@@ -8,6 +8,8 @@ bindkey -v
 # enable color names instead of codes
 autoload -U colors
 colors
+# enable programmable file renaming
+autoload -U zmv
 
 #
 # prompt helper functions
