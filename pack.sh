@@ -18,7 +18,7 @@ EXCLUDED_FILES="\
     LICENSE*
     clone.sh
     doc
-    hub
+    hub.symlink
     pack.sh
     scm_breeze_patch
     xnviewmp.dotfile

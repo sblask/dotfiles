@@ -49,7 +49,8 @@ tar \
   --file hub.tgz \
   --wildcards \
   --strip-component 1 \
-  --directory bin.dotfile \
+  --directory .bin \
+  --transform "s/$/.symlink/" \
   "*/hub"
 tar \
   --extract \

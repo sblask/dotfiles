@@ -3,6 +3,7 @@
 .fonts
 .vim/bundle/vundle.copy
 .zsh/plugins
+hub.symlink
 scm_breeze.dotfile/
 xnviewmp.dotfile/*
 zsh.dotfile/
