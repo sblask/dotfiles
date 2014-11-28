@@ -261,8 +261,6 @@ alias off="deactivate"
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
 alias tophead='top -b -n1 | head -n 5'
 alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
-# hub
-alias git='hub'
 # git
 GIT_LOG_FORMAT='%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold blue)<%an (%ae)>%Creset'
 alias ga='git add'
