@@ -295,6 +295,8 @@ nnoremap gj j
 nnoremap U <C-R>
 " open definition of word under cursor in vertical split
 map <F3> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" close current buffer without closing split
+noremap <Leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "
 " mouse settings
