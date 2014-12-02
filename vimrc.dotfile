@@ -170,9 +170,6 @@ set softtabstop=4
 set splitbelow
 set splitright
 
-" hide buffers instead of closing them when they become invisible
-set hidden
-
 "
 " random utils
 "
