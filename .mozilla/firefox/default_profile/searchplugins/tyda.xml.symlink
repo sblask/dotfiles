@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Tyda</ShortName>
+    <Description>Tyda</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0klEQVQ4jcWSuwmEQBBAF66PRWbFzAquBDMD2dAKzKaAq8EGbMIixMBKzAwEhXeRx4l63ie4B5PsMI+djxERKyJ8Gdb8UIyIsBIs/EdQFMVDoKqkaYqqkmXZqkBVUdWtoO97ngnDcPOjOI4BmOf5vRamaQLAOYeI0DQNAN779wR5ngNQVdXhjE6HuOC9B6Asy88EdV0DMAzD7oZOBc65x3vXdd/dwUIURa8Fe7GscxzH/UOy1l5fCdq2BSBJkk3OWns1Zzy3ZYy5nBbsEQTB7Sh3B+54xoL9PvYGAAAAAElFTkSuQmCC</Image>
+    <Url type="text/html" method="POST" template="http://tyda.se/s" resultDomain="tyda.se">
+        <Param name="word" value="{searchTerms}"/>
+        <Param name="lang%5B%5D" value="en"/>
+        <Param name="lang%5B%5D" value="fr"/>
+        <Param name="lang%5B%5D" value="de"/>
+        <Param name="lang%5B%5D" value="sv"/>
+    </Url>
+</OpenSearchDescription>

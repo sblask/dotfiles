@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>LinkedIn</ShortName>
+    <Description>LinkedIn</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgUlEQVQ4jWNgKNmYylC65SND+db/JOHSLR8ZSjamMpClGdkQZAGD3gP/DXoPkGYIsuYP33/9//D9F2mGUM0Air3AUL71Pwwgs2Eu+/////8P33/9d5h2lDQDYJph4MG7b6QZULDhyn+HaUf/F2y4giJPtAG45IerAWRhyjMThdkZAPIMhy9Cu+WrAAAAAElFTkSuQmCC</Image>
+    <Url type="text/html" method="GET" template="https://www.linkedin.com/vsearch/p" resultDomain="linkedin.com">
+        <Param name="type" value="people"/>
+        <Param name="keywords" value="{searchTerms}"/>
+        <Param name="search" value="Search"/>
+    </Url>
+</OpenSearchDescription>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>HERE Maps</ShortName>
+    <Description>HERE Maps</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxElEQVQ4jWMQcpz4nxLMMGoAlQzI7tz1/+OXn//tU5ehSBpEzv/fueDE/yMXnvyPqd2C3YDszl3/YeDjl5//FX1n/BdynPjft3Dtf3Rw5MITuDzcgI9ffqIounzn9X9F3xn/H734hGEAsjzcAPvUZf+xGYIPIBvCIOQ48T82Q2AgpnbL/6opB3EaAo8FXIYYRM7/DwtobIagRCMu78Cci27I8h3XMNNBTO0WvH6GGbJ8xzXcCQmXc2GGxNRuQQ1EcgyBYQAP8pY0HFlZ4gAAAABJRU5ErkJggg==</Image>
+    <Url type="text/html" method="GET" template="http://here.com/" resultDomain="here.com">
+        <Param name="plcsDl" value="search"/>
+        <Param name="appbar-search-button" value=""/>
+        <Param name="q" value="{searchTerms}"/>
+    </Url>
+</OpenSearchDescription>

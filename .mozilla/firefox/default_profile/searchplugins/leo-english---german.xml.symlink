@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Leo English - German</ShortName>
+    <Description>Leo English - German</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBklEQVQ4jXWOb0zUBQCGX27e/bgTtLSlln82LdasD8Vipa2ojbPlClTiDnVA1FzQ2EIJhAVe4qL7QAYKBJu5WDpSl9yMzRyzBaKtOBRxLA4hiWMKfAAPEC4OePogG7Ps3Z6Pz55XKyOXYrPZMFusKMxCtMngksnAZ7HSu8hMzyIzfyyzMlRhEGg1CLQYTP1uQMcT/N1+DEWYLUhCEusfWcrWtatpleiV6JH4M0LcqxD4BFfnubGK6fYKZudAZosVSURJlJYeorX1Z3LCwu7LkWKyWtD9oBy6VsUMkF7gQTIZREu4JBoavmdq6g67wsMXyjf/JbdXEZqDtHwPejwXRZsMrkqUSFy86CEYvMPOJdb/LU8EZ0je9wNatg+tKUBttggG5h80NTVw+3YXWXHm/5Rn+uoA8I/P8M25Tk5c8HGysRv1G+H0SnwSZuL69Uu0tf3Cob1hD8jBa1UMVRxn4FM3g0VuAp9/yVjJYcZKDqMemeiRyFxsZnCwi7NnT1BbvCCPnTvAjahX8JrXPhTdlIlbS0RGXDih0DA1NV/xU+W8/GMRnS/Y8Rrr8FoejvoeM5isFh/uWgzc5cgRN03fLmfK+zU+u5OOpzfTv9eFP+cgA4Vu+vOK8ed9Rn+ei9GiEjR+PAJ8ItMZCQQoL3fTUl8Mo3fpfCeFCzFbqK+vx+U6QOrb8TicySTv3s1776eT4EhDgVaDyV9F/Os2ZmdH8HhO8lbUs9i3bGP7pk1kpKdw9Ggply83Egj4gQnub4LYN+JQoMVCxs6V1NZWAwFglO5uL+PjfmCahU0wMtLHlSuNVFaW8ebWBLT8XTT5m5WkbTHAGDBBMDjE8HAPzc3nqakpY39OFjsSk9j43Ks883wcroPFnE7bQ1viByRn1SE6N9D8XT6O12JJ2O5gzVObMR6NYeNLTqpejOX8y3YcGcfQqly0Ihdn9hmCczDyRRldiXvQdEcttzL3k/pxHVpXiNYXotUF7Piojr74VP6yJ5GSfQo9mY82FKEVuTiyz3AvNMewu5x/AM6Hg3vkl8K7AAAAAElFTkSuQmCC</Image>
+    <Url type="text/html" method="GET" template="http://dict.leo.org/dictQuery/m-vocab/ende/en.html" resultDomain="dict.leo.org">
+        <Param name="searchLoc" value="0"/>
+        <Param name="lp" value="ende"/>
+        <Param name="lang" value="en"/>
+        <Param name="directN" value="0"/>
+        <Param name="rmWords" value="off"/>
+        <Param name="search" value="{searchTerms}"/>
+        <Param name="resultOrder" value="basic"/>
+        <Param name="multiwordShowSingle" value="on"/>
+    </Url>
+</OpenSearchDescription>

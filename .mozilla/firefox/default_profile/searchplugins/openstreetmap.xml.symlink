@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>OpenStreetMap</ShortName>
+    <Description>OpenStreetMap</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC+0lEQVQ4jYWS7WtbBRTGz3yDThAcCBqDn6ZVJnRVdBURplYqKIh/gCDiJysq6vxUp0LXKlh17kVZt65za9M0JcPNJE2yrkm0NrlJm9feNK2mWdIm9+amTUJHiyj7+UHamoH4wPnycM6Pcw6PiIhEKlbChhX5lxbq/hvn1B5OhT9u8DN13x+Zmq/BE6VsRdFHCGkW5qpuJpaH8RYsTCxbUTQLUa1EvlZkYS2HIxRjvjrZCAjrllxIsxA52sNU4Twx40dGk8ewxU+QKWWpbtZQV9OkyipTGYUrvwUbASJyV1iz8evKBRyxo8xWxpiY7yeRzzBfWWDjz002/9qkdF0nVk5wJXUVZTm3A0lXvahVL2rVQ3rahnPuON8EuliqVJkr6agr6yQLdeL5Oq6sG1fWjS3o3AEk1xwk1xwkKpeZ0cc4l+6lt99ONFdjsXSd2VyNVKGOP13BHdNwZd04F7w7gFjlIlHDTvzi9wRyg4wGFjk73kcgXSG9qhLVZ7maMphUDSJFhfGsh9/XcojIrSIitwSLQwSLQ0T6uolXfiK56sLuX8Sn5okUlX+qpDCrz5AoJ1lZL/Lme+9vmM3mPSIiu6ZXhjZCmoXwhT78i4NEy04coRLt7R34MwaRkrJd+rpOTDcwmUy77927956tK1oDSwMES8PMTJ/hw8/exmH5hOdeeoHOrjdwJU5z5EQ/z7/8CjO6HZv/JHebTA+IyG4REZmv+m6kVt3EKpf4oLuTjvYODrQ9zeC4l7jhwJcZ4oyjh8Pn3+FrTxeBaz/Q1NR0YPuJE8tWPPlh3j38FgefOUjrY0/Qe/ojFM3KL0s+YsZlEoYTi/ol304e4mzyCCJy+9b8Ls81C693vkbbk23se7SF47ZPCZ/6gpA2Qlgfw/5zgWj5Esd8hxhIdG8BtnWbiDzb2tLKgw89jM33HaNTX+VE5CkRuU9EXgxrowSLIwwkuhGRV0Xk/oYcm83mPfv27z/5SMvjnzc3N5tuzvnWpv/hb+tOEbnj/5pu1t8hXC6oA/eMrQAAAABJRU5ErkJggg==</Image>
+    <Url type="text/html" method="GET" template="http://www.openstreetmap.org/search" resultDomain="openstreetmap.org">
+        <Param name="commit" value="Go"/>
+        <Param name="query" value="{searchTerms}"/>
+    </Url>
+</OpenSearchDescription>

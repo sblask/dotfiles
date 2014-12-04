@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>blekko</ShortName>
+    <Description>blekko</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeUlEQVQ4jWP4TyFgoLoBRTv//C/a+ef/919D3oBXX/7B2TBMkgHYcOkuTENwGtBzFKH4wXuEa36jmYHTgM8//mEVP/n4L3EG4BLfcYdIAz5+x+6Cay9RxXEa0HIQ4Yrrr/7hdBlJsVC7jwQDPnz/RzAKsRpAKqDYAADwvcu2Y9D66QAAAABJRU5ErkJggg==</Image>
+    <Url type="text/html" method="GET" template="http://blekko.com/" resultDomain="blekko.com">
+        <Param name="q" value="{searchTerms}"/>
+    </Url>
+</OpenSearchDescription>

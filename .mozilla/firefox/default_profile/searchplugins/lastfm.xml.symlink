@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Last.fm</ShortName>
+    <Description>Last.fm</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACc0lEQVQ4jaXRTUjTYRzA8T8ViTPZUNNN3UTnFr5kisrW1qYzMgvSiCxQoo4d89DBmxDdgi4R5KEo8n3qls5QM9SQcmqJupkivuus1NB0vmz47eBL4k174MMDv+/l9/AInj67cbMgr3PzWiKHUpDX6emzGwV3frpr7WoCR+HOT3cJfzLj+R/CYkYMuxYyYpg3bVvYN99tv0zb9jdhzqBm1qBmVBdNv0bJwA0T/Vc0OLVKJvQqZg1qJvUqnFolA7czGci9iFOrZFKvwmVQI4xrlThTI/le9BDP6gq7Z3lkiN472ThSI+nNSWNlYmyvrU5P0peTxqgmCmEwSUFPXjYAU00NtBoT6cjNYml0hPWFeVpSVExYq3D//EHjpfN8unkZ9+w0I48KGUxSINhjwxh+VcyW10uLNo6vcWF0xYbRcfcWAF1FhYxZzXjW1uh4cJ9mXQJNailfYkLpiwtHaIsOZtxmZf33Io1RwfSopXSrpTSrZKy4ZnHZP1Nv0rA46Nh7wrjFTJsmHrtKivBBEchQ6RsALGfCaY8Ioj0iiAZ5AI6X25tZDalYwwN4r0/G/rgIAOeLZ3xUBCI0ySS03ssHwPH2NeWRodTpUhgsfk5Vylk8a27merqx6JIpDRFTYdDi3dhguLKMBpkEofG0PzVBp/j29AlbXu/emguOAczRcppyr7M0/u8HAJanJrGZLmAL8keol4h4JxFRKfalLDwEq1FHeZScMrEvNWIR1WIRJWJfqpPPUWvUUavXULLT6iQihBo/H3ZV+/lQtXMfnJt32sEuWBTymYqTJzgKi0I+I0zZbFlmmdRVcvwYh2GWSV1TNlvWX2F7b3TrMPpLAAAAAElFTkSuQmCC</Image>
+    <Url type="text/html" method="GET" template="http://www.last.fm/search" resultDomain="last.fm">
+        <Param name="q" value="{searchTerms}"/>
+        <Param name="from" value="ac"/>
+    </Url>
+</OpenSearchDescription>

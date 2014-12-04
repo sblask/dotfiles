@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Stack Overflow</ShortName>
+    <Description>Stack Overflow</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABNElEQVQ4jWNgIAF8adL99KVB24MUPQxf2mU8XjWI8jAwMDB8bdLd+LVR9yFJBnztkj//tUvu9ccGGaFXDdo8X5v0/nxu1AknqPHyBCM9BgYGhqsNDGzfOuVuwwz50qi74Euj3muCBlybbPbu2mTT59cnGhlDDbn7tVPuzZdWRfGvjbo/Pzfp5OE14GqDNtu1Saa7r08y/XttsukCJEPefWnUmfC1UXcGTs2rGrTZ4AZNNPW4Psns47XJZu9uTjR0/topt+Vjg4wQXtsPTg36fWha8LtD04J2H5waFM7AwMBwfbLZquuTzC4S9DvMBQenBZYfnBZ0/ODUoB+Hpgb/PTQ1mLDmpua2/9jE900LMD44NagYnxoUA1b0FPzHhok2gBxXokg2Nbf9x4bp4wJiMCFLSAIAXZXPKhQnbrMAAAAASUVORK5CYII=</Image>
+    <Url type="text/html" method="GET" template="http://stackoverflow.com/search" resultDomain="stackoverflow.com">
+        <Param name="q" value="{searchTerms}"/>
+    </Url>
+</OpenSearchDescription>
