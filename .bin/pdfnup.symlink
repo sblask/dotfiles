@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -x -o errexit -o nounset -o pipefail
+
+input=$1
+input_name=${1:0:-4}
+
+nup=$2
+nup_array=(${nup//x/ })
+multiplier=$(echo "${nup_array[0]} * ${nup_array[1]}" | bc)
+
+pdfjam_arguments=${*:3}
+
+output_multiplied=${input_name}_multiplied.pdf
+output_squashed=${input_name}_squashed.pdf
+output_compressed=${input_name}_compressed.pdf
+
+pdftk $(yes "$input" | head -n $multiplier | tr '\n' ' ') cat output $output_multiplied
+pdfjam --nup $nup $output_multiplied -o $output_squashed $pdfjam_arguments
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -dUseCIEColor -sOutputFile=$output_compressed $output_squashed
+
