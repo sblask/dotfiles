@@ -1,9 +1,10 @@
 *.swp
 *.tgz
+.bin/hub.symlink
+.bin/jq.symlink
 .fonts
 .vim/bundle/vundle.copy
 .zsh/plugins
-hub.symlink
 scm_breeze.dotfile/
 xnviewmp.dotfile/*
 zsh.dotfile/

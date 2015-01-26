@@ -62,3 +62,7 @@ tar \
   --directory $ZSH_COMPLETION_DIRECTORY \
   --transform "s/hub.zsh_completion/_hub/" \
   "*/etc/hub.zsh_completion"
+chmod 775 $DOTFILES_DIRECTORY/.bin/hub.symlink
+
+wget http://stedolan.github.io/jq/download/linux64/jq -O $DOTFILES_DIRECTORY/.bin/jq.symlink
+chmod 775 $DOTFILES_DIRECTORY/.bin/jq.symlink
