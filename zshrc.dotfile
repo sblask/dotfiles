@@ -119,18 +119,17 @@ setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
 
 #
-# Keybindings
+# Make basic keys/shortcuts work
 #
-bindkey -M viins '^P' expand-or-complete-prefix
 # make backspace work after returning from command mode
 bindkey -M viins '^?' backward-delete-char
 # make del key work over ssh
 bindkey -M viins '^[[3~' delete-char
 # make Ctrl+Arrow work
-bindkey -M viins '^[[1;5C' forward-word
-bindkey -M viins '^[[1;5D' backward-word
 bindkey -M vicmd '^[[1;5C' forward-word
+bindkey -M viins '^[[1;5C' forward-word
 bindkey -M vicmd '^[[1;5D' backward-word
+bindkey -M viins '^[[1;5D' backward-word
 # make home key work
 bindkey -M vicmd '^[[H' beginning-of-line
 bindkey -M viins '^[[H' beginning-of-line
@@ -141,28 +140,48 @@ bindkey -M viins '^[[1~' beginning-of-line
 bindkey -M vicmd '^[[F' end-of-line
 bindkey -M viins '^[[F' end-of-line
 # make end key work over ssh
-bindkey -M viins '^[[4~' end-of-line
 bindkey -M vicmd '^[[4~' end-of-line
-# vim type incremental search
-bindkey -M viins '^R' history-incremental-search-backward
-bindkey -M vicmd '^R' history-incremental-search-backward
-bindkey -M vicmd '/' history-incremental-search-backward
-bindkey -M vicmd '?' history-incremental-search-forward
+bindkey -M viins '^[[4~' end-of-line
+
+#
+# Mode-specific Keybindings
+#
+# undo/redo with u/U
+bindkey -M vicmd 'u' undo
+bindkey -M vicmd 'U' redo
+# complete in word
+bindkey -M viins '^P' expand-or-complete-prefix
 # allow going back in selection menu using Shift-Tab
 bindkey -M viins '^[[Z' reverse-menu-complete
-# undo last completion/change with Ctrl+Z and u
-bindkey -M viins '^Z' undo
-bindkey -M vicmd '^Z' undo
-bindkey -M vicmd 'u' undo
-# redo with U
-bindkey -M vicmd 'U' redo
-# clear prompt, but return after next command
-bindkey -M vicmd 'q' push-line
-# edit current line in editor
+
+#
+# Keybinding requirements
+#
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey -M viins "^E" edit-command-line
+autoload up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+#
+# Other Keybindings
+#
+# vim type incremental search
+bindkey -M vicmd '^R' history-incremental-search-backward
+bindkey -M viins '^R' history-incremental-search-backward
+# undo last completion/change with Ctrl+Z and u
+bindkey -M vicmd '^Z' undo
+bindkey -M viins '^Z' undo
+# clear prompt, but return after next command
+bindkey -M vicmd '^X' push-line
+bindkey -M viins '^X' push-line
+# edit current line in editor
 bindkey -M vicmd "^E" edit-command-line
+bindkey -M viins "^E" edit-command-line
+# proper up down navigation
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 #
 # Various settings
