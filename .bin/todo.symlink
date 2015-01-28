@@ -1,5 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
-touch ~/Desktop/"TODO: $(echo $@) ($(date))"
-
+if grep -q "/" <(echo $@); then
+    echo $@ > ~/Desktop/"TODO with slash ($(date))"
+else
+    touch ~/Desktop/"TODO: $(echo $@) ($(date))"
+fi
