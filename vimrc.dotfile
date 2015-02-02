@@ -23,7 +23,6 @@ filetype off
 if isdirectory(expand("~/.vim/bundle/vundle/"))
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
-    Bundle 'altercation/vim-colors-solarized'
     Bundle 'bling/vim-airline'
     Bundle 'chriskempson/base16-vim'
     Bundle 'craigemery/vim-autotag'
@@ -34,14 +33,13 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'kien/ctrlp.vim'
     Bundle 'lokaltog/vim-easymotion'
     Bundle 'mitsuhiko/vim-jinja'
+    Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-unimpaired'
     Bundle 'vim-scripts/CmdlineComplete'
     Bundle 'vim-scripts/VimClojure'
-    Bundle 'vim-scripts/netrw.vim'
-    Bundle 'vim-scripts/taglist.vim'
     Bundle 'wesQ3/vim-windowswap'
 endif
 filetype plugin indent on
