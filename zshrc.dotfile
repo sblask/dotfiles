@@ -1,5 +1,5 @@
 # autostart tmux
-if [ "$TMUX" = "" ] && [ "$(hostname)" = "arraia" ];
+if [ "$TMUX" = "" ] && [ "$(hostname)" = "arraia" -o "$(hostname)" = "rabo-de-arraia" ];
     then exec tmux attach;
 fi
 
@@ -211,6 +211,9 @@ fi
 # use virtualenvwrapper if available
 if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
     . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
 
 #
