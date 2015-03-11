@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xinput set-int-prop "ImPS/2 Generic Wheel Mouse" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "ImPS/2 Generic Wheel Mouse" "Evdev Wheel Emulation Button" 8 2
+xinput set-int-prop "ImPS/2 Generic Wheel Mouse" "Evdev Wheel Emulation Axes" 8 6 7 4 5
