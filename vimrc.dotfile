@@ -132,8 +132,6 @@ set tags=./.tags;/
 set laststatus=2
 " show line numbers
 set number
-" keep 10 lines before or after current line visible when scrolling down or up, respectively
-set scrolloff=10
 " wrap long lines
 set wrap
 " don't fold
