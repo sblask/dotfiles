@@ -266,7 +266,7 @@ alias -g A="| awk"
 # Other Aliases
 #
 
-alias vimpager="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist' -\""
+alias vimpager="/bin/sh -c \"vim -c 'set tabstop=8 nomodified nomodifiable nolist' -c 'AnsiEsc' -\""
 # misc
 alias cal='echo -n "       Week "; week;ncal -wC'
 alias cd..='cd ..'
