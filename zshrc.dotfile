@@ -266,7 +266,7 @@ alias -g A="| awk"
 # Other Aliases
 #
 
-alias vimpager="/bin/sh -c \"vim -c 'set tabstop=8 nomodified nomodifiable nolist' -c 'AnsiEsc' -\""
+alias vimpager="/bin/sh -c \"vim -c 'set tabstop=8 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -\""
 # misc
 alias cal='echo -n "       Week "; week;ncal -wC'
 alias cd..='cd ..'
@@ -302,7 +302,7 @@ alias gdt='git difftool'
 alias gdtc='gdt --cached'
 alias gl='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=short --abbrev=8'
 alias glh='gl | head'
-alias gla='gl --all'
+alias gla='gl --all | vimpager'
 alias glah='gla | head'
 alias gld='gl --left-right --graph --cherry-mark'
 alias gldo='gl --left-right --graph'
