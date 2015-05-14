@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -x -o errexit -o nounset -o pipefail
+
+SESSION_ID=$(http http://192.168.1.2:8181/transmission/rpc --auth admin:admin --headers | grep X-Transmission-Session-Id | awk '{printf $2}' | tr -d '\r')
+POST_DATA="{\"method\":\"torrent-get\",\"arguments\":{\"fields\":[\"name\",\"status\"]}}"
+
+echo $POST_DATA | http post http://192.168.1.2:8181/transmission/rpc X-Transmission-Session-Id:$SESSION_ID --auth admin:admin
+
