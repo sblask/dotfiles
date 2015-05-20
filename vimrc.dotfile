@@ -152,8 +152,8 @@ set wildignore=.git,*.pyc
 "
 
 " make sure we are always start in normal mode
-autocmd FocusGained * silent execute '!echo -e -n "\x1b[\x31 q"'
-autocmd VimEnter    * silent execute '!echo -e -n "\x1b[\x31 q"'
+autocmd FocusGained * silent execute '!echo -e -n "\x1b[\x31 q"' | silent execute '!echo ""'
+autocmd VimEnter    * silent execute '!echo -e -n "\x1b[\x31 q"' | silent execute '!echo ""'
 let &t_SI = "\x1b[\x35 q"
 let &t_EI = "\x1b[\x31 q"
 
