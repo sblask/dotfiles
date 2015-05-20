@@ -49,7 +49,7 @@ git_rm_alias="grm"
 git_blame_alias="gbl"
 git_diff_alias="gd_scm_breeze"
 git_diff_word_alias="gdw"
-git_diff_cached_alias="gdc"
+git_diff_cached_alias="gdc_scm_breeze"
 git_difftool_alias="gdt_scm_breeze"
 # 3. Standard commands
 git_clone_alias="gcl"

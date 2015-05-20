@@ -298,6 +298,7 @@ GIT_LOG_FORMAT='%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold 
 alias ga='git add'
 alias gap='ga --patch'
 alias gd='git diff --color=always | vimpager'
+alias gdc='git diff --color=always --cached | vimpager'
 alias gdt='git difftool'
 alias gdtc='gdt --cached'
 alias gl='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=short --abbrev=8'
