@@ -36,6 +36,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'qmx/vim-json'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
+    Bundle 'sheerun/vim-polyglot'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-surround'
