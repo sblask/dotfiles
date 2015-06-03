@@ -271,7 +271,6 @@ alias vimpager="/bin/sh -c \"vim -c 'set tabstop=8 nomodified nomodifiable nolis
 alias cal='echo -n "       Week "; week;ncal -wC'
 alias cd..='cd ..'
 alias fix_locales='sudo locale-gen en_GB.UTF-8 && sudo dpkg-reconfigure locales'
-alias jsonp='python -m json.tool'
 alias less='less -K'
 alias psgrep='ps aufx | grep'
 alias psless='ps aufx | vimpager'

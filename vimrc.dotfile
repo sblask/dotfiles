@@ -181,7 +181,7 @@ set splitright
 " write as sudo
 noremap <Leader>W :w !sudo tee % > /dev/null<CR>
 " format json file
-noremap <Leader>J :% !python -m json.tool<CR>
+noremap <Leader>J :% !format-json<CR>
 
 "
 " search

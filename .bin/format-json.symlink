@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+import argparse
+import collections
+import json
+import sys
+
+
+def get_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-s',
+        '--sorted',
+        action='store_true',
+        help='Sort keys',
+    )
+    return parser.parse_args()
+
+
+def main():
+    arguments = get_arguments()
+    input_json = json.load(
+        sys.stdin,
+        object_pairs_hook=collections.OrderedDict,
+    )
+    output_string = json.dumps(
+        input_json,
+        ensure_ascii=False,
+        indent=4,
+        separators=(',', ': '),
+        sort_keys=arguments.sorted,
+    )
+    print output_string.encode('utf-8')
+
+if __name__ == '__main__':
+    main()
