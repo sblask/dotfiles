@@ -28,7 +28,7 @@ function my_ip {
   if [ "$IP_LINE" = "" ]; then
     IP_LINE="$(ip addr show dev wlan0 | grep 'inet ')"
   fi
-  echo -n $IP_LINE | awk '{split($0,a,"(/| +)"); print a[3],""}'
+  echo -n $IP_LINE | awk '{print $2}' | awk -F "/" '{ print $1 }'
 }
 function virtual_env {
   if [ "$VIRTUAL_ENV" = "" ]; then
@@ -56,7 +56,7 @@ function precmd {
     FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(virtual_env)%{$reset_color%}"
     FIRST_LINE=$FIRST_LINE"%n "
     FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}%m%{$reset_color%} "
-    FIRST_LINE=$FIRST_LINE"$(my_ip)"
+    FIRST_LINE=$FIRST_LINE"$(my_ip) "
     FIRST_LINE=$FIRST_LINE"$(git_super_status) "
     FIRST_LINE=$FIRST_LINE"%{$fg[red]%}$(git_no_mail_warning)%{$reset_color%}"
 
