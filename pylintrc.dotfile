@@ -2,13 +2,16 @@
 const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|logger)$
 variable-rgx=(([a-z_][a-z0-9_]{2,30})|ip)$
 
+[Format]
+max-line-length=80
+
 [DESIGN]
 max-args=8
 
 [MESSAGES CONTROL]
 
 # Use `pylint --help-msg=` to check the meaning of these
-disable=bad-builtin,bad-continuation,broad-except,fixme,line-too-long,missing-docstring,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
+disable=bad-builtin,bad-continuation,broad-except,fixme,missing-docstring,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
 
 [VARIABLES]
 
