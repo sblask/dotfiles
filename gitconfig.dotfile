@@ -8,3 +8,5 @@
 	name = Sebastian Blask
 [push]
 	default = upstream
+[core]
+	excludesfile = /home/sebastian/.gitignore_global
