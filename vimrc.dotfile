@@ -307,10 +307,16 @@ noremap <Leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 vmap <Enter> <Plug>(LiveEasyAlign)
 " make vim-surround shortcuts consistent
 xmap s <Plug>VSurround
+" more intuitive splitting
+map <C-W>\| :vnew<CR>
+map <C-W>_  :new<CR>
+" move windows around
+map <C-W>x :call WindowSwap#MarkWindowSwap()<CR>
+map <C-W>p :call WindowSwap#DoWindowSwap()<CR>
+
 "
 " mouse settings
 "
-
 " enabled in normal and visual mode only
 set mouse=nv
 " fix problem with selecting a split not working
