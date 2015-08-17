@@ -2,8 +2,8 @@ xterm.*.allowBoldFonts: false
 xterm.*.eightBitInput: False
 xterm.*.faceName: DejaVu Sans Mono for Powerline
 xterm.*.faceSize:  10 ! default
-xterm.*.faceSize1:  3 ! unredable
-xterm.*.faceSize2:  6 ! tiny
+xterm.*.faceSize1:  6 ! unredable
+xterm.*.faceSize2:  8 ! tiny
 xterm.*.faceSize3: 10 ! small
 xterm.*.faceSize4: 15 ! medium
 xterm.*.faceSize5: 20 ! large
