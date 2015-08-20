@@ -1,6 +1,13 @@
 # autostart tmux
-if [ "$TMUX" = "" ] && [ "$(hostname)" = "arraia" -o "$(hostname)" = "rabo-de-arraia" ];
-    then exec tmux attach;
+if [ "$TMUX" = "" ]; then
+    if [ "$(hostname)" = "arraia" -o "$(hostname)" = "rabo-de-arraia" ];
+        then exec tmux attach;
+    fi
+else
+    # workaround for missing highlight of zsh menu-select under Xubuntu 15.04
+    if [ "$(hostname)" = "rabo-de-arraia" ]; then
+        TERM=xterm-256color
+    fi
 fi
 
 # enable vi mode
