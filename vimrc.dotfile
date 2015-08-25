@@ -323,12 +323,12 @@ map <silent> <PageDown> 1000<C-D>
 imap <silent> <PageUp> <C-O>1000<C-U>
 imap <silent> <PageDown> <C-O>1000<C-D>
 " fix arrow keys
-map <S-Up> k
-map <S-Down> j
-imap <S-Up> <C-O>k
-imap <S-Down> <C-O>j
-map <C-Left> b
-map <C-Right> w
+noremap <S-Up> k
+noremap <S-Down> j
+inoremap <S-Up> <C-O>k
+inoremap <S-Down> <C-O>j
+noremap <C-Left> b
+noremap <C-Right> e
 
 
 "
@@ -343,5 +343,5 @@ catch
     set ttymouse=xterm
 endtry
 " scroll 5 lines up or down
-map <ScrollWheelUp> H5k
-map <ScrollWheelDown> L5j
+noremap <ScrollWheelUp> H5k
+noremap <ScrollWheelDown> L5j
