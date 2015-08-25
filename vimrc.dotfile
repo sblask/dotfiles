@@ -177,6 +177,9 @@ set softtabstop=4
 set splitbelow
 set splitright
 
+" try to keep column when scrolling
+set nostartofline
+
 "
 " random utils
 "
