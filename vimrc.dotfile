@@ -329,7 +329,9 @@ inoremap <S-Up> <C-O>k
 inoremap <S-Down> <C-O>j
 noremap <C-Left> b
 noremap <C-Right> e
-
+" emacs movements
+inoremap <C-E> <C-O>$
+inoremap <C-A> <C-O>0
 
 "
 " mouse settings
