@@ -317,6 +317,19 @@ map <C-W>_  :new<CR>
 " move windows around
 map <C-W>x :call WindowSwap#MarkWindowSwap()<CR>
 map <C-W>p :call WindowSwap#DoWindowSwap()<CR>
+" fix page keys http://vimrc-dissection.blogspot.se/2009/02/fixing-pageup-and-pagedown.html
+map <silent> <PageUp> 1000<C-U>
+map <silent> <PageDown> 1000<C-D>
+imap <silent> <PageUp> <C-O>1000<C-U>
+imap <silent> <PageDown> <C-O>1000<C-D>
+" fix arrow keys
+map <S-Up> k
+map <S-Down> j
+imap <S-Up> <C-O>k
+imap <S-Down> <C-O>j
+map <C-Left> b
+map <C-Right> w
+
 
 "
 " mouse settings
@@ -330,6 +343,5 @@ catch
     set ttymouse=xterm
 endtry
 " scroll 5 lines up or down
-map <ScrollWheelUp> 5<C-Y>
-map <ScrollWheelDown> 5<C-E>
-
+map <ScrollWheelUp> H5k
+map <ScrollWheelDown> L5j
