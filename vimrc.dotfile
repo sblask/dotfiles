@@ -254,7 +254,9 @@ highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 " colors for listchars
 highlight SpecialKey cterm=standout ctermfg=red
 
+"
 " vimdiff
+"
 " background of column next to line numbers
 highlight FoldColumn ctermbg=bg
 " background of folded lines
@@ -356,6 +358,6 @@ try
 catch
     set ttymouse=xterm
 endtry
-" scroll 5 lines up or down
+" scroll 5 lines up or down but do not scroll beyond text
 noremap <ScrollWheelUp> H5k
 noremap <ScrollWheelDown> L5j
