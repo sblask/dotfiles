@@ -274,8 +274,6 @@ highlight DiffText cterm=NONE ctermbg=brown ctermfg=black
 
 " usable backspace in insert mode
 set backspace=indent,eol,start
-" enable moving to next or previous line with left or right
-set whichwrap+=<,>,h,l,[,]
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
 " yank selection keeping cursor position
