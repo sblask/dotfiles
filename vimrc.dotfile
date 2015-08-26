@@ -349,9 +349,8 @@ inoremap <C-A> <C-O>0
 "
 " mouse settings
 "
-" enabled in normal and visual mode only
-set mouse=nv
-" fix problem with selecting a split not working
+" enabled, but do not go into visual mode
+set mouse=nicr
 try
     set ttymouse=sgr
 catch
