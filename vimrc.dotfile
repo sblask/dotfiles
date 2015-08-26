@@ -269,19 +269,32 @@ highlight DiffChange ctermbg=yellow ctermfg=black
 highlight DiffText cterm=NONE ctermbg=brown ctermfg=black
 
 "
+" Copy/Paste
+"
+" disable implicit copying
+nnoremap c  "_c
+nnoremap d  "_d
+nnoremap x  "_x
+vnoremap c  "_c
+vnoremap d  "_d
+vnoremap x  "_x
+" ...especially for pasting
+vnoremap p  "_dP
+" copy to and paste from system clipboard
+set clipboard=unnamed
+set clipboard=unnamedplus
+vnoremap <C-C> y
+inoremap <C-V> <C-O>p
+
+"
 " keyboard settings
 "
-
 " usable backspace in insert mode
 set backspace=indent,eol,start
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
 " yank selection keeping cursor position
 vnoremap y ygv<Esc>
-" do not fill register with overwritten text when pasting
-xnoremap p "_dP
-" copy to system clipboard with Control-C keeping cursor position
-vnoremap <C-C> :!xclip -f -selection clip<CR>ugv<Esc>
 " toggle paste mode
 set pastetoggle=<F2>
 " toggle line numbers
