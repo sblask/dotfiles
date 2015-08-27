@@ -340,6 +340,19 @@ inoremap <S-Up> <C-O>k
 inoremap <S-Down> <C-O>j
 noremap <C-Left> b
 noremap <C-Right> e
+" move lines with control up/down
+inoremap <C-DOWN> <Esc>:m .+1<CR>==gi
+inoremap <C-J> <Esc>:m .+1<CR>==gi
+inoremap <C-K> <Esc>:m .-2<CR>==gi
+inoremap <C-UP> <Esc>:m .-2<CR>==gi
+nnoremap <C-DOWN> :m .+1<CR>==
+nnoremap <C-J> :m .+1<CR>==
+nnoremap <C-K> :m .-2<CR>==
+nnoremap <C-UP> :m .-2<CR>==
+vnoremap <C-DOWN> :m '>+1<CR>gv=gv
+vnoremap <C-J> :m '>+1<CR>gv=gv
+vnoremap <C-K> :m '<-2<CR>gv=gv
+vnoremap <C-UP> :m '<-2<CR>gv=gv
 " emacs movements
 noremap <C-E> $
 noremap <C-A> 0
