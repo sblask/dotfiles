@@ -301,8 +301,6 @@ alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
 GIT_LOG_FORMAT='%C(blue)%h%Creset -%C(yellow)%d%Creset %s %C(blue)(%ai) %C(bold blue)<%an (%ae)>%Creset'
 alias ga='git add'
 alias gap='ga --patch'
-alias gd='git diff --color=always | vimpager'
-alias gdc='git diff --color=always --cached | vimpager'
 alias gdt='git difftool'
 alias gdtc='gdt --cached'
 alias gl='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=short --abbrev=8'
@@ -312,6 +310,12 @@ alias glah='gl --all | head'
 alias gld='gl --left-right --graph --cherry-mark'
 alias gldo='gl --left-right --graph'
 alias gmm='git merge --ff-only origin/master'
+
+#
+# Functions
+#
+gd()  {git diff --color=always $@          | vimpager}
+gdc() {git diff --color=always $@ --cached | vimpager}
 
 # load scm breeze here to be able to extend above aliases
 if [ -f ~/.scm_breeze/scm_breeze.sh ]; then
