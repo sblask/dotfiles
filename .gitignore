@@ -2,6 +2,7 @@
 *.tgz
 .bin/hub.symlink
 .bin/jq.symlink
+.bin/pup.symlink
 .fonts
 .vim/bundle/vundle.copy
 .zsh/plugins

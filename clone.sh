@@ -66,3 +66,6 @@ chmod 775 $DOTFILES_DIRECTORY/.bin/hub.symlink
 
 wget http://stedolan.github.io/jq/download/linux64/jq -O $DOTFILES_DIRECTORY/.bin/jq.symlink
 chmod 775 $DOTFILES_DIRECTORY/.bin/jq.symlink
+
+curl https://github.com/ericchiang/pup/releases/download/v0.3.9/pup_linux_amd64.zip --location | gunzip - > $DOTFILES_DIRECTORY/.bin/pup.symlink
+chmod 775 $DOTFILES_DIRECTORY/.bin/pup.symlink
