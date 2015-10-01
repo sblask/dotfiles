@@ -1,45 +1,35 @@
 diff --git lib/git/aliases.sh lib/git/aliases.sh
-index 91d95de..16d3e2f 100644
+index 78368e8..80605be 100644
 --- lib/git/aliases.sh
 +++ lib/git/aliases.sh
-@@ -95,7 +95,7 @@ if [ "$git_setup_aliases" = "yes" ]; then
-   __git_alias "$git_reset_hard_alias"  "git" "reset" "--hard"
-   __git_alias "$git_rm_alias"          "git" "rm"
-   __git_alias "$git_blame_alias"       "git" "blame"
--  __git_alias "$git_diff_alias"        "git" "diff" "--"
-+  __git_alias "$git_diff_alias"        "git" "diff"
-   __git_alias "$git_diff_word_alias"   "git" "diff" "--word-diff"
-   __git_alias "$git_diff_cached_alias" "git" "diff" "--cached --"
-   __git_alias "$git_add_patch_alias"   "git" "add" "-p"
+@@ -102,7 +102,7 @@ if [ "$git_setup_aliases" = "yes" ]; then
+   __git_alias "$git_reset_hard_alias"               'git' 'reset' '--hard'
+   __git_alias "$git_rm_alias"                       'git' 'rm'
+   __git_alias "$git_blame_alias"                    'git' 'blame'
+-  __git_alias "$git_diff_alias"                     'git' 'diff' '--'
++  __git_alias "$git_diff_alias"                     'git' 'diff'
+   __git_alias "$git_diff_word_alias"                'git' 'diff' '--word-diff'
+   __git_alias "$git_diff_cached_alias"              'git' 'diff' '--cached --'
+   __git_alias "$git_add_patch_alias"                'git' 'add' '-p'
 diff --git lib/git/shell_shortcuts.sh lib/git/shell_shortcuts.sh
-index 9bdbe14..7da74e4 100644
+index 26a9ff4..f8a50b3 100644
 --- lib/git/shell_shortcuts.sh
 +++ lib/git/shell_shortcuts.sh
-@@ -112,11 +112,17 @@ unalias ll > /dev/null 2>&1; unset -f ll > /dev/null 2>&1
- function ls_with_file_shortcuts {
-   local ll_output
-   if [ "$_ls_bsd" != "BSD" ]; then
--  	ll_output="$(\ls -lhv --group-directories-first --color "$@")"
-+    ll_output="$(\ls -lh --color "$@")"
-   else
-     ll_output="$(CLICOLOR_FORCE=1 \ls -l -G "$@")"
-   fi
+@@ -113,7 +113,7 @@ if [ "$shell_ls_aliases_enabled" = "true" ] && which ruby > /dev/null 2>&1; then
+   function ls_with_file_shortcuts {
+     local ll_output
+     if [ "$_ls_bsd" != "BSD" ]; then
+-      ll_output="$(\ls -lhv --group-directories-first --color "$@")"
++      ll_output="$(\ls -lh --color "$@")"
+     else
+       ll_output="$(CLICOLOR_FORCE=1 \ls -l -G "$@")"
+     fi
+@@ -170,7 +170,7 @@ EOF
+     local file=''
  
-+  if ! $(command -v ruby &> /dev/null); then
-+    echo -e "\033[33mRuby not available. Running plain ll command...\033[0m"
-+    echo "$ll_output"
-+    return 1
-+  fi
-+
-   if [[ $shell == "zsh" ]]; then
-     # Ensure sh_word_split is on
-     if setopt | grep -q shwordsplit; then SHWORDSPLIT_ON=true; fi
-@@ -169,7 +175,7 @@ EOF
-   local file=''
- 
-   if [ -z $_ls_bsd ]; then
--    ll_files="$(\ls -v --group-directories-first --color=never "$@")"
-+    ll_files="$(\ls --color=never "$@")"
-   else
-     ll_files="$(\ls "$@")"
-   fi
+     if [ -z $_ls_bsd ]; then
+-      ll_files="$(\ls -v --group-directories-first --color=never "$@")"
++      ll_files="$(\ls --color=never "$@")"
+     else
+       ll_files="$(\ls "$@")"
+     fi
