@@ -32,7 +32,6 @@ mkdir $ZSH_COMPLETION_DIRECTORY
 pushd $ZSH_COMPLETION_DIRECTORY
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_httpie
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_jq
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_salt
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_sbt
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_scala
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_setup.py
