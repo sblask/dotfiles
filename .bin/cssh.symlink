@@ -17,9 +17,9 @@ do
 done
 
 if [ "${SERVER_COUNT}" == "1" ]; then
-  WINDOW_NAME="ssh_${SERVERS}"
+    WINDOW_NAME="ssh_${SERVERS}"
 else
-  WINDOW_NAME="cssh_${FIRST_SERVER%:-*}"
+    WINDOW_NAME="cssh_$(echo ${FIRST_SERVER} | sed -r 's/([^-]+-?[^-]+).*/\1/')"
 fi
 
 COMMAND_STRING=""
