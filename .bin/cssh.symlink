@@ -1,5 +1,0 @@
-#!/bin/bash
-
-tmux-cssh-split "$@"
-tmux attach
-

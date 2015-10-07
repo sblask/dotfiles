@@ -1,4 +1,31 @@
 #!/bin/bash
-# handle cssh:// protocol links
-xterm -e "~/.bin/tmux-cssh-split $(echo $1 | cut -c 8- | sed 's/,/ /g')"
 
+# handle cssh:// and ssh:// protocol links
+
+set -x -o errexit -o nounset -o pipefail
+
+SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
+
+SERVERS=$(echo "${1#*://}" | sed 's/,/ /g')
+SERVER_COUNT=$(echo "${SERVERS}" | wc -w)
+FIRST_SERVER=$(echo "${SERVERS}" | awk '{print $1;}')
+
+COMMANDS=()
+for ARGUMENT in ${SERVERS}
+do
+    COMMANDS+=("ssh ${ARGUMENT}")
+done
+
+if [ "${SERVER_COUNT}" == "1" ]; then
+  WINDOW_NAME="ssh_${SERVERS}"
+else
+  WINDOW_NAME="cssh_${FIRST_SERVER%:-*}"
+fi
+
+COMMAND_STRING=""
+for COMMAND in "${COMMANDS[@]}"
+do
+    COMMAND_STRING+=" \"${COMMAND}\""
+done
+
+xterm -e "${SCRIPT_DIRECTORY}/tmux-command-split ${WINDOW_NAME}${COMMAND_STRING}"
