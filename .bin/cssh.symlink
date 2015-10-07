@@ -1,5 +1,5 @@
 #!/bin/bash
 
-tmux-cssh "$@"
+tmux-cssh-split "$@"
 tmux attach
 
