@@ -4,4 +4,22 @@ set -x -o errexit -o nounset -o pipefail
 
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-$SCRIPT_DIRECTORY/tmux-command-split $@
+FIRST_SERVER=$1
+
+SERVERS="$@"
+SERVER_COUNT=$#
+
+COMMANDS=()
+for ARGUMENT in "$@"; do
+    COMMANDS+=("ssh ${ARGUMENT}")
+done
+
+if [ "${SERVER_COUNT}" == "1" ]; then
+  COMMAND=ssh
+  WINDOW_NAME="${COMMAND}_${SERVERS}"
+else
+  COMMAND=cssh
+  WINDOW_NAME="${COMMAND}_$(echo ${SERVERS} | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
+fi
+
+${SCRIPT_DIRECTORY}/tmux-command-split "${WINDOW_NAME}" "${COMMANDS[@]}"

@@ -1,20 +1,19 @@
 #!/bin/bash
 
-FIRST_SERVER=$1
+set -o errexit -o nounset -o pipefail
 
-SERVERS="$@"
-SERVER_COUNT=$#
+SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-if [ "$SERVER_COUNT" == "1" ]; then
-  COMMAND=ssh
-  WINDOW_NAME="${COMMAND}_$SERVERS"
-else
-  COMMAND=cssh
-  WINDOW_NAME="${COMMAND}_$(echo $SERVERS | awk '{split($FIRST_SERVER,a,"-"); printf "%s_%s", a[1], a[2]}')"
+if [ $# -lt 2 ]; then
+  echo "Usage: $0 <WINDOW NAME> <COMMANDS...>"
+  exit 1
 fi
 
+WINDOW_NAME=$1
+shift
+
 # create a window from within tmux or when there is a session, create session otherwise
-if [[ -z "$TMUX" ]]; then
+if [[ -z "${TMUX:-}" ]]; then
   if tmux has-session; then
     tmux new-window
   else
@@ -24,19 +23,20 @@ else
   tmux new-window
 fi
 
-tmux rename-window $WINDOW_NAME
+tmux rename-window ${WINDOW_NAME}
 
-for SERVER in $SERVERS; do
-  tmux split-window "ssh $SERVER"
+for COMMAND in "$@"
+do
+  WINDOW_ID=$(tmux split-window -P)
+  tmux send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
   tmux select-layout tiled
 done
 tmux kill-pane -t 0
 tmux select-pane -t 0
 tmux select-layout tiled
 
-if [ "$SERVER_COUNT" == "1" ]; then
+if [ "$#" == "1" ]; then
   tmux set-window-option synchronize-panes off
 else
   tmux set-window-option synchronize-panes on
 fi
-
