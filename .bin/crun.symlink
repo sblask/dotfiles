@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -x -o errexit -o nounset -o pipefail
+
+SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
+
+if [ $# -lt 3 ]; then
+    echo "Usage: $0 <WINDOW NAME> <COMMAND> <ARGUMENTS...>"
+    exit 1
+fi
+
+WINDOW_NAME="$1"
+shift
+
+COMMAND="$1"
+shift
+
+COMMAND_STRING=""
+for ARGUMENT in "$@"
+do
+    COMMAND_STRING+=" \"${COMMAND} ${ARGUMENT}\""
+done
+
+xterm -e "${SCRIPT_DIRECTORY}/tmux-command-split ${WINDOW_NAME}${COMMAND_STRING}"
