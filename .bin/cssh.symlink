@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# handle cssh:// and ssh:// protocol links
+# handle cssh:// and ssh:// protocol links with servers being comma-separated
 
 set -x -o errexit -o nounset -o pipefail
 
@@ -10,22 +10,10 @@ SERVERS=$(echo "${1#*://}" | sed 's/,/ /g')
 SERVER_COUNT=$(echo "${SERVERS}" | wc -w)
 FIRST_SERVER=$(echo "${SERVERS}" | awk '{print $1;}')
 
-COMMANDS=()
-for ARGUMENT in ${SERVERS}
-do
-    COMMANDS+=("ssh ${ARGUMENT}")
-done
-
 if [ "${SERVER_COUNT}" == "1" ]; then
     WINDOW_NAME="ssh_${SERVERS}"
 else
     WINDOW_NAME="cssh_$(echo ${FIRST_SERVER} | sed -r 's/([^-]+-?[^-]+).*/\1/')"
 fi
 
-COMMAND_STRING=""
-for COMMAND in "${COMMANDS[@]}"
-do
-    COMMAND_STRING+=" \"${COMMAND}\""
-done
-
-xterm -e "${SCRIPT_DIRECTORY}/tmux-command-split ${WINDOW_NAME}${COMMAND_STRING}"
+xterm -e "${SCRIPT_DIRECTORY}/crun ${WINDOW_NAME} ssh ${SERVERS}"
