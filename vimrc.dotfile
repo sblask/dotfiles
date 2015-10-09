@@ -29,6 +29,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'davidhalter/jedi-vim'
     Bundle 'editorconfig/editorconfig-vim'
     Bundle 'gmarik/vundle'
+    Bundle 'isRuslan/vim-es6'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'junegunn/vim-easy-align'
     Bundle 'kien/ctrlp.vim'
