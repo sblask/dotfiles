@@ -169,6 +169,8 @@ let &t_EI = "\x1b[\x31 q"
 
 " switch back to normal mode more quickly
 set ttimeoutlen=0
+" ignore case when completing filenames
+set fileignorecase
 
 " indentation
 set autoindent
@@ -198,10 +200,8 @@ noremap <Leader>J :% !format-json<CR>
 
 " update result as you type
 set incsearch
-" ignore case...
+" ignore case
 set ignorecase
-" ...if pattern is lowercase, otherwise match using given case
-set smartcase
 " highlight search results
 set hlsearch
 
