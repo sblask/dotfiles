@@ -120,9 +120,6 @@ endif
 set encoding=utf-8
 " change to directory of current document in browser
 " makes less sense in diff mode and leads to errors in older vim versions
-if !&diff
-    set autochdir
-endif
 
 "
 " ctags
