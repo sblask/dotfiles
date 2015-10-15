@@ -150,6 +150,13 @@ bindkey -M viins '^[[F' end-of-line
 # make end key work over ssh
 bindkey -M vicmd '^[[4~' end-of-line
 bindkey -M viins '^[[4~' end-of-line
+# Fix Shift/Ctrl Enter
+bindkey -M vicmd '^[[27;2;13~' accept-line
+bindkey -M viins '^[[27;2;13~' accept-line
+bindkey -M vicmd '^[[27;5;13~' accept-line
+bindkey -M viins '^[[27;5;13~' accept-line
+bindkey -M vicmd '^[[27;6;13~' accept-line
+bindkey -M viins '^[[27;6;13~' accept-line
 
 #
 # Mode-specific Keybindings
