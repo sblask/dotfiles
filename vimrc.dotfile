@@ -47,7 +47,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'vim-scripts/AnsiEsc.vim'
     Bundle 'vim-scripts/CmdlineComplete'
     Bundle 'vim-scripts/VimClojure'
-    Bundle 'wellle/targets.vim'
     Bundle 'wesQ3/vim-windowswap'
 endif
 filetype plugin indent on
