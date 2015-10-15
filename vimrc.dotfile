@@ -23,6 +23,7 @@ filetype off
 if isdirectory(expand("~/.vim/bundle/vundle/"))
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
+    Bundle 'bkad/CamelCaseMotion'
     Bundle 'bling/vim-airline'
     Bundle 'chriskempson/base16-vim'
     Bundle 'craigemery/vim-autotag'
@@ -47,6 +48,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'vim-scripts/AnsiEsc.vim'
     Bundle 'vim-scripts/CmdlineComplete'
     Bundle 'vim-scripts/VimClojure'
+    Bundle 'vim-scripts/argtextobj.vim'
     Bundle 'wesQ3/vim-windowswap'
 endif
 filetype plugin indent on
@@ -359,6 +361,14 @@ noremap <C-E> $
 noremap <C-A> 0
 inoremap <C-E> <C-O>$
 inoremap <C-A> <C-O>0
+" text objects
+"
+" between slashes
+" f/F/f/F/ moves the cursor to within slashes no matter where on line
+vnoremap a/ :<C-U>silent! normal! f/F/f/F/vf/<CR>
+vnoremap i/ :<C-U>silent! normal! f/F/f/F/lvt/<CR>
+omap a/ :normal va/<CR>
+omap i/ :normal vi/<CR>
 
 "
 " mouse settings
