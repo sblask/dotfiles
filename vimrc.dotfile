@@ -294,6 +294,13 @@ inoremap <C-V> <C-O>p
 "
 " keyboard settings
 "
+" Shift/Strg Enter do funny stuff by default, so map them to Enter
+map <esc>[27;2;13~ <Enter>
+map <esc>[27;5;13~ <Enter>
+map <esc>[27;6;13~ <Enter>
+map! <esc>[27;2;13~ <Enter>
+map! <esc>[27;5;13~ <Enter>
+map! <esc>[27;6;13~ <Enter>
 " usable backspace in insert mode
 set backspace=indent,eol,start
 " autocomplete with ctrl-space
