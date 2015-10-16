@@ -22,14 +22,17 @@ bind-key -r K previous-window
 bind-key -r L next-window
 bind-key -r [ swap-pane -U
 bind-key -r ] swap-pane -D
-bind-key -r _ split-window -v -c '#{pane_current_path}'
+bind-key -r _ split-window -v
 bind-key -r h select-pane -L
 bind-key -r j select-pane -D
 bind-key -r k select-pane -U
 bind-key -r l select-pane -R
 bind-key -r { swap-window -t -1
-bind-key -r | split-window -h -c '#{pane_current_path}'
+bind-key -r | split-window -h
 bind-key -r } swap-window -t +1
+
+if-shell "[[ `tmux -V` == *1.9 ]]" "bind-key -r _ split-window -v -c '#{pane_current_path}'"
+if-shell "[[ `tmux -V` == *1.9 ]]" "bind-key -r | split-window -h -c '#{pane_current_path}'"
 
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
