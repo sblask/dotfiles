@@ -31,8 +31,8 @@ bind-key -r { swap-window -t -1
 bind-key -r | split-window -h
 bind-key -r } swap-window -t +1
 
-if-shell "[[ `tmux -V` == *1.9 ]]" "bind-key -r _ split-window -v -c '#{pane_current_path}'"
-if-shell "[[ `tmux -V` == *1.9 ]]" "bind-key -r | split-window -h -c '#{pane_current_path}'"
+if-shell 'test "$(tmux -V)" = "tmux 1.9"' 'bind-key -r _ split-window -v -c "#{pane_current_path}"'
+if-shell 'test "$(tmux -V)" = "tmux 1.9"' 'bind-key -r | split-window -h -c "#{pane_current_path}"'
 
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
