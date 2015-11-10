@@ -19,10 +19,19 @@
 	<directories/>
 </action>
 <action>
+	<icon>puddletag</icon>
+	<name>Open with Puddletag</name>
+	<unique-id>1447110926922355-1</unique-id>
+	<command>puddletag %f</command>
+	<description>Open directory in puddletag</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
 	<icon>baobab</icon>
 	<name>Disk Usage</name>
 	<unique-id>1412600849596643-5</unique-id>
-	<command>baobab %d</command>
+	<command>baobab %f</command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>
