@@ -35,6 +35,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'junegunn/vim-easy-align'
     Bundle 'kien/ctrlp.vim'
     Bundle 'lokaltog/vim-easymotion'
+    Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'qmx/vim-json'
     Bundle 'scrooloose/nerdtree'
@@ -68,6 +69,8 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
     let g:airline_theme = 'luna'
 endif
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:autotagTagsFile = '.tags'
 
