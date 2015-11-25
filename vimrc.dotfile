@@ -189,6 +189,8 @@ let &t_EI = "\x1b[\x31 q"
 " behaviour
 "
 
+" set working directory to the folder containing the current file
+set autochdir
 " switch back to normal mode more quickly
 set ttimeoutlen=0
 " ignore case when completing filenames
