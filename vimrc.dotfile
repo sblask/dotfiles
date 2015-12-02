@@ -97,6 +97,7 @@ let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 let g:syntastic_python_checkers = ['pylint', 'pep8']
 let g:syntastic_python_pep8_args = '--ignore E501'
 let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
+let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '✗'
 let g:syntastic_warning_symbol = '✗'
@@ -108,6 +109,13 @@ let g:UltiSnipsEditSplit="vertical"
 
 " open or create a file
 "
+
+fun! SetScssConfig()
+    let scssConfig = findfile('.scss-lint.yml', '.;')
+    if scssConfig != ''
+        let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
+    endif
+endf
 
 fun! SetJavascriptCheckers()
     let localEslint = findfile('node_modules/.bin/eslint', '.;')
@@ -144,6 +152,7 @@ if !exists("autocommands_loaded")
     " different changes
     autocmd BufWritePost  *              if &diff | diffupdate | endif
     autocmd FileType      javascript     :call SetJavascriptCheckers()
+    autocmd FileType      scss           :call SetScssConfig()
     autocmd FileType      python         setlocal completeopt-=preview
 endif
 
