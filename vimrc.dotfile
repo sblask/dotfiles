@@ -113,15 +113,11 @@ fun! SetJavascriptCheckers()
     let localEslint = findfile('node_modules/.bin/eslint', '.;')
     if localEslint != ""
         let b:syntastic_javascript_eslint_exec = fnamemodify(localEslint, ':p')
-    else
-        let b:syntastic_javascript_eslint_exec = 'eslint'
     endif
 
     let localJscs = findfile('node_modules/.bin/jscs', '.;')
     if localJscs != ""
         let b:syntastic_javascript_jscs_exec = fnamemodify(localJscs, ':p')
-    else
-        let b:syntastic_javascript_jscs_exec = 'jscs'
     endif
 endf
 
