@@ -1,7 +1,11 @@
 # autostart tmux
 if [ "$TMUX" = "" ]; then
-    if [ "$(hostname)" = "arraia" -o "$(hostname)" = "rabo-de-arraia" ];
-        then exec tmux attach;
+    if [ "$(hostname)" = "arraia" -o "$(hostname)" = "rabo-de-arraia" ]; then
+        if tmux has-session; then
+            exec tmux attach
+        else
+            exec tmux new
+        fi
     fi
 else
     # workaround for missing highlight of zsh menu-select under Xubuntu 15.04
