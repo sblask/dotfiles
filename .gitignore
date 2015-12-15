@@ -4,8 +4,8 @@
 .bin/jq.symlink
 .bin/pup.symlink
 .fonts
+.tmux/plugins/tpm.copy/
 .vim/bundle/vundle.copy
-.zsh/plugins
 scm_breeze.dotfile/
 xnviewmp.dotfile/*
 zsh.dotfile/

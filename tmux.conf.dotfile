@@ -70,3 +70,6 @@ set-window-option -g window-status-format '#I:#W |'
 set-window-option -g window-status-separator ' '
 set-window-option -g xterm-keys on
 
+set -g @plugin 'tmux-plugins/tpm'
+
+run '~/.tmux/plugins/tpm/tpm'
