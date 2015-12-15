@@ -11,17 +11,19 @@ bind-key -r . swap-pane -D
 bind-key -r < swap-window -t -1
 bind-key -r > swap-window -t +1
 
+bind-key n command-prompt 'rename-window %%'
+bind-key N command-prompt 'rename-session %%'
+
+bind-key x kill-pane
+bind-key X kill-window
+
+bind-key y set-window-option synchronize-panes
+
+bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
+
+bind-key Escape copy-mode
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
-bind-key Escape copy-mode
-
-bind-key R send-keys -R \; clear-history
-bind-key N command-prompt 'rename-window %%'
-bind-key X kill-window
-bind-key n command-prompt 'rename-session %%'
-bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
-bind-key x kill-pane
-bind-key y set-window-option synchronize-panes
 
 set-option -g base-index 1
 set-option -g default-terminal "screen-256color"
@@ -33,6 +35,7 @@ set-option -g mouse-select-pane on
 set-option -g mouse-select-window on
 set-option -g pane-active-border-fg colour24
 set-option -g renumber-windows on
+
 set-option -g status-bg colour24
 set-option -g status-left "#[fg=colour244]#H_session_#S #[fg=black]|"
 set-option -g status-left-length 50
