@@ -427,5 +427,5 @@ catch
     set ttymouse=xterm
 endtry
 " scroll 5 lines up or down but do not scroll beyond text
-noremap <ScrollWheelUp> H5k
-noremap <ScrollWheelDown> L5j
+noremap <ScrollWheelUp> 5<C-U>
+noremap <ScrollWheelDown> 5<C-D>
