@@ -1,3 +1,6 @@
+set-window-option -g mode-keys vi
+set-window-option -g xterm-keys on
+
 bind-key -r _ split-window -v -c "#{pane_current_path}"
 bind-key -r | split-window -h -c "#{pane_current_path}"
 
@@ -25,24 +28,21 @@ bind-key Escape copy-mode
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 
-set-option -g base-index 1
 set-option -g mode-mouse off
 set-option -g mouse-resize-pane on
 set-option -g mouse-select-pane on
 set-option -g mouse-select-window on
-set-option -g pane-active-border-fg colour24
-set-option -g renumber-windows on
 
+set-option -g base-index 1
+set-option -g renumber-windows on
+set-option -g pane-active-border-fg colour24
 set-option -g status-bg colour24
 set-option -g status-left "#[fg=colour244]#H_session_#S #[fg=black]|"
 set-option -g status-left-length 50
 set-option -g status-right ""
-
-set-window-option -g mode-keys vi
 set-window-option -g window-status-current-format '#[fg=white]#I:#W#[fg=black] |'
 set-window-option -g window-status-format '#I:#W |'
 set-window-option -g window-status-separator ' '
-set-window-option -g xterm-keys on
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
