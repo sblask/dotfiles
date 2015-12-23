@@ -150,6 +150,8 @@ if !exists("autocommands_loaded")
     autocmd BufRead       *.jinja           set syntax=jinja
     autocmd BufNewFile    *.jsm             set filetype=javascript
     autocmd BufRead       *.jsm             set filetype=javascript
+    autocmd BufNewFile    *.scss            set iskeyword+=-
+    autocmd BufRead       *.scss            set iskeyword+=-
     autocmd BufNewFile    *.sls             set syntax=yaml | set iskeyword+=- | set iskeyword+=.
     autocmd BufRead       *.sls             set syntax=yaml | set iskeyword+=- | set iskeyword+=.
     autocmd BufRead       tmux.conf.dotfile set ft=tmux | compiler tmux
