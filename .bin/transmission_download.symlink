@@ -1,9 +1,12 @@
 #!/bin/bash
 
-set -x -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -o xtrace
 
-SESSION_ID=$(http http://192.168.1.2:8181/transmission/rpc --auth admin:admin --headers | grep X-Transmission-Session-Id | awk '{printf $2}' | tr -d '\r')
-POST_DATA="{\"method\":\"torrent-add\",\"arguments\":{\"paused\":false,\"download-dir\":\"/data/Transmission/Downloads\",\"filename\":\"$(xclip -out)\"}}"
+SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-echo $POST_DATA | http post http://192.168.1.2:8181/transmission/rpc X-Transmission-Session-Id:$SESSION_ID --auth admin:admin
+LINK="${1:-$(xclip -out)}"
+SESSION_ID=$(${SCRIPT_DIRECTORY}/http http://192.168.1.2:8181/transmission/rpc --auth admin:admin --headers | grep X-Transmission-Session-Id | awk '{printf $2}' | tr -d '\r')
+POST_DATA="{\"method\":\"torrent-add\",\"arguments\":{\"paused\":false,\"download-dir\":\"/data/Transmission/Downloads\",\"filename\":\"${LINK}\"}}"
+
+echo ${POST_DATA} | ${SCRIPT_DIRECTORY}/http post http://192.168.1.2:8181/transmission/rpc X-Transmission-Session-Id:${SESSION_ID} --auth admin:admin
 
