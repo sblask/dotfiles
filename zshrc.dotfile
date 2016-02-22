@@ -35,11 +35,7 @@ function git_no_mail_warning {
   fi
 }
 function my_ip {
-  IP_LINE="$(ip addr show dev eth0 | grep 'inet ')"
-  if [ "$IP_LINE" = "" ]; then
-    IP_LINE="$(ip addr show dev wlan0 | grep 'inet ')"
-  fi
-  echo -n $IP_LINE | awk '{print $2}' | awk -F "/" '{ print $1 }'
+  hostname --all-ip-addresses
 }
 function virtual_env {
   if [ "$VIRTUAL_ENV" = "" ]; then
