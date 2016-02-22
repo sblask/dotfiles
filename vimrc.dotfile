@@ -25,7 +25,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     call vundle#rc()
     Bundle 'SirVer/ultisnips'
     Bundle 'bkad/CamelCaseMotion'
-    Bundle 'bling/vim-airline'
     Bundle 'chriskempson/base16-vim'
     Bundle 'craigemery/vim-autotag'
     Bundle 'davidhalter/jedi-vim'
@@ -50,6 +49,8 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-unimpaired'
+    Bundle 'vim-airline/vim-airline'
+    Bundle 'vim-airline/vim-airline-themes'
     Bundle 'vim-scripts/AnsiEsc.vim'
     Bundle 'vim-scripts/CmdlineComplete'
     Bundle 'vim-scripts/VimClojure'
