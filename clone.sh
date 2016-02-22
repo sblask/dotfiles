@@ -42,7 +42,6 @@ svn export https://github.com/zsh-users/zsh-completions/trunk/src/_scala
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_setup.py
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_vagrant
 svn export https://github.com/zsh-users/zsh-completions/trunk/src/_virtualbox
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_watch
 popd
 
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
