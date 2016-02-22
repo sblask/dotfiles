@@ -221,13 +221,6 @@ setopt NO_FLOW_CONTROL
 if [ -f ~/.zsh_local ]; then
     . ~/.zsh_local
 fi
-# use virtualenvwrapper if available
-if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-fi
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    . /usr/local/bin/virtualenvwrapper.sh
-fi
 
 #
 # Exports
@@ -239,6 +232,12 @@ export PAGER='less -K'
 export PATH=~/.bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 export VIRTUAL_ENV_DISABLE_PROMPT=True
+
+# use virtualenvwrapper if available
+# needs to be after PATH expansion so it uses the Python from ~/Virtualenv
+if [ -f ~/Virtualenv/bin/virtualenvwrapper.sh ]; then
+    . ~/Virtualenv/bin/virtualenvwrapper.sh
+fi
 
 #
 # Suffix Aliases
