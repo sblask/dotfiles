@@ -229,7 +229,7 @@ export EDITOR=vim
 export LS_COLORS='di=34:ln=33:or=31:ex=32'
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nonumber' -\""
 export PAGER='less -K'
-export PATH=~/.bin:$PATH
+export PATH=$HOME/.bin:$HOME/.rvm/bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 export VIRTUAL_ENV_DISABLE_PROMPT=True
 
@@ -407,3 +407,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}%{ …%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{X%G%}"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+if [ -f $HOME/.rvm/scripts/rvm ]; then
+    . $HOME/.rvm/scripts/rvm
+fi
