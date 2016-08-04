@@ -29,6 +29,7 @@ bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 
 set-option -g base-index 1
+set-option -g mouse on
 set-option -g renumber-windows on
 set-option -g pane-active-border-fg colour24
 set-option -g status-bg colour24
