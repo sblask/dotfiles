@@ -7,11 +7,6 @@ if [ "$TMUX" = "" ]; then
             exec tmux new
         fi
     fi
-else
-    # workaround for missing highlight of zsh menu-select under Xubuntu 15.04
-    if [ "$(hostname)" = "rabo-de-arraia" ]; then
-        TERM=xterm-256color
-    fi
 fi
 
 # enable vi mode
