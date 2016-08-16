@@ -224,14 +224,14 @@ export EDITOR=vim
 export LS_COLORS='di=34:ln=33:or=31:ex=32'
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nonumber' -\""
 export PAGER='less -K'
-export PATH=$HOME/.bin:$HOME/.rvm/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.rvm/bin:$HOME/opt/virtualenv/bin:$PATH
 export PIP_DOWNLOAD_CACHE=~/.pip_download_cache
 export VIRTUAL_ENV_DISABLE_PROMPT=True
 
 # use virtualenvwrapper if available
-# needs to be after PATH expansion so it uses the Python from ~/Virtualenv
-if [ -f ~/Virtualenv/bin/virtualenvwrapper.sh ]; then
-    . ~/Virtualenv/bin/virtualenvwrapper.sh
+# needs to be after PATH expansion so it uses the Python from ~/opt/virtualenv
+if [ -f ~/opt/virtualenv/bin/virtualenvwrapper.sh ]; then
+    . ~/opt/virtualenv/bin/virtualenvwrapper.sh
 fi
 
 #
