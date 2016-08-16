@@ -290,8 +290,10 @@ alias autoremove='sudo apt-get autoremove --purge'
 alias install='sudo apt-get install'
 alias policy='apt-cache policy'
 alias uninstall='sudo apt-get purge'
-# virtualenv stuff
+# virtualenvwrapper stuff
 alias mkenv='mkvirtualenv'
+alias mkenv2='mkvirtualenv --python $(which python2)'
+alias mkenv3='mkvirtualenv --python $(which python3)'
 alias on='workon'
 alias off="deactivate"
 # top
