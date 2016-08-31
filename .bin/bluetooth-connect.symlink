@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+spawn "bluetoothctl"
+expect "# "
+send "connect 0C:A6:94:9A:37:4D\r"
+expect {
+  "Connection successful" {
+  puts "\n"
+  exit 0
+  }
+}
+puts "\n"
+exit 1
