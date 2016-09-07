@@ -12,5 +12,8 @@ max-args=8
 # Use `pylint --help-msg=` to check the meaning of these
 disable=bad-builtin,bad-continuation,broad-except,fixme,missing-docstring,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import,wrong-import-order
 
+[TYPECHECK]
+generated-members=zmq.*
+
 [VARIABLES]
 dummy-variables-rgx=_.*|dummy
