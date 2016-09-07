@@ -395,18 +395,18 @@ inoremap <S-Down> <C-O>j
 noremap <C-Left> b
 noremap <C-Right> e
 " move lines with alt up/down
-inoremap <A-DOWN> <Esc>:m .+1<CR>==gi
-inoremap j <Esc>:m .+1<CR>==gi
-inoremap k <Esc>:m .-2<CR>==gi
-inoremap <A-UP> <Esc>:m .-2<CR>==gi
-nnoremap <A-DOWN> :m .+1<CR>==
-nnoremap j :m .+1<CR>==
-nnoremap k :m .-2<CR>==
-nnoremap <A-UP> :m .-2<CR>==
-vnoremap <A-DOWN> :m '>+1<CR>gv=gv
-vnoremap j :m '>+1<CR>gv=gv
-vnoremap k :m '<-2<CR>gv=gv
-vnoremap <A-UP> :m '<-2<CR>gv=gv
+inoremap <A-DOWN> <Esc>:m .+1<CR>gi
+inoremap j <Esc>:m .+1<CR>gi
+inoremap k <Esc>:m .-2<CR>gi
+inoremap <A-UP> <Esc>:m .-2<CR>gi
+nnoremap <A-DOWN> :m .+1<CR>
+nnoremap j :m .+1<CR>
+nnoremap k :m .-2<CR>
+nnoremap <A-UP> :m .-2<CR>
+vnoremap <A-DOWN> :m '>+1<CR>gv
+vnoremap j :m '>+1<CR>gv
+vnoremap k :m '<-2<CR>gv
+vnoremap <A-UP> :m '<-2<CR>gv
 " emacs movements
 noremap <C-E> $
 noremap <C-A> 0
