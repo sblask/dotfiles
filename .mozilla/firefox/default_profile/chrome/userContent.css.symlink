@@ -1,5 +1,0 @@
-userContent.css input, select, textarea {
-    -moz-appearance: none !important;
-    background-color: #ffffff !important;
-    color: #333333 !important;
-}
