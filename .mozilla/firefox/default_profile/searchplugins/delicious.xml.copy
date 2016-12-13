@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-    <ShortName>Delicious</ShortName>
-    <Description>Delicious</Description>
-    <InputEncoding>UTF-8</InputEncoding>
-    <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAy0lEQVQ4je3OQWrDMBBGYV3IIGGtbCwvfcO2KW0KvVY3hSiElEqOEoWSLuZ1kaxk0RNk4GN2j19RObn9/AtuDfoR7AraCnUPoESEGhBOF2F8A/ME9vkaKf2/4AL9KzQP14iuUDlnSqec+TlnvuYz07vQvQhuLQwVyjlHaRxH+r5nmiY+Prfsvo9s9hG/nxeU1pqSMYamaei6jt3Wk4+JwxxIc1xQ1lpqjDE459h4zyElQgiEGBdU27aUrLVorRmGAe896RaIMS7cA5E/+osJhaaEyj4AAAAASUVORK5CYII=</Image>
-    <Url type="text/html" method="GET" template="https://delicious.com/priatuu/{searchTerms}" resultDomain="delicious.com">
-    </Url>
-</OpenSearchDescription>
