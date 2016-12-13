@@ -19,6 +19,7 @@ if (get_window_type() == "WINDOW_TYPE_NORMAL") then
     if (
         get_application_name() == "VLC media player" or
         get_application_name() == "xterm" or
+        get_application_name() == "update-manager" or
         false
     ) then
         unmaximize(); -- make sure maximize works, sometimes it doesn't
