@@ -42,6 +42,10 @@ set-window-option -g window-status-current-format '#[fg=white]#I:#W#[fg=black] |
 set-window-option -g window-status-format '#I:#W |'
 set-window-option -g window-status-separator ' '
 
+# do not enter/exit copy mode by dragging mouse
+unbind -T root MouseDrag1Pane
+unbind -t vi-copy MouseDragEnd1Pane
+
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-open'
