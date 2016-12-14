@@ -189,7 +189,7 @@ set wrap
 set nofoldenable
 set foldminlines=99999
 " show tabs and trailing whitespace
-:set list listchars=tab:»-,trail:·
+:set list listchars=tab:»»,trail:·
 " zsh-like command completion
 set wildmenu
 set wildmode=longest,full
@@ -302,7 +302,7 @@ highlight clear CursorLine
 " ...only the line number
 highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
 " colors for listchars
-highlight SpecialKey cterm=standout ctermfg=red
+highlight SpecialKey ctermfg=darkRed
 
 "
 " vimdiff
