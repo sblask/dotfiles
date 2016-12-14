@@ -30,8 +30,10 @@ bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
 bind-key Escape copy-mode
 bind-key -t vi-copy Escape copy-selection
 
+# copy and paste from/to clipboard
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
+bind-key p run 'tmux set-buffer "$(xclip -out -selection clipboard)"; tmux paste-buffer'
 
 set-option -g base-index 1
 set-option -g mouse on
