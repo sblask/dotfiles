@@ -26,7 +26,10 @@ bind-key y set-window-option synchronize-panes
 
 bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
 
+# enter and exit copy mode using Escape
 bind-key Escape copy-mode
+bind-key -t vi-copy Escape copy-selection
+
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 
