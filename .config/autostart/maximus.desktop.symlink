@@ -1,12 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
-Version=0.9.4
-Type=Application
-Name=Maximus
-Comment=
 Exec=maximus --no-maximize
-OnlyShowIn=XFCE;
-StartupNotify=false
+Icon=view-fullscreen
+Name=Maximus
 Terminal=false
-Hidden=false
-
+Type=Application

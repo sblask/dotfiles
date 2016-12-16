@@ -1,12 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
-Version=0.9.4
-Type=Application
-Name=Devilspie 2
-Comment=
 Exec=devilspie2 --folder /home/sebastian/.devilspie2
-OnlyShowIn=XFCE;
-StartupNotify=false
+Icon=preferences-system-windows
+Name=Devilspie 2
 Terminal=false
-Hidden=false
-
+Type=Application

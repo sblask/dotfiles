@@ -1,12 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
-Version=0.9.4
-Type=Application
-Name=Compton
-Comment=
 Exec=compton
-OnlyShowIn=XFCE;
-StartupNotify=false
+Icon=display
+Name=Compton
 Terminal=false
-Hidden=false
-
+Type=Application
