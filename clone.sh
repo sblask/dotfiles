@@ -34,15 +34,15 @@ ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
 mkdir $ZSH_COMPLETION_DIRECTORY
 
 pushd $ZSH_COMPLETION_DIRECTORY
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_ag
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_httpie
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_jq
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_rvm
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_sbt
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_scala
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_setup.py
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_vagrant
-svn export https://github.com/zsh-users/zsh-completions/trunk/src/_virtualbox
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ag
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_jq
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_rvm
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_sbt
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_scala
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
+wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
 popd
 
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
