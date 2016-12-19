@@ -10,3 +10,5 @@
 	default = upstream
 [core]
 	excludesfile = /home/sebastian/.gitignore_global
+[tag]
+	sort = version:refname
