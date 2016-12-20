@@ -11,7 +11,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 SCM_BREEZE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/scm_breeze.dotfile
 rm -rf $SCM_BREEZE_CLONE_DIRECTORY
 git clone https://github.com/sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY
-patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < scm_breeze_patch
+patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < patches/scm_breeze
 
 TPM_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.tmux/plugins/tpm.copy
 rm -rf $TPM_CLONE_DIRECTORY
