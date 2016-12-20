@@ -2,7 +2,7 @@
 
 set -x -o errexit -o nounset -o pipefail
 
-DOTFILES_DIRECTORY=$(dirname $0)
+DOTFILES_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
 VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
 rm -rf $VUNDLE_CLONE_DIRECTORY
@@ -11,7 +11,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 SCM_BREEZE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/scm_breeze.dotfile
 rm -rf $SCM_BREEZE_CLONE_DIRECTORY
 git clone https://github.com/sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY
-patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < patches/scm_breeze
+patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/scm_breeze
 
 TPM_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.tmux/plugins/tpm.copy
 rm -rf $TPM_CLONE_DIRECTORY
@@ -50,7 +50,7 @@ ZSH_BASH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/bash_completions.d
 mkdir $ZSH_BASH_COMPLETION_DIRECTORY
 
 pushd $ZSH_BASH_COMPLETION_DIRECTORY
-wget https://raw.githubusercontent.com/otm/limes/master/assets/limes && patch limes patches/limes
+wget https://raw.githubusercontent.com/otm/limes/master/assets/limes && patch limes $DOTFILES_DIRECTORY/patches/limes
 popd
 
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
