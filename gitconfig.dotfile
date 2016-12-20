@@ -4,6 +4,9 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+	trustExitCode = true
+[mergetool]
+	trustExitCode = true
 [user]
 	name = Sebastian Blask
 [push]
