@@ -91,8 +91,11 @@ zle -N zle-keymap-select
 #
 # enable more completions
 fpath=(~/.zsh/completions.d $fpath)
-autoload -U compinit
-compinit
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+for file in ~/.zsh/bash_completions.d/*; do
+    source "${file}"
+done
 # complete in both directions
 setopt COMPLETE_IN_WORD
 # enable # ~ ^ in globs

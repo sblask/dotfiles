@@ -1,0 +1,25 @@
+--- limes_disfunctional	2016-12-20 16:30:12.735841865 +0100
++++ limes	2016-12-20 16:26:58.660508557 +0100
+@@ -11,15 +11,15 @@
+ _limes()
+ {
+     local cur prev words cword
+-    if declare -F _init_completions >/dev/null 2>&1; then
+-        _init_completion
+-    else
+-        __my_init_completion
+-    fi
++    # if declare -F _init_completions >/dev/null 2>&1; then
++    #     _init_completion
++    # else
++    #     __my_init_completion
++    # fi
+     #_init_completion || return
+ 
+-    #cur="${COMP_WORDS[COMP_CWORD]}"
+-    #prev="${COMP_WORDS[COMP_CWORD-1]}"
++    cur="${COMP_WORDS[COMP_CWORD]}"
++    prev="${COMP_WORDS[COMP_CWORD-1]}"
+ 
+     local i
+ 

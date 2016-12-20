@@ -46,6 +46,13 @@ wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vir
 wget https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.zsh -O _git-flow && echo "#compdef git-flow" | cat - _git-flow | sponge _git-flow
 popd
 
+ZSH_BASH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/bash_completions.d
+mkdir $ZSH_BASH_COMPLETION_DIRECTORY
+
+pushd $ZSH_BASH_COMPLETION_DIRECTORY
+wget https://raw.githubusercontent.com/otm/limes/master/assets/limes && patch limes patches/limes
+popd
+
 wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
 tar \
   --extract \
