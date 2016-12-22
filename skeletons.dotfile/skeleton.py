@@ -20,6 +20,7 @@ def main():
         level=logging.INFO,
         format='%(asctime)s - %(levelname)5s - %(name)s - %(message)s',
     )
+    _arguments = get_arguments()
 
 
 if __name__ == '__main__':
