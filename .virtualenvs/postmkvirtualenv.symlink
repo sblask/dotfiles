@@ -1,5 +1,5 @@
 pip install ipython
 pip install jedi
-pip install pep8
+pip install pycodestyle
 pip install pylint
 
