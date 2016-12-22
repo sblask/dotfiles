@@ -322,6 +322,7 @@ alias gla='gl --all | vimpager'
 alias glah='gl --all | head'
 alias gld='gl --left-right --graph --cherry-mark'
 alias gldo='gl --left-right --graph'
+alias gmd='git merge --ff-only origin/develop'
 alias gmm='git merge --ff-only origin/master'
 
 #
