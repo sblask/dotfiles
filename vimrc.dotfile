@@ -98,9 +98,6 @@ let g:syntastic_echo_current_error = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_javascript_checkers = ['eslint', 'jscs']
-let g:syntastic_python_checkers = ['pylint', 'pep8']
-let g:syntastic_python_pep8_args = '--ignore E501'
-let g:syntastic_python_pylint_args = '--rcfile=~/.pylintrc'
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '✗'
@@ -113,6 +110,22 @@ let g:UltiSnipsEditSplit="vertical"
 
 " open or create a file
 "
+
+fun! ConfigurePythonCheckers()
+    let flake8Config = findfile('setup.cfg', '.;')
+    if flake8Config != ''
+        let g:syntastic_python_checkers = ['pylint', 'flake8']
+        let g:syntastic_python_flake8_args = '--config ' . flake8Config
+    else
+        let g:syntastic_python_checkers = ['pylint', 'pycodestyle']
+        let g:syntastic_python_pycodestyle_args = '--ignore E501'
+    endif
+
+    let pylintConfig = findfile('.pylintrc', '.;')
+    if pylintConfig != ''
+        let g:syntastic_python_pylint_args = '--rcfile ' . pylintConfig
+    endif
+endf
 
 fun! SetScssConfig()
     let scssConfig = findfile('.scss-lint.yml', '.;')
@@ -160,7 +173,7 @@ if !exists("autocommands_loaded")
     autocmd BufWritePost  *                 if &diff | diffupdate | endif
     autocmd FileType      javascript        :call SetJavascriptCheckers()
     autocmd FileType      scss              :call SetScssConfig()
-    autocmd FileType      python            setlocal completeopt-=preview
+    autocmd FileType      python            :call ConfigurePythonCheckers() | setlocal completeopt-=preview
 endif
 
 set encoding=utf-8
