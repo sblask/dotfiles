@@ -118,6 +118,9 @@ zstyle ':completion:*:kill:*:processes' sort false
 zstyle ':completion:*:diff:*' ignore-line yes
 zstyle ':completion:*:kill:*' ignore-line yes
 zstyle ':completion:*:rm:*' ignore-line yes
+# ignore some files during completion
+# see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
+zstyle ':completion:*:*:*:*:*files' ignored-patterns '*.pyc'
 
 #
 # Setup history
