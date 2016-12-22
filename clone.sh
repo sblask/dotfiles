@@ -28,7 +28,7 @@ mkdir $ZSH_DIRECTORY
 ZSH_PLUGIN_DIRECTORY=$ZSH_DIRECTORY/plugins
 mkdir $ZSH_PLUGIN_DIRECTORY
 pushd $ZSH_PLUGIN_DIRECTORY
-git clone git@github.com:olivierverdier/zsh-git-prompt.git $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt
+git clone git@github.com:olivierverdier/zsh-git-prompt.git $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt && mv $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt/zshrc.sh $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt/zsh-git-prompt.plugin.zsh
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
 popd
