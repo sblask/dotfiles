@@ -359,8 +359,10 @@ function ts_utc() {
 #
 # Plugins
 #
+source ~/.zsh/plugins/pip.plugin.zsh
 source ~/.zsh/plugins/zsh-git-prompt/zshrc.sh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf*' 'fg=black,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('\|' 'fg=yellow')

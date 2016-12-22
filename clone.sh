@@ -27,12 +27,14 @@ mkdir $ZSH_DIRECTORY
 
 ZSH_PLUGIN_DIRECTORY=$ZSH_DIRECTORY/plugins
 mkdir $ZSH_PLUGIN_DIRECTORY
+pushd $ZSH_PLUGIN_DIRECTORY
 git clone git@github.com:olivierverdier/zsh-git-prompt.git $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
+popd
 
 ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
 mkdir $ZSH_COMPLETION_DIRECTORY
-
 pushd $ZSH_COMPLETION_DIRECTORY
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ag
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
@@ -44,6 +46,7 @@ wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_set
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
 wget https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.zsh -O _git-flow && echo "#compdef git-flow" | cat - _git-flow | sponge _git-flow
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
 popd
 
 ZSH_BASH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/bash_completions.d
