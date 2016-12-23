@@ -342,10 +342,6 @@ if [ -f ~/.scm_breeze/scm_breeze.sh ]; then
     . ~/.scm_breeze/scm_breeze.sh
 fi
 
-if [ -f /home/sebastian/Clones/stderred/build/libstderred.so ]; then
-    export LD_PRELOAD="/home/sebastian/Clones/stderred/build/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
-fi
-
 #
 # Functions
 #
