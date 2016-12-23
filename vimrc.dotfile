@@ -364,6 +364,8 @@ map! <esc>[27;6;13~ <Enter>
 set backspace=indent,eol,start
 " autocomplete with ctrl-space
 inoremap <Nul> <C-n>
+" confirm completion with enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " toggle paste mode
 set pastetoggle=<F2>
 " toggle line numbers
