@@ -24,72 +24,6 @@ colors
 autoload -U zmv
 
 #
-# prompt helper functions
-#
-function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
-}
-function git_no_mail_warning {
-  git status 1>/dev/null 2>/dev/null
-  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
-    echo -n '(user.email not configured) '
-  fi
-}
-function my_ip {
-  hostname --all-ip-addresses
-}
-function virtual_env {
-  if [ "$VIRTUAL_ENV" = "" ]; then
-      echo ""
-  else
-      echo "($(basename $VIRTUAL_ENV)) "
-  fi
-}
-
-#
-# set up the prompt
-#
-function insert-mode { echo "-- INSERT --" }
-function normal-mode { echo "-- NORMAL --" }
-function preexec     { print -rn -- $terminfo[el]; }
-function set-prompt  {
-    PS1=""
-    PS1=$PS1"%{$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$1$terminfo[rc]%}"
-    PS1=$PS1"%~ $ "
-}
-# just print the first two lines to avoid the problem with multi-line and reset-prompt
-function make-first-line {
-    FIRST_LINE="\n"
-    FIRST_LINE=$FIRST_LINE"[%D{%a, %d %b %Y, %H:%M:%S}] "
-    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(virtual_env)%{$reset_color%}"
-    FIRST_LINE=$FIRST_LINE"%n "
-    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}%m%{$reset_color%} "
-    FIRST_LINE=$FIRST_LINE"$(my_ip) "
-    FIRST_LINE=$FIRST_LINE"$(git_super_status) "
-    FIRST_LINE=$FIRST_LINE"%{$fg[red]%}$(git_no_mail_warning)%{$reset_color%}"
-
-    print -P "$FIRST_LINE"
-}
-function precmd {
-    make-first-line
-    # initial prompt and fix for problem with Ctrl+C and Enter
-    set-prompt "$(insert-mode)"
-}
-function zle-line-init zle-keymap-select {
-    # for cursor shapes, see http://stackoverflow.com/questions/4416909/anyway-change-the-cursor-vertical-line-instead-of-a-box
-    if [ "${KEYMAP}" = "vicmd" ]; then
-        echo -e -n "\x1b[\x31 q" # changes to blinking block
-        set-prompt "$(normal-mode)"
-    else
-        echo -e -n "\x1b[\x35 q" # changes to blinking bar
-        set-prompt "$(insert-mode)"
-    fi
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-#
 # Setup completions
 #
 # enable more completions
@@ -356,6 +290,29 @@ function ts_utc() {
 }
 
 #
+# Prompt helper functions
+#
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
+}
+function git_no_mail_warning {
+  git status 1>/dev/null 2>/dev/null
+  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
+    echo -n '(user.email not configured) '
+  fi
+}
+function my_ip {
+  hostname --all-ip-addresses
+}
+function virtual_env {
+  if [ "$VIRTUAL_ENV" = "" ]; then
+      echo ""
+  else
+      echo "($(basename $VIRTUAL_ENV)) "
+  fi
+}
+
+#
 # Plugins
 #
 for file in ~/.zsh/plugins/**/*.plugin.zsh; do
@@ -418,6 +375,52 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}%{ …%G%}"
 
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{X%G%}"
 
+#
+# set up the prompt
+#
+function insert-mode { echo "-- INSERT --" }
+function normal-mode { echo "-- NORMAL --" }
+function preexec     { print -rn -- $terminfo[el]; }
+function set-prompt  {
+    PS1=""
+    PS1=$PS1"%{$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]$1$terminfo[rc]%}"
+    PS1=$PS1"%~ $ "
+}
+# just print the first two lines to avoid the problem with multi-line and reset-prompt
+function make-first-line {
+    FIRST_LINE="\n"
+    FIRST_LINE=$FIRST_LINE"[%D{%a, %d %b %Y, %H:%M:%S}] "
+    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(virtual_env)%{$reset_color%}"
+    FIRST_LINE=$FIRST_LINE"%n "
+    FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}%m%{$reset_color%} "
+    FIRST_LINE=$FIRST_LINE"$(my_ip) "
+    FIRST_LINE=$FIRST_LINE"$(git_super_status) "
+    FIRST_LINE=$FIRST_LINE"%{$fg[red]%}$(git_no_mail_warning)%{$reset_color%}"
+
+    print -P "$FIRST_LINE"
+}
+function precmd {
+    make-first-line
+    # initial prompt and fix for problem with Ctrl+C and Enter
+    set-prompt "$(insert-mode)"
+}
+function zle-line-init zle-keymap-select {
+    # for cursor shapes, see http://stackoverflow.com/questions/4416909/anyway-change-the-cursor-vertical-line-instead-of-a-box
+    if [ "${KEYMAP}" = "vicmd" ]; then
+        echo -e -n "\x1b[\x31 q" # changes to blinking block
+        set-prompt "$(normal-mode)"
+    else
+        echo -e -n "\x1b[\x35 q" # changes to blinking bar
+        set-prompt "$(insert-mode)"
+    fi
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+#
+# Programming language environments
+#
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 if [ -f $HOME/.rvm/scripts/rvm ]; then
