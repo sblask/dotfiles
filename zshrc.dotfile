@@ -58,7 +58,7 @@ function set-prompt  {
     PS1=$PS1"%~ $ "
 }
 # just print the first two lines to avoid the problem with multi-line and reset-prompt
-function precmd {
+function make-first-line {
     FIRST_LINE="\n"
     FIRST_LINE=$FIRST_LINE"[%D{%a, %d %b %Y, %H:%M:%S}] "
     FIRST_LINE=$FIRST_LINE"%{$fg[blue]%}$(virtual_env)%{$reset_color%}"
@@ -69,6 +69,9 @@ function precmd {
     FIRST_LINE=$FIRST_LINE"%{$fg[red]%}$(git_no_mail_warning)%{$reset_color%}"
 
     print -P "$FIRST_LINE"
+}
+function precmd {
+    make-first-line
     # initial prompt and fix for problem with Ctrl+C and Enter
     set-prompt "$(insert-mode)"
 }
