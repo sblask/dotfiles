@@ -340,11 +340,12 @@ highlight DiffText cterm=None ctermbg=yellow ctermfg=brown
 nnoremap c  "_c
 nnoremap d  "_d
 nnoremap x  "_x
-vnoremap c  "_c
-vnoremap d  "_d
-vnoremap x  "_x
+vnoremap C  "_C
+vnoremap D  "_D
+vnoremap X  "_X
 " ...especially for pasting (also fixing inconsistent position)
 vnoremap p  "_c<Esc>p
+vnoremap P  "_c<Esc>P
 " yank to and paste from system clipboard
 set clipboard=unnamedplus
 " yank while keeping selection
