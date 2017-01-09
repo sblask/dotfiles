@@ -443,6 +443,8 @@ noremap <C-E> $
 noremap <C-A> 0
 inoremap <C-E> <C-O>$
 inoremap <C-A> <C-O>0
+" do not select line break when using $ in visual mode
+vnoremap $ g_
 " text objects
 "
 " between slashes
