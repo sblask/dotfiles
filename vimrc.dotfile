@@ -428,10 +428,10 @@ noremap <C-Left> b
 noremap <C-Right> e
 inoremap <C-Right> <Esc>ea
 " move lines with alt up/down
-inoremap <A-DOWN> <Esc>:m .+1<CR>gi
-inoremap j <Esc>:m .+1<CR>gi
-inoremap k <Esc>:m .-2<CR>gi
-inoremap <A-UP> <Esc>:m .-2<CR>gi
+inoremap <A-DOWN> <C-O>:m .+1<CR>
+inoremap j <C-O>:m .+1<CR>
+inoremap k <C-O>:m .-2<CR>
+inoremap <A-UP> <C-O>:m .-2<CR>
 nnoremap <A-DOWN> :m .+1<CR>
 nnoremap j :m .+1<CR>
 nnoremap k :m .-2<CR>
