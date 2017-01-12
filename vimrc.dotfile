@@ -457,6 +457,8 @@ omap a/ :normal va/<CR>
 omap i/ :normal vi/<CR>
 " allow search for current selection
 vmap * "sy<Esc>:let @/ = @s<CR>n
+" insert new lines without entering insert mode
+nnoremap <Enter> O<Esc>j
 
 "
 " mouse settings
