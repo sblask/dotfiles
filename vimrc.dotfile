@@ -225,7 +225,7 @@ set wildignore=.git,*.pyc
 
 "
 " mouse cursor
-" 35: bar 31: block
+" 35: bar 33: underline 31: block
 "
 
 " make sure we are always start in normal mode
@@ -233,6 +233,7 @@ autocmd FocusGained * silent execute '!echo -e -n "\x1b[\x31 q"' | silent execut
 autocmd VimEnter    * silent execute '!echo -e -n "\x1b[\x31 q"' | silent execute '!echo ""'
 let &t_SI = "\x1b[\x35 q"
 let &t_EI = "\x1b[\x31 q"
+let &t_SR = "\x1b[\x33 q"
 
 "
 " behaviour
