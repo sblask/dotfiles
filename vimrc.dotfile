@@ -426,7 +426,7 @@ inoremap <S-Up> <C-O>k
 inoremap <S-Down> <C-O>j
 noremap <C-Left> b
 noremap <C-Right> e
-inoremap <C-Right> <Esc>ea
+inoremap <C-Right> <Left><C-O>e<Right>
 " move lines with alt up/down
 inoremap <A-DOWN> <C-O>:m .+1<CR>
 inoremap j <C-O>:m .+1<CR>
