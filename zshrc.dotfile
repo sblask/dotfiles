@@ -294,7 +294,11 @@ function virtual_env {
 # Other helper functions
 #
 function auto-workon-virtualenv {
-    if [ -e .penv -o -e .venv ]; then
+    if [ -d .penv ]; then
+        source .penv/bin/activate
+    elif [ -d .venv ]; then
+        source .venv/bin/activate
+    elif [ -f .penv -o -f .venv ]; then
         CURRENT_DIRECTORY=${PWD##*/}
         if [ "($CURRENT_DIRECTORY) " != "$(virtual_env)" ]; then
             workon $CURRENT_DIRECTORY
