@@ -1,5 +1,5 @@
-pip install ipython
-pip install jedi
-pip install pycodestyle
-pip install pylint
+#!/bin/bash
 
+SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
+
+pip install --requirement $SCRIPT_DIRECTORY/requirements.txt
