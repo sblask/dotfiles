@@ -251,43 +251,43 @@ alias gmm='git merge --ff-only origin/master'
 #
 # Functions
 #
-function gd() {
+function gd {
     git diff --color=always $@          | vimpager
 }
-function gdc() {
+function gdc {
     git diff --color=always $@ --cached | vimpager
 }
-function mcd() {
-  mkdir $1 && cd $1
+function mcd {
+    mkdir $1 && cd $1
 }
-function ts() {
-  date       --iso-8601=seconds --date @$1 2>/dev/null || date --date $1 +%s 2>/dev/null
+function ts {
+    date       --iso-8601=seconds --date @$1 2>/dev/null || date --date $1 +%s 2>/dev/null
 }
-function ts_utc() {
-  date --utc --iso-8601=seconds --date @$1 2>/dev/null || date --date $1 +%s 2>/dev/null
+function ts_utc {
+    date --utc --iso-8601=seconds --date @$1 2>/dev/null || date --date $1 +%s 2>/dev/null
 }
 
 #
 # Prompt helper functions
 #
 function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
 }
 function git_no_mail_warning {
-  git status 1>/dev/null 2>/dev/null
-  if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
-    echo -n '(user.email not configured) '
-  fi
+    git status 1>/dev/null 2>/dev/null
+    if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
+        echo -n '(user.email not configured) '
+    fi
 }
 function my_ip {
-  hostname --all-ip-addresses
+    hostname --all-ip-addresses
 }
 function virtual_env {
-  if [ "$VIRTUAL_ENV" = "" ]; then
-      echo ""
-  else
-      echo "($(basename $VIRTUAL_ENV)) "
-  fi
+    if [ "$VIRTUAL_ENV" = "" ]; then
+        echo ""
+    else
+        echo "($(basename $VIRTUAL_ENV)) "
+    fi
 }
 
 #
@@ -318,7 +318,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf*' 'fg=black,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('\|' 'fg=yellow')
 ZSH_HIGHLIGHT_PATTERNS+=('\*' 'fg=black,bg=red')
 # configure git prompt plugin
-git_super_status() {
+function git_super_status {
     precmd_update_git_vars
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
         STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
