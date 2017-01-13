@@ -186,6 +186,8 @@ if !exists("autocommands_loaded")
     autocmd BufRead       tmux.conf.dotfile set ft=tmux | compiler tmux
     " different changes
     autocmd BufWritePost  *                 if &diff | diffupdate | endif
+    autocmd FileType      sh                set iskeyword+=-
+    autocmd FileType      zsh               set iskeyword+=-
     autocmd FileType      javascript        :call SetJavascriptCheckers()
     autocmd FileType      scss              :call SetScssConfig()
     autocmd FileType      python            :call ConfigurePythonCheckers() | setlocal completeopt-=preview
