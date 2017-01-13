@@ -367,9 +367,10 @@ vnoremap x  "_x
 vnoremap C  "_C
 vnoremap D  "_D
 vnoremap X  "_X
-" ...especially for pasting (also fixing inconsistent position)
-vnoremap p  "_c<Esc>p
-vnoremap P  "_c<Esc>P
+" ...especially for pasting
+" a little more complicated because it involves backing up the register
+vnoremap p :<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>
+vnoremap P :<C-U>let @p = @+<CR>gvP:let @+ = @p<CR>
 " yank to and paste from system clipboard
 set clipboard=unnamedplus
 " yank while keeping selection
