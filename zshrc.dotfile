@@ -293,14 +293,17 @@ function virtual_env {
 #
 # Other helper functions
 #
-VIRTUALENV_REQUIREMENTS=$HOME/.virtualenvs/requirements.txt
+function maybe-install-virtualenv-requirements {
+    VIRTUALENV_REQUIREMENTS=$HOME/.virtualenvs/requirements.txt
+    if ! python -c "import pkg_resources; pkg_resources.require(open('$VIRTUALENV_REQUIREMENTS').read().splitlines())"; then
+        pip install --upgrade --requirement $VIRTUALENV_REQUIREMENTS
+    fi
+}
 function auto-workon-virtualenv {
     if [ -d .venv ]; then
         if [ "$VIRTUAL_ENV" = "" ]; then
             source .venv/bin/activate
-            if ! python -c "import pkg_resources; pkg_resources.require(open('$VIRTUALENV_REQUIREMENTS').read().splitlines())"; then
-                pip install --upgrade --requirement $VIRTUALENV_REQUIREMENTS
-            fi
+            maybe-install-virtualenv-requirements
         fi
     elif [ -f .penv -o -f .venv ]; then
         CURRENT_DIRECTORY=${PWD##*/}
