@@ -28,7 +28,7 @@ tmux rename-window ${WINDOW_NAME}
 
 for COMMAND in "$@"
 do
-  WINDOW_ID=$(tmux split-window -P -c $TMUX_START_DIRECTORY)
+  WINDOW_ID=$(env --ignore-environment tmux split-window -P -c $TMUX_START_DIRECTORY)
   tmux send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
   tmux select-layout tiled
 done
