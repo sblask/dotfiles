@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -o xtrace
 
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
+TMUX_START_DIRECTORY=$(pwd)
 
 if [ $# -lt 2 ]; then
   echo "Usage: $0 <WINDOW NAME> <COMMANDS...>"
@@ -27,7 +28,7 @@ tmux rename-window ${WINDOW_NAME}
 
 for COMMAND in "$@"
 do
-  WINDOW_ID=$(tmux split-window -P)
+  WINDOW_ID=$(tmux split-window -P -c $TMUX_START_DIRECTORY)
   tmux send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
   tmux select-layout tiled
 done
