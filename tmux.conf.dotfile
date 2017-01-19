@@ -1,6 +1,8 @@
 set-window-option -g mode-keys vi
 set-window-option -g xterm-keys on
 
+bind-key -r c new-window      -c "#{pane_current_path}"
+bind-key -r C new-window      -c "#{pane_current_path}"
 bind-key -r _ split-window -v -c "#{pane_current_path}"
 bind-key -r | split-window -h -c "#{pane_current_path}"
 
