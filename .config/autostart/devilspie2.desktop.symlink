@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=devilspie2 --folder /home/sebastian/.devilspie2
-Icon=preferences-system-windows
-Name=Devilspie 2
-Terminal=false
-Type=Application

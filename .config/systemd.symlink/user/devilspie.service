@@ -1,0 +1,12 @@
+[Unit]
+Description=Devilspie
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/devilspie2 --folder /home/sebastian/.devilspie2
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target
