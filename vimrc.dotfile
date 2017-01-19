@@ -373,8 +373,8 @@ vnoremap p :<C-U>let @p = @+<CR>gvp:let @+ = @p<CR>
 vnoremap P :<C-U>let @p = @+<CR>gvP:let @+ = @p<CR>
 " yank to and paste from system clipboard
 set clipboard=unnamedplus
-" yank while keeping selection
-vnoremap y ygv
+" yank and put the cursor on the last character of selection
+vnoremap y y`>
 
 "
 " keyboard settings
