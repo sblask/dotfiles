@@ -240,6 +240,12 @@ let &t_SR = "\x1b[\x33 q"
 " behaviour
 "
 
+" keep cursor vertically centered when diffing
+if &diff
+    set scrolloff=99
+else
+    set scrolloff=3
+endif
 " set working directory to the folder containing the current file
 if !&diff
     set autochdir
