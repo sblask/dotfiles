@@ -66,6 +66,11 @@ let g:netrw_liststyle=3
 let g:netrw_browse_split=4
 
 if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+    let g:airline_extensions = ['ctrlp', 'syntastic', 'tabline']
+    let g:airline#extensions#default#layout = [
+    \   [ 'a', 'c' ],
+    \   [ 'z' ]
+    \]
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     let g:airline#extensions#tabline#buffer_min_count = 2
     let g:airline#extensions#tabline#show_buffers = 1
@@ -73,6 +78,7 @@ if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline#extensions#whitespace#enabled = 0
     let g:airline_powerline_fonts = 1
     let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
+    let g:airline_section_z = '%l/%L : %c'
     let g:airline_theme = 'luna'
 endif
 
