@@ -479,7 +479,7 @@ vnoremap i/ :<C-U>silent! normal! f/F/f/F/lvt/<CR>
 omap a/ :normal va/<CR>
 omap i/ :normal vi/<CR>
 " allow search for current selection
-vmap * "sy<Esc>:let @/ = @s<CR>n
+vmap <silent> * "sy<Esc>:let @/ = @s<CR>
 " insert new lines without entering insert mode
 nnoremap <Enter> O<Esc>j
 
