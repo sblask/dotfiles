@@ -18,6 +18,9 @@ zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform co
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # complete case insensitive
 zstyle ':completion:*' menu select # highlight current selection and make suggestions navigable
 
+# highlight prefix that is being completed
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==34=34}:${(s.:.)LS_COLORS}")';
+
 # completion list for kill based on ps
 zstyle ':completion:*:kill:*' command 'ps f -u $USER -o pid,%cpu,%mem,cmd'
 zstyle ':completion:*:kill:*' force-list always
