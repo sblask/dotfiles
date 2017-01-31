@@ -70,9 +70,9 @@ let g:netrw_browse_split=4
 if isdirectory(expand("~/.vim/bundle/vim-airline/"))
     let g:airline_extensions = ['ctrlp', 'syntastic', 'tabline']
     let g:airline#extensions#default#layout = [
-    \   [ 'a', 'c' ],
-    \   [ 'z' ]
-    \]
+    \    [ 'a', 'c' ],
+    \    [ 'z' ],
+    \ ]
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     let g:airline#extensions#tabline#buffer_min_count = 2
     let g:airline#extensions#tabline#show_buffers = 1
@@ -91,6 +91,13 @@ let g:autotagTagsFile = '.tags'
 let g:ctrlp_extensions = []
 let g:ctrlp_user_command ='ag %s -l --hidden --ignore .git --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:ctrlp_prompt_mappings = {
+\    'PrtSelectMove("j")':   ['<s-tab>', '<down>'],
+\    'PrtSelectMove("k")':   ['<tab>', '<up>'],
+\    'ToggleFocus()':        [],
+\    'PrtExpandDir()':       [],
+\ }
+
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
