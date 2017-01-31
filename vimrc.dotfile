@@ -483,6 +483,15 @@ nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 vmap <silent> * "sy<Esc>:let @/ = @s<CR>
 " insert new lines without entering insert mode
 nnoremap <Enter> O<Esc>j
+" move through splits with tab
+nnoremap <Tab> <C-W>w
+nnoremap <S-Tab> <C-W>W
+" resize with + and - using shift for horizontal resizes
+nnoremap - :vertical resize -5<CR>
+nnoremap = :vertical resize +5<CR>
+nnoremap _ :resize -5<CR>
+nnoremap + :resize +5<CR>
+
 
 "
 " mouse settings
