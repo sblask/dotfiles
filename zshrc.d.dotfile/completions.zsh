@@ -35,7 +35,7 @@ zstyle ':completion:*:rm:*' ignore-line yes
 
 # ignore some files during completion
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
-zstyle ':completion:*:*:*:*:*files' ignored-patterns '*.pyc'
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pyc' '.zsh' 'zsh.dotfile' '.zshrc' 'zshrc.dotfile'
 
 # Do not ever propose ORIG_HEAD
 zstyle ':completion:*:*:*:*:*' ignored-patterns 'ORIG_HEAD'
