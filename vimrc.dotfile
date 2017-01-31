@@ -496,8 +496,10 @@ nnoremap + :resize +5<CR>
 "
 " mouse settings
 "
-" enabled, but do not go into visual mode
-set mouse=nicr
+" enable mouse, but disable drag (in all modes and command mode)
+set mouse=a
+noremap <LeftDrag> <LeftMouse>
+noremap! <LeftDrag> <LeftMouse>
 try
     set ttymouse=sgr
 catch
