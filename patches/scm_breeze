@@ -1,7 +1,16 @@
 diff --git lib/git/aliases.sh lib/git/aliases.sh
-index 78368e8..80605be 100644
+index 78368e8..3cf66fd 100644
 --- lib/git/aliases.sh
 +++ lib/git/aliases.sh
+@@ -28,7 +28,7 @@ function git(){
+   case $1 in
+     commit|blame|add|log|rebase|merge)
+       exec_scmb_expand_args "$_git_cmd" "$@";;
+-    checkout|diff|rm|reset)
++    checkout|diff|difftool|rm|reset)
+       exec_scmb_expand_args --relative "$_git_cmd" "$@";;
+     branch)
+       _scmb_git_branch_shortcuts "${@:2}";;
 @@ -102,7 +102,7 @@ if [ "$git_setup_aliases" = "yes" ]; then
    __git_alias "$git_reset_hard_alias"               'git' 'reset' '--hard'
    __git_alias "$git_rm_alias"                       'git' 'rm'
