@@ -44,6 +44,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
+    Bundle 'simeji/winresizer'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tmux-plugins/vim-tmux'
     Bundle 'tmux-plugins/vim-tmux-focus-events'
