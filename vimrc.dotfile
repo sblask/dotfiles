@@ -411,11 +411,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 set pastetoggle=<F2>
 " toggle line numbers
 noremap <F4> :set nonumber!<CR>
-" smart home key
-noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-noremap <expr> <silent> <kHome> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-imap <silent> <Home> <C-O><Home>
-imap <silent> <kHome> <C-O><kHome>
+" smart 0
+noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O>0
 " move graphical lines up and down
 nnoremap k gk
 nnoremap j gj
