@@ -1,0 +1,106 @@
+" Vundle stuff
+filetype off
+if isdirectory(expand("~/.vim/bundle/vundle/"))
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    Bundle 'SirVer/ultisnips'
+    Bundle 'bkad/CamelCaseMotion'
+    Bundle 'chriskempson/base16-vim'
+    Bundle 'davidhalter/jedi-vim'
+    Bundle 'editorconfig/editorconfig-vim'
+    Bundle 'ervandew/supertab'
+    Bundle 'fisadev/vim-isort'
+    Bundle 'gmarik/vundle'
+    Bundle 'honza/vim-snippets'
+    Bundle 'isRuslan/vim-es6'
+    Bundle 'jelera/vim-javascript-syntax'
+    Bundle 'junegunn/vim-easy-align'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'lokaltog/vim-easymotion'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'mitsuhiko/vim-jinja'
+    Bundle 'qmx/vim-json'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/syntastic'
+    Bundle 'sheerun/vim-polyglot'
+    Bundle 'simeji/winresizer'
+    Bundle 'terryma/vim-multiple-cursors'
+    Bundle 'tmux-plugins/vim-tmux'
+    Bundle 'tmux-plugins/vim-tmux-focus-events'
+    Bundle 'tpope/vim-commentary'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-unimpaired'
+    Bundle 'vim-airline/vim-airline'
+    Bundle 'vim-airline/vim-airline-themes'
+    Bundle 'vim-scripts/AnsiEsc.vim'
+    Bundle 'vim-scripts/CmdlineComplete'
+    Bundle 'vim-scripts/VimClojure'
+    Bundle 'vim-scripts/argtextobj.vim'
+    Bundle 'wesQ3/vim-windowswap'
+endif
+filetype plugin indent on
+
+try
+    colorscheme base16-eighties
+catch
+    colorscheme darkblue
+endtry
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let g:airline_extensions = ['ctrlp', 'syntastic', 'tabline']
+let g:airline#extensions#default#layout = [
+\    [ 'a', 'c' ],
+\    [ 'z' ],
+\ ]
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
+let g:airline_section_z = '%l/%L : %c'
+let g:airline_theme = 'luna'
+
+let g:ctrlp_extensions = []
+let g:ctrlp_user_command ='ag %s -l --hidden --ignore .git --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_prompt_mappings = {
+\    'PrtSelectMove("j")':   ['<s-tab>', '<down>'],
+\    'PrtSelectMove("k")':   ['<tab>', '<up>'],
+\    'ToggleFocus()':        [],
+\    'PrtExpandDir()':       [],
+\ }
+
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+let g:jedi#use_tabs_not_buffers = 0
+
+" have tree view enabled be default (:Vexplore)
+let g:netrw_liststyle=3
+" open document to the right of the browser
+let g:netrw_browse_split=4
+
+let g:polyglot_disabled = ['jinja', 'tmux']
+
+let g:SuperTabDefaultCompletionType = "context"
+
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_echo_current_error = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '✗'
+let g:syntastic_warning_symbol = '✗'
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<esc>[Z"
+let g:UltiSnipsListSnippets="<F1>"
+let g:UltiSnipsEditSplit="vertical"
