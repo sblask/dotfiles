@@ -40,6 +40,7 @@ bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
 bind-key p run 'tmux set-buffer "$(xclip -out -selection clipboard)"; tmux paste-buffer'
 
+set-option -g prefix F12
 set-option -g base-index 1
 set-option -g mouse on
 set-option -g renumber-windows on

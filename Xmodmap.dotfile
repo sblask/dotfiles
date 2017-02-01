@@ -1,6 +1,7 @@
 ! disable caps lock
 clear Lock
 keycode 66 = Multi_key
+keycode 108 = F12
 ! no back and forward, left and right instead
 keycode 166 = Left
 keycode 167 = Right
