@@ -23,6 +23,6 @@ vnoremap i/ :<C-U>silent! normal! f/F/f/F/lvt/<CR>
 omap a/ :normal va/<CR>
 omap i/ :normal vi/<CR>
 " start search without immediately jumping to next result
-nmap <silent> * "syiw<Esc>: let @/ = @s<CR>:set hlsearch<CR>
+nmap <silent> * "syiw<Esc>: let @/ = '\<' . @s . '\>'<CR>:set hlsearch<CR>
 " allow search for current selection
-vmap <silent> * "sy<Esc>:let @/ = @s<CR>:set hlsearch<CR>
+vmap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR>
