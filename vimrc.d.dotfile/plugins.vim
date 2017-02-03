@@ -74,6 +74,7 @@ let g:ctrlp_prompt_mappings = {
 \    'PrtExpandDir()':       [],
 \ }
 
+let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0

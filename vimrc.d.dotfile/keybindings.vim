@@ -4,10 +4,6 @@ set backspace=indent,eol,start
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " better redo combination
 nnoremap U <C-R>
-" start interactive aligning on Enter
-vmap <Enter> <Plug>(LiveEasyAlign)
-" make vim-surround shortcuts consistent
-xmap s <Plug>VSurround
 " fix page keys
 " http://vimrc-dissection.blogspot.se/2009/02/fixing-pageup-and-pagedown.html
 map <silent> <PageUp> 1000<C-U>
