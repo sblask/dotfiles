@@ -1,23 +1,23 @@
 fun! ConfigurePythonCheckers()
     let flake8Config = findfile('setup.cfg', '.;')
     if flake8Config != ''
-        let g:syntastic_python_checkers = ['pylint', 'flake8']
-        let g:syntastic_python_flake8_args = '--config ' . flake8Config
+        let b:syntastic_python_checkers = ['pylint', 'flake8']
+        let b:syntastic_python_flake8_args = '--config ' . fnamemodify(flake8Config, ':p')
     else
-        let g:syntastic_python_checkers = ['pylint', 'pycodestyle']
-        let g:syntastic_python_pycodestyle_args = '--ignore E501'
+        let b:syntastic_python_checkers = ['pylint', 'pycodestyle']
+        let b:syntastic_python_pycodestyle_args = '--ignore E501'
     endif
 
     let pylintConfig = findfile('.pylintrc', '.;')
     if pylintConfig != ''
-        let g:syntastic_python_pylint_args = '--rcfile ' . pylintConfig
+        let b:syntastic_python_pylint_args = '--rcfile ' . fnamemodify(pylintConfig, ':p')
     endif
 endf
 
 fun! SetScssConfig()
     let scssConfig = findfile('.scss-lint.yml', '.;')
     if scssConfig != ''
-        let b:syntastic_scss_scss_lint_args = '--config ' . scssConfig
+        let b:syntastic_scss_scss_lint_args = '--config ' . fnamemodify(scssConfig, ':p')
     endif
 endf
 
