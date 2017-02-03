@@ -15,7 +15,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'isRuslan/vim-es6'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'junegunn/vim-easy-align'
-    Bundle 'kien/ctrlp.vim'
+    Bundle 'ctrlpvim/ctrlp.vim'
     Bundle 'lokaltog/vim-easymotion'
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
