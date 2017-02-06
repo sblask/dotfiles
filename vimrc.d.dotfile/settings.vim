@@ -4,6 +4,8 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+" change to directory of current file automatically
+set autochdir
 " set default encoding explicitely
 set encoding=utf-8
 " ignore case when completing filenames
