@@ -10,9 +10,10 @@ map <silent> <PageUp> 1000<C-U>
 map <silent> <PageDown> 1000<C-D>
 imap <silent> <PageUp> <C-O>1000<C-U>
 imap <silent> <PageDown> <C-O>1000<C-D>
-" text objects
-"
-" between slashes
+" page up and down with space
+nmap   <Space> <PageDown>
+nmap <S-Space> <PageUp>
+" text object between slashes
 " f/F/f/F/ moves the cursor to within slashes no matter where on line
 vnoremap a/ :<C-U>silent! normal! f/F/f/F/vf/<CR>
 vnoremap i/ :<C-U>silent! normal! f/F/f/F/lvt/<CR>
@@ -22,3 +23,6 @@ omap i/ :normal vi/<CR>
 nmap <silent> * "syiw<Esc>: let @/ = '\<' . @s . '\>'<CR>:set hlsearch<CR>
 " allow search for current selection
 vmap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR>
+" insert new empty lines without entering insert mode
+noremap <silent>   <CR> :set formatoptions-=o<CR>m`o<Esc>k``:set formatoptions+=o<CR>
+noremap <silent> <S-CR> :set formatoptions-=o<CR>m`O<Esc>j``:set formatoptions+=o<CR>
