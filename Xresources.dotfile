@@ -11,10 +11,12 @@ xterm.*.faceSize6: 20 ! huge
 xterm.*.saveLines: 99999
 xterm.*.termName: xterm-256color
 xterm.*.translations: #override \n\
-  Shift Ctrl <Key> V:     insert-selection(CLIPBOARD) \n\
-  Shift Ctrl <Key> C:       copy-selection(CLIPBOARD) \n\
-        Ctrl <Key> minus:  smaller-vt-font() \n\
-        Ctrl <Key> plus:    larger-vt-font() \n\
+  Shift Ctrl <Key> V:      insert-selection(CLIPBOARD)   \n\
+  Shift Ctrl <Key> C:      copy-selection(CLIPBOARD)     \n\
+        Ctrl <Key> minus:  smaller-vt-font()             \n\
+        Ctrl <Key> plus:   larger-vt-font()              \n\
+  Shift      <Key> space:  string(0x1b) string("[32;2u") \n\
+  Shift      <Key> Return: string(0x1b) string("[13;2u") \n\
 
 #define red     #FE7777
 #define green   #99CC99
