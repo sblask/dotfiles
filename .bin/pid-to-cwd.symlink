@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail -o xtrace
+
+PID="$1"
+shift
+
+COMMAND="$@"
+PANE_CWD=$(readlink /proc/${PID}/cwd)
+
+${COMMAND} ${PANE_CWD}
