@@ -11,7 +11,7 @@ function virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
     else
-        echo "($(basename $VIRTUAL_ENV)) "
+        echo "($(print -rD $VIRTUAL_ENV)) "
     fi
 }
 
