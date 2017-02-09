@@ -42,4 +42,6 @@ set wrap
 " keep cursor vertically centered when diffing
 if &diff
     set scrolloff=99
+else
+    set scrolloff=3
 endif
