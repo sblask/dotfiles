@@ -11,10 +11,6 @@ map! <2-MiddleMouse> <LeftMouse>
 map <3-MiddleMouse> <LeftMouse>
 map! <3-MiddleMouse> <LeftMouse>
 
-" scroll 5 lines up or down
-noremap <ScrollWheelUp> 5k
-noremap <ScrollWheelDown> 5j
-
 " support wide displays
 try
     set ttymouse=sgr
