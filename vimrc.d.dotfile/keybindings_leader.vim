@@ -1,5 +1,5 @@
 " close current buffer without closing split
-noremap <silent> <Leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <silent> <Leader>c :new<CR><C-W>W:bd<CR>
 " format json file
 noremap <silent> <Leader>j :% !format-json<CR>
 " write as sudo
