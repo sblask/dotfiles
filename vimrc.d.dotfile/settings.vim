@@ -38,10 +38,5 @@ set wildmode=longest,full
 set wildignore=.git,*.pyc
 " wrap long lines
 set wrap
-
-" keep cursor vertically centered when diffing
-if &diff
-    set scrolloff=99
-else
-    set scrolloff=3
-endif
+" keep three lines at end of the file
+set scrolloff=3
