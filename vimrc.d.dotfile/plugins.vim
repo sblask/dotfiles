@@ -48,7 +48,7 @@ catch
 endtry
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
-cnoreabbrev ag Ack
+cnoreabbrev ag Ack!
 
 let g:airline_extensions = ['ctrlp', 'syntastic', 'tabline']
 let g:airline#extensions#default#layout = [
