@@ -11,3 +11,5 @@ for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
     exe 'source' fpath
 endfor
 set wildignore-=plugins.vim
+
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
