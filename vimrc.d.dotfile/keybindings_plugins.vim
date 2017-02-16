@@ -1,4 +1,4 @@
-nmap f <Plug>(easymotion-bd-w)
+nmap <Leader>f <Plug>(easymotion-bd-w)
 " make vim-surround shortcuts consistent
 xmap s <Plug>VSurround
 " start interactive aligning on Enter
