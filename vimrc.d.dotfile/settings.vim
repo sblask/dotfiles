@@ -30,8 +30,6 @@ set number
 " splits
 set splitbelow
 set splitright
-" switch back to normal mode more quickly
-set ttimeoutlen=0
 " zsh-like command completion
 set wildmenu
 set wildmode=longest,full

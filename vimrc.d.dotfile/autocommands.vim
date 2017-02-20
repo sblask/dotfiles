@@ -5,4 +5,8 @@ if !exists("autocommands_loaded")
     " reload .vimrc automatically
     autocmd BufWritePost .vimrc.d/*        source %
     autocmd BufWritePost vimrc.d.dotfile/* source %
+    " exit insert mode immediately while keeping leader and esc maps intact in
+    " other modes
+    autocmd InsertEnter  *                 set timeoutlen=0
+    autocmd InsertLeave  *                 set timeoutlen=1000
 endif
