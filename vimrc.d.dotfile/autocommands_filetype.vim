@@ -8,6 +8,7 @@ if !exists("filetype_autocommands_loaded")
     autocmd BufNewFile *.sls             set filetype=yaml
     autocmd BufRead    *.sls             set filetype=yaml
     autocmd BufRead    .bash*            set filetype=sh
+    autocmd BufRead    Buildfile         set filetype=make
     autocmd BufRead    bash*.dotfile     set filetype=sh
     autocmd BufRead    tmux.conf.dotfile set filetype=tmux
     " keyword settings
