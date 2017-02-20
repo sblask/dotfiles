@@ -1,16 +1,16 @@
 " move lines with alt up/down
 
-inoremap <A-DOWN> <C-O>:m .+1<CR>
-inoremap j <C-O>:m .+1<CR>
-inoremap k <C-O>:m .-2<CR>
-inoremap <A-UP> <C-O>:m .-2<CR>
+inoremap <silent> <A-DOWN> <C-O>:m .+1<CR>
+inoremap <silent> j <C-O>:m .+1<CR>
+inoremap <silent> k <C-O>:m .-2<CR>
+inoremap <silent> <A-UP> <C-O>:m .-2<CR>
 
-nnoremap <A-DOWN> :m .+1<CR>
-nnoremap j :m .+1<CR>
-nnoremap k :m .-2<CR>
-nnoremap <A-UP> :m .-2<CR>
+nnoremap <silent> <A-DOWN> :m .+1<CR>
+nnoremap <silent> j :m .+1<CR>
+nnoremap <silent> k :m .-2<CR>
+nnoremap <silent> <A-UP> :m .-2<CR>
 
-vnoremap <A-DOWN> :m '>+1<CR>gv
-vnoremap j :m '>+1<CR>gv
-vnoremap k :m '<-2<CR>gv
-vnoremap <A-UP> :m '<-2<CR>gv
+vnoremap <silent> <A-DOWN> :m '>+1<CR>gv
+vnoremap <silent> j :m '>+1<CR>gv
+vnoremap <silent> k :m '<-2<CR>gv
+vnoremap <silent> <A-UP> :m '<-2<CR>gv
