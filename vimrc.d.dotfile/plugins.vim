@@ -66,7 +66,7 @@ let g:airline_section_z = '%l/%L : %c'
 let g:airline_theme = 'luna'
 
 let g:ctrlp_extensions = []
-let g:ctrlp_user_command ='ag %s -l --hidden --ignore .git --nocolor -g ""'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --cached --others --exclude-standard']
 let g:ctrlp_use_caching = 0
 let g:ctrlp_prompt_mappings = {
 \    'PrtSelectMove("j")':   ['<s-tab>', '<down>'],
