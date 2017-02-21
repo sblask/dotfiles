@@ -20,12 +20,9 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'lokaltog/vim-easymotion'
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
-    Bundle 'qmx/vim-json'
     Bundle 'rickhowe/diffchar.vim'
-    Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
-    Bundle 'simeji/winresizer'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tmux-plugins/vim-tmux'
     Bundle 'tmux-plugins/vim-tmux-focus-events'
@@ -36,10 +33,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'vim-airline/vim-airline'
     Bundle 'vim-airline/vim-airline-themes'
     Bundle 'vim-scripts/AnsiEsc.vim'
-    Bundle 'vim-scripts/CmdlineComplete'
-    Bundle 'vim-scripts/VimClojure'
-    Bundle 'vim-scripts/argtextobj.vim'
-    Bundle 'wesQ3/vim-windowswap'
 endif
 filetype plugin indent on
 
