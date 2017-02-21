@@ -3,6 +3,7 @@ filetype off
 if isdirectory(expand("~/.vim/bundle/vundle/"))
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
+    Bundle 'AndrewRadev/linediff.vim'
     Bundle 'SirVer/ultisnips'
     Bundle 'bkad/CamelCaseMotion'
     Bundle 'chriskempson/base16-vim'
@@ -20,6 +21,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'qmx/vim-json'
+    Bundle 'rickhowe/diffchar.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
