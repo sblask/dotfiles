@@ -41,11 +41,10 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
 endif
 filetype plugin indent on
 
-try
-    colorscheme base16-eighties
-catch
-    colorscheme darkblue
-endtry
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 cnoreabbrev ag Gcd <bar> Ack!

@@ -1,36 +1,25 @@
-" background of line number column if shown
-highlight LineNr ctermbg=bg
-" normal text colour
-highlight Normal ctermfg=grey
-" autocompletion box
-highlight Pmenu ctermfg=black ctermbg=grey
-" currently selected line in autocompletion box
-highlight PmenuSel ctermfg=lightGrey ctermbg=darkGrey
-" wild menu highlighting
-highlight StatusLine ctermfg=lightGrey ctermbg=bg
-highlight WildMenu ctermfg=black ctermbg=lightGrey
-" highlight matches
-highlight clear Search
-highlight Search ctermbg=yellow ctermfg=brown
-" highlight while typing
-highlight clear IncSearch
-highlight IncSearch ctermbg=blue ctermfg=white
-" background of column where warnings and errors are shown
-highlight SignColumn ctermbg=bg
-" colours for warnings and errors
-highlight SyntasticErrorSign ctermbg=bg ctermfg=red
-highlight SyntasticWarningSign ctermbg=bg ctermfg=darkyellow
-highlight SyntasticStyleErrorSign ctermbg=bg ctermfg=yellow
-highlight SyntasticStyleWarningSign ctermbg=bg ctermfg=yellow
-" selected text in visual mode
-highlight Visual cterm=reverse ctermbg=None ctermfg=None
-" matching parentheses
-highlight MatchParen cterm=bold ctermfg=yellow
 " enable highlighting of current line
 set cursorline
 " don't actually highlight the line...
 highlight clear CursorLine
 " ...only the line number
-highlight CursorLineNR cterm=bold ctermbg=bg ctermfg=yellow
+highlight CursorLineNR              ctermbg=black    ctermfg=yellow
+" background of line number column if shown
+highlight LineNr                    ctermbg=black
+" autocompletion box
+highlight Pmenu                     ctermbg=grey     ctermfg=black
+" currently selected line in autocompletion box
+highlight PmenuSel                  ctermbg=darkGrey ctermfg=lightGrey
+" background of column where warnings and errors are shown
+highlight SignColumn                ctermbg=black
 " colors for listchars
-highlight SpecialKey ctermfg=darkRed
+highlight SpecialKey                                 ctermfg=darkRed
+" the choices in wildmenu
+highlight StatusLine                ctermbg=black    ctermfg=darkGrey
+" colours for warnings and errors
+highlight SyntasticErrorSign                         ctermfg=red
+highlight SyntasticWarningSign                       ctermfg=yellow
+highlight SyntasticStyleErrorSign                    ctermfg=yellow
+highlight SyntasticStyleWarningSign                  ctermfg=yellow
+" wild menu highlighting
+highlight WildMenu                                   ctermfg=black

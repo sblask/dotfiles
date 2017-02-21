@@ -6,6 +6,7 @@
 .fonts
 .tmux/plugins/tpm.copy/
 .vim/bundle/vundle.copy
+base16-shell.dotfile/
 scm_breeze.dotfile/
 xnviewmp.dotfile/*
 zsh.dotfile/

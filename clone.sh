@@ -8,6 +8,12 @@ VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
 rm -rf $VUNDLE_CLONE_DIRECTORY
 git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 
+BASE16_SHELL_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/base16-shell.dotfile
+rm -rf $BASE16_SHELL_CLONE_DIRECTORY
+git clone https://github.com/chriskempson/base16-shell $BASE16_SHELL_CLONE_DIRECTORY
+# patch generated from base16-shell directory with: git diff --no-prefix > ../patches/base16-shell
+patch -p0 --directory=$BASE16_SHELL_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/base16-shell
+
 SCM_BREEZE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/scm_breeze.dotfile
 rm -rf $SCM_BREEZE_CLONE_DIRECTORY
 git clone https://github.com/sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY

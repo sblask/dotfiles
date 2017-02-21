@@ -1,12 +1,10 @@
-" background of column next to line numbers
-highlight FoldColumn ctermbg=bg
-" background of folded lines
-highlight Folded ctermbg=bg ctermfg=14
-" highlight added lines
-highlight DiffAdd ctermbg=None ctermfg=green
-" highlight deleted lines
-highlight DiffDelete ctermbg=None ctermfg=red
-" highlight changed lines
-highlight DiffChange ctermbg=None ctermfg=None
+" hide foldable indicator in column next to line numbers
+highlight FoldColumn ctermbg=black  ctermfg=black
+" highlight of added lines
+highlight DiffAdd    ctermbg=green  ctermfg=darkGrey
+" highlight of deleted lines
+highlight DiffDelete ctermbg=None   ctermfg=red
+" highlight of changed lines
+highlight DiffChange ctermbg=None   ctermfg=None
 " highlight of changed text
-highlight DiffText cterm=None ctermbg=yellow ctermfg=brown
+highlight DiffText   ctermbg=yellow ctermfg=brown cterm=None

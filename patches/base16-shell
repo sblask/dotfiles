@@ -1,0 +1,24 @@
+diff --git scripts/base16-eighties.sh scripts/base16-eighties.sh
+index 87fe4d7..fed7047 100644
+--- scripts/base16-eighties.sh
++++ scripts/base16-eighties.sh
+@@ -8,7 +8,7 @@ if [ "${TERM%%-*}" = 'linux' ]; then
+     return 2>/dev/null || exit 0
+ fi
+ 
+-color00="2d/2d/2d" # Base 00 - Black
++color00="11/11/11" # Base 00 - Black
+ color01="f2/77/7a" # Base 08 - Red
+ color02="99/cc/99" # Base 0B - Green
+ color03="ff/cc/66" # Base 0A - Yellow
+@@ -30,8 +30,8 @@ color18="39/39/39" # Base 01
+ color19="51/51/51" # Base 02
+ color20="a0/9f/93" # Base 04
+ color21="e8/e6/df" # Base 06
+-color_foreground="d3/d0/c8" # Base 05
+-color_background="2d/2d/2d" # Base 00
++color_foreground="b3/b3/b3" # Base 05
++color_background="11/11/11" # Base 00
+ color_cursor="d3/d0/c8" # Base 05
+ 
+ if [ -n "$TMUX" ]; then
