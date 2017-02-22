@@ -1,0 +1,12 @@
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+
+cmap <C-S-V> <C-R>+
+cmap <C-V>   <C-R>+
+imap <C-S-V> <C-O>"+gp
+imap <C-V>   <C-O>"+gp
+nmap <C-S-V> <C-O>"+gp
