@@ -4,3 +4,8 @@ style "scrollbar"
   GtkScrollbar::slider-width = 12
 }
 class "Gtk*Scrollbar" style "scrollbar"
+
+style "vimfix" {
+  bg[NORMAL] = "#111111"
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
