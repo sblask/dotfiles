@@ -1,15 +1,17 @@
-set nocompatible
+if !has('gui_running')
 
-" some key combinations do not work without this (ctrl-arrow for example)
-set term=xterm-256color
+    set nocompatible
 
-" load plugins first as other configs require parts of them
-source ~/.vimrc.d/plugins.vim
+    " some key combinations do not work without this (ctrl-arrow for example)
+    set term=xterm-256color
 
-set wildignore+=plugins.vim
-for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
-    exe 'source' fpath
-endfor
-set wildignore-=plugins.vim
+    " load plugins first as other configs require parts of them
+    source ~/.vimrc.d/plugins.vim
 
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    set wildignore+=plugins.vim
+    for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
+        exe 'source' fpath
+    endfor
+    set wildignore-=plugins.vim
+
+endif
