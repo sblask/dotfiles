@@ -1,17 +1,19 @@
+set nocompatible
+
 if !has('gui_running')
-
-    set nocompatible
-
     " some key combinations do not work without this (ctrl-arrow for example)
     set term=xterm-256color
-
-    " load plugins first as other configs require parts of them
-    source ~/.vimrc.d/plugins.vim
-
-    set wildignore+=plugins.vim
-    for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
-        exe 'source' fpath
-    endfor
-    set wildignore-=plugins.vim
-
 endif
+
+" if this is not done, the colorscheme I really want is executed twice in gvim
+" and highlight customizations do not work
+colorscheme default
+
+" load plugins first as other configs require parts of them
+source ~/.vimrc.d/plugins.vim
+
+set wildignore+=plugins.vim
+for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
+    exe 'source' fpath
+endfor
+set wildignore-=plugins.vim
