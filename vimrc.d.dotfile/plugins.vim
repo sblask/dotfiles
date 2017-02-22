@@ -21,6 +21,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'rickhowe/diffchar.vim'
     Bundle 'sblask/base16-vim'
+    Bundle 'sblask/vim-airline-themes'
     Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'terryma/vim-multiple-cursors'
@@ -31,7 +32,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-unimpaired'
     Bundle 'vim-airline/vim-airline'
-    Bundle 'vim-airline/vim-airline-themes'
     Bundle 'vim-scripts/AnsiEsc.vim'
 endif
 filetype plugin indent on
