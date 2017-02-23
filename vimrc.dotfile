@@ -6,8 +6,6 @@ if has('gui_running')
 else
     " some key combinations do not work without this (ctrl-arrow for example)
     set term=xterm-256color
-    " needed for base16 colorscheme
-    let base16colorspace=256
 endif
 
 colorscheme base16-eighties-modified
