@@ -9,4 +9,7 @@ if !exists("autocommands_loaded")
     " other modes
     autocmd InsertEnter  *                 set timeoutlen=0
     autocmd InsertLeave  *                 set timeoutlen=1000
+    " hide fold column
+    autocmd WinEnter     *                 set foldcolumn=0
+    autocmd WinLeave     *                 set foldcolumn=0
 endif
