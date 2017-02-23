@@ -8,6 +8,8 @@ set softtabstop=4
 set autochdir
 " reload file automatically on focus if unchanged here but changed somewhere else
 set autoread
+" enable highlighting of current line
+set cursorline
 " set default encoding explicitely
 set encoding=utf-8
 " ignore case when completing filenames
