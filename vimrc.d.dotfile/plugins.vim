@@ -20,7 +20,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'rickhowe/diffchar.vim'
-    Bundle 'sblask/base16-vim'
     Bundle 'sblask/vim-airline-themes'
     Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
@@ -35,11 +34,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'vim-scripts/AnsiEsc.vim'
 endif
 filetype plugin indent on
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 cnoreabbrev ag Gcd <bar> Ack!

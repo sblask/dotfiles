@@ -1,13 +1,16 @@
 set nocompatible
 
-if !has('gui_running')
+if has('gui_running')
+    " base16 colorscheme not applied properly if this isn't done before
+    colorscheme default
+else
     " some key combinations do not work without this (ctrl-arrow for example)
     set term=xterm-256color
+    " needed for base16 colorscheme
+    let base16colorspace=256
 endif
 
-" if this is not done, the colorscheme I really want is executed twice in gvim
-" and highlight customizations do not work
-colorscheme default
+colorscheme base16-eighties-modified
 
 " load plugins first as other configs require parts of them
 source ~/.vimrc.d/plugins.vim
