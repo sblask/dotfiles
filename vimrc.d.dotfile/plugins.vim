@@ -53,6 +53,8 @@ let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
 let g:airline_section_z = '%l/%L : %c'
 let g:airline_theme = 'luna'
 
+call camelcasemotion#CreateMotionMappings('<leader>')
+
 let g:ctrlp_extensions = []
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --cached --others --exclude-standard | xargs ls -d 2>/dev/null']
 let g:ctrlp_use_caching = 0
