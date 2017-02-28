@@ -15,11 +15,13 @@ xterm.*.pointerColor:   #B3B3B3
 xterm.*.pointerShape:   left_ptr
 xterm.*.saveLines:      99999
 xterm.*.termName:       xterm-256color
+! keyboard shortcuts and fixes http://www.leonerd.org.uk/hacks/fixterms/
 xterm.*.translations:   #override \n\
     Shift Ctrl <Key> V:      insert-selection(CLIPBOARD)   \n\
     Shift Ctrl <Key> C:      copy-selection(CLIPBOARD)     \n\
           Ctrl <Key> minus:  smaller-vt-font()             \n\
           Ctrl <Key> plus:   larger-vt-font()              \n\
+          Ctrl <Key> 0:      set-vt-font(0)                \n\
     Shift      <Key> space:  string(0x1b) string("[32;2u") \n\
     Shift      <Key> Return: string(0x1b) string("[13;2u") \n\
 
