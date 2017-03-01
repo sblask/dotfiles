@@ -53,6 +53,7 @@ wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_set
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
 wget https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.zsh -O _git-flow && echo "#compdef git-flow" | cat - _git-flow | sponge _git-flow
+wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
 popd
 
