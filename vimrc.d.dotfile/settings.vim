@@ -14,6 +14,8 @@ set cursorline
 set encoding=utf-8
 " ignore case when completing filenames
 set fileignorecase
+" uninterrupted line between splits
+set fillchars=vert:│
 " don't fold
 set nofoldenable
 set foldminlines=99999
