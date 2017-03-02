@@ -1,5 +1,9 @@
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
+    " go to first change - having a check for &diff resulted in weird errors
+    " when there was a change on the first line, but as ]c[c doesn't do
+    " anything when not in diff mode it's ok without
+    autocmd VimEnter     *                 normal ]c[c
     " update diff on save
     autocmd BufWritePost *                 if &diff | diffupdate | endif
     " reload .vimrc automatically
