@@ -17,5 +17,5 @@ if !exists("autocommands_loaded")
     autocmd WinEnter     *                 set foldcolumn=0
     autocmd WinLeave     *                 set foldcolumn=0
     " write files automatically when focus is lost
-    autocmd FocusLost    *                 stopinsert | wall!
+    autocmd FocusLost    *                 stopinsert | silent! wall!
 endif
