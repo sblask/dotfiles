@@ -15,22 +15,22 @@ if !has('gui_running')
 endif
 
 " GUI color definitions
-let s:gui00 = "111111" " Black
-let s:gui01 = "393939" " Grey
-let s:gui02 = "515151" " Grey
-let s:gui03 = "747369" " Grey
-let s:gui04 = "a09f93" " Grey
-let s:gui05 = "b3b3b3" " Grey
-let s:gui06 = "e8e6df" " Grey
-let s:gui07 = "f2f0ec" " Grey
-let s:gui08 = "f2777a" " Red
-let s:gui09 = "f99157" " Light Orange
-let s:gui0A = "ffcc66" " Yellow
-let s:gui0B = "99cc99" " Green
-let s:gui0C = "66cccc" " Light Blue
-let s:gui0D = "6699cc" " Dark Blue
-let s:gui0E = "cc99cc" " Magenta
-let s:gui0F = "d27b53" " Dark Orange
+let s:gui00 = "#111111" " Black
+let s:gui01 = "#393939" " Grey
+let s:gui02 = "#515151" " Grey
+let s:gui03 = "#747369" " Grey
+let s:gui04 = "#a09f93" " Grey
+let s:gui05 = "#b3b3b3" " Grey
+let s:gui06 = "#e8e6df" " Grey
+let s:gui07 = "#f2f0ec" " Grey
+let s:gui08 = "#f2777a" " Red
+let s:gui09 = "#f99157" " Light Orange
+let s:gui0A = "#ffcc66" " Yellow
+let s:gui0B = "#99cc99" " Green
+let s:gui0C = "#66cccc" " Light Blue
+let s:gui0D = "#6699cc" " Dark Blue
+let s:gui0E = "#cc99cc" " Magenta
+let s:gui0F = "#d27b53" " Dark Orange
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -59,10 +59,10 @@ let g:colors_name = "base16-eighties"
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
   exec "hi " . a:group . " gui=none cterm=none"
   if a:guifg != ""
-    exec "hi " . a:group . " guifg=#" . a:guifg
+    exec "hi " . a:group . " guifg=" . a:guifg
   endif
   if a:guibg != ""
-    exec "hi " . a:group . " guibg=#" . a:guibg
+    exec "hi " . a:group . " guibg=" . a:guibg
   endif
   if a:ctermfg != ""
     exec "hi " . a:group . " ctermfg=" . a:ctermfg
@@ -74,7 +74,7 @@ fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
     exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
   endif
   if a:guisp != ""
-    exec "hi " . a:group . " guisp=#" . a:guisp
+    exec "hi " . a:group . " guisp=" . a:guisp
   endif
 endfun
 
