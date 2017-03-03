@@ -31,6 +31,8 @@ set nostartofline
 set noswapfile
 " show line numbers
 set number
+" do not show mode, that's what airline is for
+set noshowmode
 " splits
 set splitbelow
 set splitright
