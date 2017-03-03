@@ -57,6 +57,7 @@ let g:colors_name = "base16-eighties"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
+  exec "hi " . a:group . " gui=none cterm=none"
   if a:guifg != ""
     exec "hi " . a:group . " guifg=#" . a:guifg
   endif
