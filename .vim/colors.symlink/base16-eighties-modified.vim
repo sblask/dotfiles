@@ -285,6 +285,8 @@ call <sid>hi("SpellCap",                   "",      s:gui00, "",        s:cterm0
 call <sid>hi("SpellRare",                  "",      s:gui00, "",        s:cterm00, "undercurl", s:gui0E)
 
 " Syntastic
+call <sid>hi("SyntasticError",             s:gui08, "",      s:cterm08, "",        "undercurl", "")
+call <sid>hi("SyntasticWarning",           s:gui0F, "",      s:cterm0F, "",        "undercurl", "")
 call <sid>hi("SyntasticErrorSign",         s:gui08, "",      s:cterm08, "",        "",          "")
 call <sid>hi("SyntasticWarningSign",       s:gui0A, "",      s:cterm0A, "",        "",          "")
 call <sid>hi("SyntasticStyleErrorSign",    s:gui0A, "",      s:cterm0A, "",        "",          "")
