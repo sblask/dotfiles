@@ -4,7 +4,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
     Bundle 'AndrewRadev/linediff.vim'
-    Bundle 'SirVer/ultisnips'
     Bundle 'bkad/CamelCaseMotion'
     Bundle 'ctrlpvim/ctrlp.vim'
     Bundle 'davidhalter/jedi-vim'
@@ -12,7 +11,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'ervandew/supertab'
     Bundle 'fisadev/vim-isort'
     Bundle 'gmarik/vundle'
-    Bundle 'honza/vim-snippets'
     Bundle 'isRuslan/vim-es6'
     Bundle 'jelera/vim-javascript-syntax'
     Bundle 'junegunn/vim-easy-align'
@@ -91,8 +89,3 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '✗'
 let g:syntastic_warning_symbol = '✗'
-
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<esc>[Z"
-let g:UltiSnipsListSnippets="<F1>"
-let g:UltiSnipsEditSplit="vertical"
