@@ -50,6 +50,9 @@ bindkey -M viins '^X' push-line
 # undo last completion/change with Ctrl+Z
 bindkey -M vicmd '^Z' undo
 bindkey -M viins '^Z' undo
+# complete with Tab
+zle -N expand-scm-breeze-index-or-expand-or-complete
+bindkey -M viins '^I' expand-scm-breeze-index-or-expand-or-complete
 # allow going back in selection menu using Shift-Tab
 bindkey -M viins '^[[Z' reverse-menu-complete
 # back in history or prefix search

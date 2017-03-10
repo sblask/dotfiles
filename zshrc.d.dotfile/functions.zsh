@@ -1,3 +1,13 @@
+function expand-scm-breeze-index-or-expand-or-complete {
+    local MATCH
+    MATCH=$(echo ${LBUFFER} | sed --quiet --regexp-extended 's/[^0-9]+ ([0-9]+([ -][0-9]+)*$)/\1/p')
+    if [ "${MATCH}" != "" ]; then
+        LBUFFER=${LBUFFER%%${MATCH}}
+        LBUFFER+=$(scmb_expand_args ${=MATCH} | sed 's/\t/ /g')
+    else
+        zle expand-or-complete
+    fi
+}
 function gd {
     git diff --color=always $@          | vimpager
 }
