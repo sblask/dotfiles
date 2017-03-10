@@ -17,6 +17,8 @@ bind-key -r k resize-pane -U 5
 bind-key -r l resize-pane -R 5
 bind-key -r j resize-pane -D 5
 
+bind-key -r = select-layout tiled
+
 bind-key -r , swap-pane -U
 bind-key -r . swap-pane -D
 bind-key -r < swap-window -t -1
