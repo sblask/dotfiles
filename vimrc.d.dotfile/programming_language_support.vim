@@ -1,10 +1,10 @@
 fun! ConfigurePythonCheckers()
     let flake8Config = findfile('setup.cfg', '.;')
     if flake8Config != ''
-        let b:syntastic_python_checkers = ['pylint', 'flake8']
+        let b:syntastic_checkers = ['pylint', 'flake8']
         let b:syntastic_python_flake8_args = '--config ' . fnamemodify(flake8Config, ':p')
     else
-        let b:syntastic_python_checkers = ['pylint', 'pycodestyle']
+        let b:syntastic_checkers = ['pylint', 'pycodestyle']
         let b:syntastic_python_pycodestyle_args = '--ignore E501'
     endif
 
