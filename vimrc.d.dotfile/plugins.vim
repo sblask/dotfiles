@@ -69,6 +69,8 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_tabs_not_buffers = 0
 
+let g:multi_cursor_exit_from_insert_mode=0
+
 " have tree view enabled be default (:Vexplore)
 let g:netrw_liststyle=3
 " open document to the right of the browser
