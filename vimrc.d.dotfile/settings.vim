@@ -36,6 +36,8 @@ set noshowmode
 " splits
 set splitbelow
 set splitright
+" no delay for esc
+set ttimeoutlen=0
 " zsh-like command completion
 set wildmenu
 set wildmode=longest,full
