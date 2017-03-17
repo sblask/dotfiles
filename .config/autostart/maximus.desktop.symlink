@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=maximus --no-maximize
-Icon=view-fullscreen
-Name=Maximus
-Terminal=false
-Type=Application
