@@ -7,6 +7,8 @@ if !exists("filetype_autocommands_loaded")
     autocmd BufRead    *.jsm             set filetype=javascript
     autocmd BufNewFile *.sls             set filetype=yaml
     autocmd BufRead    *.sls             set filetype=yaml
+    autocmd BufNewFile *.template        set filetype=json
+    autocmd BufRead    *.template        set filetype=json
     autocmd BufRead    .bash*            set filetype=sh
     autocmd BufRead    Buildfile         set filetype=make
     autocmd BufRead    bash*.dotfile     set filetype=sh
