@@ -7,7 +7,7 @@ alias pss='ps aufx'
 alias untar='tar -xzf'
 alias week='date +%W'
 # allow vim instead of less
-alias vimpager="/bin/sh -c \"vim -c 'set tabstop=8 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -\""
+alias vimpager="/bin/sh -c \"vim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -\""
 # apt-get
 alias aptgrep='dpkg -l | grep'
 alias autoremove='sudo apt-get autoremove --purge'
