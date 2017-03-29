@@ -17,6 +17,7 @@ setopt GLOBDOTS
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # complete case insensitive
 zstyle ':completion:*' menu select # highlight current selection and make suggestions navigable
+zstyle ':completion:*' completer _complete _ignored _files # always provide file completion, default is: _complete _ignored
 
 # highlight prefix that is being completed
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==34=34}:${(s.:.)LS_COLORS}")';
