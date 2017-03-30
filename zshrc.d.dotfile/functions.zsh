@@ -1,3 +1,9 @@
+function c() {
+    cd ~/Clones/$1;
+}
+# complete with ~/Clones prefix
+compctl -/ -W ~/Clones/ c
+
 function expand-scm-breeze-index-or-expand-or-complete {
     local MATCH
     MATCH=$(echo ${LBUFFER} | sed --quiet --regexp-extended 's/[^0-9]+ ([0-9]+([ -][0-9]+)*$)/\1/p')

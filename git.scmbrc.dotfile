@@ -24,12 +24,12 @@ export GIT_REPO_DIR="$HOME/Clones"
 export GIT_REPOS=""
 export git_status_command="git_status_shortcuts"
 # Alias
-git_index_alias="c"    # Switch to a repo in the (c)ode directory
+git_index_alias="c_scm_breeze"    # Switch to a repo in the (c)ode directory
 
 
 # Git Aliases
 # ----------------------------------------------
-git_alias="g"
+git_alias="g_scm_breeze"
 
 # 1. 'SCM Breeze' functions
 git_status_shortcuts_alias="gs"
