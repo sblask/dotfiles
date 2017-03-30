@@ -16,3 +16,8 @@
 	pager = vim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -
 [tag]
 	sort = version:refname
+[color "status"]
+	added = yellow
+	branch = blue
+	changed = green
+	untracked = cyan
