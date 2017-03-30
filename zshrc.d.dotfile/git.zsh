@@ -15,3 +15,14 @@ alias gld='glog --left-right --graph --cherry-mark'
 alias gldo='glog --left-right --graph'
 alias gmd='git merge --ff-only origin/develop'
 alias gmm='git merge --ff-only origin/master'
+
+function gd {
+    git diff --color=always          $@
+}
+function gdc {
+    git diff --color=always --cached $@
+}
+function gdh {
+    git diff --color=always          $@ | head --lines 50
+}
+
