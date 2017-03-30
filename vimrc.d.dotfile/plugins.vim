@@ -11,8 +11,6 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'ervandew/supertab'
     Bundle 'fisadev/vim-isort'
     Bundle 'gmarik/vundle'
-    Bundle 'isRuslan/vim-es6'
-    Bundle 'jelera/vim-javascript-syntax'
     Bundle 'junegunn/vim-easy-align'
     Bundle 'lokaltog/vim-easymotion'
     Bundle 'mileszs/ack.vim'
