@@ -11,6 +11,9 @@ setopt COMPLETE_IN_WORD
 
 # enable # ~ ^ in globs
 setopt EXTENDED_GLOB
+# if there is no match, the glob is passed to a command without expansion - makes HEAD^ work
+unsetopt NOMATCH
+# globbing includes dotfiles
 setopt GLOBDOTS
 
 # general options
