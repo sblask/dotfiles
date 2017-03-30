@@ -4,12 +4,43 @@ function c() {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
 
-function expand-scm-breeze-index-or-expand-or-complete {
-    local MATCH
-    MATCH=$(echo ${LBUFFER} | sed --quiet --regexp-extended 's/[^0-9]+ ([0-9]+([ -][0-9]+)*$)/\1/p')
+function flatten-index-arguments() {
+    for argument in $( echo $@ )
+    do
+        if [[ "${argument}" =~ ^[0-9]+-[0-9]+$ ]]
+        then
+            for index in $( eval echo {${argument/-/..}} )
+            do
+                echo ${index}
+            done
+        else
+            echo ${argument}
+        fi
+    done
+}
+
+function expand-indexes () {
+    for index in $( flatten-index-arguments $@ )
+    do
+        local index_variable="e${index}"
+        local resolved_index=$( eval echo "\"\${${index_variable}}\"" )
+        if [ "${resolved_index}" != "" -a -e "${resolved_index}" ]
+        then
+            printf "${resolved_index}" | sed 's/ /\\ /g'
+        else
+            printf "${index}"
+        fi
+        printf " "
+    done
+}
+
+function expand-indexes-or-expand-or-complete {
+    local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" )
     if [ "${MATCH}" != "" ]; then
-        LBUFFER=${LBUFFER%%${MATCH}}
-        LBUFFER+=$(scmb_expand_args ${=MATCH} | sed 's/\t/ /g' | sed 's/ /\\ /g')
+        local REPLACEMENT=$( expand-indexes ${MATCH} )
+        if [ "${REPLACEMENT}" != "" ]; then
+            LBUFFER="${LBUFFER/${MATCH}/${REPLACEMENT}}"
+        fi
     else
         zle expand-or-complete
     fi
