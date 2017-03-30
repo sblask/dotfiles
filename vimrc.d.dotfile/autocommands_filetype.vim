@@ -12,6 +12,7 @@ if !exists("filetype_autocommands_loaded")
     autocmd BufRead    .bash*            set filetype=sh
     autocmd BufRead    Buildfile         set filetype=make
     autocmd BufRead    bash*.dotfile     set filetype=sh
+    autocmd BufRead    gitconfig.dotfile set filetype=gitconfig
     autocmd BufRead    tmux.conf.dotfile set filetype=tmux
     " keyword settings
     autocmd FileType   sh                set iskeyword+=-
