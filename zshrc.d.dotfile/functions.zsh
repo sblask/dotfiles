@@ -3,7 +3,7 @@ function expand-scm-breeze-index-or-expand-or-complete {
     MATCH=$(echo ${LBUFFER} | sed --quiet --regexp-extended 's/[^0-9]+ ([0-9]+([ -][0-9]+)*$)/\1/p')
     if [ "${MATCH}" != "" ]; then
         LBUFFER=${LBUFFER%%${MATCH}}
-        LBUFFER+=$(scmb_expand_args ${=MATCH} | sed 's/\t/ /g')
+        LBUFFER+=$(scmb_expand_args ${=MATCH} | sed 's/\t/ /g' | sed 's/ /\\ /g')
     else
         zle expand-or-complete
     fi
