@@ -8,6 +8,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'ctrlpvim/ctrlp.vim'
     Bundle 'davidhalter/jedi-vim'
     Bundle 'editorconfig/editorconfig-vim'
+    Bundle 'breuckelen/vim-resize'
     Bundle 'ervandew/supertab'
     Bundle 'fisadev/vim-isort'
     Bundle 'gmarik/vundle'
@@ -77,6 +78,9 @@ let g:netrw_liststyle=3
 let g:netrw_browse_split=4
 
 let g:polyglot_disabled = ['jinja', 'tmux']
+
+" for breuckelen/vim-resize
+let g:resize_count = 5
 
 let g:SuperTabDefaultCompletionType = "context"
 
