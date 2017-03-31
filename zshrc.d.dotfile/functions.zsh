@@ -38,9 +38,7 @@ function expand-indexes-or-expand-or-complete {
     local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" )
     if [ "${MATCH}" != "" ]; then
         local REPLACEMENT=$( expand-indexes ${MATCH} )
-        if [ "${REPLACEMENT}" != "" ]; then
-            LBUFFER="${LBUFFER/${MATCH}/${REPLACEMENT}}"
-        fi
+        LBUFFER="${LBUFFER/%${MATCH}/${REPLACEMENT}}"
     else
         zle expand-or-complete
     fi
