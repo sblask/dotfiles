@@ -18,7 +18,7 @@ setopt GLOBDOTS
 
 # general options
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # complete case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'l:|=.' # complete case insensitive and allow for the initial dot to be omitted
 zstyle ':completion:*' menu select # highlight current selection and make suggestions navigable
 zstyle ':completion:*' completer _complete _ignored _files # always provide file completion, default is: _complete _ignored
 
