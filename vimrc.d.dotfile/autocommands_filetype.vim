@@ -10,9 +10,11 @@ if !exists("filetype_autocommands_loaded")
     autocmd BufNewFile *.template        set filetype=json
     autocmd BufRead    *.template        set filetype=json
     autocmd BufRead    .bash*            set filetype=sh
+    autocmd BufRead    .pylintrc         set filetype=dosini
     autocmd BufRead    Buildfile         set filetype=make
     autocmd BufRead    bash*.dotfile     set filetype=sh
     autocmd BufRead    gitconfig.dotfile set filetype=gitconfig
+    autocmd BufRead    pylintrc.dotfile  set filetype=dosini
     autocmd BufRead    tmux.conf.dotfile set filetype=tmux
     " keyword settings
     autocmd FileType   sh                set iskeyword+=-
