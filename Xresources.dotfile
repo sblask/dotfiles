@@ -15,16 +15,23 @@ xterm.*.pointerColor:   #B3B3B3
 xterm.*.pointerShape:   left_ptr
 xterm.*.saveLines:      99999
 xterm.*.termName:       xterm-256color
-! keyboard shortcuts and fixes http://www.leonerd.org.uk/hacks/fixterms/
+! keyboard shortcuts and fixes
+! format:
+! 27
+! ;
+! 1 [ + 1 for shift][ + 2 for alt][ + 4 for ctrl]
+! ;
+! decimal number of modified key - see http://www.nthelp.com/ascii.htm
+! ~
 xterm.*.translations:   #override \n\
-    Shift Ctrl <Key> V:      insert-selection(CLIPBOARD)   \n\
-    Shift Ctrl <Key> C:      copy-selection(CLIPBOARD)     \n\
-          Ctrl <Key> minus:  smaller-vt-font()             \n\
-          Ctrl <Key> plus:   larger-vt-font()              \n\
-          Ctrl <Key> 0:      set-vt-font(0)                \n\
-          Ctrl <Key> Escape: string(0x1b) string("[27;5u") \n\
-    Shift Ctrl <Key> Tab:    string(0x1b) string("[1;5Z")  \n\
-          Ctrl <Key> Tab:    string(0x1b) string("[9;5u")  \n\
-    Shift      <Key> space:  string(0x1b) string("[32;2u") \n\
-    Shift      <Key> Return: string(0x1b) string("[13;2u") \n\
+    Shift Ctrl <Key>      V: insert-selection(CLIPBOARD)      \n\
+    Shift Ctrl <Key>      C: copy-selection(CLIPBOARD)        \n\
+          Ctrl <Key>  minus: smaller-vt-font()                \n\
+          Ctrl <Key>   plus: larger-vt-font()                 \n\
+          Ctrl <Key>      0: set-vt-font(0)                   \n\
+          Ctrl <Key> Escape: string(0x1b) string("[27;5;27~") \n\
+    Shift Ctrl <Key>    Tab: string(0x1b) string("[27;6;9~")  \n\
+          Ctrl <Key>    Tab: string(0x1b) string("[27;5;9~")  \n\
+    Shift      <Key>  space: string(0x1b) string("[27;2;32~") \n\
+    Shift      <Key> Return: string(0x1b) string("[27;2;13~") \n\
 

@@ -8,8 +8,8 @@ bind-key -r | run-shell "~/.bin/pid-to-cwd #{pane_pid} tmux split-window -h -c"
 
 bind-key -r d new-window -c ~/Clones/dotfiles/
 
-bind-key -r BTab select-pane -t :.-
-bind-key -r Tab select-pane -t :.+
+bind-key -r C-S-Tab select-pane -t :.-
+bind-key -r C-Tab select-pane -t :.+
 
 bind-key -r H previous-window
 bind-key -r L next-window

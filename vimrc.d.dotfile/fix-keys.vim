@@ -1,6 +1,6 @@
-" see xresources and http://www.leonerd.org.uk/hacks/fixterms/
-nmap <esc>[9;5u  <C-Tab>
-nmap <esc>[27;5u <C-Esc>
-nmap <esc>[1;5Z  <C-S-Tab>
-nmap <esc>[32;2u <S-Space>
-nmap <esc>[13;2u <S-CR>
+" see xresources
+nmap <esc>[27;2;13~ <S-CR>
+nmap <esc>[27;2;32~ <S-Space>
+nmap <esc>[27;5;27~ <C-Esc>
+nmap <esc>[27;5;9~  <C-Tab>
+nmap <esc>[27;6;9~  <C-S-Tab>
