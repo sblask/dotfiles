@@ -79,9 +79,6 @@ let g:netrw_browse_split=4
 
 let g:polyglot_disabled = ['jinja', 'tmux']
 
-" for breuckelen/vim-resize
-let g:resize_count = 5
-
 let g:SuperTabDefaultCompletionType = "context"
 
 let g:syntastic_aggregate_errors = 1

@@ -18,4 +18,6 @@ if !exists("autocommands_loaded")
     autocmd WinLeave     *                 set foldcolumn=0
     " write files automatically when focus is lost
     autocmd FocusLost    *                 stopinsert | silent! wall!
+    " for breuckelen/vim-resize
+    autocmd BufEnter     *                 let g:resize_count = 5
 endif
