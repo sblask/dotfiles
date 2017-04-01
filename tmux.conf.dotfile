@@ -14,10 +14,10 @@ bind-key -r Tab select-pane -t :.+
 bind-key -r H previous-window
 bind-key -r L next-window
 
-bind-key -r h resize-pane -L 5
-bind-key -r k resize-pane -U 5
-bind-key -r l resize-pane -R 5
-bind-key -r j resize-pane -D 5
+bind-key -r C-H resize-pane -L 5
+bind-key -r C-K resize-pane -U 5
+bind-key -r C-L resize-pane -R 5
+bind-key -r C-J resize-pane -D 5
 
 bind-key -r = select-layout tiled
 
