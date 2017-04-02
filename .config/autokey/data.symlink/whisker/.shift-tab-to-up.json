@@ -2,7 +2,7 @@
     "usageCount": 0, 
     "omitTrigger": false, 
     "prompt": false, 
-    "description": "tab-to-down", 
+    "description": "shift-tab-to-up", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [], 
@@ -13,14 +13,16 @@
     }, 
     "hotkey": {
         "hotKey": "<tab>", 
-        "modifiers": []
+        "modifiers": [
+            "<shift>"
+        ]
     }, 
     "modes": [
         3
     ], 
     "showInTrayMenu": false, 
     "filter": {
-        "regex": "Application Finder", 
+        "regex": "Whisker Menu", 
         "isRecursive": false
     }, 
     "type": "script", 

@@ -1,5 +1,5 @@
 {
-    "usageCount": 31, 
+    "usageCount": 0, 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [], 
@@ -9,7 +9,7 @@
         "triggerInside": false
     }, 
     "modes": [], 
-    "title": "application-finder", 
+    "title": "whisker", 
     "hotkey": {
         "hotKey": null, 
         "modifiers": []
