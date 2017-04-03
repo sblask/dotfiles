@@ -44,8 +44,10 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="&lt;Primary&gt;F11" type="string" value="xbacklight -dec 1"/>
       <property name="&lt;Primary&gt;F12" type="string" value="xbacklight -inc 1"/>
+      <property name="&lt;Super&gt;e" type="string" value="exo-open /home/sebastian/.local/share/applications/gvim.desktop"/>
       <property name="&lt;Super&gt;f" type="string" value="exo-open /home/sebastian/.local/share/applications/Thunar.desktop"/>
       <property name="&lt;Super&gt;m" type="string" value="exo-open --launch MailReader"/>
+      <property name="&lt;Super&gt;r" type="string" value="quiterss -style=gtk"/>
       <property name="&lt;Super&gt;t" type="string" value="xterm -maximized"/>
       <property name="&lt;Super&gt;w" type="string" value="exo-open /home/sebastian/.local/share/applications/firefox.desktop"/>
       <property name="Print" type="string" value="xfce4-screenshooter -f"/>
