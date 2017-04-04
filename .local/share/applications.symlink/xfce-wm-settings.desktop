@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Window Manager
+Comment=Window Manager, theme and keyboard settings
+Icon=xfwm4
+Exec=xfwm4-settings
+NoDisplay=false
+OnlyShowIn=XFCE;
+Categories=DesktopSettings;GTK;Settings;Utility;X-XFCE-PersonalSettings;X-XFCE-SettingsDialog;XFCE;
+StartupNotify=true
+Terminal=false
