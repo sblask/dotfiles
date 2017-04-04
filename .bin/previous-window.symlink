@@ -1,0 +1,8 @@
+#!/bin/bash
+
+window_ids=$(echo "$(wmctrl -l && wmctrl -l)" | awk '$2 == "0" {print $1}')
+
+current_window_id=$(printf 0x0%x $(xdotool getwindowfocus))
+window_id=$(echo "$window_ids" | tac | grep --max-count 1 --after-context 1 $current_window_id | tail -1)
+
+wmctrl -i -a $window_id
