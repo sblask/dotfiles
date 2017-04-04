@@ -47,7 +47,7 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
-let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%f'])
+let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%n: %f'])
 let g:airline_section_z = '%l/%L : %c'
 let g:airline_theme = 'luna'
 
