@@ -73,10 +73,8 @@ let g:jedi#use_tabs_not_buffers = 0
 
 let g:multi_cursor_exit_from_insert_mode=0
 
-" have tree view enabled be default (:Vexplore)
-let g:netrw_liststyle=3
-" open document to the right of the browser
-let g:netrw_browse_split=4
+let g:netrw_banner = 0 " no header, toggle with I
+let g:netrw_liststyle = 3 " tree view
 
 let g:polyglot_disabled = ['jinja', 'tmux']
 
