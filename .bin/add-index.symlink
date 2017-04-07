@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=invalid-name
 import argparse
 import re
 import sys
@@ -52,8 +53,8 @@ def main():
 
     if arguments.print_files:
         outfile.write('@@file_list@@\n')
-        for file in files:
-            outfile.write(file)
+        for filename in files:
+            outfile.write(filename)
             outfile.write('\n')
 
 
