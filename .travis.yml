@@ -1,0 +1,4 @@
+before_install:
+  - sudo apt-get install colordiff
+script: 
+  - test.sh
