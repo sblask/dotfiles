@@ -4,7 +4,7 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=WebBrowser
-X-XFCE-CommandsWithParameter=bash -c "env GTK_THEME=Greybird firefox %s"
+X-XFCE-CommandsWithParameter=bash -c "env GTK_THEME=Greybird firefox '%s'"
 Icon=bash
 Name=bash
 X-XFCE-Commands=bash
