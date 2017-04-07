@@ -45,7 +45,7 @@ function __expand-indexes () {
     do
         local index_variable="e${index}"
         local resolved_index=$( eval echo "\"\${${index_variable}}\"" )
-        if [ "${resolved_index}" != "" -a -e "${resolved_index}" ]
+        if [ "${resolved_index}" != "" ]
         then
             printf "${resolved_index}" | sed 's/ /\\ /g'
         else
