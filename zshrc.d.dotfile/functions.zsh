@@ -4,6 +4,27 @@ function c() {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
 
+function set-index-variables() {
+    local input="$(cat -)"
+
+    local old_ifs=$IFS
+    IFS=$'\n'
+
+    local index=1
+    for file in $(echo $input | sed -e '0,/@@file_list@@/d')
+    do
+        export e$index="$file"
+        let index++
+    done
+
+    for line in $(echo $input | sed -e '/@@file_list@@/,$d')
+    do
+        echo $line
+    done
+
+    IFS=$old_ifs
+}
+
 function __flatten-index-arguments() {
     for argument in $( echo $@ )
     do
