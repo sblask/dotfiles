@@ -4,7 +4,7 @@ function c() {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
 
-function flatten-index-arguments() {
+function __flatten-index-arguments() {
     for argument in $( echo $@ )
     do
         if [[ "${argument}" =~ ^[0-9]+-[0-9]+$ ]]
@@ -19,8 +19,8 @@ function flatten-index-arguments() {
     done
 }
 
-function expand-indexes () {
-    for index in $( flatten-index-arguments $@ )
+function __expand-indexes () {
+    for index in $( __flatten-index-arguments $@ )
     do
         local index_variable="e${index}"
         local resolved_index=$( eval echo "\"\${${index_variable}}\"" )
@@ -37,7 +37,7 @@ function expand-indexes () {
 function expand-indexes-or-expand-or-complete {
     local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" )
     if [ "${MATCH}" != "" ]; then
-        local REPLACEMENT=$( expand-indexes ${MATCH} )
+        local REPLACEMENT=$( __expand-indexes ${MATCH} )
         LBUFFER="${LBUFFER/%${MATCH}/${REPLACEMENT}}"
     else
         zle expand-or-complete
