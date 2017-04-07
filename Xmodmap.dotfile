@@ -1,7 +1,4 @@
-! disable caps lock
-clear Lock
+! remove Caps Lock functionality
+clear lock
+! use Caps Lock key as compose key
 keycode 66 = Multi_key
-! no back and forward, left and right instead
-keycode 166 = Left
-keycode 167 = Right
-
