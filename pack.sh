@@ -20,7 +20,6 @@ EXCLUDED_FILES="\
     doc
     hub.symlink
     pack.sh
-    scm_breeze_patch
     xnviewmp.dotfile
 "
 

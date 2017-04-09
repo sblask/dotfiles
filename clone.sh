@@ -14,12 +14,6 @@ git clone https://github.com/chriskempson/base16-shell $BASE16_SHELL_CLONE_DIREC
 # patch generated from base16-shell directory with: git diff --no-prefix > ../patches/base16-shell
 patch -p0 --directory=$BASE16_SHELL_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/base16-shell
 
-SCM_BREEZE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/scm_breeze.dotfile
-rm -rf $SCM_BREEZE_CLONE_DIRECTORY
-git clone https://github.com/sblask/scm_breeze.git $SCM_BREEZE_CLONE_DIRECTORY
-# patch generated from scm breeze directory with: git diff --no-prefix > ../patches/scm_breeze
-patch -p0 --directory=$SCM_BREEZE_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/scm_breeze
-
 TPM_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.tmux/plugins/tpm.copy
 rm -rf $TPM_CLONE_DIRECTORY
 git clone https://github.com/tmux-plugins/tpm $TPM_CLONE_DIRECTORY
