@@ -12,9 +12,18 @@ LS_REGEXP = re.compile(
     r'(?P<filename>.+)'
 )
 
+SUPPORTED_INPUT_TYPES = (
+    'ls_list',
+)
+
 
 def get_arguments():
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--input-type',
+        required=True,
+        choices=SUPPORTED_INPUT_TYPES,
+    )
     parser.add_argument(
         '--print-files',
         action='store_true',
