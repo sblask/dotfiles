@@ -1,0 +1,82 @@
+total 2.7M
+drwxrwxr-x 20 sebastian sebastian 4.0K Apr  9 13:59  [1] [0m[34m.[0m
+drwxrwxr-x 20 sebastian sebastian 4.0K Mar 12 00:08  [2] [34m..[0m
+drwxrwxr-x  6 sebastian sebastian 4.0K Mar  2 22:57  [3] [34mbase16-shell.dotfile[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Apr  7 22:50  [4] [34m.bin[0m
+-rwxrwxr-x  1 sebastian sebastian 4.3K Mar  2 22:57  [5] [32mclone.sh[0m
+drwxrwxr-x  7 sebastian sebastian 4.0K Apr  3 00:37  [6] [34m.config[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Aug  4  2016  [7] [34m.fonts[0m
+drwxrwxr-x  8 sebastian sebastian 4.0K Apr  9 14:11  [8] [34m.git[0m
+-rw-rw-r--  1 sebastian sebastian  448 Mar 30 20:12  [9] gitconfig.dotfile
+-rw-rw-r--  1 sebastian sebastian  210 Mar 11 08:29 [10] .gitignore
+-rw-rw-r--  1 sebastian sebastian 4.0K Apr  7 21:24 [11] git.scmbrc.dotfile
+-rw-rw-r--  1 sebastian sebastian  224 Feb 28 20:31 [12] gtkrc-2.0.dotfile
+-rw-rw-r--  1 sebastian sebastian  380 Apr  1 20:38 [13] gvimrc.dotfile
+-rw-rw-r--  1 sebastian sebastian 2.5M Oct 20  2014 [14] hub.tgz
+-rw-rw-r--  1 sebastian sebastian  281 Aug  4  2016 [15] inputrc.dotfile
+-rwxrwxr-x  1 sebastian sebastian 4.1K Aug  4  2016 [16] [32minstall.py[0m
+-rw-rw-r--  1 sebastian sebastian   34 Jan 18 11:09 [17] isort.cfg.dotfile
+drwxrwxr-x  3 sebastian sebastian 4.0K Apr  5 21:41 [18] [34m.local[0m
+-rwxrwxr-x  1 sebastian sebastian  630 Aug  4  2016 [19] [32mpack.sh[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Feb 22 00:30 [20] [34mpatches[0m
+-rw-rw-r--  1 sebastian sebastian  485 Feb 22 00:30 [21] pylintrc.dotfile
+drwxrwxr-x  5 sebastian sebastian 4.0K Mar  2 22:57 [22] [34mscm_breeze.dotfile[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Dec 22 22:17 [23] [34mskeletons.dotfile[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Apr  9 14:10 [24] [34mtest[0m
+-rwxrwxr-x  1 sebastian sebastian  207 Apr  7 22:03 [25] [32mtest.sh[0m
+drwxrwxr-x  3 sebastian sebastian 4.0K Aug  4  2016 [26] [34m.tmux[0m
+-rw-rw-r--  1 sebastian sebastian 2.4K Apr  2 00:11 [27] tmux.conf.dotfile
+-rw-rw-r--  1 sebastian sebastian   74 Apr  7 22:31 [28] .travis.yml
+-rwxrwxr-x  1 sebastian sebastian   36 Aug  4  2016 [29] [32mupdate_fonts.sh[0m
+drwxrwxr-x  7 sebastian sebastian 4.0K Mar 11 08:29 [30] [34m.venv[0m
+drwxrwxr-x  4 sebastian sebastian 4.0K Feb 28 20:31 [31] [34m.vim[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Apr  5 21:41 [32] [34mvimrc.d.dotfile[0m
+-rw-rw-r--  1 sebastian sebastian  520 Mar 19 23:19 [33] vimrc.dotfile
+drwxrwxr-x  2 sebastian sebastian 4.0K Jan 18 11:48 [34] [34m.virtualenvs[0m
+-rw-rw-r--  1 sebastian sebastian  283 Apr  7 21:15 [35] Xmodmap.dotfile
+drwxrwxr-x  2 sebastian sebastian 4.0K Apr  2 23:01 [36] [34mxnviewmp.dotfile[0m
+-rw-rw-r--  1 sebastian sebastian 1.5K Apr  2 01:03 [37] Xresources.dotfile
+drwxrwxr-x  5 sebastian sebastian 4.0K Mar  2 22:57 [38] [34mzsh.dotfile[0m
+drwxrwxr-x  2 sebastian sebastian 4.0K Apr  7 21:30 [39] [34mzshrc.d.dotfile[0m
+-rw-rw-r--  1 sebastian sebastian   91 Jan 31 01:17 [40] zshrc.dotfile
+@@file_list@@
+.
+..
+base16-shell.dotfile
+.bin
+clone.sh
+.config
+.fonts
+.git
+gitconfig.dotfile
+.gitignore
+git.scmbrc.dotfile
+gtkrc-2.0.dotfile
+gvimrc.dotfile
+hub.tgz
+inputrc.dotfile
+install.py
+isort.cfg.dotfile
+.local
+pack.sh
+patches
+pylintrc.dotfile
+scm_breeze.dotfile
+skeletons.dotfile
+test
+test.sh
+.tmux
+tmux.conf.dotfile
+.travis.yml
+update_fonts.sh
+.venv
+.vim
+vimrc.d.dotfile
+vimrc.dotfile
+.virtualenvs
+Xmodmap.dotfile
+xnviewmp.dotfile
+Xresources.dotfile
+zsh.dotfile
+zshrc.d.dotfile
+zshrc.dotfile

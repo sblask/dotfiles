@@ -4,7 +4,13 @@ import argparse
 import re
 import sys
 
-LS_REGEXP = re.compile('(?P<properties>([0-9]+ )?([^ ]+ +){8})(?P<filename>.+)')
+ANSI_REGEXP = re.compile(
+    r'\x1b[^m]+m'
+)
+LS_REGEXP = re.compile(
+    r'(?P<properties>([0-9]+ )?([^ ]+ +){8})'
+    r'(?P<filename>.+)'
+)
 
 
 def get_arguments():
@@ -54,7 +60,7 @@ def main():
     if arguments.print_files:
         outfile.write('@@file_list@@\n')
         for filename in files:
-            outfile.write(filename)
+            outfile.write(ANSI_REGEXP.sub('', filename))
             outfile.write('\n')
 
 
