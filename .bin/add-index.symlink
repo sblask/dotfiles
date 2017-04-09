@@ -8,7 +8,7 @@ ANSI_REGEXP = re.compile(
     r'\x1b[^m]+m'
 )
 LS_REGEXP = re.compile(
-    r'(?P<properties>([0-9]+ )?([^ ]+ +){8})'
+    r'(?P<line>([0-9]+ )?([^ ]+ +){8})'
     r'(?P<filename>.+)'
 )
 
@@ -45,26 +45,44 @@ def get_arguments():
 
 def main():
     arguments = get_arguments()
-    infile = arguments.infile
-    outfile = arguments.outfile
 
+    lines, files = parse_ls_list_input(arguments)
+    print_output(arguments, lines, files)
+    maybe_print_files(arguments, files)
+
+
+def parse_ls_list_input(arguments):
+    lines = []
     files = []
-    matches = []
-    for line in infile:
+
+    for line in arguments.infile:
         match = LS_REGEXP.match(line)
         if not match:
+            lines.append((line, None))
+        else:
+            lines.append((match.group('line'), match.group('filename')))
+            files.append(match.group('filename').split(' -> ')[0])
+
+    return lines, files
+
+
+def print_output(arguments, lines, files):
+    outfile = arguments.outfile
+
+    padding = len(str(len(files))) + 2
+    index = 1
+    for line, filename in lines:
+        if filename is None:
             outfile.write(line)
         else:
-            files.append(match.group('filename').split(' -> ')[0])
-            matches.append(match)
+            index_string = '[%s]' % index
+            fixed_length_index_string = index_string.rjust(padding, ' ') + ' '
+            outfile.write(line + fixed_length_index_string + filename + '\n')
+            index += 1
 
-    padding = len(str(len(matches))) + 2
-    for index, match in enumerate(matches, start=1):
-        index_string = ('[%s]' % index).rjust(padding, ' ')
-        outfile.write(match.group('properties'))
-        outfile.write(index_string + ' ')
-        outfile.write(match.group('filename'))
-        outfile.write('\n')
+
+def maybe_print_files(arguments, files):
+    outfile = arguments.outfile
 
     if arguments.print_files:
         outfile.write('@@file_list@@\n')
