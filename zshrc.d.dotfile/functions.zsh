@@ -11,13 +11,13 @@ function set-index-variables() {
     IFS=$'\n'
 
     local index=1
-    for file in $(echo $input | sed -e '0,/@@file_list@@/d')
+    echo $input | sed -e '0,/@@file_list@@/d' | while read file
     do
         export e$index="$file"
         let index++
     done
 
-    for line in $(echo $input | sed -e '/@@file_list@@/,$d')
+    echo $input | sed -e '/@@file_list@@/,$d' | while read line
     do
         echo $line
     done
