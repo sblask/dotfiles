@@ -70,7 +70,10 @@ def parse_git_status_input(arguments):
             lines.append((line, None))
         else:
             lines.append((match.group('line'), match.group('filename')))
-            files.append(match.group('filename'))
+            if 'renamed' in match.group('line'):
+                files.append(match.group('filename').split(' -> ')[1])
+            else:
+                files.append(match.group('filename'))
 
     return lines, files
 
