@@ -7,12 +7,17 @@ import sys
 ANSI_REGEXP = re.compile(
     r'\x1b[^m]+m'
 )
+GIT_STATUS_REGEXP = re.compile(
+    r'(?P<line>\t([^:]+: +)?)'
+    r'(?P<filename>.+)'
+)
 LS_REGEXP = re.compile(
     r'(?P<line>([0-9]+ )?([^ ]+ +){8})'
     r'(?P<filename>.+)'
 )
 
 SUPPORTED_INPUT_TYPES = (
+    'git_status',
     'ls_list',
 )
 
@@ -46,9 +51,28 @@ def get_arguments():
 def main():
     arguments = get_arguments()
 
-    lines, files = parse_ls_list_input(arguments)
+    if arguments.input_type == 'git_status':
+        lines, files = parse_git_status_input(arguments)
+    elif arguments.input_type == 'ls_list':
+        lines, files = parse_ls_list_input(arguments)
+
     print_output(arguments, lines, files)
     maybe_print_files(arguments, files)
+
+
+def parse_git_status_input(arguments):
+    lines = []
+    files = []
+
+    for line in arguments.infile:
+        match = GIT_STATUS_REGEXP.match(line)
+        if not match:
+            lines.append((line, None))
+        else:
+            lines.append((match.group('line'), match.group('filename')))
+            files.append(match.group('filename'))
+
+    return lines, files
 
 
 def parse_ls_list_input(arguments):
