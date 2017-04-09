@@ -1,5 +1,6 @@
 [color]
 	ui = true
+	status = always
 [diff]
 	tool = vimdiff
 [difftool]
