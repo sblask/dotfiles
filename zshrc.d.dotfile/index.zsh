@@ -59,6 +59,10 @@ function expand-indexes-or-expand-or-complete {
     fi
 }
 
+function gb {
+    git branch $@                          | add-index --input-type git_branch --print-indexables | set-index-variables
+}
+
 alias gs='git status --untracked-files=all | add-index --input-type git_status --print-indexables | set-index-variables'
 alias la='ls -lha --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'
 alias ll='ls -lh  --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'

@@ -28,3 +28,8 @@ set +o xtrace
 actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type git_status --print-indexables $SCRIPT_DIRECTORY/git_status_colour_rename_in )
 set -o xtrace
 colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/git_status_colour_rename_files_out
+
+set +o xtrace
+actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type git_branch --print-indexables $SCRIPT_DIRECTORY/git_branch_in )
+set -o xtrace
+colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/git_branch_out
