@@ -8,7 +8,7 @@ ANSI_REGEXP = re.compile(
     r'\x1b[^m]+m'
 )
 GIT_BRANCH_REGEXP = re.compile(
-    r'(?P<prefix>\*? +)'
+    r'(?P<prefix>\*? +(\x1b[^m]+m)?)'
     r'(?P<indexable>.+)'
 )
 GIT_STATUS_REGEXP = re.compile(

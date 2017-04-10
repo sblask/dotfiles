@@ -1,5 +1,6 @@
 [color]
 	ui = true
+	branch = always
 	status = always
 [diff]
 	tool = vimdiff
