@@ -5,13 +5,13 @@ function set-index-variables() {
     IFS=$'\n'
 
     local index=1
-    echo $input | sed -e '0,/@@file_list@@/d' | while read file
+    echo $input | sed -e '0,/@@indexables@@/d' | while read file
     do
         export e$index="$file"
         let index++
     done
 
-    echo $input | sed -e '/@@file_list@@/,$d' | while read line
+    echo $input | sed -e '/@@indexables@@/,$d' | while read line
     do
         echo $line
     done
@@ -59,6 +59,6 @@ function expand-indexes-or-expand-or-complete {
     fi
 }
 
-alias gs='git status --untracked-files=all | add-index --input-type git_status --print-files | set-index-variables'
-alias la='ls -lha --color=always           | add-index --input-type ls_list    --print-files | set-index-variables'
-alias ll='ls -lh  --color=always           | add-index --input-type ls_list    --print-files | set-index-variables'
+alias gs='git status --untracked-files=all | add-index --input-type git_status --print-indexables | set-index-variables'
+alias la='ls -lha --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'
+alias ll='ls -lh  --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'

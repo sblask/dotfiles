@@ -8,12 +8,12 @@ ANSI_REGEXP = re.compile(
     r'\x1b[^m]+m'
 )
 GIT_STATUS_REGEXP = re.compile(
-    r'(?P<line>\t(\x1b[^m]+m)?([^:]+: +)?)'
-    r'(?P<filename>.+)'
+    r'(?P<prefix>\t(\x1b[^m]+m)?([^:]+: +)?)'
+    r'(?P<indexable>.+)'
 )
 LS_REGEXP = re.compile(
-    r'(?P<line>([0-9]+ )?([^ ]+ +){8})'
-    r'(?P<filename>.+)'
+    r'(?P<prefix>([0-9]+ )?([^ ]+ +){8})'
+    r'(?P<indexable>.+)'
 )
 
 SUPPORTED_INPUT_TYPES = (
@@ -30,7 +30,7 @@ def get_arguments():
         choices=SUPPORTED_INPUT_TYPES,
     )
     parser.add_argument(
-        '--print-files',
+        '--print-indexables',
         action='store_true',
     )
     parser.add_argument(
@@ -52,69 +52,69 @@ def main():
     arguments = get_arguments()
 
     if arguments.input_type == 'git_status':
-        lines, files = parse_git_status_input(arguments)
+        lines, indexables = parse_git_status_input(arguments)
     elif arguments.input_type == 'ls_list':
-        lines, files = parse_ls_list_input(arguments)
+        lines, indexables = parse_ls_list_input(arguments)
 
-    print_output(arguments, lines, files)
-    maybe_print_files(arguments, files)
+    print_output(arguments, lines, indexables)
+    maybe_print_indexables(arguments, indexables)
 
 
 def parse_git_status_input(arguments):
     lines = []
-    files = []
+    indexables = []
 
     for line in arguments.infile:
         match = GIT_STATUS_REGEXP.match(line)
         if not match:
             lines.append((line, None))
         else:
-            lines.append((match.group('line'), match.group('filename')))
-            if 'renamed' in match.group('line'):
-                files.append(match.group('filename').split(' -> ')[1])
+            lines.append((match.group('prefix'), match.group('indexable')))
+            if 'renamed' in match.group('prefix'):
+                indexables.append(match.group('indexable').split(' -> ')[1])
             else:
-                files.append(match.group('filename'))
+                indexables.append(match.group('indexable'))
 
-    return lines, files
+    return lines, indexables
 
 
 def parse_ls_list_input(arguments):
     lines = []
-    files = []
+    indexables = []
 
     for line in arguments.infile:
         match = LS_REGEXP.match(line)
         if not match:
             lines.append((line, None))
         else:
-            lines.append((match.group('line'), match.group('filename')))
-            files.append(match.group('filename').split(' -> ')[0])
+            lines.append((match.group('prefix'), match.group('indexable')))
+            indexables.append(match.group('indexable').split(' -> ')[0])
 
-    return lines, files
+    return lines, indexables
 
 
-def print_output(arguments, lines, files):
+def print_output(arguments, lines, indexables):
     outfile = arguments.outfile
 
-    padding = len(str(len(files))) + 2
+    padding = len(str(len(indexables))) + 2
     index = 1
-    for line, filename in lines:
-        if filename is None:
-            outfile.write(line)
+    for prefix, indexable in lines:
+        if indexable is None:
+            outfile.write(prefix)
         else:
             index_string = '[%s]' % index
             fixed_length_index_string = index_string.rjust(padding, ' ') + ' '
-            outfile.write(line + fixed_length_index_string + filename + '\n')
+            outfile.write(prefix + fixed_length_index_string + indexable + '\n')
             index += 1
 
 
-def maybe_print_files(arguments, files):
+def maybe_print_indexables(arguments, indexables):
     outfile = arguments.outfile
 
-    if arguments.print_files:
-        outfile.write('@@file_list@@\n')
-        for filename in files:
-            outfile.write(ANSI_REGEXP.sub('', filename))
+    if arguments.print_indexables:
+        outfile.write('@@indexables@@\n')
+        for indexable in indexables:
+            outfile.write(ANSI_REGEXP.sub('', indexable))
             outfile.write('\n')
 
 

@@ -18,7 +18,7 @@ Untracked files:
 
 	[36m[4] test/git_status_colour_rename_in[m
 
-@@file_list@@
+@@indexables@@
 zshrc.d.dotfile/scm_breeze.back
 git.scmbrc.dotfile
 zshrc.d.dotfile/aliases_misc.zsh
