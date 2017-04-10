@@ -26,6 +26,8 @@ SUPPORTED_INPUT_TYPES = (
     'ls_list',
 )
 
+UNDESIRED_BRANCH_PREFIX = 'remotes/origin/'
+
 
 def get_arguments():
     parser = argparse.ArgumentParser()
@@ -77,7 +79,11 @@ def parse_git_branch_input(arguments):
             lines.append((line, None))
         else:
             lines.append((match.group('prefix'), match.group('indexable')))
-            indexables.append(match.group('indexable'))
+            indexable = match.group('indexable')
+            if indexable.startswith(UNDESIRED_BRANCH_PREFIX):
+                indexables.append(indexable[len(UNDESIRED_BRANCH_PREFIX):])
+            else:
+                indexables.append(indexable)
 
     return lines, indexables
 
