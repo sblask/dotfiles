@@ -8,7 +8,7 @@ ANSI_REGEXP = re.compile(
     r'\x1b[^m]+m'
 )
 GIT_STATUS_REGEXP = re.compile(
-    r'(?P<line>\t([^:]+: +)?)'
+    r'(?P<line>\t(\x1b[^m]+m)?([^:]+: +)?)'
     r'(?P<filename>.+)'
 )
 LS_REGEXP = re.compile(
