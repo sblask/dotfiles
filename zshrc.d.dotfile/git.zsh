@@ -19,7 +19,7 @@ alias gldo='glog --left-right --graph'
 alias gmd='git merge --ff-only origin/develop'
 alias gmm='git merge --ff-only origin/master'
 alias gps='git push'
-alias grp='git rebase'
+alias grb='git rebase'
 
 function gd {
     git diff --color=always          $@
