@@ -59,10 +59,33 @@ function expand-indexes-or-expand-or-complete {
     fi
 }
 
-function gb {
-    git branch $@                          | add-index --input-type git_branch --print-indexables | set-index-variables
+function __print-path-argument {
+    local path_arguments=()
+    for argument in $@; do
+        if [ -d "${argument}" ]
+        then
+            path_arguments+=("${argument}")
+        fi
+    done
+    # ls prints paths if several are given, but not if it's only one
+    if [ "${#path_arguments[@]}" == "1" ]
+    then
+        echo "${path_arguments[1]}:"
+    fi
 }
 
-alias gs='git status --untracked-files=all | add-index --input-type git_status --print-indexables | set-index-variables'
-alias la='ls -lha --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'
-alias ll='ls -lh  --color=always           | add-index --input-type ls_list    --print-indexables | set-index-variables'
+function gb {
+    git branch                                         $@   | add-index --input-type git_branch --print-indexables | set-index-variables
+}
+
+function gs {
+    git status --untracked-files=all                   $@   | add-index --input-type git_status --print-indexables | set-index-variables
+}
+
+function la {
+    { __print-path-argument $@; ls -lha --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+}
+
+function ll {
+    { __print-path-argument $@; ls -lh  --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+}

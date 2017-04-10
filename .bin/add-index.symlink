@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # pylint: disable=invalid-name
 import argparse
+import os.path
 import re
 import sys
 
@@ -14,6 +15,9 @@ GIT_BRANCH_REGEXP = re.compile(
 GIT_STATUS_REGEXP = re.compile(
     r'(?P<prefix>\t(\x1b[^m]+m)?([^:]+: +)?)'
     r'(?P<indexable>.+)'
+)
+LS_PATH_REGEXP = re.compile(
+    r'(?P<directory>.+):'
 )
 LS_REGEXP = re.compile(
     r'(?P<prefix>([0-9]+ )?([^ ]+ +){8})'
@@ -31,6 +35,7 @@ UNDESIRED_BRANCH_PREFIX = 'remotes/origin/'
 
 def get_arguments():
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         '--input-type',
         required=True,
@@ -40,6 +45,11 @@ def get_arguments():
         '--print-indexables',
         action='store_true',
     )
+    parser.add_argument(
+        '--relative-paths',
+        action='store_true',
+    )
+
     parser.add_argument(
         'infile',
         nargs='?',
@@ -78,8 +88,9 @@ def parse_git_branch_input(arguments):
         if not match:
             lines.append((line, None))
         else:
-            lines.append((match.group('prefix'), match.group('indexable')))
             indexable = match.group('indexable')
+            lines.append((match.group('prefix'), indexable))
+
             if indexable.startswith(UNDESIRED_BRANCH_PREFIX):
                 indexables.append(indexable[len(UNDESIRED_BRANCH_PREFIX):])
             else:
@@ -97,11 +108,13 @@ def parse_git_status_input(arguments):
         if not match:
             lines.append((line, None))
         else:
-            lines.append((match.group('prefix'), match.group('indexable')))
+            indexable = match.group('indexable')
+            lines.append((match.group('prefix'), indexable))
+
             if 'renamed' in match.group('prefix'):
-                indexables.append(match.group('indexable').split(' -> ')[1])
+                indexables.append(indexable.split(' -> ')[1])
             else:
-                indexables.append(match.group('indexable'))
+                indexables.append(indexable)
 
     return lines, indexables
 
@@ -109,14 +122,26 @@ def parse_git_status_input(arguments):
 def parse_ls_list_input(arguments):
     lines = []
     indexables = []
+    relative_path = ''
 
     for line in arguments.infile:
-        match = LS_REGEXP.match(line)
-        if not match:
+        path_match = LS_PATH_REGEXP.match(line)
+
+        if path_match and os.path.exists(path_match.group('directory')):
+            relative_path = path_match.group('directory')
+
+        line_match = LS_REGEXP.match(line)
+        if not line_match:
             lines.append((line, None))
         else:
-            lines.append((match.group('prefix'), match.group('indexable')))
-            indexables.append(match.group('indexable').split(' -> ')[0])
+            indexable = line_match.group('indexable')
+            lines.append((line_match.group('prefix'), indexable))
+
+            path = indexable.split(' -> ')[0]
+            if not arguments.relative_paths:
+                path = os.path.abspath(os.path.join(relative_path, path))
+
+            indexables.append(path)
 
     return lines, indexables
 
