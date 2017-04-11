@@ -43,3 +43,8 @@ set +o xtrace
 actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type git_branch --print-indexables $SCRIPT_DIRECTORY/git_branch_colour_in )
 set -o xtrace
 colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/git_branch_colour_out
+
+set +o xtrace
+actual=$( git branch --help | $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type git_branch )
+set -o xtrace
+colordiff --unified <( set +o xtrace; echo "$actual" ) <( git branch --help )
