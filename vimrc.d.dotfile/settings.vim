@@ -10,7 +10,7 @@ set autochdir
 " reload file automatically on focus if unchanged here but changed somewhere else
 set autoread
 " enable highlighting of current line
-set cursorline
+set nocursorline
 " set default encoding explicitely
 set encoding=utf-8
 " ignore case when completing filenames
