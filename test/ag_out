@@ -1,0 +1,4 @@
+[1;32m[1] test.sh[0m[K
+[1;33m7[0m[K:for file in $SCRIPT_DIRECTORY/[30;43mtest[0m[K/*.sh
+@@indexables@@
+test.sh

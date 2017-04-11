@@ -6,7 +6,11 @@ import re
 import sys
 
 ANSI_REGEXP = re.compile(
-    r'\x1b[^m]+m'
+    r'(\x1b[^m]+m)|(\x1b\[K)'
+)
+AG_REGEXP = re.compile(
+    r'(?P<prefix>(\x1b[^m]+m))'
+    r'(?P<indexable>.+)'
 )
 GIT_BRANCH_REGEXP = re.compile(
     r'(?P<prefix>[ *]{1} {1}(\x1b[^m]+m)?)'
@@ -25,6 +29,7 @@ LS_REGEXP = re.compile(
 )
 
 SUPPORTED_INPUT_TYPES = (
+    'ag',
     'git_branch',
     'git_status',
     'ls_list',
@@ -68,7 +73,9 @@ def get_arguments():
 def main():
     arguments = get_arguments()
 
-    if arguments.input_type == 'git_branch':
+    if arguments.input_type == 'ag':
+        lines, indexables = parse_ag_input(arguments)
+    elif arguments.input_type == 'git_branch':
         lines, indexables = parse_git_branch_input(arguments)
     elif arguments.input_type == 'git_status':
         lines, indexables = parse_git_status_input(arguments)
@@ -77,6 +84,25 @@ def main():
 
     print_output(arguments, lines, indexables)
     maybe_print_indexables(arguments, indexables)
+
+
+def parse_ag_input(arguments):
+    lines = []
+    indexables = []
+
+    for line in arguments.infile:
+        match = AG_REGEXP.match(line)
+        if not match:
+            lines.append((line, None))
+        else:
+            indexable = match.group('indexable')
+            if os.path.exists(ANSI_REGEXP.sub('', indexable)):
+                lines.append((match.group('prefix'), indexable))
+                indexables.append(indexable)
+            else:
+                lines.append((match.group('prefix') + indexable + '\n', None))
+
+    return lines, indexables
 
 
 def parse_git_branch_input(arguments):
