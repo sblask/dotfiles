@@ -7,4 +7,7 @@ if &diff
     " put changes into the middle of the screen if possible
     nnoremap [c [czz
     nnoremap ]c ]czz
+    " fix scroll out of sync
+    map <ScrollWheelUp>   5<C-Y>
+    map <ScrollWheelDown> 5<C-E>
 endif
