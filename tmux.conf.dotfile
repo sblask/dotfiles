@@ -19,7 +19,8 @@ bind-key -r C-K resize-pane -U 5
 bind-key -r C-L resize-pane -R 5
 bind-key -r C-J resize-pane -D 5
 
-bind-key -r = select-layout tiled
+bind-key -r h select-layout even-horizontal
+bind-key -r v select-layout even-vertical
 
 bind-key -r , swap-pane -U
 bind-key -r . swap-pane -D
