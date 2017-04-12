@@ -1,4 +1,4 @@
-function set-index-variables() {
+function set-index-variables {
     local input="$(cat -)"
 
     local old_ifs=$IFS
@@ -19,7 +19,7 @@ function set-index-variables() {
     IFS=$old_ifs
 }
 
-function __flatten-index-arguments() {
+function __flatten-index-arguments {
     for argument in $( echo $@ )
     do
         if [[ "${argument}" =~ ^[0-9]+-[0-9]+$ ]]
@@ -34,7 +34,7 @@ function __flatten-index-arguments() {
     done
 }
 
-function __expand-indexes () {
+function __expand-indexes {
     for index in $( __flatten-index-arguments $@ )
     do
         local index_variable="e${index}"
@@ -51,7 +51,8 @@ function __expand-indexes () {
 
 function expand-indexes-or-expand-or-complete {
     local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" )
-    if [ "${MATCH}" != "" ]; then
+    if [ "${MATCH}" != "" ]
+    then
         local REPLACEMENT=$( __expand-indexes ${MATCH} )
         LBUFFER="${LBUFFER/%${MATCH}/${REPLACEMENT}}"
     else
