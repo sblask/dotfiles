@@ -5,7 +5,7 @@ function c {
 compctl -/ -W ~/Clones/ c
 
 function man {
-    if [ "$( type "$1" )" == "read is a shell builtin" ]
+    if [[ "$( type "$1" )" == *builtin ]]
     then
         run-help "$1" | vimpager
     else
