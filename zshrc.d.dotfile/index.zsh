@@ -5,13 +5,13 @@ function set-index-variables {
     IFS=$'\n'
 
     local index=1
-    echo $input | sed -e '0,/@@indexables@@/d' | while read file
+    echo $input | sed -e '0,/@@indexables@@/d' | while read -r file
     do
         export e$index="$file"
         let index++
     done
 
-    echo $input | sed -e '/@@indexables@@/,$d' | while read line
+    echo $input | sed -e '/@@indexables@@/,$d' | while read -r line
     do
         echo $line
     done
