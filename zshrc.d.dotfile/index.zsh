@@ -75,6 +75,11 @@ function __print-path-argument {
     fi
 }
 
+function ag {
+    command ag --color --group                         $@   | add-index --input-type ag         --print-indexables | set-index-variables
+}
+compdef _ag ag
+
 function gb {
     git branch                                         $@   | add-index --input-type git_branch --print-indexables | set-index-variables
 }
