@@ -74,7 +74,9 @@ def main():
     arguments = get_arguments()
 
     if arguments.input_type == 'ag':
-        lines, indexables = parse_ag_input(arguments)
+        indexables = parse_ag_input(arguments)
+        maybe_print_indexables(arguments, indexables)
+        return
     elif arguments.input_type == 'git_branch':
         lines, indexables = parse_git_branch_input(arguments)
     elif arguments.input_type == 'git_status':
@@ -87,22 +89,24 @@ def main():
 
 
 def parse_ag_input(arguments):
-    lines = []
     indexables = []
 
+    index = 1
     for line in arguments.infile:
-        match = AG_REGEXP.match(line)
-        if not match:
-            lines.append((line, None))
-        else:
-            indexable = match.group('indexable')
-            if os.path.exists(ANSI_REGEXP.sub('', indexable)):
-                lines.append((match.group('prefix'), indexable))
-                indexables.append(indexable)
-            else:
-                lines.append((match.group('prefix') + indexable + '\n', None))
+        clean_line = ANSI_REGEXP.sub('', line).strip()
+        if os.path.exists(clean_line):
+            match = AG_REGEXP.match(line)
+            arguments.outfile.write(match.group('prefix'))
+            arguments.outfile.write('[%s] ' % index)
+            arguments.outfile.write(match.group('indexable'))
+            arguments.outfile.write('\n')
 
-    return lines, indexables
+            indexables.append(clean_line)
+            index += 1
+        else:
+            arguments.outfile.write(line)
+
+    return indexables
 
 
 def parse_git_branch_input(arguments):
