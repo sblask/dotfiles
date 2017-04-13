@@ -5,6 +5,8 @@ keycode 66 = Multi_key
 ! use Right Shift for hjkl movements (see below)
 keycode 62 = Mode_switch
 
+keycode 40 = d D Delete Delete
+
 keycode 43 = h H Left Left
 keycode 44 = j J Down Down
 keycode 45 = k K Up Up
