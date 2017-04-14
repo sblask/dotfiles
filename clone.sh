@@ -58,14 +58,14 @@ pushd $ZSH_BASH_COMPLETION_DIRECTORY
 wget https://raw.githubusercontent.com/otm/limes/master/assets/limes && patch limes $DOTFILES_DIRECTORY/patches/limes
 popd
 
-wget https://github.com/github/hub/releases/download/v2.2.0-preview1/hub_2.2.0-preview1_linux_amd64.gz.tar -O $DOTFILES_DIRECTORY/hub.tgz
+wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -O $DOTFILES_DIRECTORY/hub.tgz
 tar \
   --extract \
   --verbose \
   --show-transformed-names \
   --file hub.tgz \
   --wildcards \
-  --strip-component 1 \
+  --strip-component 2 \
   --directory .bin \
   --transform "s/$/.symlink/" \
   "*/hub"
