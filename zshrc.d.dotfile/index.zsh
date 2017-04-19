@@ -80,6 +80,11 @@ function ag {
 }
 compdef _ag ag
 
+function find {
+    command find                                       $@   | add-index --input-type list       --print-indexables | set-index-variables
+}
+compdef _find find
+
 function gb {
     git branch                                         $@   | add-index --input-type git_branch --print-indexables | set-index-variables
 }

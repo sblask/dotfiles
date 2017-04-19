@@ -5,6 +5,16 @@ set -o errexit -o nounset -o pipefail -o xtrace
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
 set +o xtrace
+actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type list $SCRIPT_DIRECTORY/list_in )
+set -o xtrace
+colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/list_out
+
+set +o xtrace
+actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type list --print-indexables $SCRIPT_DIRECTORY/list_in )
+set -o xtrace
+colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/list_out_plus_indexables
+
+set +o xtrace
 actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type ls_list $SCRIPT_DIRECTORY/ls_list_in )
 set -o xtrace
 colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/ls_list_out
