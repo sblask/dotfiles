@@ -28,6 +28,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-unimpaired'
+    Bundle 'triglav/vim-visual-increment'
     Bundle 'vim-airline/vim-airline'
     Bundle 'vim-scripts/AnsiEsc.vim'
 endif
