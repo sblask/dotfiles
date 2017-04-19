@@ -30,6 +30,8 @@ set nobackup
 set nostartofline
 " no swap files
 set noswapfile
+" allow increment/decrement for letters too
+set nrformats=alpha,bin,octal,hex
 " show line numbers
 set number
 " do not show mode, that's what airline is for
