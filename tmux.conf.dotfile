@@ -22,7 +22,7 @@ bind-key -r C-J resize-pane -D 5
 bind-key -r h select-layout even-horizontal
 bind-key -r v select-layout even-vertical
 
-bind-key -r s command-prompt -p "Send pane to:"  "join-pane -t '%%'"
+bind-key -r s choose-window "join-pane -h -t '%%'"
 
 bind-key -r , swap-pane -U
 bind-key -r . swap-pane -D
