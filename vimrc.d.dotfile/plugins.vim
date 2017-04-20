@@ -31,6 +31,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'triglav/vim-visual-increment'
     Bundle 'vim-airline/vim-airline'
     Bundle 'vim-scripts/AnsiEsc.vim'
+    Bundle 'vim-scripts/RltvNmbr.vim'
 endif
 filetype plugin indent on
 

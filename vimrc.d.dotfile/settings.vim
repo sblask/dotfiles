@@ -36,8 +36,6 @@ set nrformats=alpha,bin,octal,hex
 set number
 " do not show mode, that's what airline is for
 set noshowmode
-" show number relative to current for quick movement
-set relativenumber
 " splits
 set splitbelow
 set splitright
