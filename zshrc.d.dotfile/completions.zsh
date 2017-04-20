@@ -53,3 +53,6 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
 
 # Do not ever propose ORIG_HEAD
 zstyle ':completion:*:*:*:*:*' ignored-patterns 'ORIG_HEAD'
+
+# do not complete directories when typing ./<tab>
+zstyle -e ':completion::complete:-command-::executables' ignored-patterns 'reply=(./*(/))'
