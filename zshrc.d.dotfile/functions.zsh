@@ -4,6 +4,10 @@ function c {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
 
+function fn {
+    find . -name "*$@*" -type f
+}
+
 function man {
     if [[ "$( type "$1" )" == *builtin ]]
     then

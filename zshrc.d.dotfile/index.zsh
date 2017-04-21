@@ -76,22 +76,22 @@ function __print-path-argument {
 }
 
 function ag {
-    command ag --color --group                         $@   | add-index --input-type ag         --print-indexables | set-index-variables
+    command ag --color --group $@                           | add-index --input-type ag         --print-indexables | set-index-variables
 }
 compdef _ag ag
 
 function find {
-    command find                                       $@   | add-index --input-type list       --print-indexables | set-index-variables
+    command find $@ | head --lines 99                       | add-index --input-type list       --print-indexables | set-index-variables
 }
 compdef _find find
 
 function gb {
-    git branch                                         $@   | add-index --input-type git_branch --print-indexables | set-index-variables
+    git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
 }
 compdef _git-branch gb
 
 function gs {
-    git status --untracked-files=all                   $@   | add-index --input-type git_status --print-indexables | set-index-variables
+    git status --untracked-files=all $@                     | add-index --input-type git_status --print-indexables | set-index-variables
 }
 compdef _git-status gs
 
