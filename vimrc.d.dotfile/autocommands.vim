@@ -20,4 +20,6 @@ if !exists("autocommands_loaded")
     autocmd FocusLost    *                 stopinsert | silent! wall!
     " for breuckelen/vim-resize
     autocmd BufEnter     *                 let g:resize_count = 5
+    " make sure no comment highlighting is applied to regular code
+    autocmd BufEnter     *                 :syntax sync fromstart
 endif
