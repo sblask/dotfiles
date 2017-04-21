@@ -52,7 +52,20 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
     '*zshrc.dotfile' \
 
 # Do not ever propose ORIG_HEAD
-zstyle ':completion:*:*:*:*:*' ignored-patterns 'ORIG_HEAD'
+zstyle ':completion:*:*:*:*:*' ignored-patterns \
+    'HEAD' \
+    'FETCH_HEAD' \
+    'ORIG_HEAD' \
 
 # do not complete directories when typing ./<tab>
 zstyle -e ':completion::complete:-command-::executables' ignored-patterns 'reply=(./*(/))'
+
+# disable tag completion in git checkout
+zstyle ':completion::complete:git-checkout:argument-rest:commit-tag-refs' command ""
+
+# disable remote branch completion in git checkout
+zstyle ':completion::complete:git-checkout:argument-rest:headrefs' command "git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null"
+zstyle ':completion::complete:git-checkout:argument-rest:remote-branch-refs-noprefix' command ""
+
+# disable HEAD completion in git checkout
+__git_recent_commits(){}
