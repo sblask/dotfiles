@@ -5,7 +5,7 @@ function c {
 compctl -/ -W ~/Clones/ c
 
 function fn {
-    find . -name "*$@*" -type f
+    find . -iname "*$@*" -type f
 }
 
 function man {
