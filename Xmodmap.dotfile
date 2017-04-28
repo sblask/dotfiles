@@ -3,17 +3,25 @@ clear lock
 ! use Caps Lock to access 3rd and 4th value in keycode definition below
 keycode 66 = Mode_switch
 
-! compose key is Capslock o
+! compose key is Mode_switch o
 keycode 32 = o O Multi_key Multi_key
 
+! move mouse pointer (requires accessibility feature to be enabled)
 keycode 39 = s S KP_Left  KP_Left
 keycode 40 = d D KP_Down  KP_Down
 keycode 41 = f F KP_Up    KP_Up
 keycode 42 = g G KP_Right KP_Right
 
+! simulate arrow keys vim style
 keycode 43 = h H Left  Left
 keycode 44 = j J Down  Down
 keycode 45 = k K Up    Up
 keycode 46 = l L Right Right
 
+! more accessible delete
 keycode 53 = x X Delete Delete
+
+! allow clicking with keyboard
+keycode 55 = v V Pointer_Button1 Pointer_Button1
+keycode 56 = b B Pointer_Button2 Pointer_Button2
+keycode 57 = n N Pointer_Button3 Pointer_Button3
