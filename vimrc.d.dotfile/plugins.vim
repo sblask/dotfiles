@@ -80,6 +80,7 @@ let g:netrw_liststyle = 3 " tree view
 let g:polyglot_disabled = ['jinja', 'tmux']
 
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-p>"
 
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
