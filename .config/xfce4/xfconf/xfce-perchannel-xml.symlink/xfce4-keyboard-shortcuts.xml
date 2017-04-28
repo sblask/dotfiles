@@ -45,6 +45,7 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="&lt;Primary&gt;F11" type="string" value="xbacklight -dec 1"/>
       <property name="&lt;Primary&gt;F12" type="string" value="xbacklight -inc 1"/>
+      <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter --delay 5 --window --mouse --save /home/sebastian/Desktop"/>
       <property name="&lt;Shift&gt;&lt;Alt&gt;ISO_Left_Tab" type="string" value="/home/sebastian/.bin/previous-window"/>
       <property name="&lt;Super&gt;e" type="string" value="exo-open /home/sebastian/.local/share/applications/gvim.desktop"/>
       <property name="&lt;Super&gt;f" type="string" value="exo-open /home/sebastian/.local/share/applications/Thunar.desktop"/>
