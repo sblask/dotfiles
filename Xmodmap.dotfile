@@ -7,7 +7,12 @@ keycode 62 = Mode_switch
 
 keycode 40 = d D Delete Delete
 
-keycode 43 = h H Left Left
-keycode 44 = j J Down Down
-keycode 45 = k K Up Up
+keycode 39 = s S KP_Left  KP_Left
+keycode 40 = d D KP_Down  KP_Down
+keycode 41 = f F KP_Up    KP_Up
+keycode 42 = g G KP_Right KP_Right
+
+keycode 43 = h H Left  Left
+keycode 44 = j J Down  Down
+keycode 45 = k K Up    Up
 keycode 46 = l L Right Right
