@@ -3,6 +3,7 @@
 <channel name="accessibility" version="1.0">
   <property name="MouseKeys" type="bool" value="true">
     <property name="TimeToMax" type="int" value="1000"/>
-    <property name="MaxSpeed" type="int" value="2000"/>
+    <property name="MaxSpeed" type="int" value="1000"/>
+    <property name="Delay" type="int" value="1"/>
   </property>
 </channel>
