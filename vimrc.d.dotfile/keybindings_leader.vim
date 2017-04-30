@@ -1,7 +1,5 @@
 " close current buffer without closing split
 noremap <silent> <Leader>c :new<CR><C-W>W:bd<CR>
-" format json file
-noremap <silent> <Leader>j :% !format-json<CR>
 " toggle relativenumber
 noremap <silent> <Leader>r :set relativenumber!<CR>
 " write as sudo
