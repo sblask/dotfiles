@@ -15,7 +15,7 @@
 	default = upstream
 [core]
 	excludesfile = /home/sebastian/.gitignore_global
-	pager = sed 's/\t/    /g' | vim -c 'set nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -
+	pager = sed 's/\t/    /g' | vim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
 [tag]
 	sort = version:refname
 [color "status"]

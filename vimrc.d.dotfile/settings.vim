@@ -11,7 +11,7 @@ set autochdir
 set autoread
 " enable highlighting of current line
 set nocursorline
-" set default encoding explicitely
+" set default encoding explicitly
 set encoding=utf-8
 " ignore case when completing filenames
 set fileignorecase
@@ -49,3 +49,6 @@ set wildignore=.git,*.pyc
 set wrap
 " keep three lines at end of the file
 set scrolloff=3
+" configure spell checking
+set spell
+set spellcapcheck=
