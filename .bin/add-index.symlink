@@ -99,10 +99,11 @@ def parse_ag_input(arguments):
         clean_line = ANSI_REGEXP.sub('', line).strip()
         if os.path.exists(clean_line):
             match = AG_REGEXP.match(line)
-            arguments.outfile.write(match.group('prefix'))
-            arguments.outfile.write('[%s] ' % index)
-            arguments.outfile.write(match.group('indexable'))
-            arguments.outfile.write('\n')
+            if match:
+                arguments.outfile.write(match.group('prefix'))
+                arguments.outfile.write('[%s] ' % index)
+                arguments.outfile.write(match.group('indexable'))
+                arguments.outfile.write('\n')
 
             indexables.append(clean_line)
             index += 1
