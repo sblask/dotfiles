@@ -76,7 +76,7 @@ function __print-path-argument {
 }
 
 function ag {
-    command ag --color --group $@                           | add-index --input-type ag         --print-indexables | set-index-variables
+    command ag --color --group --literal $@                 | add-index --input-type ag         --print-indexables | set-index-variables
 }
 compdef _ag ag
 
