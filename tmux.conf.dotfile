@@ -21,6 +21,7 @@ bind-key -r C-J resize-pane -D 5
 
 bind-key -r h select-layout even-horizontal
 bind-key -r v select-layout even-vertical
+bind-key -r t select-layout tiled
 
 bind-key -r s choose-window "join-pane -h -t '%%'"
 
