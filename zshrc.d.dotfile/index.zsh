@@ -42,10 +42,10 @@ function __expand-indexes {
         if [ "${resolved_index}" != "" ]
         then
             printf "${resolved_index}" | sed 's/ /\\ /g'
+            printf " "
         else
-            printf "${index}"
+            printf ""
         fi
-        printf " "
     done
 }
 
@@ -54,7 +54,12 @@ function expand-indexes-or-expand-or-complete {
     if [ "${MATCH}" != "" ]
     then
         local REPLACEMENT=$( __expand-indexes ${MATCH} )
-        LBUFFER="${LBUFFER/%${MATCH}/${REPLACEMENT}}"
+        if [ "${REPLACEMENT}" != "" ]
+        then
+            LBUFFER="${LBUFFER/%${MATCH}/${REPLACEMENT}}"
+        else
+            zle expand-or-complete
+        fi
     else
         zle expand-or-complete
     fi
