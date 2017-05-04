@@ -95,3 +95,7 @@ let g:syntastic_style_warning_symbol = '✗'
 let g:syntastic_warning_symbol = '✗'
 
 let g:vim_resize_disable_auto_mappings = 1
+
+if !exists("commentstring_autocommands_loaded")
+    autocmd FileType apache setlocal commentstring=#\ %s
+endif
