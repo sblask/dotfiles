@@ -81,31 +81,31 @@ function __print-path-argument {
 }
 
 function ag {
-    command ag --color --group --literal $@                 | add-index --input-type ag         --print-indexables | set-index-variables
+    command ag --color --group --literal $@  | head --lines 99 | add-index --input-type ag         --print-indexables | set-index-variables
 }
 compdef _ag ag
 
 function find {
-    command find $@ | head --lines 99                       | add-index --input-type list       --print-indexables | set-index-variables
+    command find $@ | head --lines 99                          | add-index --input-type list       --print-indexables | set-index-variables
 }
 compdef _find find
 
 function gb {
-    git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
+    git branch $@                                              | add-index --input-type git_branch --print-indexables | set-index-variables
 }
 compdef _git-branch gb
 
 function gs {
-    git status --untracked-files=all $@                     | add-index --input-type git_status --print-indexables | set-index-variables
+    git status --untracked-files=all $@                        | add-index --input-type git_status --print-indexables | set-index-variables
 }
 compdef _git-status gs
 
 function la {
-    { __print-path-argument $@; ls -lha --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+    { __print-path-argument $@; ls -lha --color=always $@ }    | add-index --input-type ls_list    --print-indexables | set-index-variables
 }
 compdef _ls la
 
 function ll {
-    { __print-path-argument $@; ls -lh  --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+    { __print-path-argument $@; ls -lh  --color=always $@ }    | add-index --input-type ls_list    --print-indexables | set-index-variables
 }
 compdef _ls ll
