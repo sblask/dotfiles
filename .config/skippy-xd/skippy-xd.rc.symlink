@@ -49,7 +49,7 @@ tintOpacity = 64
 opacity = 255
 
 [tooltip]
-show = true
+show = false
 border = #e0e0e0
 background = #404040
 opacity = 128
