@@ -22,4 +22,5 @@ if !exists("filetype_autocommands_loaded")
     autocmd FileType   zsh               set iskeyword+=-
     " misc
     autocmd FileType   groovy            set nospell
+    autocmd FileType   python            set foldmethod=indent
 endif

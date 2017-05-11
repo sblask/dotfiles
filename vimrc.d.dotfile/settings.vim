@@ -17,9 +17,12 @@ set encoding=utf-8
 set fileignorecase
 " uninterrupted line between splits
 set fillchars=vert:│
-" don't fold
+" configure folding
+set foldlevelstart=99
+set foldmethod=syntax
+set foldminlines=5
+set foldnestmax=2
 set nofoldenable
-set foldminlines=99999
 " always show statusline
 set laststatus=2
 " show tabs and trailing whitespace
