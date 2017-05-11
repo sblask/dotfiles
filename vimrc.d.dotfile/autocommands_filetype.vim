@@ -1,6 +1,6 @@
 if !exists("filetype_autocommands_loaded")
     let filetype_autocommands_loaded = 1
-    " set filetype or syntax explicitely when creating or opening file
+    " set filetype or syntax explicitly when creating or opening file
     autocmd BufNewFile *.jinja           set filetype=jinja
     autocmd BufRead    *.jinja           set filetype=jinja
     autocmd BufNewFile *.jsm             set filetype=javascript
@@ -20,4 +20,6 @@ if !exists("filetype_autocommands_loaded")
     autocmd FileType   sh                set iskeyword+=-
     autocmd FileType   yaml              set iskeyword+=- | set iskeyword+=.
     autocmd FileType   zsh               set iskeyword+=-
+    " misc
+    autocmd FileType   groovy            set nospell
 endif
