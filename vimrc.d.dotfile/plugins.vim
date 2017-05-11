@@ -31,6 +31,7 @@ if isdirectory(expand("~/.vim/bundle/vundle/"))
     Bundle 'triglav/vim-visual-increment'
     Bundle 'vim-airline/vim-airline'
     Bundle 'vim-scripts/AnsiEsc.vim'
+    Bundle 'vim-voom/VOoM'
 endif
 filetype plugin indent on
 
@@ -96,6 +97,12 @@ let g:syntastic_warning_symbol = '✗'
 
 let g:vim_resize_disable_auto_mappings = 1
 
-if !exists("commentstring_autocommands_loaded")
+let g:voom_ft_modes = {
+\     'markdown': 'markdown',
+\     'python': 'python',
+\ }
+let g:voom_tree_placement = 'right'
+
+if !exists('commentstring_autocommands_loaded')
     autocmd FileType apache setlocal commentstring=#\ %s
 endif
