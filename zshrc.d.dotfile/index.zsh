@@ -80,6 +80,8 @@ function __print-path-argument {
     fi
 }
 
+_git # run this here to get git completions to work
+
 function ag {
     command ag --color --group --literal $@  | head --lines 99 | add-index --input-type ag         --print-indexables | set-index-variables
 }
