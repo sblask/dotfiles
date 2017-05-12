@@ -17,6 +17,7 @@ if !exists("filetype_autocommands_loaded")
     autocmd BufRead    pylintrc.dotfile  set filetype=dosini
     autocmd BufRead    tmux.conf.dotfile set filetype=tmux
     " keyword settings
+    autocmd FileType   make              set iskeyword+=-
     autocmd FileType   sh                set iskeyword+=-
     autocmd FileType   yaml              set iskeyword+=- | set iskeyword+=.
     autocmd FileType   zsh               set iskeyword+=-
