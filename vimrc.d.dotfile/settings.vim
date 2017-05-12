@@ -55,3 +55,4 @@ set scrolloff=3
 " configure spell checking
 set spell
 set spellcapcheck=
+set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/local.en.utf-8.add

@@ -18,3 +18,10 @@ for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
     exe 'source' fpath
 endfor
 set wildignore-=plugins.vim
+
+" auto-update spell files
+for add_file in glob('~/.vim/spell/*.add', 1, 1)
+    if filereadable(add_file) && (!filereadable(add_file . '.spl') || getftime(add_file) > getftime(add_file . '.spl'))
+        exec 'mkspell! ' . fnameescape(add_file)
+    endif
+endfor

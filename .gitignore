@@ -7,7 +7,8 @@
 /.tmux/plugins/tpm.copy/
 /.venv
 /.vim/bundle/vundle.copy
-/.vim/spell.symlink/en.utf-8.add.spl
+/.vim/spell.symlink/*.spl
+/.vim/spell.symlink/local.en.utf-8.add
 /base16-shell.dotfile/
 /scm_breeze.dotfile/
 /xnviewmp.dotfile/*
