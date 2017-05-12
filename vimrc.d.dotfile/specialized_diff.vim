@@ -10,4 +10,6 @@ if &diff
     " fix scroll out of sync
     map <ScrollWheelUp>   5<C-Y>
     map <ScrollWheelDown> 5<C-E>
+    " have all folds open when diffing
+    autocmd VimEnter * windo normal zR
 endif
