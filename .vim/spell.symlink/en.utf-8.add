@@ -3,6 +3,7 @@ ag
 amazonaws
 apache
 autocommands
+cloudformation
 config
 dockerfile
 eu
@@ -21,5 +22,6 @@ s3
 uri
 uris
 usp
+utils
 whitelisted
 xml
