@@ -3,6 +3,9 @@ clear lock
 ! use Caps Lock to access 3rd and 4th value in keycode definition below
 keycode 66 = Mode_switch
 
+! more accessible escape
+keycode 26 = e E Escape Escape
+
 ! compose key is Mode_switch o
 keycode 32 = o O Multi_key Multi_key
 
