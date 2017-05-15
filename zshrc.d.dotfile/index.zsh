@@ -97,6 +97,11 @@ function gb {
 }
 compdef _git-branch gb
 
+function gba {
+    git branch --all --sort=-committerdate $@                  | add-index --input-type git_branch --print-indexables | set-index-variables
+}
+compdef _git-branch gba
+
 function gs {
     git status --untracked-files=all $@                        | add-index --input-type git_status --print-indexables | set-index-variables
 }
