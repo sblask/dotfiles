@@ -3,6 +3,12 @@ clear lock
 ! use Caps Lock to access 3rd and 4th value in keycode definition below
 keycode 66 = Mode_switch
 
+! more accessible end
+keycode 13 = 4 dollar End End
+
+! more accessible home
+keycode 19 = 0 parenright Home Home
+
 ! more accessible escape
 keycode 26 = e E Escape Escape
 
