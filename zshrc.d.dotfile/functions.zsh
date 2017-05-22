@@ -1,5 +1,5 @@
 function c {
-    cd ~/Clones/$1;
+    cd ~/Clones/$(ls ~/Clones/ | grep $1 | head --lines 1);
 }
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
