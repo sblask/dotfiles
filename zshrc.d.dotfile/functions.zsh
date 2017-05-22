@@ -1,5 +1,12 @@
 function c {
-    cd ~/Clones/$(ls ~/Clones/ | grep $1 | head --lines 1);
+    local subdirectory
+    if [[ "$1" == "" ]]
+    then
+        subdirectory=""
+    else
+        subdirectory=$(ls ~/Clones/ | grep "$1" | head --lines 1)
+    fi
+    cd ~/Clones/${subdirectory}
 }
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
