@@ -33,6 +33,15 @@ bindkey -M vicmd '^[[27;6;13~' accept-line
 bindkey -M viins '^[[27;6;13~' accept-line
 
 #
+# menu select options
+#
+zmodload zsh/complist
+# close menu with escape
+bindkey -M menuselect '\e' undo
+# allow going back in selection menu using Shift-Tab
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+#
 # Misc
 #
 # complete in word
@@ -53,8 +62,6 @@ bindkey -M viins '^Z' undo
 # complete with Tab
 zle -N expand-indexes-or-expand-or-complete
 bindkey -M viins '^I' expand-indexes-or-expand-or-complete
-# allow going back in selection menu using Shift-Tab
-bindkey -M viins '^[[Z' reverse-menu-complete
 # back in history or prefix search
 autoload up-line-or-beginning-search
 zle -N up-line-or-beginning-search
