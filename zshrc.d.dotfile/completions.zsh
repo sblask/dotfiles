@@ -67,7 +67,6 @@ zstyle ':completion::complete:git-checkout:argument-rest:commit-tag-refs' comman
 
 # disable remote branch completion in git checkout
 zstyle ':completion::complete:git-checkout:argument-rest:headrefs' command "git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null"
-zstyle ':completion::complete:git-checkout:argument-rest:remote-branch-refs-noprefix' command ""
 
 # disable HEAD completion in git checkout
 __git_recent_commits(){}
