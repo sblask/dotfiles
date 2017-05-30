@@ -5,6 +5,7 @@ alias psgrep='ps aufx | grep'
 alias psless='ps aufx | vimpager'
 alias pss='ps aufx'
 alias untar='tar -xzf'
+alias updateVersion='version=$(jq --raw-output .version manifest.json) && vared -p "Current version is ${version}, specify new version: " version && jq --indent 4 ".version = \"$version\"" manifest.json | sponge manifest.json && jq --indent 4 ".version = \"$version\"" package.json | sponge package.json'
 alias week='date +%W'
 # allow vim instead of less
 alias vimpager="vim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -"
