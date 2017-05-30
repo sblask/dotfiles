@@ -44,6 +44,11 @@ bindkey -M menuselect '^[[Z' reverse-menu-complete
 #
 # Misc
 #
+# edit current line in vim
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M viins '^E' edit-command-line
+bindkey -M viins '^E' edit-command-line
 # complete in word
 bindkey -M viins '^N' expand-or-complete-prefix
 bindkey -M viins '^P' expand-or-complete-prefix
