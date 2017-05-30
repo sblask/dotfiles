@@ -1,5 +1,7 @@
 # install .deb files including their dependencies
 alias -s deb="sudo gdebi"
+# clone git urls
+alias -s git="git clone"
 # run python files
 alias -s py="python"
 # edit txt files with vim
