@@ -22,8 +22,5 @@ omap i/ :normal vi/<CR>
 nnoremap <silent> * "syiw<Esc>: let @/ = '\<' . @s . '\>'<CR>:set hlsearch<CR>
 " allow search for current selection
 vnoremap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR>
-" insert new empty lines without entering insert mode
-noremap <silent>   <CR> :set formatoptions-=o<CR>m`o<Esc>k``:set formatoptions+=o<CR>
-noremap <silent> <S-CR> :set formatoptions-=o<CR>m`O<Esc>j``:set formatoptions+=o<CR>
 " spell checking with suggestion box keeping the original word
 nnoremap z= a<C-X><C-S><C-N><C-P>
