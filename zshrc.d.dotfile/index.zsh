@@ -97,6 +97,10 @@ function agu {
 }
 compdef _ag agu
 
+function clone_status {
+    command clone_status                                    | add-index --input-type mixed      --print-indexables | set-index-variables
+}
+
 function find {
     command find $@ | head --lines 99                       | add-index --input-type list       --print-indexables | set-index-variables
 }

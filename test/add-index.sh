@@ -63,3 +63,8 @@ set +o xtrace
 actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type ag --print-indexables $SCRIPT_DIRECTORY/ag_in )
 set -o xtrace
 colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/ag_out
+
+set +o xtrace
+actual=$( $SCRIPT_DIRECTORY/../.bin/add-index.symlink --input-type mixed --print-indexables $SCRIPT_DIRECTORY/mixed_in )
+set -o xtrace
+colordiff --unified <( set +o xtrace; echo "$actual" ) $SCRIPT_DIRECTORY/mixed_out

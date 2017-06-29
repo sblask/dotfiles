@@ -12,6 +12,10 @@ AG_REGEXP = re.compile(
     r'(?P<prefix>(\x1b[^m]+m))'
     r'(?P<indexable>.+)'
 )
+FILE_REGEXP = re.compile(
+    r'(?P<prefix>(\x1b[^m]+m))'
+    r'(?P<indexable>/.+)'
+)
 GIT_BRANCH_REGEXP = re.compile(
     r'(?P<prefix>[ *]{1} {1}(\x1b[^m]+m)?)'
     r'(?P<indexable>\S.+)'
@@ -34,6 +38,7 @@ SUPPORTED_INPUT_TYPES = (
     'git_status',
     'list',
     'ls_list',
+    'mixed',
 )
 
 UNDESIRED_BRANCH_PREFIX = 'remotes/origin/'
@@ -82,10 +87,12 @@ def main():
         lines, indexables = parse_git_branch_input(arguments)
     elif arguments.input_type == 'git_status':
         lines, indexables = parse_git_status_input(arguments)
-    elif arguments.input_type == 'ls_list':
-        lines, indexables = parse_ls_list_input(arguments)
     elif arguments.input_type == 'list':
         lines, indexables = parse_list_input(arguments)
+    elif arguments.input_type == 'ls_list':
+        lines, indexables = parse_ls_list_input(arguments)
+    elif arguments.input_type == 'mixed':
+        lines, indexables = parse_mixed_input(arguments)
 
     print_output(arguments, lines, indexables)
     maybe_print_indexables(arguments, indexables)
@@ -153,6 +160,12 @@ def parse_git_status_input(arguments):
     return lines, indexables
 
 
+def parse_list_input(arguments):
+    indexables = [line.strip() for line in arguments.infile]
+    lines = [('', indexable) for indexable in indexables]
+    return lines, indexables
+
+
 def parse_ls_list_input(arguments):
     lines = []
     indexables = []
@@ -180,9 +193,18 @@ def parse_ls_list_input(arguments):
     return lines, indexables
 
 
-def parse_list_input(arguments):
-    indexables = [line.strip() for line in arguments.infile]
-    lines = [('', indexable) for indexable in indexables]
+def parse_mixed_input(arguments):
+    lines = []
+    indexables = []
+
+    for line in arguments.infile:
+        match = FILE_REGEXP.match(line)
+        if match:
+            lines.append((match.group('prefix'), match.group('indexable')))
+            indexables.append(match.group('indexable'))
+        else:
+            lines.append((line, None))
+
     return lines, indexables
 
 
