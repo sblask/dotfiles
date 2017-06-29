@@ -104,7 +104,3 @@ let g:voom_ft_modes = {
 \ }
 let g:voom_tree_placement = 'right'
 let g:voom_tree_width = 50
-
-if !exists('commentstring_autocommands_loaded')
-    autocmd FileType apache setlocal commentstring=#\ %s
-endif
