@@ -35,6 +35,7 @@ endf
 
 if !exists("language_autocommands_loaded")
     let language_autocommands_loaded = 1
+    autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType javascript :call SetJavascriptCheckers() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call SetScssConfig()
     autocmd FileType python     :call ConfigurePythonCheckers() | setlocal completeopt-=preview
