@@ -1,5 +1,10 @@
 GTK
 Greybird
+MX
+Route53
+SES
+SNS
+abspath
 addon
 addons
 addr
@@ -16,12 +21,14 @@ backend
 base64
 bashrc
 blask
+cli
 cloudformation
 config
 ctrl
 del
 devDependencies
 dir
+dk
 dockerfile
 dotfile
 ec2
@@ -31,6 +38,7 @@ eslint
 eu
 eval
 fennec
+fi
 filetype
 firefox
 fodg
@@ -38,6 +46,7 @@ github
 gradle
 hasEmbeddedWebExtension
 healthcheck
+hostmaster
 httpcode
 indexables
 infile
@@ -52,6 +61,7 @@ mozilla
 nodejs
 npm
 ok
+os
 outfile
 ovpn
 param
@@ -62,11 +72,13 @@ popup
 py
 pylint
 python2
+qa
 querystring
 rgba
 s3
 sblask
 sdk
+se
 skipredirect
 splitlines
 stacktrace
@@ -76,6 +88,7 @@ svg
 tabdeque
 tabdeque
 tmux
+tv
 txt
 ui
 uri
