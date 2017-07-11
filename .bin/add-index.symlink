@@ -13,8 +13,8 @@ AG_REGEXP = re.compile(
     r'(?P<indexable>.+)'
 )
 FILE_REGEXP = re.compile(
-    r'(?P<prefix>(\x1b[^m]+m))'
-    r'(?P<indexable>/.+)'
+    r'(?P<prefix>(\x1b[^m]+m)?)'
+    r'(?P<indexable>\.?/.+)'
 )
 GIT_BRANCH_REGEXP = re.compile(
     r'(?P<prefix>[ *]{1} {1}(\x1b[^m]+m)?)'
