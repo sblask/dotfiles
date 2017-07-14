@@ -21,7 +21,7 @@ xterm.*.termName:       xterm-256color
 ! ;
 ! 1 [ + 1 for shift][ + 2 for alt][ + 4 for ctrl]
 ! ;
-! decimal number of modified key - see http://www.nthelp.com/ascii.htm
+! decimal number of modified key - see https://msdn.microsoft.com/en-us/library/aa243025(v=vs.60).aspx
 ! ~
 xterm.*.translations:   #override \n\
     Shift Ctrl <Key>      V: insert-selection(CLIPBOARD)      \n\
@@ -34,4 +34,5 @@ xterm.*.translations:   #override \n\
           Ctrl <Key>    Tab: string(0x1b) string("[27;5;9~")  \n\
     Shift      <Key>  space: string(0x1b) string("[27;2;32~") \n\
     Shift      <Key> Return: string(0x1b) string("[27;2;13~") \n\
+    Shift Ctrl <Key>      X: string(0x1b) string("[27;6;88~")  \n\
 

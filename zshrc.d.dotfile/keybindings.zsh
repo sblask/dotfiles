@@ -1,3 +1,5 @@
+# See http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+
 # enable vi mode
 bindkey -v
 #
@@ -61,6 +63,9 @@ bindkey -M vicmd 'U' redo
 # clear prompt, but return after next command
 bindkey -M vicmd '^X' push-line
 bindkey -M viins '^X' push-line
+# kill line with Ctrl-Shift-X
+bindkey -M vicmd '^[[27;6;88~' kill-whole-line
+bindkey -M viins '^[[27;6;88~' kill-whole-line
 # undo last completion/change with Ctrl+Z
 bindkey -M vicmd '^Z' undo
 bindkey -M viins '^Z' undo
