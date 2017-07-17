@@ -15,6 +15,23 @@ function fn {
     find . -iname "*$@*" -type f
 }
 
+function p {
+    local subdirectory
+    if [[ "$1" == "" ]]
+    then
+        subdirectory=""
+    else
+        subdirectory=$(ls ~/Private/ | grep "$1" | head --lines 1)
+    fi
+    cd ~/Private/${subdirectory}
+}
+# complete with ~/Clones prefix
+compctl -/ -W ~/Private/ p
+
+function fn {
+    find . -iname "*$@*" -type f
+}
+
 function man {
     if [[ "$( type "$1" )" == *builtin ]]
     then
