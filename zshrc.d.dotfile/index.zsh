@@ -84,11 +84,16 @@ _git # run this here to get git completions to work
 
 function ag {
     local lines=$(command ag --color --group --literal $@)
-    if [ $(echo $lines | wc --lines) -gt 99 ]; then 
-        lines="$(echo $lines | head --lines 99)\\n\\n..."
+    local restricted=false
+    if [ $(echo $lines | wc --lines) -gt 99 ]; then
+        lines="$(echo $lines | head --lines 99)"
+        restricted=true
     fi
 
     echo $lines                                             | add-index --input-type ag         --print-indexables | set-index-variables
+    if [ restricted ]; then
+        echo "\n\n..."
+    fi
 }
 compdef _ag ag
 
@@ -102,9 +107,24 @@ function clone_status {
 }
 
 function find {
-    command find $@ | head --lines 99                       | add-index --input-type list       --print-indexables | set-index-variables
+    local lines=$(command find $@)
+    local restricted=false
+    if [ $(echo $lines | wc --lines) -gt 99 ]; then
+        lines="$(echo $lines | head --lines 99)"
+        restricted=true
+    fi
+
+    echo $lines                                             | add-index --input-type list       --print-indexables | set-index-variables
+    if [ restricted ]; then
+        echo "\n\n..."
+    fi
 }
 compdef _find find
+
+function findu {
+    command find $@                                         | add-index --input-type list       --print-indexables | set-index-variables
+}
+compdef _find findu
 
 function gb {
     git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
