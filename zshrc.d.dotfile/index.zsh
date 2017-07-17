@@ -91,7 +91,7 @@ function ag {
     fi
 
     echo $lines                                             | add-index --input-type ag         --print-indexables | set-index-variables
-    if [ restricted ]; then
+    if $restricted; then
         echo "\n\n..."
     fi
 }
@@ -115,7 +115,7 @@ function find {
     fi
 
     echo $lines                                             | add-index --input-type list       --print-indexables | set-index-variables
-    if [ restricted ]; then
+    if $restricted; then
         echo "\n\n..."
     fi
 }
