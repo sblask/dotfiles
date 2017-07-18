@@ -8,13 +8,9 @@ import sys
 ANSI_REGEXP = re.compile(
     r'(\x1b[^m]+m)|(\x1b\[K)'
 )
-AG_REGEXP = re.compile(
-    r'(?P<prefix>(\x1b[^m]+m))'
-    r'(?P<indexable>.+)'
-)
-FILE_REGEXP = re.compile(
+COLOURED_LINE_REGEXP = re.compile(
     r'(?P<prefix>(\x1b[^m]+m)?)'
-    r'(?P<indexable>\.?/.+)'
+    r'(?P<rest>.+)'
 )
 GIT_BRANCH_REGEXP = re.compile(
     r'(?P<prefix>[ *]{1} {1}(\x1b[^m]+m)?)'
@@ -105,11 +101,11 @@ def parse_ag_input(arguments):
     for line in arguments.infile:
         clean_line = ANSI_REGEXP.sub('', line).strip()
         if os.path.exists(clean_line):
-            match = AG_REGEXP.match(line)
+            match = COLOURED_LINE_REGEXP.match(line)
             if match:
                 arguments.outfile.write(match.group('prefix'))
                 arguments.outfile.write('[%s] ' % index)
-                arguments.outfile.write(match.group('indexable'))
+                arguments.outfile.write(match.group('rest'))
                 arguments.outfile.write('\n')
 
             indexables.append(clean_line)
@@ -198,10 +194,13 @@ def parse_mixed_input(arguments):
     indexables = []
 
     for line in arguments.infile:
-        match = FILE_REGEXP.match(line)
-        if match:
-            lines.append((match.group('prefix'), match.group('indexable')))
-            indexables.append(match.group('indexable'))
+        clean_line = ANSI_REGEXP.sub('', line).strip()
+        possible_file = clean_line.split(' ')[0]
+
+        if os.path.exists(possible_file):
+            match = COLOURED_LINE_REGEXP.match(line)
+            lines.append((match.group('prefix'), match.group('rest')))
+            indexables.append(possible_file)
         else:
             lines.append((line, None))
 
