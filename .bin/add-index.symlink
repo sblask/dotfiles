@@ -27,6 +27,9 @@ LS_REGEXP = re.compile(
     r'(?P<prefix>([0-9]+ )?([^ ]+ +){8})'
     r'(?P<indexable>.+)'
 )
+PATH_REGEXP = re.compile(
+    r'[.~]?/'
+)
 
 SUPPORTED_INPUT_TYPES = (
     'ag',
@@ -197,7 +200,7 @@ def parse_mixed_input(arguments):
         clean_line = ANSI_REGEXP.sub('', line).strip()
         possible_file = clean_line.split(' ')[0]
 
-        if os.path.exists(os.path.expanduser(possible_file)):
+        if PATH_REGEXP.match(possible_file) or os.path.exists(possible_file):
             match = COLOURED_LINE_REGEXP.match(line)
             lines.append((match.group('prefix'), match.group('rest')))
             indexables.append(possible_file)
