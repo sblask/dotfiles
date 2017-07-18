@@ -43,6 +43,9 @@ bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
 bind-key j copy-mode
 bind-key k copy-mode
 
+bind-key { copy-mode
+bind-key } copy-mode
+
 # copy and paste from/to clipboard
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
