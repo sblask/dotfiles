@@ -200,6 +200,9 @@ def parse_mixed_input(arguments):
         clean_line = ANSI_REGEXP.sub('', line).strip()
         possible_file = clean_line.split(' ')[0]
 
+        if not os.path.exists(possible_file):
+            possible_file = possible_file.rsplit(':', 1)[0]
+
         if PATH_REGEXP.match(possible_file) or os.path.exists(possible_file):
             match = COLOURED_LINE_REGEXP.match(line)
             lines.append((match.group('prefix'), match.group('rest')))
