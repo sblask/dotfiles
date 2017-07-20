@@ -201,6 +201,8 @@ def parse_mixed_input(arguments):
         possible_file = clean_line.split(' ')[0]
 
         if not os.path.exists(possible_file):
+            if possible_file.endswith(':'):
+                possible_file = possible_file[:-1]
             possible_file = possible_file.rsplit(':', 1)[0]
 
         if PATH_REGEXP.match(possible_file) or os.path.exists(possible_file):
