@@ -46,6 +46,8 @@ bind-key k copy-mode
 bind-key { copy-mode
 bind-key } copy-mode
 
+bind-key V copy-mode
+
 # copy and paste from/to clipboard
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe 'xclip -selection clipboard >/dev/null'
