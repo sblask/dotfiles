@@ -7,7 +7,7 @@ command JsonFormat % !json-format
 command JsonFormatSorted % !json-format --sorted
 command RelativeNumber set relativenumber!
 command SudoWrite w !sudo tee % > /dev/null
-command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); blob = blob.replace('\ ', '\\\'); blob = blob.replace('\n', ''); print json.loads(blob)['content'].replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&');"
+command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); blob = blob.replace('\n ', ''); print json.loads(blob)['content'].replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&');"
 command W w
 command Wrap windo set wrap
 command Q q
