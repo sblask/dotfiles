@@ -9,7 +9,7 @@ export PATH=$HOME/.rvm/bin:$PATH
 
 # Python
 # use the right python/virtualenv
-export PATH=$HOME/opt/virtualenv/bin:$PATH
-if [ -f ~/opt/virtualenv/bin/virtualenvwrapper.sh ]; then
-    . ~/opt/virtualenv/bin/virtualenvwrapper.sh
+export PATH=$HOME/.opt/virtualenv/bin:$PATH
+if [ -f ~/.opt/virtualenv/bin/virtualenvwrapper.sh ]; then
+    . ~/.opt/virtualenv/bin/virtualenvwrapper.sh
 fi

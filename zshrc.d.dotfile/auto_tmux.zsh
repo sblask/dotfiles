@@ -1,5 +1,5 @@
 # support tmux installed in home directory
-TMUX_COMMAND=~/opt/tmux/bin/tmux
+TMUX_COMMAND=~/.opt/tmux/bin/tmux
 if [ ! -f ${TMUX_COMMAND} ]; then
     TMUX_COMMAND=tmux
 fi
