@@ -1,5 +1,5 @@
 [BASIC]
-const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|logger)$
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|app|logger)$
 variable-rgx=(([a-z_][a-z0-9_]{2,30})|ip)$
 
 [Format]
@@ -10,7 +10,7 @@ max-args=8
 
 [MESSAGES CONTROL]
 # Use `pylint --help-msg=` to check the meaning of these
-disable=bad-builtin,bad-continuation,broad-except,fixme,missing-docstring,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
+disable=bad-builtin,bad-continuation,broad-except,deprecated-lambda,fixme,missing-docstring,no-else-return,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
 
 [REPORTS]
 msg-template={path}:{line} [{symbol}] {msg}
