@@ -22,5 +22,5 @@ omap i/ :normal vi/<CR>
 nnoremap <silent> * "syiw<Esc>: let @/ = '\<' . @s . '\>'<CR>:set hlsearch<CR>
 " allow search for current selection
 vnoremap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR>
-" spell checking with suggestion box keeping the original word
-nnoremap z= a<C-X><C-S><C-N><C-P>
+" spell checking with suggestion box
+nnoremap z= a<C-X><C-S>

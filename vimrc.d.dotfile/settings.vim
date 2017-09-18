@@ -9,6 +9,7 @@ set tabstop=4
 set autochdir
 " reload file automatically on focus if unchanged here but changed somewhere else
 set autoread
+set completeopt=menu,noselect
 " enable highlighting of current line
 set nocursorline
 " set default encoding explicitly

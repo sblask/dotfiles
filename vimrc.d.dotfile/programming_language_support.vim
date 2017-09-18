@@ -39,7 +39,7 @@ if !exists("language_autocommands_loaded")
     autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType javascript :call SetJavascriptCheckers() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call SetScssConfig()
-    autocmd FileType python     :call ConfigurePythonCheckers() | setlocal completeopt-=preview
+    autocmd FileType python     :call ConfigurePythonCheckers()
 endif
 
 " Add the virtualenv's site-packages to vim path
