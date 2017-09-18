@@ -23,3 +23,6 @@
 	branch = blue
 	changed = green
 	untracked = cyan
+[filter "gitignore"]
+	clean = "sed '/# gitignore$/'d"
+	smudge = cat
