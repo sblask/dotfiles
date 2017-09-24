@@ -52,7 +52,7 @@
       <property name="&lt;Super&gt;p" type="string" value="disper --cycle-stages=&apos;--single:--secondary&apos; --cycle"/>
       <property name="&lt;Super&gt;r" type="string" value="quiterss -style=gtk"/>
       <property name="&lt;Super&gt;t" type="string" value="xterm -maximized"/>
-      <property name="&lt;Super&gt;w" type="string" value="exo-open /home/sebastian/.local/share/applications/firefox.desktop"/>
+      <property name="&lt;Super&gt;w" type="string" value="exo-open --launch Webbrowser"/>
       <property name="Print" type="string" value="xfce4-screenshooter --fullscreen --save /home/sebastian/Desktop"/>
       <property name="override" type="bool" value="true"/>
     </property>
