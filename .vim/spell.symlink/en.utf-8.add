@@ -29,6 +29,7 @@ del
 devDependencies
 dir
 dk
+dns
 dockerfile
 dotfile
 ec2
@@ -69,6 +70,7 @@ percentunit
 png
 polyfill
 popup
+punycode
 py
 pylint
 python2
@@ -91,6 +93,7 @@ tmux
 tv
 txt
 ui
+unicode
 uri
 uris
 url
