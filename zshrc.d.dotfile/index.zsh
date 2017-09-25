@@ -41,7 +41,7 @@ function __expand-indexes {
         local resolved_index=$( eval echo "\"\${${index_variable}}\"" )
         if [ "${resolved_index}" != "" ]
         then
-            printf "${resolved_index}" | sed 's/ /\\ /g'
+            printf "${resolved_index}" | sed --regexp-extended "s|([ '\"])|\\\\\1|g"
             printf " "
         else
             printf ""
