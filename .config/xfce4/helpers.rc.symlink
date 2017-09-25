@@ -1,0 +1,4 @@
+TerminalEmulator=xterm
+FileManager=Thunar
+WebBrowser=chromium-browser
+
