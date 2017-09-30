@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NAS Transmission
+Icon=transmission
+Exec=/home/sebastian/.bin/transmission_download %U
+NoDisplay=false
+Categories=Network;
+StartupNotify=false
+Terminal=false
