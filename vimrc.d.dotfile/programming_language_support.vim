@@ -21,15 +21,10 @@ fun! SetScssConfig()
     endif
 endf
 
-fun! SetJavascriptCheckers()
+fun! SetEslintCheckers()
     let localEslint = findfile('node_modules/.bin/eslint', '.;')
     if localEslint != ""
         let b:syntastic_javascript_eslint_exec = fnamemodify(localEslint, ':p')
-    endif
-
-    let localJscs = findfile('node_modules/.bin/jscs', '.;')
-    if localJscs != ""
-        let b:syntastic_javascript_jscs_exec = fnamemodify(localJscs, ':p')
     endif
 endf
 
@@ -37,7 +32,7 @@ if !exists("language_autocommands_loaded")
     let language_autocommands_loaded = 1
     autocmd FileType apache     setlocal commentstring=#\ %s
     autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
-    autocmd FileType javascript :call SetJavascriptCheckers() | call SuperTabSetDefaultCompletionType("<c-p>")
+    autocmd FileType javascript :call SetEslintCheckers() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call SetScssConfig()
     autocmd FileType python     :call ConfigurePythonCheckers()
 endif
