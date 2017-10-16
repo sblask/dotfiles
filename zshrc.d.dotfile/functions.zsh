@@ -11,10 +11,6 @@ function c {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Clones/ c
 
-function fn {
-    find . -iname "*$@*" -type f
-}
-
 function p {
     local subdirectory
     if [[ "$1" == "" ]]
@@ -29,7 +25,7 @@ function p {
 compctl -/ -W ~/Private/ p
 
 function fn {
-    find . -iname "*$@*" -type f
+    findi . -iname "*$@*" -type f
 }
 
 function man {

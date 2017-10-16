@@ -106,8 +106,8 @@ function clone_status {
     command clone_status                                    | add-index --input-type mixed      --print-indexables | set-index-variables
 }
 
-function find {
-    local lines=$(command find $@)
+function findi {
+    local lines=$(find $@)
     local restricted=false
     if [ $(echo $lines | wc --lines) -gt 99 ]; then
         lines="$(echo $lines | head --lines 99)"
@@ -122,7 +122,7 @@ function find {
 compdef _find find
 
 function findu {
-    command find $@                                         | add-index --input-type list       --print-indexables | set-index-variables
+    find $@                                         | add-index --input-type list       --print-indexables | set-index-variables
 }
 compdef _find findu
 
