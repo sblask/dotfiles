@@ -1,18 +1,21 @@
 function maybe-install-virtualenv-requirements {
-    VIRTUALENV_REQUIREMENTS=${HOME}/.virtualenvs/requirements.txt
-    if ! python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS}').read().splitlines())" 2>/dev/null; then
-        echo -e "$fg[yellow]Installing requirements from ${VIRTUALENV_REQUIREMENTS}${reset_color}"
-        pip install --upgrade --requirement ${VIRTUALENV_REQUIREMENTS}
+    local VIRTUALENV_REQUIREMENTS_FILE=$1
+    if [ -f ${VIRTUALENV_REQUIREMENTS_FILE} ]; then
+        if ! python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())" 2>/dev/null; then
+            echo -e "$fg[yellow]Installing requirements from ${VIRTUALENV_REQUIREMENTS_FILE}${reset_color}"
+            pip install --upgrade --requirement ${VIRTUALENV_REQUIREMENTS_FILE}
+        fi
     fi
 }
 
 function auto-enable-virtualenv {
-    VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a))
+    local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a))
     if [ "${VIRTUALENV_DIRECTORY}" != "" -a -d ${VIRTUALENV_DIRECTORY} ]; then
         source ${VIRTUALENV_DIRECTORY}/bin/activate
-        maybe-install-virtualenv-requirements
+        maybe-install-virtualenv-requirements ${HOME}/.virtualenvs/requirements.txt
+        maybe-install-virtualenv-requirements ${PWD}/requirements.txt
     elif [ -f .penv -o -f .venv ]; then
-        CURRENT_DIRECTORY=${PWD##*/}
+        local CURRENT_DIRECTORY=${PWD##*/}
         if [ "(${CURRENT_DIRECTORY}) " != "$(virtual_env)" ]; then
             workon ${CURRENT_DIRECTORY}
         fi
