@@ -142,7 +142,7 @@ function gs {
 compdef _git-status gs
 
 function la {
-    { __print-path-argument $@; ls -lha --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+    { __print-path-argument $@; ls -lhA --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
 }
 compdef _ls la
 
