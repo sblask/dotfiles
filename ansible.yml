@@ -21,3 +21,35 @@
       apt:
         name: neovim
         state: present
+
+    - name: Ensure useful packages are installed
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - entr
+        - gmusicbrowser
+        - gnome-font-viewer
+        - gparted
+        - inkscape
+        - libreoffice
+        - pdftk
+        - pinta
+        - puddletag
+        - silversearcher-ag
+        - texlive
+        - tree
+        - usb-creator-gtk
+        - vlc
+
+    - name: Ensure useless packages are removed
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - gnome-mines
+        - gnome-sudoku
+        - indicator-messages
+        - parole
+        - pidgin
+        - ristretto
