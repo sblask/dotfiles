@@ -3,6 +3,7 @@
   connection: local
   become: true
   tasks:
+
     - name: Add Geary repository
       apt_repository:
         repo: ppa:geary-team/releases
@@ -10,4 +11,13 @@
     - name: Install Geary
       apt:
         name: geary
+        state: present
+
+    - name: Add Neovim repository
+      apt_repository:
+        repo: ppa:neovim-ppa/stable
+        state: present
+    - name: Install Neovim
+      apt:
+        name: neovim
         state: present
