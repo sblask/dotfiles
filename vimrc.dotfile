@@ -4,8 +4,10 @@ if has('gui_running')
     " base16 colorscheme not applied properly if this isn't done before
     colorscheme default
 else
-    " some key combinations do not work without this (ctrl-arrow for example)
-    set term=xterm-256color
+    if !has('nvim')
+        " some key combinations do not work without this (ctrl-arrow for example)
+        set term=xterm-256color
+    endif
 endif
 
 colorscheme base16-eighties-modified
