@@ -1,0 +1,55 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+
+    - name: Add Geary repository
+      apt_repository:
+        repo: ppa:geary-team/releases
+        state: present
+    - name: Install Geary
+      apt:
+        name: geary
+        state: present
+
+    - name: Add Neovim repository
+      apt_repository:
+        repo: ppa:neovim-ppa/stable
+        state: present
+    - name: Install Neovim
+      apt:
+        name: neovim
+        state: present
+
+    - name: Ensure useful packages are installed
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - entr
+        - gmusicbrowser
+        - gnome-font-viewer
+        - gparted
+        - inkscape
+        - libreoffice
+        - pdftk
+        - pinta
+        - puddletag
+        - silversearcher-ag
+        - texlive
+        - tree
+        - usb-creator-gtk
+        - vlc
+
+    - name: Ensure useless packages are removed
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - gnome-mines
+        - gnome-sudoku
+        - indicator-messages
+        - parole
+        - pidgin
+        - ristretto
