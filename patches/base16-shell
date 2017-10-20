@@ -1,5 +1,5 @@
 diff --git scripts/base16-eighties.sh scripts/base16-eighties.sh
-index 87fe4d7..fed7047 100644
+index f897eef..09d7d48 100644
 --- scripts/base16-eighties.sh
 +++ scripts/base16-eighties.sh
 @@ -8,7 +8,7 @@ if [ "${TERM%%-*}" = 'linux' ]; then
@@ -19,6 +19,6 @@ index 87fe4d7..fed7047 100644
 -color_background="2d/2d/2d" # Base 00
 +color_foreground="b3/b3/b3" # Base 05
 +color_background="11/11/11" # Base 00
- color_cursor="d3/d0/c8" # Base 05
  
  if [ -n "$TMUX" ]; then
+   # Tell tmux to pass the escape sequences through

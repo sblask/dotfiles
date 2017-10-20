@@ -8,7 +8,7 @@ VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
 rm -rf $VUNDLE_CLONE_DIRECTORY
 git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
 
-BASE16_SHELL_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/base16-shell.dotfile
+BASE16_SHELL_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.base16-shell.symlink
 rm -rf $BASE16_SHELL_CLONE_DIRECTORY
 git clone https://github.com/chriskempson/base16-shell $BASE16_SHELL_CLONE_DIRECTORY
 # patch generated from base16-shell directory with: git diff --no-prefix > ../patches/base16-shell
@@ -22,7 +22,7 @@ FONTS_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.fonts
 mkdir -p $FONTS_CLONE_DIRECTORY
 wget https://github.com/Lokaltog/powerline-fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf -O $FONTS_CLONE_DIRECTORY/DejaVu_Sans_Mono_for_Powerline.ttf.symlink
 
-ZSH_DIRECTORY=$DOTFILES_DIRECTORY/zsh.dotfile
+ZSH_DIRECTORY=$DOTFILES_DIRECTORY/.zsh.symlink
 rm -rf $ZSH_DIRECTORY
 mkdir $ZSH_DIRECTORY
 
@@ -37,7 +37,6 @@ popd
 ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
 mkdir $ZSH_COMPLETION_DIRECTORY
 pushd $ZSH_COMPLETION_DIRECTORY
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ag
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_jq
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_rvm
@@ -46,6 +45,7 @@ wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_sca
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
 wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
+wget https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
 wget https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.zsh -O _git-flow && echo "#compdef git-flow" | cat - _git-flow | sponge _git-flow
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
