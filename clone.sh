@@ -4,19 +4,11 @@ set -x -o errexit -o nounset -o pipefail
 
 DOTFILES_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-VUNDLE_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.vim/bundle/vundle.copy
-rm -rf $VUNDLE_CLONE_DIRECTORY
-git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_CLONE_DIRECTORY
-
 BASE16_SHELL_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.base16-shell.symlink
 rm -rf $BASE16_SHELL_CLONE_DIRECTORY
 git clone https://github.com/chriskempson/base16-shell $BASE16_SHELL_CLONE_DIRECTORY
 # patch generated from base16-shell directory with: git diff --no-prefix > ../patches/base16-shell
 patch -p0 --directory=$BASE16_SHELL_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/base16-shell
-
-TPM_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.tmux/plugins/tpm.copy
-rm -rf $TPM_CLONE_DIRECTORY
-git clone https://github.com/tmux-plugins/tpm $TPM_CLONE_DIRECTORY
 
 FONTS_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.fonts
 mkdir -p $FONTS_CLONE_DIRECTORY

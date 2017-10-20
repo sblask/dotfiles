@@ -23,3 +23,15 @@
         dest: "{{ home_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"
+
+    - name: Clone Tmux plugin manager
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: "{{ home_directory }}/.tmux/plugins/tpm"
+        update: no
+
+    - name: Clone Vim plugin manager
+      git:
+        repo: https://github.com/gmarik/Vundle.vim.git
+        dest: "{{ home_directory }}/.vim/bundle/vundle"
+        update: no
