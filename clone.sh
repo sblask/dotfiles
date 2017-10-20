@@ -14,42 +14,6 @@ FONTS_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.fonts
 mkdir -p $FONTS_CLONE_DIRECTORY
 wget https://github.com/Lokaltog/powerline-fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf -O $FONTS_CLONE_DIRECTORY/DejaVu_Sans_Mono_for_Powerline.ttf.symlink
 
-ZSH_DIRECTORY=$DOTFILES_DIRECTORY/.zsh.symlink
-rm -rf $ZSH_DIRECTORY
-mkdir $ZSH_DIRECTORY
-
-ZSH_PLUGIN_DIRECTORY=$ZSH_DIRECTORY/plugins
-mkdir $ZSH_PLUGIN_DIRECTORY
-pushd $ZSH_PLUGIN_DIRECTORY
-git clone https://github.com/olivierverdier/zsh-git-prompt $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt && mv $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt/zshrc.sh $ZSH_PLUGIN_DIRECTORY/zsh-git-prompt/zsh-git-prompt.plugin.zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_PLUGIN_DIRECTORY/zsh-syntax-highlighting
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
-popd
-
-ZSH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/completions.d
-mkdir $ZSH_COMPLETION_DIRECTORY
-pushd $ZSH_COMPLETION_DIRECTORY
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_jq
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_rvm
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_sbt
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_scala
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
-wget https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
-wget https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
-wget https://raw.githubusercontent.com/petervanderdoes/git-flow-completion/develop/git-flow-completion.zsh -O _git-flow && echo "#compdef git-flow" | cat - _git-flow | sponge _git-flow
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
-popd
-
-ZSH_BASH_COMPLETION_DIRECTORY=$ZSH_DIRECTORY/bash_completions.d
-mkdir $ZSH_BASH_COMPLETION_DIRECTORY
-
-pushd $ZSH_BASH_COMPLETION_DIRECTORY
-wget https://raw.githubusercontent.com/otm/limes/master/assets/limes && patch limes $DOTFILES_DIRECTORY/patches/limes
-popd
-
 wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -O $DOTFILES_DIRECTORY/hub.tgz
 tar \
   --extract \
