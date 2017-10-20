@@ -11,6 +11,7 @@
         paths: "{{ playbook_dir }}"
         recurse: yes
         file_type: any
+        hidden: yes
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
