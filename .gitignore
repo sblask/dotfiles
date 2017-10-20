@@ -8,6 +8,7 @@
 /.venv
 /.vim/bundle/vundle.copy
 /.vim/spell.symlink/*.spl
+/.vim/spell.symlink/*.sug
 /.vim/spell.symlink/local.en.utf-8.add
 /base16-shell.dotfile/
 /scm_breeze.dotfile/

@@ -34,12 +34,14 @@ dockerfile
 dotfile
 ec2
 elb
+endswith
 env
 eslint
 eu
 eval
 fennec
 fi
+filetree
 filetype
 firefox
 fodg
@@ -58,6 +60,7 @@ jq
 js
 jscs
 json
+localhost
 mozilla
 nodejs
 npm
@@ -67,6 +70,7 @@ outfile
 ovpn
 param
 percentunit
+playbook
 png
 polyfill
 popup
@@ -76,7 +80,9 @@ pylint
 python2
 qa
 querystring
+recurse
 rgba
+rsplit
 s3
 sblask
 sdk
@@ -87,6 +93,8 @@ stacktrace
 subshell
 sudo
 svg
+symlink
+symlinks
 tabdeque
 tabdeque
 tmux
