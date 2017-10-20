@@ -1,0 +1,11 @@
+[Desktop Entry]
+NoDisplay=true
+Version=1.0
+Encoding=UTF-8
+Type=X-XFCE-Helper
+X-XFCE-Category=MailReader
+X-XFCE-CommandsWithParameter=/usr/bin/geary "%s"
+Icon=geary
+Name=geary
+X-XFCE-Commands=/usr/bin/geary
+
