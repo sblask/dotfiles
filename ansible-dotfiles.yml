@@ -71,6 +71,8 @@
         - https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ansible
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ansible-playbook
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_jq
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_rvm
