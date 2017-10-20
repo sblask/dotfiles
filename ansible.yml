@@ -59,7 +59,7 @@
 - hosts: localhost
   connection: local
   vars:
-    target_directory: "$HOME"
+    home_directory: "{{ lookup('env', 'HOME') }}"
   tasks:
 
     - name: Find files to symlink
@@ -70,12 +70,12 @@
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
-        path: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '').rsplit('/', 1)[0] }}"
+        path: "{{ home_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '').rsplit('/', 1)[0] }}"
         state: directory
       with_items: "{{ files_to_symlink.files }}"
     - name: Create symlinks
       file:
         src: "{{ item.path }}"
-        dest: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
+        dest: "{{ home_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"
