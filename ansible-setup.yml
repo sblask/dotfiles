@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+
+    - name: Add Ansible repository
+      apt_repository:
+        repo: ppa:ansible/ansible
+        state: present
+    - name: Install Ansible
+      apt:
+        name: ansible
+        state: latest
