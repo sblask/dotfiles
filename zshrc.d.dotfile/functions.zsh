@@ -24,8 +24,14 @@ function p {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Private/ p
 
-function fn {
+function fd {
+    findi . -iname "*$@*" -type d
+}
+function ff {
     findi . -iname "*$@*" -type f
+}
+function fn {
+    findi . -iname "*$@*"
 }
 
 function man {
