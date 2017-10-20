@@ -10,6 +10,7 @@
         patterns:  "*.symlink"
         paths: "{{ playbook_dir }}"
         recurse: yes
+        file_type: any
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
