@@ -1,4 +1,7 @@
-before_install:
-  - sudo apt-get install colordiff
+addons:
+  apt:
+    packages:
+      - ansible
+      - colordiff
 script: 
   - ./test.sh
