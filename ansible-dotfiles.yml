@@ -1,8 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
-  vars:
-    home_directory: "{{ lookup('env', 'HOME') }}"
+- hosts: all
   tasks:
 
     - name: Find files to symlink
@@ -15,12 +12,12 @@
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
-        path: "{{ home_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '').rsplit('/', 1)[0] }}"
+        path: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '').rsplit('/', 1)[0] }}"
         state: directory
       with_items: "{{ files_to_symlink.files }}"
     - name: Create symlinks
       file:
         src: "{{ item.path }}"
-        dest: "{{ home_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
+        dest: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"

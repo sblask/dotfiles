@@ -1,65 +1,62 @@
 ---
-- hosts: localhost
-  connection: local
-  vars:
-    home_directory: "{{ lookup('env', 'HOME') }}"
+- hosts: all
   tasks:
 
     - name: Install Tmux plugin manager
       git:
         repo: https://github.com/tmux-plugins/tpm
-        dest: "{{ home_directory }}/.tmux/plugins/tpm"
+        dest: "{{ target_directory }}/.tmux/plugins/tpm"
         update: no
 
     - name: Install Vim plugin manager
       git:
         repo: https://github.com/gmarik/Vundle.vim.git
-        dest: "{{ home_directory }}/.vim/bundle/vundle"
+        dest: "{{ target_directory }}/.vim/bundle/vundle"
         update: no
 
     - name: Install ZSH base16 plugin
       git:
         repo: https://github.com/chriskempson/base16-shell
-        dest: "{{ home_directory }}/.zsh/plugins/base16-shell"
+        dest: "{{ target_directory }}/.zsh/plugins/base16-shell"
         update: no
       register: base16
     - name: Patch base16 plugin
       patch:
         src: "{{ playbook_dir }}/patches/base16-shell"
-        basedir: "{{ home_directory }}/.zsh/plugins/base16-shell"
+        basedir: "{{ target_directory }}/.zsh/plugins/base16-shell"
       when: base16.changed
 
     - name: Install ZSH syntax highlighting plugin
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
-        dest: "{{ home_directory }}/.zsh/plugins/zsh-syntax-highlighting"
+        dest: "{{ target_directory }}/.zsh/plugins/zsh-syntax-highlighting"
         update: no
 
     - name: Install ZSH git prompt plugin
       git:
         repo: https://github.com/olivierverdier/zsh-git-prompt
-        dest: "{{ home_directory }}/.zsh/plugins/zsh-git-prompt"
+        dest: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt"
         update: no
       register: git_prompt_plugin
     - name: Fix naming in ZSH git prompt plugin
       copy:
-        src: "{{ home_directory }}/.zsh/plugins/zsh-git-prompt/zshrc.sh"
-        dest: "{{ home_directory }}/.zsh/plugins/zsh-git-prompt/zsh-git-prompt.plugin.zsh"
+        src: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt/zshrc.sh"
+        dest: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt/zsh-git-prompt.plugin.zsh"
       when: git_prompt_plugin.changed
 
     - name: Install ZSH pip plugin
       get_url:
         url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
-        dest: "{{ home_directory }}/.zsh/plugins/"
+        dest: "{{ target_directory }}/.zsh/plugins/"
 
     - name: Ensure directory for ZSH completions
       file:
-        path: "{{ home_directory }}/.zsh/completions.d/"
+        path: "{{ target_directory }}/.zsh/completions.d/"
         state: directory
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"
-        dest: "{{ home_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
+        dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
       with_items:
         - https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
@@ -77,12 +74,12 @@
 
     - name: Ensure directory for BASH completions
       file:
-        path: "{{ home_directory }}/.zsh/bash_completions.d/"
+        path: "{{ target_directory }}/.zsh/bash_completions.d/"
         state: directory
     - name: Install limes completion
       get_url:
         url: https://raw.githubusercontent.com/otm/limes/master/assets/limes
-        dest: "{{ home_directory }}/.zsh/bash_completions.d/limes"
+        dest: "{{ target_directory }}/.zsh/bash_completions.d/limes"
       register: limes
     - name: Patch limes completion
       patch:
