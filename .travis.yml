@@ -1,7 +1,11 @@
+language: python
+python: 2.7
+
 addons:
   apt:
     packages:
-      - ansible
       - colordiff
+install:
+  - pip install ansible
 script: 
   - ./test.sh
