@@ -2,6 +2,9 @@ for file in ~/.zsh/plugins/**/*.plugin.zsh; do
     source "$file"
 done
 
+# set color scheme
+base16_eighties
+
 # configure git syntax highlighting plugin
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf*' 'fg=black,bg=red')

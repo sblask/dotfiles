@@ -4,12 +4,6 @@ set -x -o errexit -o nounset -o pipefail
 
 DOTFILES_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-BASE16_SHELL_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.base16-shell.symlink
-rm -rf $BASE16_SHELL_CLONE_DIRECTORY
-git clone https://github.com/chriskempson/base16-shell $BASE16_SHELL_CLONE_DIRECTORY
-# patch generated from base16-shell directory with: git diff --no-prefix > ../patches/base16-shell
-patch -p0 --directory=$BASE16_SHELL_CLONE_DIRECTORY < $DOTFILES_DIRECTORY/patches/base16-shell
-
 FONTS_CLONE_DIRECTORY=$DOTFILES_DIRECTORY/.fonts
 mkdir -p $FONTS_CLONE_DIRECTORY
 wget https://github.com/Lokaltog/powerline-fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf -O $FONTS_CLONE_DIRECTORY/DejaVu_Sans_Mono_for_Powerline.ttf.symlink

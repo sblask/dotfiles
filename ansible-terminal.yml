@@ -17,6 +17,18 @@
         dest: "{{ home_directory }}/.vim/bundle/vundle"
         update: no
 
+    - name: Install ZSH base16 plugin
+      git:
+        repo: https://github.com/chriskempson/base16-shell
+        dest: "{{ home_directory }}/.zsh/plugins/base16-shell"
+        update: no
+      register: base16
+    - name: Patch base16 plugin
+      patch:
+        src: "{{ playbook_dir }}/patches/base16-shell"
+        basedir: "{{ home_directory }}/.zsh/plugins/base16-shell"
+      when: base16.changed
+
     - name: Install ZSH syntax highlighting plugin
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
