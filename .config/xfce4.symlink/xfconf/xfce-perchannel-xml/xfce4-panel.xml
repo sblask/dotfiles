@@ -63,7 +63,7 @@
       <property name="expand" type="bool" value="false"/>
     </property>
     <property name="plugin-8" type="string" value="clock">
-      <property name="digital-format" type="string" value="%d %b, %H:%M"/>
+      <property name="digital-format" type="string" value="Week %V, %A %d %B, %H:%M:%S"/>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>
