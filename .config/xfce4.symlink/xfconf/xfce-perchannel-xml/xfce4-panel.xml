@@ -31,6 +31,9 @@
     <property name="plugin-1" type="string" value="whiskermenu"/>
     <property name="plugin-2" type="string" value="tasklist">
       <property name="flat-buttons" type="bool" value="true"/>
+      <property name="sort-order" type="uint" value="4"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="window-scrolling" type="bool" value="false"/>
     </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
