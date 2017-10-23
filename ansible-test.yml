@@ -1,2 +1,4 @@
 - import_playbook: ansible-dotfiles.yml
 - import_playbook: ansible-terminal.yml
+
+- import_playbook: ansible-private.yml

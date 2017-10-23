@@ -1,0 +1,14 @@
+- hosts: all
+  become: true
+  tasks:
+
+    - name: Add Xnview repository
+      apt_repository:
+        repo: ppa:dhor/myway
+        state: present
+    - name: Install Xnview
+      apt:
+        name: xnview
+        state: present
+
+
