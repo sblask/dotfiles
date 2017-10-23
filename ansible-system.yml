@@ -42,6 +42,7 @@
         - pdftk
         - pinta
         - puddletag # to edit mp3 tags from Thunar context menu
+        - pulseaudio-module-bluetooth # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
         - python-dev
         - silversearcher-ag
         - texlive
