@@ -1,6 +1,4 @@
----
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
   tasks:
 
@@ -17,7 +15,7 @@
       apt_repository:
         repo: ppa:neovim-ppa/stable
         state: present
-    - name: Install Neovim
+    - name: Install Neovim - run BundleInstall the first time you run it to install all the plugins
       apt:
         name: neovim
         state: present
@@ -27,20 +25,33 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - entr
+        - baobab # to analyze disk usage from Thunar context menu
+        - compton # no more video tearing
+        - disper # for scripting changes between display modes
+        - entr # do stuff when files change
+        - git
         - gmusicbrowser
         - gnome-font-viewer
         - gparted
         - inkscape
+        - jq
         - libreoffice
+        - meld
+        - moreutils # contains sponge command
+        - parcellite # keeps copied text in the clipboard even after applications have been closed
         - pdftk
         - pinta
-        - puddletag
+        - puddletag # to edit mp3 tags from Thunar context menu
+        - python-dev
         - silversearcher-ag
         - texlive
+        - tmux # use 'CTRL-B' + 'I' to install the plugins
         - tree
         - usb-creator-gtk
         - vlc
+        - xbacklight
+        - xclip
+        - zsh
 
     - name: Ensure useless packages are removed
       apt:
