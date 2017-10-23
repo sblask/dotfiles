@@ -64,3 +64,8 @@
         - parole
         - pidgin
         - ristretto
+
+    - name: Make ZSH default shell
+      user:
+        name: sebastian
+        shell: /bin/zsh
