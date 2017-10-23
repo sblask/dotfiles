@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+  <property name="AlpsPS2_ALPS_DualPoint_TouchPad" type="empty">
+    <property name="Properties" type="empty">
+      <property name="Device_Enabled" type="int" value="0"/>
+    </property>
+  </property>
+</channel>
