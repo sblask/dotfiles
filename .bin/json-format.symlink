@@ -29,7 +29,7 @@ def main():
         separators=(',', ': '),
         sort_keys=arguments.sorted,
     )
-    print output_string.encode('utf-8')
+    print(output_string)
 
 
 if __name__ == '__main__':
