@@ -1,3 +1,4 @@
-- import_playbook: ansible-system.yml
+- import_playbook: ansible-completions.yml
 - import_playbook: ansible-dotfiles.yml
-- import_playbook: ansible-terminal.yml
+- import_playbook: ansible-plugins.yml
+- import_playbook: ansible-system.yml

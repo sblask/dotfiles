@@ -1,0 +1,46 @@
+- hosts: all
+  tasks:
+
+
+    - name: Ensure directory for BASH completions
+      file:
+        path: "{{ target_directory }}/.zsh/bash_completions.d/"
+        state: directory
+
+
+    - name: Ensure directory for ZSH completions
+      file:
+        path: "{{ target_directory }}/.zsh/completions.d/"
+        state: directory
+
+
+    - name: Install limes completion
+      get_url:
+        url: https://raw.githubusercontent.com/otm/limes/master/assets/limes
+        dest: "{{ target_directory }}/.zsh/bash_completions.d/limes"
+      register: limes
+    - name: Patch limes completion
+      patch:
+        src: "{{ playbook_dir }}/patches/limes"
+        dest: "{{ limes.dest }}"
+      when: limes.changed
+
+
+    - name: Install ZSH completions
+      get_url:
+        url: "{{ item }}"
+        dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
+      with_items:
+        - https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
+        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
+        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ansible
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ansible-playbook
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_jq
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_rvm
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_sbt
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_scala
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
