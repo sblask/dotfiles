@@ -1,6 +1,8 @@
+Ansible
 GTK
 Greybird
 MX
+Neovim
 Route53
 SES
 SNS
@@ -45,6 +47,7 @@ filetree
 filetype
 firefox
 fodg
+geary
 github
 gradle
 hasEmbeddedWebExtension
@@ -61,6 +64,7 @@ js
 jscs
 json
 localhost
+localhost
 mozilla
 nodejs
 npm
@@ -71,9 +75,11 @@ ovpn
 param
 percentunit
 playbook
+playbook
 png
 polyfill
 popup
+ppa
 punycode
 py
 pylint
@@ -81,6 +87,7 @@ python2
 qa
 querystring
 recurse
+repo
 rgba
 rsplit
 s3
