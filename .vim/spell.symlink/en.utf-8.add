@@ -6,6 +6,7 @@ Neovim
 Route53
 SES
 SNS
+ZSH
 abspath
 addon
 addons
@@ -28,6 +29,7 @@ cloudformation
 config
 ctrl
 del
+dest
 devDependencies
 dir
 dk
@@ -49,6 +51,7 @@ firefox
 fodg
 geary
 github
+gitignore
 gradle
 hasEmbeddedWebExtension
 healthcheck
@@ -96,6 +99,7 @@ sdk
 se
 skipredirect
 splitlines
+src
 stacktrace
 subshell
 sudo
@@ -128,3 +132,4 @@ whitelisted
 www
 xml
 xpi
+yq
