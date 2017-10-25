@@ -1,0 +1,48 @@
+- hosts: all
+  tasks:
+
+
+    - name: Get hub
+      get_url:
+        url: https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
+        dest: "/tmp/hub.tgz"
+    - name: Unpack hub
+      shell: |
+        tar \
+        --extract \
+        --verbose \
+        --file hub.tgz \
+        --wildcards \
+        --strip-component 2 \
+        --directory {{ target_directory }}/.bin/ \
+        "*/hub"
+      args:
+        chdir: /tmp/
+        creates: "{{ target_directory }}/.bin/hub"
+    - name: Unpack hub completions
+      shell: |
+        tar \
+          --extract \
+          --verbose \
+          --show-transformed-names \
+          --file hub.tgz \
+          --wildcards \
+          --strip-component 2 \
+          --directory "{{ target_directory }}/.zsh/completions.d/" \
+          --transform "s/hub.zsh_completion/_hub/" \
+          "*/etc/hub.zsh_completion"
+      args:
+        chdir: /tmp/
+        creates: "{{ target_directory }}/.zsh/completions.d/_hub"
+
+
+    - name: Get pup
+      get_url:
+        url: https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
+        dest: "/tmp/pup.gz"
+    - name: Unpack pup
+      unarchive:
+        src: /tmp/pup.gz
+        dest: "{{ target_directory }}/.bin/"
+        remote_src: yes
+        creates: "{{ target_directory }}/.bin/pup"
