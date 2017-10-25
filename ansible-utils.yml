@@ -2,6 +2,12 @@
   tasks:
 
 
+    - name: Get Powerline font
+      get_url:
+        url: https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf
+        dest: "{{ target_directory }}/.fonts/DejaVu_Sans_Mono_for_Powerline.ttf"
+
+
     - name: Get hub
       get_url:
         url: https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
