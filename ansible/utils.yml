@@ -1,6 +1,6 @@
 - hosts: all
-  tasks:
 
+  tasks:
 
     - name: Ensure .fonts directory
       file:
@@ -10,6 +10,7 @@
       get_url:
         url: https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf
         dest: "{{ target_directory }}/.fonts/DejaVu_Sans_Mono_for_Powerline.ttf"
+      notify: Update fonts
 
 
     - name: Get hub
@@ -56,3 +57,9 @@
         dest: "{{ target_directory }}/.bin/"
         remote_src: yes
         creates: "{{ target_directory }}/.bin/pup"
+
+  handlers:
+
+    - name: Update fonts
+      shell: fc-cache --force --verbose {{ target_directory }}/.fonts
+      when: target_directory == lookup('env', 'HOME')
