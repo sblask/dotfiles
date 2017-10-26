@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=GVim
+Name=neovim
 GenericName=Text Editor
-Comment=Edit text files
+Comment=nvim
 Icon=gvim
 Exec=xterm -maximized -title nvim -e "bash /home/sebastian/.zsh/plugins/base16-shell/scripts/base16-eighties.sh && nvim %F"
 Path=/home/sebastian/Desktop
