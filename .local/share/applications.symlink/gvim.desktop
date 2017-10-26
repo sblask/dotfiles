@@ -5,7 +5,6 @@ Name=GVim
 GenericName=Text Editor
 Comment=Edit text files
 Icon=gvim
-TryExec=gvim
 Exec=xterm -maximized -title nvim -e "bash /home/sebastian/.zsh/plugins/base16-shell/scripts/base16-eighties.sh && nvim %F"
 Path=/home/sebastian/Desktop
 NoDisplay=false

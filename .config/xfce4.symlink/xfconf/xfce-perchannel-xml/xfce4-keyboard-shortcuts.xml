@@ -46,7 +46,7 @@
       <property name="&lt;Primary&gt;F12" type="string" value="xbacklight -inc 1"/>
       <property name="&lt;Primary&gt;Print" type="string" value="xfce4-screenshooter --delay 5 --window --mouse --save /home/sebastian/Desktop"/>
       <property name="&lt;Super&gt;Tab" type="string" value="skippy-xd"/>
-      <property name="&lt;Super&gt;e" type="string" value="exo-open /home/sebastian/.local/share/applications/gvim.desktop"/>
+      <property name="&lt;Super&gt;e" type="string" value="gtk-launch gvim"/>
       <property name="&lt;Super&gt;f" type="string" value="exo-open /home/sebastian/.local/share/applications/Thunar.desktop"/>
       <property name="&lt;Super&gt;m" type="string" value="exo-open --launch MailReader"/>
       <property name="&lt;Super&gt;p" type="string" value="disper --cycle-stages=&apos;--single:--secondary&apos; --cycle"/>
