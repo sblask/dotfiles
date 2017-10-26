@@ -2,6 +2,10 @@
   tasks:
 
 
+    - name: Ensure .fonts directory
+      file:
+        path: "{{ target_directory }}/.fonts"
+        state: directory
     - name: Get Powerline font
       get_url:
         url: https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf
