@@ -21,7 +21,6 @@ if isdirectory(expand('~/.vim/bundle/vundle/'))
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
     Bundle 'sblask/vim-airline-themes'
-    Bundle 'scrooloose/syntastic'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tmux-plugins/vim-tmux'
@@ -35,13 +34,14 @@ if isdirectory(expand('~/.vim/bundle/vundle/'))
     Bundle 'vim-scripts/AnsiEsc.vim'
     Bundle 'vim-scripts/diffchar.vim'
     Bundle 'vim-voom/VOoM'
+    Bundle 'w0rp/ale'
 endif
 filetype plugin indent on
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 cnoreabbrev ag Gcd <bar> Ack!
 
-let g:airline_extensions = ['ctrlp', 'syntastic', 'tabline']
+let g:airline_extensions = ['ale', 'ctrlp', 'tabline']
 let g:airline#extensions#default#layout = [
 \    [ 'a', 'c' ],
 \    [ 'z' ],
@@ -55,6 +55,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%n: %f'])
 let g:airline_section_z = '%l/%L : %c'
 let g:airline_theme = 'luna'
+
+let g:ale_linters = {
+\    'ansible': ['yamllint'],
+\    'python': ['pycodestyle', 'pylint'],
+\ }
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '✗'
 
 call camelcasemotion#CreateMotionMappings('<leader>')
 
@@ -86,17 +93,6 @@ let g:polyglot_disabled = ['jinja', 'tmux']
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_echo_current_error = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_javascript_checkers = ['eslint', 'jscs']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '✗'
-let g:syntastic_warning_symbol = '✗'
 
 let g:vim_resize_disable_auto_mappings = 1
 

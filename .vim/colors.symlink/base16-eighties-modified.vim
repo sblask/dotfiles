@@ -284,6 +284,10 @@ call <sid>hi("SpellLocal",                 "",      s:gui00, "",        s:cterm0
 call <sid>hi("SpellCap",                   "",      s:gui00, "",        s:cterm00, "undercurl", s:gui0D)
 call <sid>hi("SpellRare",                  "",      s:gui00, "",        s:cterm00, "undercurl", s:gui0E)
 
+" Ale
+call <sid>hi("ALEErrorSign",               s:gui08, "",      s:cterm08, "",        "",          "")
+call <sid>hi("ALEWarningSign",             s:gui0A, "",      s:cterm0A, "",        "",          "")
+
 " Syntastic
 call <sid>hi("SyntasticError",             s:gui08, "",      s:cterm08, "",        "undercurl", "")
 call <sid>hi("SyntasticWarning",           s:gui0A, "",      s:cterm0A, "",        "undercurl", "")
