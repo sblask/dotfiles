@@ -10,5 +10,5 @@ environment.
 # test with:
 ./test.sh
 # install with:
-ansible-playbook --ask-become-pass ansible.yml
+ansible-playbook --ask-become-pass ansible/ansible.yml
 ```
