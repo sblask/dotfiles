@@ -30,7 +30,7 @@
       register: base16
     - name: Patch base16 plugin
       patch:
-        src: "{{ playbook_dir }}/patches/base16-shell"
+        src: "{{ playbook_dir }}/../patches/base16-shell"
         basedir: "{{ target_directory }}/.zsh/plugins/base16-shell"
       when: base16.changed
 

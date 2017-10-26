@@ -5,19 +5,19 @@
     - name: Find files to symlink
       find:
         patterns:  "*.symlink"
-        paths: "{{ playbook_dir }}"
+        paths: "{{ playbook_dir }}/.."
         recurse: yes
         file_type: any
         hidden: yes
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
-        path: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '').rsplit('/', 1)[0] }}"
+        path: "{{ target_directory }}/{{ item.path.replace(playbook_dir.rsplit('/', 1)[0], '').replace('.symlink', '').rsplit('/', 1)[0] }}"
         state: directory
       with_items: "{{ files_to_symlink.files }}"
     - name: Create symlinks
       file:
         src: "{{ item.path }}"
-        dest: "{{ target_directory }}/{{ item.path.replace(playbook_dir, '').replace('.symlink', '') }}"
+        dest: "{{ target_directory }}/{{ item.path.replace(playbook_dir.rsplit('/', 1)[0], '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"
