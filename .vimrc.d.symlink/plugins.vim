@@ -1,7 +1,9 @@
+scriptencoding utf-8
+
 " Vundle stuff
 filetype off
-if isdirectory(expand("~/.vim/bundle/vundle/"))
-    set rtp+=~/.vim/bundle/vundle/
+if isdirectory(expand('~/.vim/bundle/vundle/'))
+    set runtimepath+=~/.vim/bundle/vundle/
     call vundle#rc()
     Bundle 'AndrewRadev/inline_edit.vim'
     Bundle 'AndrewRadev/linediff.vim'
@@ -81,8 +83,8 @@ let g:netrw_liststyle = 3 " tree view
 
 let g:polyglot_disabled = ['jinja', 'tmux']
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
