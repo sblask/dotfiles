@@ -1,41 +1,41 @@
 fun! ConfigurePythonCheckers()
-    let flake8Config = findfile('setup.cfg', '.;')
-    if flake8Config != ''
+    let l:flake8Config = findfile('setup.cfg', '.;')
+    if l:flake8Config !=? ''
         let b:syntastic_checkers = ['pylint', 'flake8']
-        let b:syntastic_python_flake8_args = '--config ' . fnamemodify(flake8Config, ':p')
+        let b:syntastic_python_flake8_args = '--config ' . fnamemodify(l:flake8Config, ':p')
     else
         let b:syntastic_checkers = ['pylint', 'pycodestyle']
         let b:syntastic_python_pycodestyle_args = '--ignore E501'
     endif
 
-    let pylintConfig = findfile('.pylintrc', '.;')
-    if pylintConfig != ''
-        let b:syntastic_python_pylint_args = '--rcfile ' . fnamemodify(pylintConfig, ':p')
+    let l:pylintConfig = findfile('.pylintrc', '.;')
+    if l:pylintConfig !=? ''
+        let b:syntastic_python_pylint_args = '--rcfile ' . fnamemodify(l:pylintConfig, ':p')
     endif
 endf
 
 fun! SetScssConfig()
-    let scssConfig = findfile('.scss-lint.yml', '.;')
-    if scssConfig != ''
-        let b:syntastic_scss_scss_lint_args = '--config ' . fnamemodify(scssConfig, ':p')
+    let l:scssConfig = findfile('.scss-lint.yml', '.;')
+    if l:scssConfig !=? ''
+        let b:syntastic_scss_scss_lint_args = '--config ' . fnamemodify(l:scssConfig, ':p')
     endif
 endf
 
 fun! SetEslintCheckers()
-    let localEslint = findfile('node_modules/.bin/eslint', '.;')
-    if localEslint != ""
-        let b:syntastic_javascript_eslint_exec = fnamemodify(localEslint, ':p')
+    let l:localEslint = findfile('node_modules/.bin/eslint', '.;')
+    if l:localEslint !=? ''
+        let b:syntastic_javascript_eslint_exec = fnamemodify(l:localEslint, ':p')
     endif
 endf
 
-if !exists("language_autocommands_loaded")
-    let language_autocommands_loaded = 1
+augroup filetype
+    autocmd!
     autocmd FileType apache     setlocal commentstring=#\ %s
     autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType javascript :call SetEslintCheckers() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call SetScssConfig()
     autocmd FileType python     :call ConfigurePythonCheckers()
-endif
+augroup END
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
