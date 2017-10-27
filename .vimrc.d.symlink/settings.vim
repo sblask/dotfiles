@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " indentation
 set autoindent
 set expandtab
@@ -12,8 +14,6 @@ set autoread
 set completeopt=menuone,noselect
 " enable highlighting of current line
 set nocursorline
-" set default encoding explicitly
-set encoding=utf-8
 " ignore case when completing filenames
 set fileignorecase
 " uninterrupted line between splits
@@ -40,6 +40,8 @@ set nrformats=alpha,bin,octal,hex
 set number
 " do not show mode, that's what airline is for
 set noshowmode
+" scroll, not jump horizontally
+set sidescroll=1
 " splits
 set splitbelow
 set splitright

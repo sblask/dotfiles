@@ -10,12 +10,3 @@ map <2-MiddleMouse> <LeftMouse>
 map! <2-MiddleMouse> <LeftMouse>
 map <3-MiddleMouse> <LeftMouse>
 map! <3-MiddleMouse> <LeftMouse>
-
-" support wide displays
-if !has('nvim')
-    try
-        set ttymouse=sgr
-    catch
-        set ttymouse=xterm2
-    endtry
-endif

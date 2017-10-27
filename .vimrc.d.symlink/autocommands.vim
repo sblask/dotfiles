@@ -1,5 +1,5 @@
-if !exists("autocommands_loaded")
-    let autocommands_loaded = 1
+augroup autocommands
+    autocmd!
     " go to first change - having a check for &diff resulted in weird errors
     " when there was a change on the first line, but as ]c[c doesn't do
     " anything when not in diff mode it's ok without
@@ -19,4 +19,4 @@ if !exists("autocommands_loaded")
     autocmd BufEnter     *                 let g:resize_count = 5
     " make sure no comment highlighting is applied to regular code
     autocmd BufEnter     *                 :syntax sync fromstart
-endif
+augroup END

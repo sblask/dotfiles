@@ -1,29 +1,17 @@
-set nocompatible
-
-if has('gui_running')
-    " base16 colorscheme not applied properly if this isn't done before
-    colorscheme default
-else
-    if !has('nvim')
-        " some key combinations do not work without this (ctrl-arrow for example)
-        set term=xterm-256color
-    endif
-endif
-
 colorscheme base16-eighties-modified
 
 " load plugins first as other configs require parts of them
 source ~/.vimrc.d/plugins.vim
 
 set wildignore+=plugins.vim
-for fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
-    exe 'source' fpath
+for g:fpath in split(glob('~/.vimrc.d/*.vim'), '\n')
+    exe 'source' g:fpath
 endfor
 set wildignore-=plugins.vim
 
 " auto-update spell files
-for add_file in glob('~/.vim/spell/*.add', 1, 1)
-    if filereadable(add_file) && (!filereadable(add_file . '.spl') || getftime(add_file) > getftime(add_file . '.spl'))
-        exec 'mkspell! ' . fnameescape(add_file)
+for g:add_file in glob('~/.vim/spell/*.add', 1, 1)
+    if filereadable(g:add_file) && (!filereadable(g:add_file . '.spl') || getftime(g:add_file) > getftime(g:add_file . '.spl'))
+        exec 'mkspell! ' . fnameescape(g:add_file)
     endif
 endfor

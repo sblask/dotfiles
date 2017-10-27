@@ -37,16 +37,3 @@ augroup filetype
     autocmd FileType python     :call ConfigurePython()
     autocmd FileType yaml       :call ConfigureYaml()
 augroup END
-
-" Add the virtualenv's site-packages to vim path
-if has('python')
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    sys.path.insert(0, os.environ['VIRTUAL_ENV'])
-    sys.path.insert(0, os.getcwd())
-    activate_this = os.path.join(os.environ['VIRTUAL_ENV'], 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-endif

@@ -1,5 +1,5 @@
-if !exists("filetype_autocommands_loaded")
-    let filetype_autocommands_loaded = 1
+augroup filetype
+    autocmd!
     " set filetype or syntax explicitly when creating or opening file
     autocmd BufNewFile *.jinja           set filetype=jinja
     autocmd BufRead    *.jinja           set filetype=jinja
@@ -25,4 +25,4 @@ if !exists("filetype_autocommands_loaded")
     " misc
     autocmd FileType   groovy            set nospell
     autocmd FileType   python            set foldmethod=indent
-endif
+augroup END
