@@ -2,6 +2,18 @@
   become: true
   tasks:
 
+    - name: Add RAVEfinity repository
+      apt_repository:
+        repo: ppa:ravefinity-project/ppa
+        state: present
+    - name: Install RAVEfinity themes
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - vivacious-colors-gtk-dark
+        - ambiance-blackout-flat-colors
+
     - name: Add Geary repository
       apt_repository:
         repo: ppa:geary-team/releases
