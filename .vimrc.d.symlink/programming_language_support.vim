@@ -19,6 +19,13 @@ fun! ConfigurePython()
     endif
 endf
 
+fun! ConfigureYaml()
+    let l:config = findfile('.yamllint', '.;')
+    if l:config !=? ''
+        let b:ale_yaml_yamllint_options = '--config-file ' . fnamemodify(l:config, ':p')
+    endif
+endf
+
 augroup filetype
     autocmd!
     autocmd FileType apache     setlocal commentstring=#\ %s
@@ -26,6 +33,7 @@ augroup filetype
     autocmd FileType javascript :call ConfigureJavascript() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call ConfigureScss()
     autocmd FileType python     :call ConfigurePython()
+    autocmd FileType yaml       :call ConfigureYaml()
 augroup END
 
 " Add the virtualenv's site-packages to vim path

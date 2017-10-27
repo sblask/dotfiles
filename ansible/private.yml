@@ -11,4 +11,4 @@
         name: xnview
         state: present
 
-
+# vim: syntax=ansible

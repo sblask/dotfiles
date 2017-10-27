@@ -63,3 +63,5 @@
     - name: Update fonts
       shell: fc-cache --force --verbose {{ target_directory }}/.fonts
       when: target_directory == lookup('env', 'HOME')
+
+# vim: syntax=ansible

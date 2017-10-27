@@ -12,3 +12,5 @@
       apt:
         name: ansible
         state: latest
+
+# vim: syntax=ansible

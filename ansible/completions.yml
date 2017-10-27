@@ -44,3 +44,5 @@
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
+
+# vim: syntax=ansible

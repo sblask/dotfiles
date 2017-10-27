@@ -37,10 +37,10 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - baobab # to analyze disk usage from Thunar context menu
-        - compton # no more video tearing
-        - disper # for scripting changes between display modes
-        - entr # do stuff when files change
+        - baobab  # to analyze disk usage from Thunar context menu
+        - compton  # no more video tearing
+        - disper  # for scripting changes between display modes
+        - entr  # do stuff when files change
         - git
         - gmusicbrowser
         - gnome-font-viewer
@@ -49,16 +49,16 @@
         - jq
         - libreoffice
         - meld
-        - moreutils # contains sponge command
-        - parcellite # keeps copied text in the clipboard even after applications have been closed
+        - moreutils  # contains sponge command
+        - parcellite  # keeps copied text in the clipboard even after applications have been closed
         - pdftk
         - pinta
-        - puddletag # to edit mp3 tags from Thunar context menu
-        - pulseaudio-module-bluetooth # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
+        - puddletag  # to edit mp3 tags from Thunar context menu
+        - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
         - python-dev
         - silversearcher-ag
         - texlive
-        - tmux # use 'CTRL-B' + 'I' to install the plugins
+        - tmux  # use 'CTRL-B' + 'I' to install the plugins
         - tree
         - usb-creator-gtk
         - vlc
@@ -82,3 +82,5 @@
       user:
         name: sebastian
         shell: /bin/zsh
+
+# vim: syntax=ansible
