@@ -13,9 +13,11 @@ fun! ConfigureScss()
 endf
 
 fun! ConfigurePython()
-    let l:pylintConfig = findfile('.pylintrc', '.;')
-    if l:pylintConfig !=? ''
-        let b:syntastic_python_pylint_args = '--rcfile ' . fnamemodify(l:pylintConfig, ':p')
+    " see https://github.com/w0rp/ale/blob/master/doc/ale-python.txt
+    let l:config = findfile('.pylintrc', '.;')
+    if l:config !=? ''
+        let b:ale_python_pylint_options = '--rcfile ' . fnamemodify(l:config, ':p')
+        let b:ale_python_pycodestyle_options = '--ignore=E501'
     endif
 endf
 
