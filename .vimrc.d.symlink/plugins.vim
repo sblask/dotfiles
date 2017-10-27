@@ -20,7 +20,6 @@ if isdirectory(expand('~/.vim/bundle/vundle/'))
     Bundle 'michaeljsmith/vim-indent-object'
     Bundle 'mileszs/ack.vim'
     Bundle 'mitsuhiko/vim-jinja'
-    Bundle 'sblask/vim-airline-themes'
     Bundle 'sheerun/vim-polyglot'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'tmux-plugins/vim-tmux'
@@ -31,6 +30,7 @@ if isdirectory(expand('~/.vim/bundle/vundle/'))
     Bundle 'tpope/vim-unimpaired'
     Bundle 'triglav/vim-visual-increment'
     Bundle 'vim-airline/vim-airline'
+    Bundle 'vim-airline/vim-airline-themes'
     Bundle 'vim-scripts/AnsiEsc.vim'
     Bundle 'vim-scripts/diffchar.vim'
     Bundle 'vim-voom/VOoM'
@@ -41,20 +41,28 @@ filetype plugin indent on
 let g:ackprg = 'ag --nogroup --nocolor --column'
 cnoreabbrev ag Gcd <bar> Ack!
 
-let g:airline_extensions = ['ale', 'ctrlp', 'tabline']
-let g:airline#extensions#default#layout = [
-\    [ 'a', 'c' ],
-\    [ 'z' ],
+
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'luna'
+
+let g:airline_extensions = [
+\ 'ale',
+\ 'ctrlp',
+\ 'tabline',
 \ ]
+
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#default#layout = [
+\    [ 'a', 'c' ],
+\    [ 'z', 'error', 'warning' ],
+\ ]
+
 let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%n: %f'])
 let g:airline_section_z = '%l/%L : %c'
-let g:airline_theme = 'luna'
+
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
