@@ -88,7 +88,7 @@ ovpn
 param
 percentunit
 playbook
-playbook
+playbooks
 plugin
 plugins
 png
@@ -112,14 +112,12 @@ se
 skipredirect
 splitlines
 src
-src
 stacktrace
 subshell
 sudo
 svg
 symlink
 symlinks
-tabdeque
 tabdeque
 tgz
 tmp
