@@ -56,6 +56,7 @@ let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%n: %f'])
 let g:airline_section_z = '%l/%L : %c'
 let g:airline_theme = 'luna'
 
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
 \    'ansible': ['yamllint'],
 \    'python': ['pycodestyle', 'pylint'],
