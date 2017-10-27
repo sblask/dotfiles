@@ -31,7 +31,6 @@
         url: "{{ item }}"
         dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
       with_items:
-        - https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_ansible
@@ -44,5 +43,13 @@
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_setup.py
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_vagrant
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_virtualbox
+
+    - name: Install ZSH completions with rename
+      get_url:
+        url: "{{ item.url }}"
+        dest: "{{ target_directory }}/.zsh/completions.d/{{ item.name }}"
+      with_items:
+        - url: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
+          name: _ag
 
 # vim: syntax=ansible
