@@ -11,5 +11,6 @@ command SudoWrite w !sudo tee % > /dev/null
 command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); blob = blob.replace('\n ', ''); print json.loads(blob)['content'].replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&');"
 command Todo Gcd | Ack! "TODO|FIXME"
 command W w
+command WindowsToLinux :%s/$//
 command Wrap windo set wrap
 command Q q
