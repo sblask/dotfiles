@@ -44,13 +44,15 @@
       <property name="show-frame" type="bool" value="false"/>
       <property name="size-max" type="uint" value="22"/>
       <property name="names-visible" type="array">
-        <value type="string" value="xfce4-power-manager"/>
-        <value type="string" value="google-chrome-stable"/>
-        <value type="string" value="task manager"/>
-        <value type="string" value="networkmanager applet"/>
         <value type="string" value="blueman-applet"/>
-        <value type="string" value="parcellite"/>
         <value type="string" value="chromium-browser"/>
+        <value type="string" value="google-chrome-stable"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="parcellite"/>
+        <value type="string" value="skypeforlinux"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="xfce4-power-manager"/>
       </property>
     </property>
     <property name="plugin-5" type="string" value="power-manager-plugin"/>
