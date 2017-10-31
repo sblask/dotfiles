@@ -11,5 +11,7 @@ if &diff
     map <ScrollWheelUp>   5<C-Y>
     map <ScrollWheelDown> 5<C-E>
     " have all folds open when diffing
-    autocmd difffold VimEnter * windo normal zR
+    augroup difffold
+        autocmd VimEnter * windo normal zR
+    augroup END
 endif
