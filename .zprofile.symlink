@@ -1,6 +1,6 @@
 # for interactive (you can type) login (tty, ssh) shells
 # non-login (xterm) shells are covered by .profile
 
-if [ -f "$HOME/.common_env" ] ; then
+if [ -f "$HOME/.common_env" ] && [ "$TMUX" = "" ]; then
     source "$HOME/.common_env"
 fi
