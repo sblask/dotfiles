@@ -65,6 +65,7 @@
         - vlc
         - xbacklight
         - xclip
+        - xfce4-terminal
         - zsh
 
     - name: Ensure useless packages are removed
