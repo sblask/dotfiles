@@ -37,3 +37,6 @@ augroup filetype
     autocmd FileType python     :call ConfigurePython()
     autocmd FileType yaml       :call ConfigureYaml()
 augroup END
+
+" make sure the project files are used for completion
+py import os; import sys; sys.path.insert(0, os.getcwd())
