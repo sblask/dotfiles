@@ -1,15 +1,21 @@
-# NodeJS
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-# Ruby
-if [ -f $HOME/.rvm/scripts/rvm ]; then
-    . $HOME/.rvm/scripts/rvm
+# keep the system Python clean by always using a virtualenv
+if [ -d "$HOME/.opt/virtualenv/bin" ]; then
+    PATH="$HOME/.opt/virtualenv/bin:$PATH"
 fi
-export PATH=$HOME/.rvm/bin:$PATH
+if [ -f "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh" ]; then
+    . "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh"
+fi
 
-# Python
-# use the right python/virtualenv
-export PATH=$HOME/.opt/virtualenv/bin:$PATH
-if [ -f ~/.opt/virtualenv/bin/virtualenvwrapper.sh ]; then
-    . ~/.opt/virtualenv/bin/virtualenvwrapper.sh
+# Node version manager
+export N_PREFIX="$HOME/.n"
+if [ -d "$N_PREFIX/bin" ]; then
+    PATH="$N_PREFIX/bin:$PATH"
+fi
+
+# Ruby version manager
+if [ -d "$HOME/.rvm/bin" ]; then
+    PATH="$HOME/.rvm/bin:$PATH"
+fi
+if [ -f "$HOME/.rvm/scripts/rvm" ]; then
+    . "$HOME/.rvm/scripts/rvm"
 fi
