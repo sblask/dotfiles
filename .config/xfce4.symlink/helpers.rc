@@ -1,4 +1,4 @@
-TerminalEmulator=xterm
+TerminalEmulator=custom-TerminalEmulator
 FileManager=Thunar
 WebBrowser=chromium-browser
 MailReader=thunderbird

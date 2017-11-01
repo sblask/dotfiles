@@ -4,8 +4,7 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=TerminalEmulator
-X-XFCE-CommandsWithParameter=xterm -maximized "%s"
+X-XFCE-CommandsWithParameter=xterm
 Icon=xterm
-Name=xterm
-X-XFCE-Commands=xterm
-
+Name=xterm + tmux
+X-XFCE-Commands=xterm -maximized -e "tmux new"
