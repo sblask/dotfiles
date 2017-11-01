@@ -1,0 +1,6 @@
+#!/bin/sh
+
+FILE_NAME=$(basename "$1")
+FILE_DIRECTORY=$(dirname "$1")
+
+/usr/bin/feh --start-at "$FILE_DIRECTORY/$FILE_NAME" "$FILE_DIRECTORY"
