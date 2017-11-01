@@ -8,4 +8,4 @@ shift
 COMMAND="$@"
 PANE_CWD=$(readlink /proc/${PID}/cwd)
 
-${COMMAND} ${PANE_CWD}
+$COMMAND "${PANE_CWD}"
