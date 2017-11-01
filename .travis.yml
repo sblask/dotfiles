@@ -7,5 +7,6 @@ addons:
       - colordiff
 install:
   - pip install ansible
-script: 
+script:
   - ./test.sh
+  - yamllint .
