@@ -41,6 +41,7 @@
         - compton  # no more video tearing
         - disper  # for scripting changes between display modes
         - entr  # do stuff when files change
+        - feh
         - git
         - gmusicbrowser
         - gnome-font-viewer
