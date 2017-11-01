@@ -3,8 +3,8 @@ if [ -d "$HOME/.bin" ] ; then
 fi
 
 # support tmux installed in home directory
-if [ -d "$HOME/.opt/tmux/bin/" ]; then
-    PATH="$HOME/.opt/tmux/bin/:$PATH"
+if [ -d "$HOME/.opt/tmux/bin" ]; then
+    PATH="$HOME/.opt/tmux/bin:$PATH"
 fi
 
 # vim: filetype=sh
