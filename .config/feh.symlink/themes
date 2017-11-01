@@ -1,4 +1,5 @@
 feh \
     --image-bg black \
     --fullscreen \
+    --action1 ";cp %F ~/Desktop/" \
 
