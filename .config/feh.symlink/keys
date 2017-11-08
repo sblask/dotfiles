@@ -1,0 +1,3 @@
+zoom_in C-equal
+zoom_out C-minus
+zoom_default C-0
