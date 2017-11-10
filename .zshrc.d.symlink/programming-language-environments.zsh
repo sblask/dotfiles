@@ -1,7 +1,3 @@
-# keep the system Python clean by always using a virtualenv
-if [ -d "$HOME/.opt/virtualenv/bin" ]; then
-    PATH="$HOME/.opt/virtualenv/bin:$PATH"
-fi
 if [ -f "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh" ]; then
     . "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh"
 fi
