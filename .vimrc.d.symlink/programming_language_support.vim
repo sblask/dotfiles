@@ -34,6 +34,7 @@ augroup filetype
     autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType javascript :call ConfigureJavascript() | call SuperTabSetDefaultCompletionType("<c-p>")
     autocmd FileType scss       :call ConfigureScss()
-    autocmd FileType python     :call ConfigurePython() | py import os; import sys; sys.path.insert(0, os.getcwd())
+    autocmd FileType python     :call ConfigurePython()
     autocmd FileType yaml       :call ConfigureYaml()
 augroup END
+py import os; import sys; sys.path.insert(0, os.getcwd())
