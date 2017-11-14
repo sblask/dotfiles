@@ -1,6 +1,9 @@
 " more intuitive splitting
 map <C-W>\| :vnew<CR>
 map <C-W>_  :new<CR>
+" switch between vertical and horizontal splits
+map <C-W>h :windo wincmd L<CR>
+map <C-W>v :windo wincmd J<CR>
 " move windows around
 map <C-W>x :call WindowSwap#MarkWindowSwap()<CR>
 map <C-W>p :call WindowSwap#DoWindowSwap()<CR>
