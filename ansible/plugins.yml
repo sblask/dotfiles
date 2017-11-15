@@ -17,9 +17,11 @@
       get_url:
         url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         dest: "{{ target_directory }}/.vim/autoload/plug.vim"
-    - name: Install/update Vim plugins
+    - name: Install Vim plugins
       shell: |
         vim -c 'PlugUpdate' -c 'qall'
+      args:
+        creates: "{{ target_directory }}/.vim/plugged/"
 
     - name: Ensure directory for ZSH plugins
       file:
