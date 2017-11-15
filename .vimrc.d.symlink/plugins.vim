@@ -1,43 +1,38 @@
 scriptencoding utf-8
 
-" Vundle stuff
-filetype off
-if isdirectory(expand('~/.vim/bundle/vundle/'))
-    set runtimepath+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    Bundle 'AndrewRadev/inline_edit.vim'
-    Bundle 'AndrewRadev/linediff.vim'
-    Bundle 'bkad/CamelCaseMotion'
-    Bundle 'breuckelen/vim-resize'
-    Bundle 'ctrlpvim/ctrlp.vim'
-    Bundle 'davidhalter/jedi-vim'
-    Bundle 'editorconfig/editorconfig-vim'
-    Bundle 'ervandew/supertab'
-    Bundle 'fisadev/vim-isort'
-    Bundle 'gmarik/vundle'
-    Bundle 'janko-m/vim-test'
-    Bundle 'junegunn/vim-easy-align'
-    Bundle 'lokaltog/vim-easymotion'
-    Bundle 'michaeljsmith/vim-indent-object'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'mitsuhiko/vim-jinja'
-    Bundle 'sheerun/vim-polyglot'
-    Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'tmux-plugins/vim-tmux'
-    Bundle 'tmux-plugins/vim-tmux-focus-events'
-    Bundle 'tpope/vim-commentary'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-unimpaired'
-    Bundle 'triglav/vim-visual-increment'
-    Bundle 'vim-airline/vim-airline'
-    Bundle 'vim-airline/vim-airline-themes'
-    Bundle 'vim-scripts/AnsiEsc.vim'
-    Bundle 'vim-scripts/diffchar.vim'
-    Bundle 'vim-voom/VOoM'
-    Bundle 'w0rp/ale'
-endif
-filetype plugin indent on
+call plug#begin('~/.vim/plugged')
+    Plug 'AndrewRadev/inline_edit.vim'
+    Plug 'AndrewRadev/linediff.vim'
+    Plug 'bkad/CamelCaseMotion'
+    Plug 'breuckelen/vim-resize'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'ervandew/supertab'
+    Plug 'fisadev/vim-isort'
+    Plug 'gmarik/vundle'
+    Plug 'janko-m/vim-test'
+    Plug 'junegunn/vim-easy-align'
+    Plug 'lokaltog/vim-easymotion'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'mileszs/ack.vim'
+    Plug 'mitsuhiko/vim-jinja'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tmux-plugins/vim-tmux'
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'triglav/vim-visual-increment'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-scripts/AnsiEsc.vim'
+    Plug 'vim-scripts/diffchar.vim'
+    Plug 'vim-voom/VOoM'
+    Plug 'w0rp/ale'
+call plug#end()
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 cnoreabbrev ag Gcd <bar> Ack!
@@ -73,7 +68,9 @@ let g:ale_linters = {
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '✗'
 
+
 call camelcasemotion#CreateMotionMappings('<leader>')
+
 
 let g:ctrlp_by_filename = 1
 let g:ctrlp_extensions = []
@@ -87,23 +84,30 @@ let g:ctrlp_prompt_mappings = {
 \    'PrtExpandDir()':       [],
 \ }
 
+
 let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
+
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
+
 let g:multi_cursor_exit_from_insert_mode=0
+
 
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
 
+
 let g:polyglot_disabled = ['jinja', 'tmux']
+
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
 
 let g:vim_resize_disable_auto_mappings = 1
+
 
 let g:voom_ft_modes = {
 \     'markdown': 'markdown',

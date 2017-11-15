@@ -27,7 +27,7 @@
       apt_repository:
         repo: ppa:neovim-ppa/stable
         state: present
-    - name: Install Neovim - run BundleInstall the first time you run it to install all the plugins
+    - name: Install Neovim
       apt:
         name: neovim
         state: present
