@@ -22,6 +22,7 @@
         vim -c 'PlugUpdate' -c 'qall'
       args:
         creates: "{{ target_directory }}/.vim/plugged/"
+      when: target_directory == lookup('env', 'HOME')
 
     - name: Ensure directory for ZSH plugins
       file:
