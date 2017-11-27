@@ -5,6 +5,8 @@ import os.path
 import re
 import sys
 
+TREE_CHARACTERS = u'\u2502 \xa0 \u251c \u2500 \u2514'
+
 ANSI_REGEXP = re.compile(
     r'(\x1b[^m]+m)|(\x1b\[K)'
 )
@@ -31,6 +33,15 @@ PATH_REGEXP = re.compile(
     r'[.~]?/'
 )
 
+TREE_REGEXP = re.compile(
+    r'(?P<prefix>[' + TREE_CHARACTERS + ']*(\x1b[^m]+m)?)'
+    r'(?P<rest>.+)'
+)
+
+TREE_SUMMARY_REGEXP = re.compile(
+    r'\d+ directories, \d+ files'
+)
+
 SUPPORTED_INPUT_TYPES = (
     'ag',
     'git_branch',
@@ -38,6 +49,7 @@ SUPPORTED_INPUT_TYPES = (
     'list',
     'ls_list',
     'mixed',
+    'tree',
 )
 
 UNDESIRED_BRANCH_PREFIX = 'remotes/origin/'
@@ -92,6 +104,8 @@ def main():
         lines, indexables = parse_ls_list_input(arguments)
     elif arguments.input_type == 'mixed':
         lines, indexables = parse_mixed_input(arguments)
+    elif arguments.input_type == 'tree':
+        lines, indexables = parse_tree_input(arguments)
 
     print_output(arguments, lines, indexables)
     maybe_print_indexables(arguments, indexables)
@@ -211,6 +225,24 @@ def parse_mixed_input(arguments):
             indexables.append(possible_file)
         else:
             lines.append((line, None))
+
+    return lines, indexables
+
+
+def parse_tree_input(arguments):
+    lines = []
+    indexables = []
+
+    for line in arguments.infile:
+        match = TREE_REGEXP.match(line)
+        if not match or TREE_SUMMARY_REGEXP.match(line):
+            lines.append((line, None))
+        else:
+            prefix = match.group('prefix')
+            rest = match.group('rest')
+
+            lines.append((prefix.replace(' ', ''), rest))
+            indexables.append(ANSI_REGEXP.sub('', rest).strip())
 
     return lines, indexables
 

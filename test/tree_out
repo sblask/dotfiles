@@ -1,0 +1,23 @@
+[34m [1] foo[00m
+├──[34m [2] bar01[00m
+│  ├── [3] foobar01
+│  └──[34m [4] foobar02[00m
+├──[34m [5] bar02[00m
+│  └── [6] foobar03
+├──[34m [7] bar03[00m
+│  ├── [8] foobar04
+│  └── [9] foobar05
+└──[10] bar04
+
+4 directories, 5 files
+@@indexables@@
+foo
+bar01
+foobar01
+foobar02
+bar02
+foobar03
+bar03
+foobar04
+foobar05
+bar04
