@@ -42,6 +42,7 @@
         - disper  # for scripting changes between display modes
         - entr  # do stuff when files change
         - feh
+        - gimp
         - git
         - gmusicbrowser
         - gnome-font-viewer
