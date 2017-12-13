@@ -1,5 +1,6 @@
 feh \
     --image-bg black \
+    --info "echo %N - %w:%h - %S - %u/%l"\
     --fullscreen \
     --action1 ";cp %F ~/Desktop/" \
 

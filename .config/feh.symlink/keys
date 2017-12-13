@@ -1,3 +1,10 @@
+delete Delete
+next_img space l j
+prev_img BackSpace h k
+scroll_down Down
+scroll_left Left
+scroll_right Right
+scroll_up Up
+zoom_default C-0
 zoom_in C-equal
 zoom_out C-minus
-zoom_default C-0
