@@ -17,7 +17,7 @@ fun! ConfigurePython()
     let l:config = findfile('.pylintrc', '.;')
     if l:config !=? ''
         let b:ale_python_pylint_options = '--rcfile ' . fnamemodify(l:config, ':p')
-        let b:ale_python_pycodestyle_options = '--ignore=E501'
+        let b:ale_python_pycodestyle_options = '--ignore=E501,W504'
     endif
 endf
 
