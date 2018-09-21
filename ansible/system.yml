@@ -58,6 +58,7 @@
         - puddletag  # to edit mp3 tags from Thunar context menu
         - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
         - python-dev
+        - python3-dev
         - silversearcher-ag
         - texlive
         - tmux  # use 'CTRL-B' + 'I' to install the plugins
