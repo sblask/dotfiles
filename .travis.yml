@@ -8,6 +8,9 @@ addons:
 install:
   - pip install ansible
   - pip install --requirement requirements.txt
+  - pip install enum34
+  - pip install pathlib
+  - pip install typing
 script:
   - ./test.sh
   - vint .vimrc*
