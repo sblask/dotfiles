@@ -105,6 +105,9 @@ let g:polyglot_disabled = ['jinja', 'tmux']
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
+if has('python3')
+    let g:vim_isort_python_version = 'python3'
+endif
 
 let g:vim_resize_disable_auto_mappings = 1
 
