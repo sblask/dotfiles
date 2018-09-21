@@ -22,6 +22,7 @@ args
 arn
 auth
 autocommands
+autoscaling
 aws
 backend
 base16
@@ -102,6 +103,7 @@ python2
 qa
 querystring
 recurse
+refactor
 repo
 rgba
 rsplit
