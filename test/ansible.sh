@@ -7,9 +7,9 @@ SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 PLAYBOOK=${SCRIPT_DIRECTORY}/../ansible/ansible-test.yml
 
 ansible-playbook --extra-vars target_directory=/tmp/dotfiles-ansible-test ${PLAYBOOK}
+ansible-playbook --extra-vars target_directory=/tmp/dotfiles-ansible-test ${PLAYBOOK} > ansible_result
 
-ansible-playbook --extra-vars target_directory=/tmp/dotfiles-ansible-test ${PLAYBOOK} \
-  |   grep --quiet 'changed=0.*failed=0' \
+cat ansible_result | grep --quiet 'changed=0.*failed=0' \
   && (echo 'Idempotence test: pass' && exit 0) \
-  || (echo 'Idempotence test: fail' && exit 1) \
+  || (echo 'Idempotence test: fail' && cat ansible_result && exit 1) \
 
