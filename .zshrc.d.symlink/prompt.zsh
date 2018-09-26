@@ -7,6 +7,13 @@ function git_no_mail_warning {
 function my_ip {
     hostname --all-ip-addresses | awk '{print $1}'
 }
+function aws_profile {
+    if [ "$AWS_PROFILE" = "" ]; then
+        echo ""
+    else
+        echo "($AWS_PROFILE) "
+    fi
+}
 function virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
@@ -20,6 +27,7 @@ function print-first-line {
     print
     lines=(
         "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
+        "$fg[yellow]$(aws_profile)$reset_color"
         "$fg[blue]$(virtual_env)$reset_color"
         "%n " # username
         "$fg[blue]%m$reset_color " # hostname
