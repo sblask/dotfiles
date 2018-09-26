@@ -11,6 +11,10 @@ function maybe-install-virtualenv-requirements {
 function auto-enable-virtualenv {
     local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a))
     if [ "${VIRTUALENV_DIRECTORY}" != "" -a -d ${VIRTUALENV_DIRECTORY} ]; then
+        if [ "${VIRTUAL_ENV}" != "" ] && [ "$(pwd)" =~ "^$(dirname ${VIRTUAL_ENV}).*" ]; then
+            return
+        fi
+
         source ${VIRTUALENV_DIRECTORY}/bin/activate
         maybe-install-virtualenv-requirements ${HOME}/.virtualenvs/requirements.txt
         maybe-install-virtualenv-requirements ${PWD}/requirements.txt
