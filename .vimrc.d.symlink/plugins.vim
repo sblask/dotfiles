@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fisadev/vim-isort'
     Plug 'gmarik/vundle'
     Plug 'janko-m/vim-test'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/vim-easy-align'
     Plug 'lokaltog/vim-easymotion'
     Plug 'michaeljsmith/vim-indent-object'
