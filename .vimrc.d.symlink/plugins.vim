@@ -102,6 +102,7 @@ let g:netrw_liststyle = 3 " tree view
 
 let g:polyglot_disabled = ['jinja', 'tmux']
 
+let g:python_highlight_space_errors = 0
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
