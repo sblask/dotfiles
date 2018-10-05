@@ -7,6 +7,7 @@
       - {package_name: grip, executable_name: grip}
       - {package_name: httpie, executable_name: http}
       - {package_name: vulture, executable_name: vulture}
+
   tasks:
 
     - name: Ensure .opt directory
@@ -44,5 +45,16 @@
         src: "{{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }}"
         state: link
       with_items: "{{ packages }}"
+
+    - name: Install aws completions part one
+      file:
+        dest: "{{ target_directory }}/.bin/aws_completer"
+        src: "{{ target_directory }}/.opt/awscli/bin/aws_completer"
+        state: link
+    - name: Install aws completions part two
+      file:
+        dest: "{{ target_directory }}/.zsh/bash_completions.d/aws_zsh_completer.sh"
+        src: "{{ target_directory }}/.opt/awscli/bin/aws_zsh_completer.sh"
+        state: link
 
 # vim: syntax=ansible
