@@ -24,4 +24,21 @@
         src: "{{ target_directory }}/.opt/virtualenv/bin/virtualenv"
         state: link
 
+    - name: Install Python utils
+      shell: |
+        {{ target_directory }}/.bin/virtualenv {{ target_directory }}/.opt/{{ item.package_name }} && \
+        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.package_name }} && \
+        ln -s \
+          {{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }} \
+          {{ target_directory }}/.bin/{{ item.executable_name }}
+      args:
+        creates: "{{ target_directory }}/.bin/{{ item.executable_name }}"
+      with_items:
+        - {package_name: awscli, executable_name: aws}
+        - {package_name: docker-compose, executable_name: docker-compose}
+        - {package_name: grip, executable_name: grip}
+        - {package_name: httpie, executable_name: http}
+        - {package_name: jq, executable_name: jq}
+        - {package_name: vulture, executable_name: vulture}
+
 # vim: syntax=ansible
