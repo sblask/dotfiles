@@ -1,5 +1,12 @@
 - hosts: all
 
+  vars:
+    packages:
+      - {package_name: awscli, executable_name: aws}
+      - {package_name: docker-compose, executable_name: docker-compose}
+      - {package_name: grip, executable_name: grip}
+      - {package_name: httpie, executable_name: http}
+      - {package_name: vulture, executable_name: vulture}
   tasks:
 
     - name: Ensure .opt directory
@@ -18,7 +25,7 @@
         chdir: /tmp/
         creates: "{{ target_directory }}/.opt/virtualenv"
         warn: false
-    - name: Add link to .bin
+    - name: Add link in .bin
       file:
         dest: "{{ target_directory }}/.bin/virtualenv"
         src: "{{ target_directory }}/.opt/virtualenv/bin/virtualenv"
@@ -27,18 +34,15 @@
     - name: Install Python utils
       shell: |
         {{ target_directory }}/.bin/virtualenv {{ target_directory }}/.opt/{{ item.package_name }} && \
-        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.package_name }} && \
-        ln -s \
-          {{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }} \
-          {{ target_directory }}/.bin/{{ item.executable_name }}
+        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.package_name }}
       args:
-        creates: "{{ target_directory }}/.bin/{{ item.executable_name }}"
-      with_items:
-        - {package_name: awscli, executable_name: aws}
-        - {package_name: docker-compose, executable_name: docker-compose}
-        - {package_name: grip, executable_name: grip}
-        - {package_name: httpie, executable_name: http}
-        - {package_name: jq, executable_name: jq}
-        - {package_name: vulture, executable_name: vulture}
+        creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
+      with_items: "{{ packages }}"
+    - name: Add link in .bin
+      file:
+        dest: "{{ target_directory }}/.bin/{{ item.executable_name }}"
+        src: "{{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }}"
+        state: link
+      with_items: "{{ packages }}"
 
 # vim: syntax=ansible
