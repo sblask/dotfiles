@@ -46,6 +46,7 @@ set sidescroll=1
 set splitbelow
 set splitright
 " no delay for esc
+set timeoutlen=0
 set ttimeoutlen=0
 " zsh-like command completion
 set wildmenu
