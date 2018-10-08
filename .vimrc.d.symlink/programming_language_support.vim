@@ -37,4 +37,4 @@ augroup filetype
     autocmd FileType python     :call ConfigurePython()
     autocmd FileType yaml       :call ConfigureYaml()
 augroup END
-py import os; import sys; sys.path.insert(0, os.getcwd())
+python3 import os; import sys; sys.path.insert(0, os.getcwd())
