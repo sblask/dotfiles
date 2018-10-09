@@ -24,3 +24,5 @@ nnoremap <silent> * "syiw<Esc>: let @/ = '\<' . @s . '\>'<CR>:set hlsearch<CR>
 vnoremap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR>
 " spell checking with suggestion box
 nnoremap z= a<C-X><C-S>
+" keep cursor where it is when leaving insert mode
+inoremap <silent> <Esc> <Esc>`^
