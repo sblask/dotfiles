@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'davidhalter/jedi-vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
-    Plug 'fisadev/vim-isort'
     Plug 'gmarik/vundle'
     Plug 'janko-m/vim-test'
     Plug 'jiangmiao/auto-pairs'
@@ -33,6 +32,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/diffchar.vim'
     Plug 'vim-voom/VOoM'
     Plug 'w0rp/ale'
+    if has('python') || has('python3')
+        Plug 'fisadev/vim-isort'
+    endif
 call plug#end()
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
