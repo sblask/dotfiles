@@ -2,6 +2,7 @@
 
   vars:
     packages:
+      - {package_name: aws-sam-cli, executable_name: sam}
       - {package_name: awscli, executable_name: aws}
       - {package_name: docker-compose, executable_name: docker-compose}
       - {package_name: grip, executable_name: grip}
