@@ -54,7 +54,7 @@
 
     - name: Install Python utils
       shell: |
-        {{ target_directory }}/.bin/virtualenv {{ target_directory }}/.opt/{{ item.package_name }} && \
+        {{ target_directory }}/.bin/virtualenv3 {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }}
       args:
         creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
