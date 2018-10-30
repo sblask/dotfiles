@@ -9,6 +9,8 @@
       - {package_name: httpie, executable_name: http}
       - {package_name: unimatrix, executable_name: unimatrix, install_url: "git+https://github.com/will8211/unimatrix.git"}
       - {package_name: vulture, executable_name: vulture}
+    virtualenv3_directory: "{{ target_directory }}/.opt/virtualenv3"
+    virtualenv2_directory: "{{ target_directory }}/.opt/virtualenv2"
 
   tasks:
 
@@ -18,20 +20,36 @@
         state: directory
 
 
-    - name: Install Virtualenv
+    - name: Install Virtualenv for Python 2
       shell: |
         curl https://pypi.org/project/virtualenv/ | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | xargs -L 1 wget && \
         tar --extract --strip-components 1 --file *.tar.gz && \
-        python3 virtualenv.py {{ target_directory }}/.opt/virtualenv && \
-        {{ target_directory }}/.opt/virtualenv/bin/pip install virtualenv
+        python2 virtualenv.py {{ virtualenv2_directory }} && \
+        {{ virtualenv2_directory }}/bin/pip install virtualenv
       args:
         chdir: /tmp/
-        creates: "{{ target_directory }}/.opt/virtualenv"
+        creates: "{{ virtualenv2_directory }}"
         warn: false
     - name: Add link in .bin
       file:
-        dest: "{{ target_directory }}/.bin/virtualenv"
-        src: "{{ target_directory }}/.opt/virtualenv/bin/virtualenv"
+        dest: "{{ target_directory }}/.bin/virtualenv2"
+        src: "{{ virtualenv2_directory }}/bin/virtualenv"
+        state: link
+
+    - name: Install Virtualenv for Python 3
+      shell: |
+        curl https://pypi.org/project/virtualenv/ | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | xargs -L 1 wget && \
+        tar --extract --strip-components 1 --file *.tar.gz && \
+        python3 virtualenv.py {{ virtualenv3_directory }} && \
+        {{ virtualenv3_directory }}/bin/pip install virtualenv
+      args:
+        chdir: /tmp/
+        creates: "{{ virtualenv3_directory }}"
+        warn: false
+    - name: Add link in .bin
+      file:
+        dest: "{{ target_directory }}/.bin/virtualenv3"
+        src: "{{ virtualenv3_directory }}/bin/virtualenv"
         state: link
 
     - name: Install Python utils
