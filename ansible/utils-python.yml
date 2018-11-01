@@ -23,7 +23,7 @@
     - name: Install Virtualenv for Python 2
       shell: |
         curl https://pypi.org/project/virtualenv/ | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | xargs -L 1 wget && \
-        tar --extract --strip-components 1 --file *.tar.gz && \
+        tar --extract --strip-components 2 --file *.tar.gz && \
         python2 virtualenv.py {{ virtualenv2_directory }} && \
         {{ virtualenv2_directory }}/bin/pip install virtualenv
       args:
@@ -39,7 +39,7 @@
     - name: Install Virtualenv for Python 3
       shell: |
         curl https://pypi.org/project/virtualenv/ | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | xargs -L 1 wget && \
-        tar --extract --strip-components 1 --file *.tar.gz && \
+        tar --extract --strip-components 2 --file *.tar.gz && \
         python3 virtualenv.py {{ virtualenv3_directory }} && \
         {{ virtualenv3_directory }}/bin/pip install virtualenv
       args:
