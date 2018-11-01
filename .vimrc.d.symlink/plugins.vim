@@ -32,9 +32,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/diffchar.vim'
     Plug 'vim-voom/VOoM'
     Plug 'w0rp/ale'
-    if has('python') || has('python3')
-        Plug 'fisadev/vim-isort'
-    endif
+if has('python') || has('python3')
+    Plug 'fisadev/vim-isort'
+endif
 call plug#end()
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
