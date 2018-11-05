@@ -123,4 +123,5 @@ let g:voom_ft_modes = {
 let g:voom_tree_placement = 'right'
 let g:voom_tree_width = 50
 
+let g:VM_maps = {}
 let g:VM_maps['Remove Region'] = '<c-x>'
