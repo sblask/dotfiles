@@ -18,7 +18,7 @@ def get_arguments():
 def main():
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)5s - %(name)s - %(message)s',
+        format='%(asctime)s - %(levelname)7s - %(name)s - %(message)s',
     )
     _arguments = get_arguments()
 
