@@ -14,11 +14,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/vim-easy-align'
     Plug 'lokaltog/vim-easymotion'
+    Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
     Plug 'mitsuhiko/vim-jinja'
     Plug 'powerman/vim-plugin-AnsiEsc'
-    Plug 'sblask/vim-multiple-cursors'
     Plug 'sheerun/vim-polyglot'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -122,3 +122,5 @@ let g:voom_ft_modes = {
 \ }
 let g:voom_tree_placement = 'right'
 let g:voom_tree_width = 50
+
+let g:VM_maps['Remove Region'] = '<c-x>'
