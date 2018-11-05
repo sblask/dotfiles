@@ -16,8 +16,11 @@ fun! ConfigurePython()
     " see https://github.com/w0rp/ale/blob/master/doc/ale-python.txt
     let l:config = findfile('.pylintrc', '.;')
     if l:config !=? ''
-        let b:ale_python_pylint_options = '--rcfile ' . fnamemodify(l:config, ':p')
-        let b:ale_python_pycodestyle_options = '--ignore=E501,W504'
+        let l:config_path = fnamemodify(l:config, ':p')
+        let b:ale_python_pylint_options = '--rcfile ' . l:config_path
+        if match(readfile(l:config_path), 'max-line-length') != -1
+            let b:ale_python_pycodestyle_options = '--max-line-length=999'
+        endif
     endif
 endf
 
