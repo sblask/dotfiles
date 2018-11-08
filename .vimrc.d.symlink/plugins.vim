@@ -125,4 +125,4 @@ let g:voom_tree_width = 50
 
 let g:VM_maps = {}
 let g:VM_maps['Remove Region'] = '<c-x>'
-let g:VM_maps["Duplicate"] = ''
+let g:VM_maps['Duplicate'] = ''
