@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'mitsuhiko/vim-jinja'
     Plug 'powerman/vim-plugin-AnsiEsc'
+    Plug 'rickhowe/diffchar.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -29,7 +30,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'triglav/vim-visual-increment'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-scripts/diffchar.vim'
     Plug 'vim-voom/VOoM'
     Plug 'w0rp/ale'
 if has('python') || has('python3')
