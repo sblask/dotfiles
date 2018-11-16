@@ -25,13 +25,13 @@ function p {
 compctl -/ -W ~/Private/ p
 
 function fd {
-    findi . -iname "*$@*" -type d
+    findi . -iname "*$@*" -type d -not -path "*/.venv/*" -not -path "*/.git/*"
 }
 function ff {
-    findi . -iname "*$@*" -type f
+    findi . -iname "*$@*" -type f -not -path "*/.venv/*" -not -path "*/.git/*"
 }
 function fn {
-    findi . -iname "*$@*"
+    findi . -iname "*$@*"         -not -path "*/.venv/*" -not -path "*/.git/*"
 }
 
 function man {
