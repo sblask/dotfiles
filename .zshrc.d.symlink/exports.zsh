@@ -1,3 +1,4 @@
+export AWS_DEFAULT_REGION=eu-west-1
 export EDITOR=vim
 export LS_COLORS='di=34:ln=33:or=31:ex=32'
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nospell nonumber' -\""
