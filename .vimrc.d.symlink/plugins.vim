@@ -9,10 +9,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'davidhalter/jedi-vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
-    Plug 'gmarik/vundle'
-    Plug 'janko-m/vim-test'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'junegunn/vim-easy-align'
     Plug 'lokaltog/vim-easymotion'
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
@@ -30,7 +27,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'triglav/vim-visual-increment'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-voom/VOoM'
     Plug 'w0rp/ale'
 if has('python') || has('python3')
     Plug 'fisadev/vim-isort'
@@ -95,9 +91,6 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
 
-let g:multi_cursor_exit_from_insert_mode=0
-
-
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
 
@@ -115,13 +108,6 @@ endif
 
 let g:vim_resize_disable_auto_mappings = 1
 
-
-let g:voom_ft_modes = {
-\     'markdown': 'markdown',
-\     'python': 'python',
-\ }
-let g:voom_tree_placement = 'right'
-let g:voom_tree_width = 50
 
 let g:VM_maps = {}
 let g:VM_maps['Remove Region'] = '<c-x>'
