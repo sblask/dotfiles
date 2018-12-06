@@ -60,6 +60,7 @@
         - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
         - python-dev
         - python3-dev
+        - ranger
         - silversearcher-ag
         - texlive
         - tmux  # use 'CTRL-B' + 'I' to install the plugins
