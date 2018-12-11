@@ -54,7 +54,7 @@
         - meld
         - moreutils  # contains sponge command
         - parcellite  # keeps copied text in the clipboard even after applications have been closed
-        - pdftk
+        - pdfchain
         - pinta
         - puddletag  # to edit mp3 tags from Thunar context menu
         - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
