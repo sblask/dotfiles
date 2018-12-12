@@ -7,6 +7,7 @@
       - {package_name: docker-compose, executable_name: docker-compose}
       - {package_name: grip, executable_name: grip}
       - {package_name: httpie, executable_name: http}
+      - {package_name: tldr, executable_name: tldr}
       - {package_name: unimatrix, executable_name: unimatrix, install_url: "git+https://github.com/will8211/unimatrix.git"}
       - {package_name: vulture, executable_name: vulture}
 
