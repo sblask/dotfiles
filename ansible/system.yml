@@ -60,6 +60,7 @@
           - python3-dev
           - ranger
           - silversearcher-ag
+          - taskwarrior
           - texlive
           - tmux  # use 'CTRL-B' + 'I' to install the plugins
           - tree

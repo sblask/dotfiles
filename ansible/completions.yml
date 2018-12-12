@@ -33,6 +33,7 @@
       with_items:
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
+        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/taskwarrior/_task
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_ansible
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_ansible-playbook
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_httpie
