@@ -8,11 +8,10 @@
         state: present
     - name: Install RAVEfinity themes
       apt:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - vivacious-colors-gtk-dark
-        - ambiance-blackout-flat-colors
+        name:
+          - vivacious-colors-gtk-dark
+          - ambiance-blackout-flat-colors
 
     - name: Add Geary repository
       apt_repository:
@@ -34,56 +33,54 @@
 
     - name: Ensure useful packages are installed
       apt:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - baobab  # to analyze disk usage from Thunar context menu
-        - compton  # no more video tearing
-        - disper  # for scripting changes between display modes
-        - entr  # do stuff when files change
-        - feh
-        - gimp
-        - git
-        - gmusicbrowser
-        - gnome-font-viewer
-        - gparted
-        - htop
-        - inkscape
-        - jq
-        - libreoffice
-        - meld
-        - moreutils  # contains sponge command
-        - parcellite  # keeps copied text in the clipboard even after applications have been closed
-        - pdfchain
-        - pinta
-        - puddletag  # to edit mp3 tags from Thunar context menu
-        - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
-        - python-dev
-        - python3-dev
-        - ranger
-        - silversearcher-ag
-        - texlive
-        - tmux  # use 'CTRL-B' + 'I' to install the plugins
-        - tree
-        - usb-creator-gtk
-        - vlc
-        - xbacklight
-        - xclip
-        - xfce4-terminal
-        - zsh
+        name:
+          - baobab  # to analyze disk usage from Thunar context menu
+          - compton  # no more video tearing
+          - disper  # for scripting changes between display modes
+          - entr  # do stuff when files change
+          - feh
+          - gimp
+          - git
+          - gmusicbrowser
+          - gnome-font-viewer
+          - gparted
+          - htop
+          - inkscape
+          - jq
+          - libreoffice
+          - meld
+          - moreutils  # contains sponge command
+          - parcellite  # keeps copied text in the clipboard even after applications have been closed
+          - pdfchain
+          - pinta
+          - puddletag  # to edit mp3 tags from Thunar context menu
+          - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
+          - python-dev
+          - python3-dev
+          - ranger
+          - silversearcher-ag
+          - texlive
+          - tmux  # use 'CTRL-B' + 'I' to install the plugins
+          - tree
+          - usb-creator-gtk
+          - vlc
+          - xbacklight
+          - xclip
+          - xfce4-terminal
+          - zsh
 
     - name: Ensure useless packages are removed
       apt:
-        name: "{{ item }}"
         state: absent
-      with_items:
-        - gnome-mines
-        - gnome-sudoku
-        - indicator-messages
-        - mousepad
-        - parole
-        - pidgin
-        - ristretto
+        name:
+          - gnome-mines
+          - gnome-sudoku
+          - indicator-messages
+          - mousepad
+          - parole
+          - pidgin
+          - ristretto
 
     - name: Make ZSH default shell
       user:
