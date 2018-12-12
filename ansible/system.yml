@@ -36,6 +36,7 @@
         state: present
         name:
           - baobab  # to analyze disk usage from Thunar context menu
+          - boxes
           - compton  # no more video tearing
           - disper  # for scripting changes between display modes
           - entr  # do stuff when files change
