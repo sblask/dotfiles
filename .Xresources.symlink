@@ -2,7 +2,7 @@ xterm.*.allowBoldFonts: false
 xterm.*.background:     #111111
 xterm.*.cursorColor:    #D28445
 xterm.*.eightBitInput:  false
-xterm.*.faceName:       DejaVu Sans Mono for Powerline
+xterm.*.faceName:       DejaVu Sans Mono
 xterm.*.faceSize:        8   ! default
 xterm.*.faceSize1:       4   ! unreadable
 xterm.*.faceSize2:       6   ! tiny

@@ -6,11 +6,6 @@
       file:
         path: "{{ target_directory }}/.fonts"
         state: directory
-    - name: Get Powerline font
-      get_url:
-        url: https://github.com/powerline/fonts/raw/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf
-        dest: "{{ target_directory }}/.fonts/DejaVu_Sans_Mono_for_Powerline.ttf"
-      notify: Update fonts
 
 
     - name: Get hub

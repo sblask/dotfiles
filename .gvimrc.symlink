@@ -1,4 +1,4 @@
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+set guifont=DejaVu\ Sans\ Mono\ 10
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
