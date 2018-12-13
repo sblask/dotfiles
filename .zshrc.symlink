@@ -2,3 +2,5 @@ autoload -Uz add-zsh-hook
 for file in ${HOME}/.zshrc.d/*.zsh; do
     source "${file}"
 done
+
+task minimal | boxes -d shell -p t2b2l5r5 | lolcat
