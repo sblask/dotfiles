@@ -14,18 +14,6 @@
         state: directory
 
 
-    - name: Install limes completion
-      get_url:
-        url: https://raw.githubusercontent.com/otm/limes/master/assets/limes
-        dest: "{{ target_directory }}/.zsh/bash_completions.d/limes"
-      register: limes
-    - name: Patch limes completion
-      patch:
-        src: "{{ playbook_dir }}/../patches/limes"
-        dest: "{{ limes.dest }}"
-      when: limes.changed
-
-
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"
