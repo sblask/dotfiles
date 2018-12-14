@@ -20,6 +20,7 @@ alias on='workon'
 alias off="deactivate"
 # top
 alias ta='task add'
+alias td='task delete'
 alias tl='task list'
 alias tm='task minimal'
 alias top='top -c'
