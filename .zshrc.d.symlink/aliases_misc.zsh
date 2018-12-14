@@ -19,7 +19,9 @@ alias uninstall='sudo apt-get purge'
 alias on='workon'
 alias off="deactivate"
 # top
+alias ta='task add'
 alias tl='task list'
+alias tm='task minimal'
 alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
 alias tophead='top -b -n1 | head -n 5'
