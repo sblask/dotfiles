@@ -72,12 +72,12 @@
     </property>
     <property name="plugin-8" type="string" value="cpugraph"/>
     <property name="plugin-9" type="string" value="clock">
-      <property name="digital-format" type="string" value="Week %V, %A %d %B, %H:%M:%S %Z"/>
+      <property name="digital-format" type="string" value="%H:%M:%S %Z,"/>
       <property name="timezone" type="string" value="UTC"/>
     </property>
     <property name="plugin-10" type="string" value="clock">
-      <property name="digital-format" type="string" value="%H:%M:%S %Z"/>
-      <property name="timezone" type="string" value=""/>
+      <property name="digital-format" type="string" value="Week %V, %A %d %B, %H:%M:%S %Z"/>
+      <property name="timezone" type="string" value="CET"/>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>
