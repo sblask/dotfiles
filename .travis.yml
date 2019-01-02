@@ -8,12 +8,12 @@ addons:
     packages:
       - colordiff
 install:
-  - pip install ansible==2.4
   - pip install --requirement requirements.txt
+  - pip install ansible
   - pip install enum34
   - pip install pathlib
   - pip install typing
 script:
-  - ./test.sh
   - vint .vimrc*
   - yamllint .
+  - ./test.sh
