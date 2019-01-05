@@ -50,6 +50,7 @@
           - inkscape
           - jq
           - libreoffice
+          - liferea  # RSS reader
           - meld
           - moreutils  # contains sponge command
           - parcellite  # keeps copied text in the clipboard even after applications have been closed
