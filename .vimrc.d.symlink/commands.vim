@@ -7,6 +7,8 @@ command IgnoreWhitespace set diffopt+=iwhite
 command JsonFormat % !json-format
 command JsonFormatSorted % !json-format --sorted
 command JsonToDict % !python -c "import json; import sys; asDict = json.load(sys.stdin); print(asDict)"
+command JsonToPrettyDict % !python -c "import json; import pprint; import sys; asDict = json.load(sys.stdin); pprint.pprint(asDict)"
+command JsonToPrettyDictNewlines % !python -c "import json; import pprint; import sys; asDict = json.load(sys.stdin); print(pprint.pformat(asDict, indent=4).replace('{   ', '{\n').replace('[   ', '[\n').replace('}', '\n}').replace(']', '\n]').replace('\n', ',\n').replace(',,', ',').replace('[,', '[').replace('{,', '{'))"
 command RelativeNumber set relativenumber!
 command SudoWrite w !sudo tee % > /dev/null
 command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); blob = blob.replace('\n ', ''); print json.loads(blob)['content'].replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&');"
