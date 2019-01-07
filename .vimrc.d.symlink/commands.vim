@@ -17,3 +17,5 @@ command W w
 command WindowsToLinux :%s/$//
 command Wrap windo set wrap
 command Q q
+command YamlFormat % !python -c "import yaml; import sys; asDict = yaml.load(sys.stdin); print(yaml.dump(asDict, default_flow_style=False))"
+command YamlToDict % !python -c "import yaml; import sys; asDict = yaml.load(sys.stdin); print(asDict)"
