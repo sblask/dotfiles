@@ -14,10 +14,10 @@ bind-key -r C-Tab select-pane -t :.+
 bind-key -r H previous-window
 bind-key -r L next-window
 
-bind-key -r C-H resize-pane -L 5
-bind-key -r C-K resize-pane -U 5
-bind-key -r C-L resize-pane -R 5
-bind-key -r C-J resize-pane -D 5
+bind-key -r C-Left  resize-pane -L 5
+bind-key -r C-Up    resize-pane -U 5
+bind-key -r C-Right resize-pane -R 5
+bind-key -r C-Down  resize-pane -D 5
 
 bind-key -r h select-layout even-horizontal
 bind-key -r v select-layout even-vertical

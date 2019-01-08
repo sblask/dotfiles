@@ -10,8 +10,3 @@ map <C-W>p :call WindowSwap#DoWindowSwap()<CR>
 " move through splits with ctrl tab
 nnoremap <C-Tab> <C-W>w
 nnoremap <C-S-Tab> <C-W>W
-" resize like in tmux
-nnoremap <silent> <C-H> :CmdResizeLeft<CR>
-nnoremap <silent> <C-J> :CmdResizeDown<CR>
-nnoremap <silent> <C-K> :CmdResizeUp<CR>
-nnoremap <silent> <C-L> :CmdResizeRight<CR>
