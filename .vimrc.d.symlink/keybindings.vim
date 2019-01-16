@@ -4,14 +4,9 @@ set backspace=indent,eol,start
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " better redo combination
 nnoremap U <C-R>
-" fix cursor position when using page keys
-" http://vimrc-dissection.blogspot.se/2009/02/fixing-pageup-and-pagedown.html
-nnoremap <PageUp>        1000<C-U>
-nnoremap <PageDown>      1000<C-D>
-inoremap <PageUp>   <C-O>1000<C-U>
-inoremap <PageDown> <C-O>1000<C-D>
-nmap        <Space>     <PageDown>
-nmap      <S-Space>     <PageUp>
+" Disable page up and down
+noremap <PageUp>   <nop>
+noremap <PageDown> <nop>
 " text object between slashes
 " f/F/f/F/ moves the cursor to within slashes no matter where on line
 vnoremap a/ :<C-U>silent! normal! f/F/f/F/vf/<CR>
