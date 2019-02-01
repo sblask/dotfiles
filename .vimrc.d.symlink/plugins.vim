@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'francoiscabrol/ranger.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'lokaltog/vim-easymotion'
+    Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
@@ -103,6 +104,8 @@ let g:python_highlight_space_errors = 0
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
+
+cnoreabbrev tb TagbarToggle
 
 if has('python3')
     let g:vim_isort_python_version = 'python3'
