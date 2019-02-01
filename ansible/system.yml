@@ -53,7 +53,6 @@
           - liferea  # RSS reader
           - meld
           - moreutils  # contains sponge command
-          - parcellite  # keeps copied text in the clipboard even after applications have been closed
           - pdfchain
           - pinta
           - puddletag  # to edit mp3 tags from Thunar context menu
@@ -70,6 +69,7 @@
           - vlc
           - xbacklight
           - xclip
+          - xfce4-clipman  # keeps copied text in the clipboard even after applications have been closed
           - xfce4-terminal
           - zsh
 
