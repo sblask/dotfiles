@@ -51,6 +51,7 @@
         <value type="string" value="task manager"/>
         <value type="string" value="chromium-browser"/>
         <value type="string" value="blueman-applet"/>
+        <value type="string" value="clipman"/>
         <value type="string" value="parcellite"/>
         <value type="string" value="skypeforlinux"/>
         <value type="string" value="xfce4-power-manager"/>
@@ -79,6 +80,12 @@
     <property name="plugin-10" type="string" value="clock">
       <property name="digital-format" type="string" value="Week %V, %A %d %B, %H:%M:%S %Z"/>
       <property name="timezone" type="string" value="CET"/>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="settings" type="empty">
+        <property name="save-on-quit" type="bool" value="false"/>
+        <property name="max-images-in-history" type="uint" value="0"/>
+      </property>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>
