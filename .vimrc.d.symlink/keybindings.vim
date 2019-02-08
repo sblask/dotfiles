@@ -20,5 +20,5 @@ vnoremap <silent> * "sy<Esc>:let @/ = escape(@s, '/\.*$^~[')<CR>:set hlsearch<CR
 " spell checking with suggestion box
 nnoremap z= a<C-X><C-S>
 " add new lines without switching to insert mode
-nnoremap   <CR> :put! _<CR>:']+1<CR>
-nnoremap <S-CR> :put  _<CR>:'[-1<CR>
+nnoremap   <CR> :put  _<CR>:'[-1<CR>
+nnoremap <S-CR> :put! _<CR>:']+1<CR>
