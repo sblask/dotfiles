@@ -126,6 +126,10 @@ function findu {
 }
 compdef _find findu
 
+function gashp {
+    git stash pop                                           | add-index --input-type git_status --print-indexables | set-index-variables
+}
+
 function gb {
     git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
 }
