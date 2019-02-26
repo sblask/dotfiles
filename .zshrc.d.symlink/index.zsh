@@ -82,7 +82,7 @@ function __print-path-argument {
 
 _git # run this here to get git completions to work
 
-function ag {
+function agi {
     local lines=$(command ag --color --group --literal $@)
     local restricted=false
     if [ $(echo $lines | wc --lines) -gt 99 ]; then
@@ -95,12 +95,12 @@ function ag {
         echo "\n\n..."
     fi
 }
-compdef _ag ag
+compdef _ag agi
 
-function agu {
+function agiu {
     command ag --color --group --literal $@                 | add-index --input-type ag         --print-indexables | set-index-variables
 }
-compdef _ag agu
+compdef _ag agiu
 
 function clone_status {
     command clone_status                                    | add-index --input-type mixed      --print-indexables | set-index-variables
