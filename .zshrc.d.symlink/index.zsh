@@ -122,7 +122,7 @@ function findi {
 compdef _find find
 
 function findu {
-    find $@                                         | add-index --input-type list       --print-indexables | set-index-variables
+    find $@                                                 | add-index --input-type list       --print-indexables | set-index-variables
 }
 compdef _find findu
 
