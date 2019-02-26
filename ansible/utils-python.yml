@@ -5,7 +5,7 @@
       -
         package_name: aws-sam-cli
         executable_name: sam
-        python: python2
+        python: python3.7
       -
         package_name: awscli
         executable_name: aws
