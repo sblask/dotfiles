@@ -53,15 +53,13 @@
 
 
     - name: Get pup
-      get_url:
-        url: https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
-        dest: "/tmp/pup.gz"
-    - name: Unpack pup
       unarchive:
-        src: /tmp/pup.gz
+        src: https://github.com/ericchiang/pup/releases/download/{{ version }}/pup_{{ version }}_linux_amd64.zip
         dest: "{{ target_directory }}/.bin/"
-        remote_src: yes
         creates: "{{ target_directory }}/.bin/pup"
+        remote_src: yes
+      vars:
+        version: v0.4.0
 
   handlers:
 
