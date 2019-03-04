@@ -20,8 +20,10 @@
 
     - name: Get hub
       get_url:
-        url: https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
+        url: https://github.com/github/hub/releases/download/v{{ version }}/hub-linux-amd64-{{ version }}.tgz
         dest: "/tmp/hub.tgz"
+      vars:
+        version: 2.10.0
     - name: Unpack hub
       shell: |
         tar \
@@ -35,6 +37,7 @@
       args:
         chdir: /tmp/
         creates: "{{ target_directory }}/.bin/hub"
+        warn: false
     - name: Unpack hub completions
       shell: |
         tar \
