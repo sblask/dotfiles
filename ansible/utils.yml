@@ -8,6 +8,16 @@
         state: directory
 
 
+    - name: Get fzf
+      unarchive:
+        src: https://github.com/junegunn/fzf-bin/releases/download/{{ version }}/fzf-{{ version }}-linux_amd64.tgz
+        dest: "{{ target_directory }}/.bin/"
+        creates: "{{ target_directory }}/.bin/fzf"
+        remote_src: yes
+      vars:
+        version: 0.17.5
+
+
     - name: Get hub
       get_url:
         url: https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz
