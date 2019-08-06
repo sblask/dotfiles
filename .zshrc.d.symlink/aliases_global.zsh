@@ -6,3 +6,4 @@ alias -g BC="| awk --field-separator : '{print \$1}'" # print whatever is before
 alias -g IF="| add-index --input-type mixed --print-indexables | set-index-variables"
 alias -g IT="| add-index --input-type tree  --print-indexables | set-index-variables"
 alias -g LC="| awk '{print \$NF}'" # print last column
+alias -g FC="| awk '{print \$1}'" # print first column
