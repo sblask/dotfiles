@@ -32,7 +32,6 @@ xterm.*.translations:   #override \n\
           Ctrl <Key> Escape: string(0x1b) string("[27;5;27~") \n\
     Shift Ctrl <Key>    Tab: string(0x1b) string("[27;6;9~")  \n\
           Ctrl <Key>    Tab: string(0x1b) string("[27;5;9~")  \n\
-    Shift      <Key>  space: string(0x1b) string("[27;2;32~") \n\
     Shift      <Key> Return: string(0x1b) string("[27;2;13~") \n\
     Shift Ctrl <Key>      X: string(0x1b) string("[27;6;88~")  \n\
 
