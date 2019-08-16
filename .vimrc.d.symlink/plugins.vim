@@ -113,5 +113,7 @@ if has('python3')
 endif
 
 let g:VM_maps = {}
+let g:VM_maps['Skip Region'] = '<c-s>'
 let g:VM_maps['Remove Region'] = '<c-x>'
 let g:VM_maps['Duplicate'] = ''
+
