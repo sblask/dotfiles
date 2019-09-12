@@ -11,7 +11,7 @@ command JsonToPrettyDict % !python -c "import json; import pprint; import sys; a
 command JsonToPrettyDictNewlines % !python -c "import json; import pprint; import sys; asDict = json.load(sys.stdin); print(pprint.pformat(asDict, indent=4).replace('{   ', '{\n').replace('[   ', '[\n').replace('}', '\n}').replace(']', '\n]').replace('\n', ',\n').replace(',,', ',').replace('[,', '[').replace('{,', '{'))"
 command RelativeNumber set relativenumber!
 command SudoWrite w !sudo tee % > /dev/null
-command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); parseable = blob.strip().split('}\n')[0].replace('\n', '') + '}'; content = json.loads(parseable)['content']; print(content.replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&').replace('\r\n', '\n'));"
+command SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); parseable = blob.strip().split('}\n')[0].replace('\n', ''); content = json.loads(parseable)['content']; print(content.replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&').replace('\r\n', '\n'));"
 command Todo Gcd | Ack! "TODO|FIXME"
 command W w
 command WindowsToLinux :%s/$//
