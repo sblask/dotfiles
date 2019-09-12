@@ -1,3 +1,10 @@
+function aws_region {
+    if [ "$AWS_DEFAULT_REGION" = "" ]; then
+        echo ""
+    else
+        echo "$AWS_DEFAULT_REGION "
+    fi
+}
 function git_no_mail_warning {
     git status 1>/dev/null 2>/dev/null
     if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
@@ -27,6 +34,7 @@ function print-first-line {
     print
     lines=(
         "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
+        "$fg[yellow]$(aws_region)$reset_color"
         "$fg[yellow]$(imsa_profile)$reset_color"
         "$fg[blue]$(virtual_env)$reset_color"
         "%n " # username
