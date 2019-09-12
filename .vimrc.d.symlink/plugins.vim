@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'francoiscabrol/ranger.vim'
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
     Plug 'lokaltog/vim-easymotion'
     Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
