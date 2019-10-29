@@ -2,6 +2,7 @@ function maybe-install-virtualenv-requirements {
     local VIRTUALENV_REQUIREMENTS_FILE=$1
     if [ -f ${VIRTUALENV_REQUIREMENTS_FILE} ]; then
         if ! python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())" 2>/dev/null; then
+            python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())"
             echo -e "$fg[yellow]Installing requirements from ${VIRTUALENV_REQUIREMENTS_FILE}${reset_color}"
             pip install --upgrade --requirement ${VIRTUALENV_REQUIREMENTS_FILE}
         fi
