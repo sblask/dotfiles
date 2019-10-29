@@ -28,17 +28,17 @@ omap i` :normal vi`<CR>
 " override default text objects for brackets and parentheses to work on
 " character level and not line level
 "
-vnoremap <silent> a( <Esc><BS>/)<CR>v?(<CR>:<C-U>nohlsearch<CR>gv
-vnoremap <silent> i( <Esc><BS>/)<CR>v?(<CR> o<BS>:<C-U>nohlsearch<CR>gv
+vnoremap <silent> a( <Esc>:let @b = @/<CR><BS>/)<CR>v?(<CR>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
+vnoremap <silent> i( <Esc>:let @b = @/<CR><BS>/)<CR>v?(<CR> o<BS>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
 omap a( :normal va(<CR>
 omap i( :normal vi(<CR>
 
-vnoremap <silent> a[ <Esc><BS>/]<CR>v?[<CR>:<C-U>nohlsearch<CR>gv
-vnoremap <silent> i[ <Esc><BS>/]<CR>v?[<CR> o<BS>:<C-U>nohlsearch<CR>gv
+vnoremap <silent> a[ <Esc>:let @b = @/<CR><BS>/]<CR>v?[<CR>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
+vnoremap <silent> i[ <Esc>:let @b = @/<CR><BS>/]<CR>v?[<CR> o<BS>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
 omap a[ :normal va[<CR>
 omap i[ :normal vi[<CR>
 
-vnoremap <silent> a{ <Esc><BS>/}<CR>v?{<CR>:<C-U>nohlsearch<CR>gv
-vnoremap <silent> i{ <Esc><BS>/}<CR>v?{<CR> o<BS>:<C-U>nohlsearch<CR>gv
+vnoremap <silent> a{ <Esc>:let @b = @/<CR><BS>/}<CR>v?{<CR>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
+vnoremap <silent> i{ <Esc>:let @b = @/<CR><BS>/}<CR>v?{<CR> o<BS>:<C-U>nohlsearch<CR>:let @/ = @b<CR>gv
 omap a{ :normal va{<CR>
 omap i{ :normal vi{<CR>
