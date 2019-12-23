@@ -35,6 +35,8 @@
       apt:
         state: present
         name:
+          - asunder  # cd ripper
+          - audacity  # audio editor
           - baobab  # to analyze disk usage from Thunar context menu
           - boxes
           - compton  # no more video tearing
