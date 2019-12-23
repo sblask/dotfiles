@@ -79,7 +79,7 @@
     </property>
     <property name="plugin-10" type="string" value="clock">
       <property name="digital-format" type="string" value="Week %V, %A %d %B, %H:%M:%S %Z"/>
-      <property name="timezone" type="string" value="CET"/>
+      <property name="timezone" type="string" value="NZ"/>
     </property>
     <property name="clipman" type="empty">
       <property name="settings" type="empty">
