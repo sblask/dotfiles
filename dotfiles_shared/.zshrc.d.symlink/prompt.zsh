@@ -12,7 +12,11 @@ function git_no_mail_warning {
     fi
 }
 function my_ip {
-    hostname --all-ip-addresses | awk '{print $1}'
+    if [ $OS = mac ]; then
+        ipconfig getifaddr en0
+    else
+        hostname --all-ip-addresses | awk '{print $1}'
+    fi
 }
 function imsa_profile {
     if [ "$IMSA_PROFILE" = "" ]; then
