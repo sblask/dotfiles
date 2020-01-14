@@ -6,6 +6,6 @@ PID="$1"
 shift
 
 COMMAND="$@"
-PANE_CWD=$(readlink /proc/${PID}/cwd)
+PANE_CWD=$(lsof -d cwd | grep ${PID} | awk '{print $NF}')
 
 $COMMAND "${PANE_CWD}"
