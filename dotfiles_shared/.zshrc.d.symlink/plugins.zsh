@@ -14,7 +14,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('\*' 'fg=black,bg=red')
 # configure git prompt plugin
 function git_super_status {
     precmd_update_git_vars
-    if [ -n "$__CURRENT_GIT_STATUS" ]; then
+    if [ "$__CURRENT_GIT_STATUS" != "" ] && [ "$__CURRENT_GIT_STATUS" != ": 0 0 0 0 0 0" ]; then
         STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
         if [ "$GIT_BEHIND" -ne "0" ] && [ "$GIT_AHEAD" -ne "0" ]; then
             STATUS="$STATUS $ZSH_THEME_GIT_PROMPT_BEHIND$GIT_BEHIND/$ZSH_THEME_GIT_PROMPT_AHEAD$GIT_AHEAD%{${reset_color}%}"
