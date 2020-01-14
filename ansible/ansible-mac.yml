@@ -1,8 +1,13 @@
-- import_playbook: completions.yml
+- import_playbook: completion_directories.yml
 - import_playbook: dotfiles.yml
+  vars:
+    dotfiles_directory: dotfiles_shared
 - import_playbook: plugins.yml
-- import_playbook: system.yml
 - import_playbook: utils.yml
+  vars:
+    os: darwin
+    tar: /usr/local/bin/gtar
+
 - import_playbook: utils-python.yml
 
 # vim: syntax=ansible

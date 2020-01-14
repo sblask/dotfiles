@@ -1,23 +1,28 @@
 - hosts: all
+
+  vars:
+    root_directory: "{{ playbook_dir.rsplit('/', 1)[0] }}"
+    dotfiles_path: "{{ root_directory }}/{{ dotfiles_directory }}"
+
   tasks:
 
     - name: Find files to symlink
       find:
         patterns: "*.symlink"
-        paths: "{{ playbook_dir }}/.."
+        paths: "{{ dotfiles_path }}"
         recurse: yes
         file_type: any
         hidden: yes
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
-        path: "{{ target_directory }}/{{ item.path.replace(playbook_dir.rsplit('/', 1)[0], '').replace('.symlink', '').rsplit('/', 1)[0] }}"
+        path: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').rsplit('/', 1)[0] }}"
         state: directory
       with_items: "{{ files_to_symlink.files }}"
     - name: Create symlinks
       file:
         src: "{{ item.path }}"
-        dest: "{{ target_directory }}/{{ item.path.replace(playbook_dir.rsplit('/', 1)[0], '').replace('.symlink', '') }}"
+        dest: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"
 

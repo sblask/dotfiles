@@ -14,6 +14,6 @@ install:
   - pip install pathlib
   - pip install typing
 script:
-  - vint .vimrc*
+  - vint dotfiles_shared/.vimrc*
   - yamllint .
   - ./test.sh

@@ -2,15 +2,9 @@
 
   tasks:
 
-    - name: Ensure .fonts directory
-      file:
-        path: "{{ target_directory }}/.fonts"
-        state: directory
-
-
     - name: Get fzf
       unarchive:
-        src: https://github.com/junegunn/fzf-bin/releases/download/{{ version }}/fzf-{{ version }}-linux_amd64.tgz
+        src: https://github.com/junegunn/fzf-bin/releases/download/{{ version }}/fzf-{{ version }}-{{ os }}_amd64.tgz
         dest: "{{ target_directory }}/.bin/"
         creates: "{{ target_directory }}/.bin/fzf"
         remote_src: yes
@@ -20,13 +14,13 @@
 
     - name: Get hub
       get_url:
-        url: https://github.com/github/hub/releases/download/v{{ version }}/hub-linux-amd64-{{ version }}.tgz
+        url: https://github.com/github/hub/releases/download/v{{ version }}/hub-{{ os }}-amd64-{{ version }}.tgz
         dest: "/tmp/hub.tgz"
       vars:
         version: 2.10.0
     - name: Unpack hub
       shell: |
-        tar \
+        {{ tar | default('tar') }} \
         --extract \
         --verbose \
         --file hub.tgz \
@@ -40,16 +34,16 @@
         warn: false
     - name: Unpack hub completions
       shell: |
-        tar \
-          --extract \
-          --verbose \
-          --show-transformed-names \
-          --file hub.tgz \
-          --wildcards \
-          --strip-component 2 \
-          --directory "{{ target_directory }}/.zsh/completions.d/" \
-          --transform "s/hub.zsh_completion/_hub/" \
-          "*/etc/hub.zsh_completion"
+        {{ tar | default('tar') }} \
+        --extract \
+        --verbose \
+        --show-transformed-names \
+        --file hub.tgz \
+        --wildcards \
+        --strip-component 2 \
+        --directory "{{ target_directory }}/.zsh/completions.d/" \
+        --transform "s/hub.zsh_completion/_hub/" \
+        "*/etc/hub.zsh_completion"
       args:
         chdir: /tmp/
         creates: "{{ target_directory }}/.zsh/completions.d/_hub"
@@ -57,17 +51,11 @@
 
     - name: Get pup
       unarchive:
-        src: https://github.com/ericchiang/pup/releases/download/{{ version }}/pup_{{ version }}_linux_amd64.zip
+        src: https://github.com/ericchiang/pup/releases/download/{{ version }}/pup_{{ version }}_{{ os }}_amd64.zip
         dest: "{{ target_directory }}/.bin/"
         creates: "{{ target_directory }}/.bin/pup"
         remote_src: yes
       vars:
         version: v0.4.0
-
-  handlers:
-
-    - name: Update fonts
-      shell: fc-cache --force --verbose {{ target_directory }}/.fonts
-      when: target_directory == lookup('env', 'HOME')
 
 # vim: syntax=ansible

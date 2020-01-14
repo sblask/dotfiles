@@ -2,18 +2,6 @@
   tasks:
 
 
-    - name: Ensure directory for BASH completions
-      file:
-        path: "{{ target_directory }}/.zsh/bash_completions.d/"
-        state: directory
-
-
-    - name: Ensure directory for ZSH completions
-      file:
-        path: "{{ target_directory }}/.zsh/completions.d/"
-        state: directory
-
-
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"

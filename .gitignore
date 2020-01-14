@@ -1,3 +1,4 @@
+.DS_Store
 /*.swp
 /*.tgz
 /.base16-shell.symlink/
@@ -7,7 +8,7 @@
 /.fonts
 /.scm_breeze.symlink/
 /.venv
-/.vim/spell.symlink/*.spl
-/.vim/spell.symlink/*.sug
-/.vim/spell.symlink/local.en.utf-8.add
 /.xnviewmp.symlink/*
+/dotfiles_shared/.vim/spell.symlink/*.spl
+/dotfiles_shared/.vim/spell.symlink/*.sug
+/dotfiles_shared/.vim/spell.symlink/local.en.utf-8.add
