@@ -48,8 +48,6 @@ bind-key V copy-mode
 
 # copy and paste from/to clipboard
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -selection clipboard >/dev/null'
-bind-key p run 'tmux set-buffer "$(xclip -out -selection clipboard)"; tmux paste-buffer'
 
 # switch to insert mode
 bind-key -T copy-mode-vi i send-keys -X cancel
@@ -70,10 +68,12 @@ set-window-option -g window-status-separator ' '
 bind-key -T root WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= \"#{pane_in_mode}\" \"send-keys -M\" \"copy-mode -t=\""
 
 set -g @plugin 'tmux-plugins/tpm'
+
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 run '~/.tmux/plugins/tpm/tpm'
