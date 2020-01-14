@@ -55,7 +55,7 @@ bind-key -T copy-mode-vi i send-keys -X cancel
 set-option -g base-index 1
 set-option -g mouse on
 set-option -g renumber-windows on
-set-option -g pane-active-border-fg colour24
+set-option -g pane-active-border-style fg=colour24
 set-option -g status-bg colour24
 set-option -g status-left "#{prefix_highlight} #[fg=white]#H_session_#S #[fg=black]| "
 set-option -g status-left-length 50
