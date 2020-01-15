@@ -77,3 +77,6 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 
 run '~/.tmux/plugins/tpm/tpm'
+
+# this needs to be done after running tmux-yank
+unbind-key -T copy-mode-vi MouseDragEnd1Pane
