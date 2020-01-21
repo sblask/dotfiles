@@ -2,6 +2,13 @@ fun! ConfigureApache()
     setlocal commentstring=#\ %s
 endf
 
+fun! ConfigureClojure()
+    call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+    RainbowParenthesesActivate
+    RainbowParenthesesLoadRound
+    nmap <buffer> <Leader>d ]<C-D>
+endf
+
 fun! ConfigureCss()
     call SuperTabSetDefaultCompletionType('<c-p>')
 endf
@@ -44,6 +51,7 @@ augroup filetype
     autocmd!
 
     autocmd FileType apache     :call ConfigureApache()
+    autocmd FileType clojure    :call ConfigureClojure()
     autocmd FileType css        :call ConfigureCss()
     autocmd FileType javascript :call ConfigureJavascript()
     autocmd FileType python     :call ConfigurePython()

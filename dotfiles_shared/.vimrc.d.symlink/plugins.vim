@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'francoiscabrol/ranger.vim'
+    Plug 'guns/vim-sexp'
+    Plug 'kien/rainbow_parentheses.vim'
     Plug 'lokaltog/vim-easymotion'
     Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
@@ -24,7 +26,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-sexp-mappings-for-regular-people'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
     Plug 'triglav/vim-visual-increment'
@@ -65,6 +70,7 @@ let g:airline_section_z = '%l/%L : %c'
 let g:ale_echo_msg_format = '[%linter%] %s (%code%) [%severity%]'
 let g:ale_linters = {
 \    'ansible': ['yamllint'],
+\    'clojure': ['clj-kondo'],
 \    'python': ['pycodestyle', 'pylint'],
 \ }
 let g:ale_sign_error = '✗'
