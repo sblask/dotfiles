@@ -1,8 +1,17 @@
+fun! ConfigureApache()
+    setlocal commentstring=#\ %s
+endf
+
+fun! ConfigureCss()
+    call SuperTabSetDefaultCompletionType('<c-p>')
+endf
+
 fun! ConfigureJavascript()
     let l:localEslint = findfile('node_modules/.bin/eslint', '.;')
     if l:localEslint !=? ''
         let b:syntastic_javascript_eslint_exec = fnamemodify(l:localEslint, ':p')
     endif
+    call SuperTabSetDefaultCompletionType('<c-p>')
 endf
 
 fun! ConfigurePython()
@@ -34,9 +43,9 @@ endf
 augroup filetype
     autocmd!
 
-    autocmd FileType apache     setlocal commentstring=#\ %s
-    autocmd FileType css        :call SuperTabSetDefaultCompletionType("<c-p>")
-    autocmd FileType javascript :call ConfigureJavascript() | call SuperTabSetDefaultCompletionType("<c-p>")
+    autocmd FileType apache     :call ConfigureApache()
+    autocmd FileType css        :call ConfigureCss()
+    autocmd FileType javascript :call ConfigureJavascript()
     autocmd FileType python     :call ConfigurePython()
     autocmd FileType scss       :call ConfigureScss()
     autocmd FileType yaml       :call ConfigureYaml()
