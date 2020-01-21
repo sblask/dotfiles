@@ -3,7 +3,7 @@ fun! ConfigureApache()
 endf
 
 fun! ConfigureClojure()
-    call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+    call SuperTabSetDefaultCompletionType('<c-x><c-o>')
     RainbowParenthesesActivate
     RainbowParenthesesLoadRound
     nmap <buffer> <Leader>d ]<C-D>
