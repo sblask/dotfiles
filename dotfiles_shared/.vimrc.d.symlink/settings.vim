@@ -12,6 +12,12 @@ set autochdir
 " reload file automatically on focus if unchanged here but changed somewhere else
 set autoread
 set completeopt=menuone,noselect
+" hopefully better diffs, see https://vimways.org/2018/the-power-of-diff/
+set diffopt=
+set diffopt+=algorithm:patience
+set diffopt+=filler
+set diffopt+=indent-heuristic
+set diffopt+=internal
 " enable highlighting of current line
 set nocursorline
 " ignore case when completing filenames
