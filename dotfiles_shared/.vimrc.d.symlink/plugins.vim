@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ervandew/supertab'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'guns/vim-sexp'
-    Plug 'kien/rainbow_parentheses.vim'
+    Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'lokaltog/vim-easymotion'
     Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
@@ -107,6 +107,8 @@ let g:netrw_liststyle = 3 " tree view
 let g:polyglot_disabled = ['jinja', 'tmux']
 
 let g:python_highlight_space_errors = 0
+
+let g:rainbow#max_level = 32
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'

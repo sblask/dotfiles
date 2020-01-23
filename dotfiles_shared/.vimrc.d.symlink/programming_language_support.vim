@@ -4,8 +4,7 @@ endf
 
 fun! ConfigureClojure()
     call SuperTabSetDefaultCompletionType('<c-x><c-o>')
-    RainbowParenthesesActivate
-    RainbowParenthesesLoadRound
+    RainbowParentheses
     nmap <buffer> <Leader>d ]<C-D>
 endf
 
