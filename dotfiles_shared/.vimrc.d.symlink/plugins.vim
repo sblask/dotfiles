@@ -110,6 +110,8 @@ let g:python_highlight_space_errors = 0
 
 let g:rainbow#max_level = 32
 
+let g:sexp_enable_insert_mode_mappings = 0
+
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
 
