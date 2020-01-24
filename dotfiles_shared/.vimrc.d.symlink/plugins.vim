@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'breuckelen/vim-resize'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'davidhalter/jedi-vim'
+    Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'francoiscabrol/ranger.vim'
@@ -35,7 +36,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'triglav/vim-visual-increment'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'w0rp/ale'
 if has('python') || has('python3')
     Plug 'fisadev/vim-isort'
 endif
