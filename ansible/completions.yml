@@ -7,6 +7,7 @@
         url: "{{ item }}"
         dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
       with_items:
+        - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
         - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/taskwarrior/_task
