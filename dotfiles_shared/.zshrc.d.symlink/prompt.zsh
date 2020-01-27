@@ -5,6 +5,13 @@ function aws_region {
         echo "$AWS_DEFAULT_REGION "
     fi
 }
+function conda_env {
+    if [ "$CONDA_DEFAULT_ENV" = "" ]; then
+        echo ""
+    else
+        echo "(conda: $(print -rD $CONDA_DEFAULT_ENV)) "
+    fi
+}
 function git_no_mail_warning {
     git status 1>/dev/null 2>/dev/null
     if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
@@ -29,7 +36,7 @@ function virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
     else
-        echo "($(print -rD $VIRTUAL_ENV)) "
+        echo "(virtualenv: $(print -rD $VIRTUAL_ENV)) "
     fi
 }
 
@@ -40,7 +47,7 @@ function print-first-line {
         "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
         "$fg[yellow]$(aws_region)$reset_color"
         "$fg[yellow]$(imsa_profile)$reset_color"
-        "$fg[blue]$(virtual_env)$reset_color"
+        "$fg[blue]$(virtual_env)$(conda_env)$reset_color"
         "%n " # username
         "$fg[blue]%m$reset_color " # hostname
         "$(my_ip) "
