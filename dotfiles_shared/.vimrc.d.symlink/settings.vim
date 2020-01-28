@@ -18,6 +18,7 @@ set diffopt+=algorithm:patience
 set diffopt+=filler
 set diffopt+=indent-heuristic
 set diffopt+=internal
+set diffopt+=iwhite
 " enable highlighting of current line
 set nocursorline
 " ignore case when completing filenames

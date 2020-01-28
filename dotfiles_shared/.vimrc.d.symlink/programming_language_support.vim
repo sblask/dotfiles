@@ -30,6 +30,7 @@ fun! ConfigurePython()
             let b:ale_python_pycodestyle_options = '--max-line-length=999'
         endif
     endif
+    set diffopt-=iwhite
 endf
 
 fun! ConfigureScss()
