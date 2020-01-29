@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'mitsuhiko/vim-jinja'
     Plug 'powerman/vim-plugin-AnsiEsc'
+    Plug 'psf/black'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'rickhowe/diffchar.vim'
     Plug 'sheerun/vim-polyglot'
@@ -79,6 +80,7 @@ let g:ale_sign_warning = '✗'
 
 call camelcasemotion#CreateMotionMappings('<leader>')
 
+let g:black_linelength = 79
 
 let g:ctrlp_by_filename = 1
 let g:ctrlp_extensions = []
