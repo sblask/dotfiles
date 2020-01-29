@@ -10,7 +10,7 @@ max-args=8
 
 [MESSAGES CONTROL]
 # Use `pylint --help-msg=` to check the meaning of these
-disable=bad-builtin,bad-continuation,broad-except,deprecated-lambda,fixme,logging-fstring-interpolation,missing-docstring,no-else-return,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
+disable=bad-builtin,bad-continuation,broad-except,deprecated-lambda,fixme,logging-fstring-interpolation,missing-docstring,no-else-raise,no-else-return,no-self-use,similarities,star-args,too-few-public-methods,too-many-public-methods,unused-wildcard-import
 
 [REPORTS]
 msg-template={path}:{line} [{symbol}] {msg}
