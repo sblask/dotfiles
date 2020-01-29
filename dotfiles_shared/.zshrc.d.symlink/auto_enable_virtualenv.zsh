@@ -1,4 +1,4 @@
-function maybe-install-virtualenv-requirements {
+function maybe-install-requirements {
     local VIRTUALENV_REQUIREMENTS_FILE=$1
     if [ -f ${VIRTUALENV_REQUIREMENTS_FILE} ]; then
         if ! python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())" 2>/dev/null; then
@@ -9,23 +9,57 @@ function maybe-install-virtualenv-requirements {
     fi
 }
 
-function auto-enable-virtualenv {
-    local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a))
-    if [ "${VIRTUALENV_DIRECTORY}" != "" -a -d ${VIRTUALENV_DIRECTORY} ]; then
-        if [ "${VIRTUAL_ENV}" != "" ] && [ "$(pwd)" =~ "^$(dirname ${VIRTUAL_ENV}).*" ]; then
+function auto-enable-environment {
+    local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a) | tail -n 1)
+    local CURRENT_VIRTUAL_ENV=${VIRTUAL_ENV}
+
+    local CONDA_ENV_FILE=$(print -l (../)#.conda_env(N:a) | tail -n 1)
+    local CURRENT_CONDA_ENV=${CONDA_DEFAULT_ENV}
+
+    if [ -d "${VIRTUALENV_DIRECTORY}" ]; then
+        local GIVEN_VIRTUALENV=${VIRTUALENV_DIRECTORY}
+
+        if [ "${GIVEN_VIRTUALENV}" = "${CURRENT_VIRTUAL_ENV}" ]; then
             return
         fi
 
-        source ${VIRTUALENV_DIRECTORY}/bin/activate
-        maybe-install-virtualenv-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
-        maybe-install-virtualenv-requirements ${PWD}/requirements.txt
-    elif [ -f .penv -o -f .venv ]; then
-        local CURRENT_DIRECTORY=${PWD##*/}
-        if [ "(${CURRENT_DIRECTORY}) " != "$(virtual_env)" ]; then
-            workon ${CURRENT_DIRECTORY}
+        if [ "${CURRENT_CONDA_ENV}" != "" ]; then
+            conda deactivate
         fi
+
+        if [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
+            deactivate
+        fi
+
+        echo "Activate ${GIVEN_VIRTUALENV}"
+        source ${GIVEN_VIRTUALENV}/bin/activate
+        maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
+        maybe-install-requirements ${PWD}/requirements.txt
+
+    elif [ -f "${CONDA_ENV_FILE}" ]; then
+        local GIVEN_CONDA_ENV=$(cat "${CONDA_ENV_FILE}")
+
+        if [ "${GIVEN_CONDA_ENV}" = "" ]; then
+            return
+        fi
+
+        if [ "${GIVEN_CONDA_ENV}" = "${CURRENT_CONDA_ENV}" ]; then
+            return
+        fi
+
+        if [ "${CURRENT_CONDA_ENV}" != "" ]; then
+            conda deactivate
+        fi
+
+        if [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
+            deactivate
+        fi
+
+        echo "Activate ${GIVEN_CONDA_ENV}"
+        conda activate ${GIVEN_CONDA_ENV}
+        maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
     fi
 }
 
 # this should run before prompt setup to be able to show virtualenv immediately
-add-zsh-hook precmd auto-enable-virtualenv
+add-zsh-hook precmd auto-enable-environment
