@@ -1,7 +1,7 @@
 py3file ~/.vimrc.d/commands.py
 
 command! -nargs=? Outline VoomToggle <args>
-command! -range SortWords <line1>,<line2>!python -c "import sys; key, value = sys.stdin.read().split('='); sys.stdout.write('='.join([key, ','.join(sorted(value.split(',')))]))"
+command! -range SortCommaSeparated <line1>,<line2>python3 apply_on_one_line_selection(sort_comma_separated)
 command! DictToJson % !python -c "from dateutil.tz import tzlocal; from dateutil.tz import tzutc; import datetime; import json; import sys; asDict = eval(sys.stdin.read()); asJson = json.dumps(asDict, default=lambda something: something.isoformat()); print(asJson)"
 command! FoldEnable set foldenable | set foldcolumn=3
 command! FoldDisable set nofoldenable | set foldcolumn=0
