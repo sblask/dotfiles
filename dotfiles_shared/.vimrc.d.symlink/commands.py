@@ -24,3 +24,7 @@ def apply_on_one_line_selection(function):
 
 def sort_comma_separated(input_string):
     return ",".join(sorted(input_string.split(",")))
+
+
+def sort_whitespace_separated(input_string):
+    return " ".join(sorted(input_string.split(" ")))
