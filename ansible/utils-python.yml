@@ -40,10 +40,10 @@
     - name: Install Virtualenv
       shell: |
         wget --quiet --output-document /tmp/virtualenv_releases --convert-links https://github.com/pypa/virtualenv/releases && \
-        cat /tmp/virtualenv_releases | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | head --lines 1 | xargs wget && \
-        tar --extract --strip-components 1 --file *.tar.gz && \
-        cp virtualenv.py {{ target_directory }}/.bin/virtualenv && \
-        cp --recursive virtualenv_support {{ target_directory }}/.bin/
+          cat /tmp/virtualenv_releases | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | grep --extended-regexp '[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz' | head --lines 1 | xargs wget && \
+            tar --extract --strip-components 1 --file *.tar.gz && \
+            cp virtualenv.py {{ target_directory }}/.bin/virtualenv && \
+            cp --recursive virtualenv_support {{ target_directory }}/.bin/
       args:
         chdir: /tmp/
         creates: "{{ target_directory }}/.bin/virtualenv"
