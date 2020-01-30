@@ -27,7 +27,8 @@ fun! ConfigurePython()
         let l:config_path = fnamemodify(l:config, ':p')
         let b:ale_python_pylint_options = '--rcfile ' . l:config_path
         if match(readfile(l:config_path), 'max-line-length') != -1
-            let b:ale_python_pycodestyle_options = '--max-line-length=999'
+            " default for ignore is E121,E123,E126,E226,E24,E704,W503,W504
+            let b:ale_python_pycodestyle_options = '--ignore=E121,E123,E126,E203,E226,E24,E704,W503,W504 --max-line-length=999'
         endif
     endif
     set diffopt-=iwhite
