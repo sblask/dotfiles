@@ -7,8 +7,6 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" change to directory of current file automatically
-set autochdir
 " reload file automatically on focus if unchanged here but changed somewhere else
 set autoread
 set completeopt=menuone,noselect
