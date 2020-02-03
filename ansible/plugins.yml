@@ -68,4 +68,10 @@
         url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
         dest: "{{ target_directory }}/.zsh/plugins/"
 
+    - name: Install ZSH system clipboard plugin
+      git:
+        repo: https://github.com/kutsan/zsh-system-clipboard.git
+        dest: "{{ target_directory }}/.zsh/plugins/zsh-system-clipboard"
+        update: no
+
 # vim: syntax=ansible
