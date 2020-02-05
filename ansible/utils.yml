@@ -66,4 +66,14 @@
       vars:
         version: v0.4.0
 
+
+    - name: Get Terraform
+      unarchive:
+        src: https://releases.hashicorp.com/terraform/{{ version }}/terraform_{{ version }}_{{ os }}_amd64.zip
+        dest: "{{ target_directory }}/.bin/"
+        creates: "{{ target_directory }}/.bin/terraform"
+        remote_src: yes
+      vars:
+        version: 0.12.20
+
 # vim: syntax=ansible
