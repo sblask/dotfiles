@@ -8,14 +8,13 @@
         dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
       with_items:
         - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
+        - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
+        - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/taskwarrior/_task
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/terraform/_terraform
-        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gem/_gem
-        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/_pip
-        - https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/taskwarrior/_task
-        - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_ansible
-        - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_ansible-playbook
-        - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_httpie
-        - https://raw.githubusercontent.com/zsh-users/zsh-completions/c614accc905b57d30797bba0fc4a1b0e946654cb/src/_jq
+        - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
+        - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_ansible
+        - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_gem
+        - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_jq
 
     - name: Install ZSH completions with rename
       get_url:
