@@ -76,4 +76,13 @@
       vars:
         version: 0.12.20
 
+    - name: Get Vault
+      unarchive:
+        src: https://releases.hashicorp.com/vault/{{ version }}/vault_{{ version }}_{{ os }}_amd64.zip
+        dest: "{{ target_directory }}/.bin/"
+        creates: "{{ target_directory }}/.bin/vault"
+        remote_src: yes
+      vars:
+        version: 1.3.2
+
 # vim: syntax=ansible

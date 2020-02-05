@@ -11,6 +11,7 @@
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/taskwarrior/_task
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/terraform/_terraform
+        - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vault/_vault
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
         - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_ansible
         - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_gem
