@@ -40,7 +40,6 @@
     <property name="custom" type="empty">
       <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
       <property name="&lt;Alt&gt;F2" type="string" value="xfrun4"/>
-      <property name="&lt;Alt&gt;F3" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
       <property name="&lt;Primary&gt;F11" type="string" value="xbacklight -dec 1"/>
       <property name="&lt;Primary&gt;F12" type="string" value="xbacklight -inc 1"/>
@@ -53,6 +52,7 @@
       <property name="&lt;Super&gt;space" type="string" value="gmusicbrowser -cmd PlayPause"/>
       <property name="&lt;Super&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
       <property name="&lt;Super&gt;w" type="string" value="exo-open --launch WebBrowser"/>
+      <property name="&lt;Super&gt;x" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="Print" type="string" value="xfce4-screenshooter --fullscreen --save /home/sebastian/Desktop"/>
       <property name="override" type="bool" value="true"/>
     </property>
@@ -132,7 +132,7 @@
       <property name="&lt;Super&gt;j" type="string" value="hide_window_key"/>
       <property name="&lt;Super&gt;k" type="string" value="switch_application_key"/>
       <property name="&lt;Super&gt;l" type="string" value="tile_right_key"/>
-      <property name="&lt;Super&gt;x" type="string" value="close_window_key"/>
+      <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
       <property name="Down" type="string" value="down_key"/>
       <property name="Escape" type="string" value="cancel_key"/>
       <property name="Left" type="string" value="left_key"/>
