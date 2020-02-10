@@ -51,14 +51,15 @@ zstyle ':completion:*:*:*:*:*' ignored-patterns \
     'FETCH_HEAD' \
     'ORIG_HEAD' \
 
-# do not complete directories when typing ./<tab>
-zstyle -e ':completion::complete:-command-::executables' ignored-patterns 'reply=(./*(/))'
+# customize git completion
+# see https://stackoverflow.com/questions/12175277/disable-auto-completion-of-remote-branches-in-zsh
 
 # disable tag completion in git checkout
 zstyle ':completion::complete:git-checkout:argument-rest:commit-tag-refs' command ""
-
 # disable remote branch completion in git checkout
 zstyle ':completion::complete:git-checkout:argument-rest:headrefs' command "git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null"
+# disable tag completion in git rebase
+zstyle ':completion::complete:git-rebase:options-argument-1:commit-tag-refs' command ""
 
 # disable HEAD completion in git checkout
 __git_recent_commits(){}
