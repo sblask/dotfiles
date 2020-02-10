@@ -37,7 +37,8 @@ zstyle ':completion:*:kill:*:processes' sort false
 # make sure we do not get the same suggestion twice
 zstyle ':completion:*:diff:*' ignore-line yes
 zstyle ':completion:*:kill:*' ignore-line yes
-zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:rm:*'   ignore-line yes
+zstyle ':completion:*:vim:*'  ignore-line yes
 
 # ignore some files during completion
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
