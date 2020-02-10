@@ -44,15 +44,6 @@ zstyle ':completion:*:vim:*'  ignore-line yes
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
     '*.pyc' \
-    '*.vim' \
-    '*.viminfo' \
-    '*.vimrc' \
-    '*.zsh' \
-    '*.zsh_history' \
-    '*.zshrc' \
-    '*vimrc.dotfile' \
-    '*zsh.dotfile' \
-    '*zshrc.dotfile' \
 
 # Do not ever propose ORIG_HEAD
 zstyle ':completion:*:*:*:*:*' ignored-patterns \
