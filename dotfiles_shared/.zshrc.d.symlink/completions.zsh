@@ -56,6 +56,8 @@ zstyle ':completion:*:*:*:*:*' ignored-patterns \
 
 # disable tag completion in git checkout
 zstyle ':completion::complete:git-checkout:argument-rest:commit-tag-refs' command ""
+# disable "recent" branches in git checkout
+zstyle ':completion::complete:git-checkout:argument-rest:valid-ref-names' command ""
 # disable remote branch completion in git checkout
 zstyle ':completion::complete:git-checkout:argument-rest:headrefs' command "git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null"
 # disable tag completion in git rebase
