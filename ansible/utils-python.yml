@@ -37,21 +37,9 @@
         state: directory
 
 
-    - name: Install Virtualenv
-      shell: |
-        wget --quiet --output-document /tmp/virtualenv_releases --convert-links https://github.com/pypa/virtualenv/releases && \
-          cat /tmp/virtualenv_releases | {{ target_directory }}/.bin/pup 'a[href]:contains("tar.gz") attr{href}' | grep --extended-regexp '[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz' | head --lines 1 | xargs wget && \
-            tar --extract --strip-components 1 --file *.tar.gz && \
-            cp virtualenv.py {{ target_directory }}/.bin/virtualenv && \
-            cp --recursive virtualenv_support {{ target_directory }}/.bin/
-      args:
-        chdir: /tmp/
-        creates: "{{ target_directory }}/.bin/virtualenv"
-        warn: false
-
     - name: Install Python utils
       shell: |
-        {{ target_directory }}/.bin/virtualenv --python {{ item.get("python", "python3") }} {{ target_directory }}/.opt/{{ item.package_name }} && \
+        {{ item.get("python", "python3") }} -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }}
       args:
         creates: "{{ target_directory }}/.opt/{{ item.package_name }}"

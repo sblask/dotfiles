@@ -1,7 +1,3 @@
-if [ -f "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh" ]; then
-    . "$HOME/.opt/virtualenv/bin/virtualenvwrapper.sh"
-fi
-
 # Node version manager
 export N_PREFIX="$HOME/.n"
 if [ -d "$N_PREFIX/bin" ]; then
