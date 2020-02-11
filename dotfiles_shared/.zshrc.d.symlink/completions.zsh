@@ -62,6 +62,8 @@ zstyle ':completion::complete:git-checkout:argument-rest:valid-ref-names' comman
 zstyle ':completion::complete:git-checkout:argument-rest:headrefs' command "git for-each-ref --format='%(refname:short)' refs/heads 2>/dev/null"
 # disable tag completion in git rebase
 zstyle ':completion::complete:git-rebase:options-argument-1:commit-tag-refs' command ""
+# ignore release branches in git rebase
+zstyle ':completion::complete:git-rebase:options-argument-1:headrefs' command "git for-each-ref --format='%(refname:short)' refs/remotes 2>/dev/null | grep --extended-regexp '[0-9]+\.[0-9]+\.[0-9x]+' --invert-match"
 
 # disable HEAD completion in git checkout
 __git_recent_commits(){}
