@@ -2,6 +2,5 @@ black
 ipython
 jedi
 neovim
-prompt-toolkit<=2.0.5
 pycodestyle
 pylint
