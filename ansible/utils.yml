@@ -76,6 +76,15 @@
       vars:
         version: 0.12.20
 
+    - name: Get tflint
+      unarchive:
+        src: https://github.com/terraform-linters/tflint/releases/download/v{{ version }}/tflint_{{ os }}_amd64.zip
+        dest: "{{ target_directory }}/.bin/"
+        creates: "{{ target_directory }}/.bin/tflint"
+        remote_src: yes
+      vars:
+        version: 0.14.0
+
     - name: Get Vault
       unarchive:
         src: https://releases.hashicorp.com/vault/{{ version }}/vault_{{ version }}_{{ os }}_amd64.zip
