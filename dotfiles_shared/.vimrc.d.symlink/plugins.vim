@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ervandew/supertab'
     Plug 'fisadev/vim-isort'
     Plug 'guns/vim-sexp'
+    Plug 'juliosueiras/vim-terraform-completion'
     Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
