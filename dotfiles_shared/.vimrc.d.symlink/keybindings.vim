@@ -1,7 +1,7 @@
 " usable backspace in insert mode
 set backspace=indent,eol,start
 " confirm completion with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "<C-Y>" : "<CR>"
 " better redo combination
 nnoremap U <C-R>
 " Disable page up and down
