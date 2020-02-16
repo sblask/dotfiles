@@ -112,8 +112,17 @@ let g:rainbow#max_level = 32
 
 let g:sexp_enable_insert_mode_mappings = 0
 
+
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
+
+augroup supertab-chaining
+    autocmd!
+    autocmd FileType *
+                \ if &omnifunc != '' |
+                \   call SuperTabChain(&omnifunc, '<c-n>') |
+                \ endif
+augroup END
 
 cnoreabbrev tb TagbarToggle
 
