@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rbgrouleff/bclose.vim'
     Plug 'rickhowe/diffchar.vim'
     Plug 'sheerun/vim-polyglot'
+    Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'stefandtw/quickfix-reflector.vim'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
