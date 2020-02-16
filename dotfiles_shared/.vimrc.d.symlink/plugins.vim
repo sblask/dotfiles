@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
+    Plug 'fisadev/vim-isort'
     Plug 'guns/vim-sexp'
     Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'majutsushi/tagbar'
@@ -35,9 +36,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'triglav/vim-visual-increment'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-if has('python') || has('python3')
-    Plug 'fisadev/vim-isort'
-endif
 call plug#end()
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
