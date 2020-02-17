@@ -48,7 +48,7 @@ fun! ConfigureYaml()
     endif
 endf
 
-augroup filetype
+augroup programming_language_support
     autocmd!
 
     autocmd FileType apache     :call ConfigureApache()

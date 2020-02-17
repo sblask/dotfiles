@@ -1,4 +1,4 @@
-augroup filetype
+augroup autocommands_filetype
     autocmd!
     " set filetype or syntax explicitly when creating or opening file
     autocmd BufNewFile *.jinja           set filetype=jinja
