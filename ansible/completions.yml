@@ -8,6 +8,7 @@
         dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
       with_items:
         - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
+        - https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/taskwarrior/_task
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/terraform/_terraform
