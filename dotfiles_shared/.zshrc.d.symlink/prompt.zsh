@@ -5,6 +5,17 @@ function __aws_region {
         echo "$AWS_DEFAULT_REGION "
     fi
 }
+
+function __aws_session {
+    if [ "$AWS_SESSION_EXPIRATION" = "" ]; then
+        echo ""
+    elif [ "$AWS_ROLE_ARN" = "" ]; then
+        echo ""
+    else
+        echo "($(echo $AWS_ROLE_ARN | awk -F/ '{printf("%s/%s\n", $2, $3)}') until $(date --date $AWS_SESSION_EXPIRATION +%H:%M)) "
+    fi
+}
+
 function __conda_env {
     if [ "$CONDA_DEFAULT_ENV" = "" ]; then
         echo ""
@@ -12,12 +23,14 @@ function __conda_env {
         echo "(conda: $(print -rD $CONDA_DEFAULT_ENV)) "
     fi
 }
+
 function __git_no_mail_warning {
     git status 1>/dev/null 2>/dev/null
     if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
         echo -n '(user.email not configured) '
     fi
 }
+
 function __my_ip {
     if [ $OS = mac ]; then
         ipconfig getifaddr en0
@@ -25,6 +38,7 @@ function __my_ip {
         hostname --all-ip-addresses | awk '{print $1}'
     fi
 }
+
 function __imsa_profile {
     if [ "$IMSA_PROFILE" = "" ]; then
         echo ""
@@ -32,6 +46,7 @@ function __imsa_profile {
         echo "($IMSA_PROFILE until $(date --date $IMSA_PROFILE_EXPIRATION +%H:%M)) "
     fi
 }
+
 function __virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
@@ -47,6 +62,7 @@ function __print_first_line {
         "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
         "$fg[yellow]$(__aws_region)$reset_color"
         "$fg[yellow]$(__imsa_profile)$reset_color"
+        "$fg[yellow]$(__aws_session)$reset_color"
         "$fg[blue]$(__virtual_env)$(__conda_env)$reset_color"
         "%n " # username
         "$fg[blue]%m$reset_color " # hostname
