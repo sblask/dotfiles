@@ -17,7 +17,7 @@ fun! ConfigureJavascript()
     if l:localEslint !=? ''
         let b:syntastic_javascript_eslint_exec = fnamemodify(l:localEslint, ':p')
     endif
-    call SuperTabSetDefaultCompletionType('<c-p>')
+    call SuperTabSetDefaultCompletionType('<c-n>')
 endf
 
 fun! ConfigurePython()
