@@ -12,5 +12,6 @@
 /dotfiles_shared/.vim/spell.symlink/*.spl
 /dotfiles_shared/.vim/spell.symlink/*.sug
 /dotfiles_shared/.vim/spell.symlink/local.en.utf-8.add
+/dotfiles_shared/.vimrc.d.symlink/montoux.vim
 /dotfiles_shared/.zshrc.d.symlink/montoux.zsh
 __pycache__
