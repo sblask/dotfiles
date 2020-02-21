@@ -12,7 +12,7 @@ set autoread
 set completeopt=menuone,noselect
 " hopefully better diffs, see https://vimways.org/2018/the-power-of-diff/
 set diffopt=
-set diffopt+=algorithm:patience
+set diffopt+=algorithm:minimal
 set diffopt+=filler
 set diffopt+=indent-heuristic
 set diffopt+=internal
