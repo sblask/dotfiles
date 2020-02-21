@@ -7,8 +7,14 @@
 [difftool]
 	prompt = false
 	trustExitCode = true
+[merge]
+	tool = fugitive
 [mergetool]
 	trustExitCode = true
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool "vimdiff3"]
+	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [user]
 	name = Sebastian Blask
 [push]
