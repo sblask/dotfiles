@@ -37,7 +37,7 @@ bind-key N command-prompt 'rename-session %%'
 bind-key x kill-pane
 bind-key X kill-window
 
-bind-key y set-window-option synchronize-panes
+bind-key s set-window-option synchronize-panes
 
 bind-key r source-file ~/.tmux.conf \; display-message "Reloaded ~/.tmux.conf"
 
