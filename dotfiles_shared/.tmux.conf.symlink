@@ -10,7 +10,9 @@ bind-key -r d split-window -c ~/Clones/dotfiles/
 bind-key -r D new-window -c ~/Clones/dotfiles/
 
 bind-key -r C-S-Tab select-pane -t :.-
+bind-key -r S-Tab select-pane -t :.-
 bind-key -r C-Tab select-pane -t :.+
+bind-key -r Tab select-pane -t :.+
 
 bind-key -r H previous-window
 bind-key -r L next-window
