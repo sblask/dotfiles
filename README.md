@@ -8,7 +8,7 @@ environment.
 
 ```bash
 # test with:
-./test.sh
+./run_tests.sh
 # install with:
 ansible-playbook --ask-become-pass ansible/ansible.yml
 ```

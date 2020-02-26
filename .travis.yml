@@ -16,4 +16,4 @@ install:
 script:
   - vint dotfiles_shared/.vimrc*
   - yamllint .
-  - PATH=/opt/python/3.7/bin/:$PATH ./test.sh
+  - PATH=/opt/python/3.7/bin/:$PATH ./run_tests.sh
