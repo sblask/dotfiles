@@ -4,6 +4,9 @@ set -o errexit -o nounset -o pipefail -o xtrace
 
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
+# make sure we actually get output from commands instead of being redirected
+unset MANPAGER
+
 function verify-output-equals {
     local expected=$1
     colordiff --unified $expected <( set +o xtrace; echo "$actual" )
