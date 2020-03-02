@@ -3,18 +3,20 @@
 	branch = always
 	status = always
 [diff]
-	tool = vimdiff
+	tool = vimdiff2
 [difftool]
 	prompt = false
 	trustExitCode = true
+[difftool "vimdiff2"]
+	cmd = vim -f -d \"$LOCAL\" \"$REMOTE\" -c \"1bufdo set nomodifiable\"
 [merge]
-	tool = fugitive
+	tool = vimdiff3
 [mergetool]
 	trustExitCode = true
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool "vimdiff3"]
-	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"1bufdo set nomodifiable\" -c \"3bufdo set nomodifiable\"
 [user]
 	name = Sebastian Blask
 [push]
