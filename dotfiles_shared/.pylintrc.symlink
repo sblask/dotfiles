@@ -16,7 +16,7 @@ disable=bad-builtin,bad-continuation,broad-except,deprecated-lambda,fixme,loggin
 msg-template={path}:{line} [{symbol}] {msg}
 
 [TYPECHECK]
-generated-members=zmq.*
+generated-members=boto3.resource.*,zmq.*
 
 [VARIABLES]
 dummy-variables-rgx=_.*|dummy
