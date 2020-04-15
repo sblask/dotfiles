@@ -8,6 +8,7 @@ command! DictToJson % !python -c "from dateutil.tz import tzlocal; from dateutil
 command! FoldEnable set foldenable | set foldcolumn=3
 command! FoldDisable set nofoldenable | set foldcolumn=0
 command! IgnoreWhitespace set diffopt+=iwhite
+command! UnIgnoreWhitespace set diffopt-=iwhite
 command! JsonFormat % !json-format
 command! JsonFormatSorted % !json-format --sorted
 command! JsonToDict % !python -c "import json; import sys; asDict = json.load(sys.stdin); print(asDict)"
