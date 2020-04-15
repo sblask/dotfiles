@@ -16,7 +16,7 @@
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool "vimdiff3"]
-	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"1bufdo set nomodifiable\" -c \"3bufdo set nomodifiable\"
+	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"1windo set nomodifiable | 3windo set nomodifiable\"
 [user]
 	name = Sebastian Blask
 [push]
