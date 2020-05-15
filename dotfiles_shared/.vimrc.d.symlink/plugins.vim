@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
