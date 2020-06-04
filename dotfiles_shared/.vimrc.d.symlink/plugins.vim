@@ -81,6 +81,13 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 
 let g:black_linelength = 79
 
+let g:clojure_fuzzy_indent_patterns = [
+\    '^def',
+\    '^div',
+\    '^let',
+\    '^with',
+\ ]
+
 let g:ctrlp_by_filename = 1
 let g:ctrlp_extensions = []
 let g:ctrlp_use_caching = 0
