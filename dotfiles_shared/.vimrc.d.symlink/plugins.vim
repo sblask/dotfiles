@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'stefandtw/quickfix-reflector.vim'
+    Plug 'suy/vim-context-commentstring'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'tpope/vim-commentary'
