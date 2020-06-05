@@ -11,7 +11,6 @@
         - audacity  # audio editor
         - baobab  # to analyze disk usage from Thunar context menu
         - boxes
-        - compton  # no more video tearing
         - entr  # do stuff when files change
         - feh
         - geary
