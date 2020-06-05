@@ -6,7 +6,7 @@
       apt:
         state: present
         name: "{{ item }}"
-      with_items:
+      loop:
         - asunder  # cd ripper
         - audacity  # audio editor
         - baobab  # to analyze disk usage from Thunar context menu
