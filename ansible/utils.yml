@@ -54,6 +54,7 @@
       args:
         chdir: /tmp/
         creates: "{{ target_directory }}/.zsh/completions.d/_hub"
+        warn: false
       when: hub_download is not skipped and hub_download is success
 
 
