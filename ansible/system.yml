@@ -5,46 +5,47 @@
     - name: Ensure useful packages are installed
       apt:
         state: present
-        name:
-          - asunder  # cd ripper
-          - audacity  # audio editor
-          - baobab  # to analyze disk usage from Thunar context menu
-          - boxes
-          - compton  # no more video tearing
-          - entr  # do stuff when files change
-          - feh
-          - geary
-          - gimp
-          - git
-          - gnome-font-viewer
-          - gparted
-          - htop
-          - inkscape
-          - jq
-          - libreoffice
-          - liferea  # RSS reader
-          - meld
-          - moreutils  # contains sponge command
-          - neovim
-          - parcellite  # keeps copied text in the clipboard even after applications have been closed
-          - pdfchain
-          - pinta
-          - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
-          - python-dev
-          - python3-dev
-          - python3-venv
-          - ranger
-          - silversearcher-ag
-          - taskwarrior
-          - texlive
-          - tmux  # use 'CTRL-B' + 'I' to install the plugins
-          - tree
-          - usb-creator-gtk
-          - vlc
-          - xbacklight
-          - xclip
-          - xfce4-terminal
-          - zsh
+        name: "{{ item }}"
+      with_items:
+        - asunder  # cd ripper
+        - audacity  # audio editor
+        - baobab  # to analyze disk usage from Thunar context menu
+        - boxes
+        - compton  # no more video tearing
+        - entr  # do stuff when files change
+        - feh
+        - geary
+        - gimp
+        - git
+        - gnome-font-viewer
+        - gparted
+        - htop
+        - inkscape
+        - jq
+        - libreoffice
+        - liferea  # RSS reader
+        - meld
+        - moreutils  # contains sponge command
+        - neovim
+        - parcellite  # keeps copied text in the clipboard even after applications have been closed
+        - pdfchain
+        - pinta
+        - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
+        - python-dev
+        - python3-dev
+        - python3-venv
+        - ranger
+        - silversearcher-ag
+        - taskwarrior
+        - texlive
+        - tmux  # use 'CTRL-B' + 'I' to install the plugins
+        - tree
+        - usb-creator-gtk
+        - vlc
+        - xbacklight
+        - xclip
+        - xfce4-terminal
+        - zsh
 
     - name: Ensure useless packages are removed
       apt:
