@@ -48,14 +48,15 @@
     - name: Ensure useless packages are removed
       apt:
         state: absent
-        name:
-          - gnome-mines
-          - gnome-sudoku
-          - indicator-messages
-          - mousepad
-          - parole
-          - pidgin
-          - ristretto
+        name: "{{ item }}"
+      loop:
+        - gnome-mines
+        - gnome-sudoku
+        - indicator-messages
+        - mousepad
+        - parole
+        - pidgin
+        - ristretto
 
     - name: Make ZSH default shell
       user:
