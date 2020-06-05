@@ -5,7 +5,6 @@
       -
         package_name: aws-sam-cli
         executable_name: sam
-        python: python3.7
       -
         package_name: awscli
         executable_name: aws
@@ -39,7 +38,7 @@
 
     - name: Install Python utils
       shell: |
-        {{ item.get("python", "python3") }} -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
+        python -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }}
       args:
         creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
