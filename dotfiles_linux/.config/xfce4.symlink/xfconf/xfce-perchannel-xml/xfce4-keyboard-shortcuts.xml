@@ -47,7 +47,6 @@
       <property name="&lt;Super&gt;e" type="string" value="gtk-launch nvim"/>
       <property name="&lt;Super&gt;f" type="string" value="exo-open /home/sebastian/.local/share/applications/Thunar.desktop"/>
       <property name="&lt;Super&gt;m" type="string" value="exo-open --launch MailReader"/>
-      <property name="&lt;Super&gt;p" type="string" value="disper --cycle-stages=&apos;--single:--secondary&apos; --cycle"/>
       <property name="&lt;Super&gt;r" type="string" value="liferea"/>
       <property name="&lt;Super&gt;space" type="string" value="gmusicbrowser -cmd PlayPause"/>
       <property name="&lt;Super&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
