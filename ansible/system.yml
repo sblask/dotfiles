@@ -2,35 +2,6 @@
   become: true
   tasks:
 
-    - name: Add RAVEfinity repository
-      apt_repository:
-        repo: ppa:ravefinity-project/ppa
-        state: present
-    - name: Install RAVEfinity themes
-      apt:
-        state: present
-        name:
-          - vivacious-colors-gtk-dark
-          - ambiance-blackout-flat-colors
-
-    - name: Add Geary repository
-      apt_repository:
-        repo: ppa:geary-team/releases
-        state: present
-    - name: Install Geary
-      apt:
-        name: geary
-        state: present
-
-    - name: Add Neovim repository
-      apt_repository:
-        repo: ppa:neovim-ppa/stable
-        state: present
-    - name: Install Neovim
-      apt:
-        name: neovim
-        state: present
-
     - name: Ensure useful packages are installed
       apt:
         state: present
@@ -43,6 +14,7 @@
           - disper  # for scripting changes between display modes
           - entr  # do stuff when files change
           - feh
+          - geary
           - gimp
           - git
           - gmusicbrowser
@@ -55,6 +27,7 @@
           - liferea  # RSS reader
           - meld
           - moreutils  # contains sponge command
+          - neovim
           - parcellite  # keeps copied text in the clipboard even after applications have been closed
           - pdfchain
           - pinta
