@@ -228,6 +228,7 @@ call <sid>hi("jsGlobalObjects",            s:gui0A, "",      s:cterm0A, "",     
 call <sid>hi("jsGlobalNodeObjects",        s:gui0A, "",      s:cterm0A, "",        "",          "")
 call <sid>hi("jsExceptions",               s:gui0A, "",      s:cterm0A, "",        "",          "")
 call <sid>hi("jsBuiltins",                 s:gui0A, "",      s:cterm0A, "",        "",          "")
+call <sid>hi("jsParensError",              "",      "",      ""       , "",        "undercurl", "")
 
 " Mail highlighting
 call <sid>hi("mailQuoted1",                s:gui0A, "",      s:cterm0A, "",        "",          "")
