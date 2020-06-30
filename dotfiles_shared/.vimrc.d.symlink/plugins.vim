@@ -149,3 +149,7 @@ let g:VM_maps['Skip Region'] = '<c-s>'
 let g:VM_maps['Remove Region'] = '<c-x>'
 let g:VM_maps['Duplicate'] = ''
 
+augroup visual_multi_autocommands
+    autocmd!
+    autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)
+augroup END
