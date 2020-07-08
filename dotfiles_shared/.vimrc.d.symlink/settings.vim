@@ -63,3 +63,5 @@ set scrolloff=3
 set spell
 set spellcapcheck=
 set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/local.en.utf-8.add
+" enable nvim live substitution
+set inccommand=split
