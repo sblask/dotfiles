@@ -1,3 +1,4 @@
+# https://jvanz.com/hacking-your-vim-with-python.html
 def apply_on_one_line_selection(function):
     # pylint: disable=import-error,import-outside-toplevel
     import vim
