@@ -12,5 +12,5 @@ install:
   - pip install typing
 script:
   - vint dotfiles_shared/.vimrc*
-  - yamllint .
+  - yamllint --config-file dotfiles_shared/.config/yamllint/config.symlink .
   - ./run_tests.sh
