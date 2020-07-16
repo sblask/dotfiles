@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'fisadev/vim-isort'
     Plug 'guns/vim-sexp'
     Plug 'juliosueiras/vim-terraform-completion'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'junegunn/rainbow_parentheses.vim'
     Plug 'majutsushi/tagbar'
     Plug 'mg979/vim-visual-multi'
@@ -88,6 +90,8 @@ let g:clojure_fuzzy_indent_patterns = [
 \    '^let',
 \    '^with',
 \ ]
+
+let g:fzf_nvim_statusline = 0
 
 let g:ctrlp_by_filename = 1
 let g:ctrlp_extensions = []
