@@ -43,6 +43,12 @@
       when: base16.changed
 
 
+    - name: Install ZSH fzf plugin
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh
+        dest: "{{ target_directory }}/.zsh/plugins/fzf.plugin.zsh"
+
+
     - name: Install ZSH git prompt plugin
       git:
         repo: https://github.com/olivierverdier/zsh-git-prompt
