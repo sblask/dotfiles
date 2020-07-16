@@ -43,13 +43,6 @@
       when: base16.changed
 
 
-    - name: Install ZSH syntax highlighting plugin
-      git:
-        repo: https://github.com/zsh-users/zsh-syntax-highlighting
-        dest: "{{ target_directory }}/.zsh/plugins/zsh-syntax-highlighting"
-        update: no
-
-
     - name: Install ZSH git prompt plugin
       git:
         repo: https://github.com/olivierverdier/zsh-git-prompt
@@ -67,6 +60,14 @@
       get_url:
         url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
         dest: "{{ target_directory }}/.zsh/plugins/"
+
+
+    - name: Install ZSH syntax highlighting plugin
+      git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting
+        dest: "{{ target_directory }}/.zsh/plugins/zsh-syntax-highlighting"
+        update: no
+
 
     - name: Install ZSH system clipboard plugin
       git:
