@@ -71,6 +71,11 @@ let g:airline_section_z = '%l/%L : %c'
 
 
 let g:ale_echo_msg_format = '[%linter%] %s (%code%) [%severity%]'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'json': ['fixjson'],
+\ }
 let g:ale_linters = {
 \    'ansible': ['yamllint'],
 \    'clojure': ['clj-kondo'],
