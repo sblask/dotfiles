@@ -11,6 +11,7 @@
 - import_playbook: utils.yml
   vars:
     os: linux
+- import_playbook: utils-npm.yml
 - import_playbook: utils-python.yml
 
 # vim: syntax=ansible
