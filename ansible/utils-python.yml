@@ -21,6 +21,9 @@
         package_name: tldr
         executable_name: tldr
       -
+        package_name: pre-commit
+        executable_name: pre-commit
+      -
         package_name: unimatrix
         executable_name: unimatrix
         install_url: git+https://github.com/will8211/unimatrix.git
