@@ -41,7 +41,7 @@
 
     - name: Install Python utils
       shell: |
-        python -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
+        python3 -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }}
       args:
         creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
