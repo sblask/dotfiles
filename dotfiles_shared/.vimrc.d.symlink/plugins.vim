@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'AndrewRadev/linediff.vim'
     Plug 'bkad/CamelCaseMotion'
     Plug 'breuckelen/vim-resize'
-    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'davidhalter/jedi-vim'
     Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
@@ -53,7 +52,6 @@ let g:airline_theme = 'luna'
 
 let g:airline_extensions = [
 \ 'ale',
-\ 'ctrlp',
 \ 'tabline',
 \ ]
 
