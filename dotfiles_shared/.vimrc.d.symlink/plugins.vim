@@ -115,6 +115,14 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
 
+let g:markdown_fenced_languages = [
+\    'bash=sh',
+\    'clojure',
+\    'python',
+\    'sh',
+\ ]
+
+
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
 
