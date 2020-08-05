@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
-    Plug 'fisadev/vim-isort'
     Plug 'guns/vim-sexp'
     Plug 'juliosueiras/vim-terraform-completion'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -21,7 +20,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'mitsuhiko/vim-jinja'
     Plug 'powerman/vim-plugin-AnsiEsc'
-    Plug 'psf/black'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'rickhowe/diffchar.vim'
     Plug 'sheerun/vim-polyglot'
@@ -69,9 +67,9 @@ let g:airline_section_z = '%l/%L : %c'
 
 
 let g:ale_echo_msg_format = '[%linter%] %s (%code%) [%severity%]'
-let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \    'json': ['fixjson'],
+\    'python': ['black', 'isort'],
 \ }
 let g:ale_linters = {
 \    'ansible': ['yamllint'],
@@ -83,8 +81,6 @@ let g:ale_sign_warning = '✗'
 
 
 call camelcasemotion#CreateMotionMappings('<leader>')
-
-let g:black_linelength = 79
 
 let g:clojure_fuzzy_indent_patterns = [
 \    '^def',
