@@ -3,6 +3,10 @@
   vars:
     packages:
       -
+        package_name: aws-console
+        executable_name: aws-console
+        install_url: git+https://github.com/sblask/aws-console.git
+      -
         package_name: aws-sam-cli
         executable_name: sam
       -
