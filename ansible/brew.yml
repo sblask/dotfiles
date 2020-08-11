@@ -1,0 +1,35 @@
+- hosts: all
+
+  tasks:
+
+    - name: Install homebrew packages
+      homebrew:
+        name: "{{ item }}"
+      loop:
+        - colordiff
+        - coreutils
+        - entr
+        - gnu-sed
+        - gnu-tar
+        - go
+        - grep
+        - htop
+        - jq
+        - moreutils
+        - neovim
+        - node
+        - tmux
+        - tree
+
+    - name: Install homebrew casks
+      homebrew_cask:
+        name: "{{ item }}"
+      loop:
+        - alt-tab
+        - docker
+        - firefox
+        - inkscape
+        - postman
+        - rectangle
+
+# vim: syntax=ansible
