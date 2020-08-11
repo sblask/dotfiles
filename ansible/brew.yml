@@ -18,6 +18,7 @@
         - moreutils
         - neovim
         - node
+        - rename
         - tmux
         - tree
 
