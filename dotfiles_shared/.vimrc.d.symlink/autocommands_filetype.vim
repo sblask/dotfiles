@@ -25,4 +25,6 @@ augroup autocommands_filetype
     " misc
     autocmd FileType   groovy            set nospell
     autocmd FileType   python            set foldmethod=indent
+    " do something on write
+    autocmd FileType   terraform         autocmd BufWrite <buffer> execute ':TerraformFmt'
 augroup END
