@@ -25,7 +25,7 @@ else
   ${TMUX_EXECUTABLE} new-window
 fi
 
-if [ ${WINDOW_NAME} != "" ]; then
+if [ "${WINDOW_NAME}" != "" ]; then
     ${TMUX_EXECUTABLE} rename-window ${WINDOW_NAME}
 fi
 
