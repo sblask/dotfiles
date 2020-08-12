@@ -4,6 +4,7 @@ set -o errexit -o nounset -o pipefail -o xtrace
 
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 TMUX_START_DIRECTORY=$(pwd)
+TMUX_EXECUTABLE=$(which tmux)
 
 if [ $# -lt 2 ]; then
   echo "Usage: $0 <WINDOW NAME> <COMMANDS...>"
@@ -15,29 +16,32 @@ shift
 
 # create a window from within tmux or when there is a session, create session otherwise
 if [[ -z "${TMUX:-}" ]]; then
-  if tmux has-session; then
-    tmux new-window
+  if ${TMUX_EXECUTABLE} has-session; then
+    ${TMUX_EXECUTABLE} new-window
   else
-    tmux new-session -d
+    ${TMUX_EXECUTABLE} new-session -d
   fi
 else
-  tmux new-window
+  ${TMUX_EXECUTABLE} new-window
 fi
 
-tmux rename-window ${WINDOW_NAME}
+if [ ${WINDOW_NAME} != "" ]; then
+    ${TMUX_EXECUTABLE} rename-window ${WINDOW_NAME}
+fi
 
 for COMMAND in "$@"
 do
-  WINDOW_ID=$(env --ignore-environment tmux split-window -P -c $TMUX_START_DIRECTORY)
-  tmux send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
-  tmux select-layout tiled
+  # keep environment clean
+  WINDOW_ID=$(env --ignore-environment ${TMUX_EXECUTABLE} split-window -P -c $TMUX_START_DIRECTORY)
+  ${TMUX_EXECUTABLE} send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
+  ${TMUX_EXECUTABLE} select-layout tiled
 done
-tmux kill-pane -t 0
-tmux select-pane -t 0
-tmux select-layout tiled
+${TMUX_EXECUTABLE} kill-pane -t 0
+${TMUX_EXECUTABLE} select-pane -t 0
+${TMUX_EXECUTABLE} select-layout tiled
 
 if [ "$#" == "1" ]; then
-  tmux set-window-option synchronize-panes off
+  ${TMUX_EXECUTABLE} set-window-option synchronize-panes off
 else
-  tmux set-window-option synchronize-panes on
+  ${TMUX_EXECUTABLE} set-window-option synchronize-panes on
 fi
