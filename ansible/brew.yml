@@ -19,6 +19,7 @@
         - neovim
         - node
         - rename
+        - shellcheck
         - tmux
         - tree
 
