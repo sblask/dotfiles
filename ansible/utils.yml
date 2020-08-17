@@ -68,26 +68,6 @@
         version: v0.4.0
 
 
-    - name: Get Packer
-      unarchive:
-        src: https://releases.hashicorp.com/packer/{{ version }}/packer_{{ version }}_{{ os }}_amd64.zip
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/packer"
-        remote_src: yes
-      vars:
-        version: 1.6.1
-
-
-    - name: Get Terraform
-      unarchive:
-        src: https://releases.hashicorp.com/terraform/{{ version }}/terraform_{{ version }}_{{ os }}_amd64.zip
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/terraform"
-        remote_src: yes
-      vars:
-        version: 0.12.29
-
-
     - name: Get tflint
       unarchive:
         src: https://github.com/terraform-linters/tflint/releases/download/v{{ version }}/tflint_{{ os }}_amd64.zip
@@ -98,13 +78,19 @@
         version: 0.14.0
 
 
-    - name: Get Vault
-      unarchive:
-        src: https://releases.hashicorp.com/vault/{{ version }}/vault_{{ version }}_{{ os }}_amd64.zip
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/vault"
-        remote_src: yes
+    - include: includes/hashicorp.yml
       vars:
+        product: packer
+        version: 1.6.1
+
+    - include: includes/hashicorp.yml
+      vars:
+        product: terraform
+        version: 0.12.29
+
+    - include: includes/hashicorp.yml
+      vars:
+        product: vault
         version: 1.5.0
 
 # vim: syntax=ansible
