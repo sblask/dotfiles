@@ -9,7 +9,6 @@
       get_url:
         url: https://releases.hashicorp.com/{{ product }}/{{ version }}/{{ product }}_{{ version }}_{{ os }}_amd64.zip
         dest: "/tmp/{{ product }}{{ version }}.zip"
-        remote_src: yes
     - name: Unpack {{ product | title }}
       unarchive:
         src: "/tmp/{{ product }}{{ version }}.zip"
