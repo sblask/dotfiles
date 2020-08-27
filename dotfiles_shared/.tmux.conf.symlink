@@ -48,6 +48,7 @@ bind-key k copy-mode
 bind-key \{ copy-mode
 bind-key \} copy-mode
 bind-key V copy-mode
+bind-key -n DoubleClick1Pane copy-mode -M \; send-keys -X select-word
 
 # copy and paste from/to clipboard
 bind-key -T copy-mode-vi v send-keys -X begin-selection
