@@ -18,11 +18,17 @@ alias uninstall='sudo apt-get purge'
 # virtualenvwrapper stuff
 alias on='workon'
 alias off="deactivate"
-# top
+# task
 alias ta='task add'
 alias td='task delete'
 alias tl='task list'
 alias tm='task minimal'
+# Terraform
+alias tera='terraform apply plan'
+alias teri='terraform init'
+alias termv='terraform mv'
+alias terp='terraform plan -out plan'
+# top
 alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
 alias tophead='top -b -n1 | head -n 5'
