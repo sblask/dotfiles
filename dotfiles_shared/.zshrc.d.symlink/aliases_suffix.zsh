@@ -2,8 +2,6 @@
 alias -s deb="sudo gdebi"
 # clone git urls
 alias -s git="git clone"
-# run python files
-alias -s py="python"
 # edit txt files with vim
 alias -s txt="vim"
 # open with same application as XFCE
