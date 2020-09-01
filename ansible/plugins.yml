@@ -62,6 +62,12 @@
       when: git_prompt_plugin.changed
 
 
+    - name: Install ZSH per directory history plugin
+      get_url:
+        url: https://raw.githubusercontent.com/jimhester/per-directory-history/master/per-directory-history.zsh
+        dest: "{{ target_directory }}/.zsh/plugins/per-directory-history.plugin.zsh"
+
+
     - name: Install ZSH pip plugin
       get_url:
         url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
