@@ -59,7 +59,7 @@ function __virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
     else
-        echo "(virtualenv: $(print -rD $VIRTUAL_ENV)) "
+        echo "(venv: $(print -rD $VIRTUAL_ENV)) "
     fi
 }
 
