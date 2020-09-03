@@ -31,6 +31,14 @@ function __git_no_mail_warning {
     fi
 }
 
+function __history {
+    if [ $_per_directory_history_is_global == true ]; then
+        echo "G"
+    else
+        echo "L"
+    fi
+}
+
 function __my_ip {
     if [ $OS = mac ]; then
         ipconfig getifaddr en0
@@ -60,6 +68,7 @@ function __print_first_line {
     print
     lines=(
         "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
+        "[$(__history)] "
         "$fg[yellow]$(__aws_region)$reset_color"
         "$fg[yellow]$(__imsa_profile)$reset_color"
         "$fg[yellow]$(__aws_session)$reset_color"
