@@ -18,6 +18,7 @@ augroup autocommands_filetype
     autocmd BufRead    tmux.conf.dotfile set filetype=tmux
     " keyword settings
     autocmd FileType   css               set iskeyword+=-
+    autocmd FileType   html              set iskeyword+=-
     autocmd FileType   make              set iskeyword+=-
     autocmd FileType   sh                set iskeyword+=-
     autocmd FileType   yaml              set iskeyword+=- | set iskeyword+=.
