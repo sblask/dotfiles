@@ -22,7 +22,6 @@
         - inkscape
         - jq
         - libreoffice
-        - liferea  # RSS reader
         - meld
         - moreutils  # contains sponge command
         - neovim
