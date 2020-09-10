@@ -55,6 +55,14 @@ function __imsa_profile {
     fi
 }
 
+function __vault_profile {
+    if [ "$AWS_VAULT" = "" ]; then
+        echo ""
+    else
+        echo "($AWS_VAULT until $(date --date $AWS_SESSION_EXPIRATION +%H:%M)) "
+    fi
+}
+
 function __virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
@@ -71,6 +79,7 @@ function __print_first_line {
         "[$(__history)] "
         "$fg[yellow]$(__aws_region)$reset_color"
         "$fg[yellow]$(__imsa_profile)$reset_color"
+        "$fg[yellow]$(__vault_profile)$reset_color"
         "$fg[yellow]$(__aws_session)$reset_color"
         "$fg[blue]$(__virtual_env)$(__conda_env)$reset_color"
         "%n " # username
