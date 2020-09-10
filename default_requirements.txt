@@ -1,5 +1,5 @@
 black==20.8b1
-ipython==7.17.0
+ipython==7.18.1
 jedi==0.17.2
 neovim==0.3.1
 prompt-toolkit==2.0.5
