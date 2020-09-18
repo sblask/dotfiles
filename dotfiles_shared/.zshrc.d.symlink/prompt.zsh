@@ -55,6 +55,21 @@ function __imsa_profile {
     fi
 }
 
+function __terraform_workspace {
+    if [ ! -d ".terraform" ]; then
+        echo ""
+        return
+    fi
+
+    local TERRAFORM_WORKSPACE=$(terraform workspace show 2> /dev/null)
+    if [ "$TERRAFORM_WORKSPACE" = "default" ]; then
+        echo ""
+        return
+    fi
+
+    echo "(terraform: $TERRAFORM_WORKSPACE) "
+}
+
 function __vault_profile {
     if [ "$AWS_VAULT" = "" ]; then
         echo ""
@@ -80,6 +95,7 @@ function __print_first_line {
         "$fg[yellow]$(__aws_region)$reset_color"
         "$fg[yellow]$(__imsa_profile)$reset_color"
         "$fg[yellow]$(__vault_profile)$reset_color"
+        "$fg[yellow]$(__terraform_workspace)$reset_color"
         "$fg[yellow]$(__aws_session)$reset_color"
         "$fg[blue]$(__virtual_env)$(__conda_env)$reset_color"
         "%n " # username
