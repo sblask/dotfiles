@@ -18,6 +18,7 @@
         - moreutils
         - neovim
         - node
+        - oath-toolkit
         - rename
         - shellcheck
         - terraform-docs
