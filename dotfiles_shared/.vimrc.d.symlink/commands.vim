@@ -1,4 +1,6 @@
-py3file ~/.vimrc.d/commands.py
+if has('python3')
+    py3file ~/.vimrc.d/commands.py
+endif
 
 command! -nargs=? Outline VoomToggle <args>
 command! -range Sort <line1>,<line2>!sort
