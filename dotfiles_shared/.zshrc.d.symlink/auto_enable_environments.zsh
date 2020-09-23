@@ -58,6 +58,12 @@ function auto-enable-environment {
         echo "Activate ${GIVEN_CONDA_ENV}"
         conda activate ${GIVEN_CONDA_ENV}
         maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
+
+    elif [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
+        deactivate
+
+    elif [ "${CURRENT_CONDA_ENV}" != "" ]; then
+        conda deactivate
     fi
 }
 
