@@ -67,9 +67,6 @@ augroup programming_language_support
 
 augroup END
 
-if has('python')
-    python import os; import sys; sys.path.insert(0, os.getcwd())
-endif
 if has('python3')
     python3 import os; import sys; sys.path.insert(0, os.getcwd())
 endif
