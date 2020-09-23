@@ -34,6 +34,9 @@
       -
         package_name: vulture
         executable_name: vulture
+      -
+        package_name: yamllint
+        executable_name: yamllint
 
   tasks:
 
