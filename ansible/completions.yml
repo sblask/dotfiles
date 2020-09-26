@@ -1,11 +1,20 @@
 - hosts: all
+
+  vars:
+    zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
+
   tasks:
 
+
+    - name: Ensure directory for ZSH completions
+      file:
+        path: "{{ zsh_completion_directory }}"
+        state: directory
 
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"
-        dest: "{{ target_directory }}/.zsh/completions.d/{{ item.split('/')[-1] }}"
+        dest: "{{ zsh_completion_directory }}/{{ item.split('/')[-1] }}"
       with_items:
         - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
         - https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer
@@ -21,9 +30,12 @@
     - name: Install ZSH completions with rename
       get_url:
         url: "{{ item.url }}"
-        dest: "{{ target_directory }}/.zsh/completions.d/{{ item.name }}"
+        dest: "{{ zsh_completion_directory }}/{{ item.name }}"
       with_items:
         - url: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
           name: _ag
+        - url: https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
+          name: _hub
+
 
 # vim: syntax=ansible

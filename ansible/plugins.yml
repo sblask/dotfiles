@@ -1,4 +1,8 @@
 - hosts: all
+
+  vars:
+    zsh_plugin_directory: "{{ target_directory }}/.config/zsh/plugins"
+
   tasks:
 
 
@@ -26,65 +30,65 @@
 
     - name: Ensure directory for ZSH plugins
       file:
-        path: "{{ target_directory }}/.zsh/plugins"
+        path: "{{ zsh_plugin_directory }}"
         state: directory
 
 
     - name: Install ZSH base16 plugin
       git:
         repo: https://github.com/chriskempson/base16-shell
-        dest: "{{ target_directory }}/.zsh/plugins/base16-shell"
+        dest: "{{ zsh_plugin_directory }}/base16-shell"
         update: no
       register: base16
     - name: Patch base16 plugin
       patch:
         src: "{{ playbook_dir }}/../patches/base16-shell"
-        basedir: "{{ target_directory }}/.zsh/plugins/base16-shell"
+        basedir: "{{ zsh_plugin_directory }}/base16-shell"
       when: base16.changed
 
 
     - name: Install ZSH fzf plugin
       get_url:
         url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh
-        dest: "{{ target_directory }}/.zsh/plugins/fzf.plugin.zsh"
+        dest: "{{ zsh_plugin_directory }}/fzf.plugin.zsh"
 
 
     - name: Install ZSH git prompt plugin
       git:
-        repo: https://github.com/olivierverdier/zsh-git-prompt
-        dest: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt"
+        repo: https://github.com/zsh-git-prompt/zsh-git-prompt
+        dest: "{{ zsh_plugin_directory }}/zsh-git-prompt"
         update: no
       register: git_prompt_plugin
-    - name: Fix naming in ZSH git prompt plugin
-      copy:
-        src: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt/zshrc.sh"
-        dest: "{{ target_directory }}/.zsh/plugins/zsh-git-prompt/zsh-git-prompt.plugin.zsh"
-      when: git_prompt_plugin.changed
+    - name: Create link with right naming for ZSH git prompt plugin
+      file:
+        src: "{{ zsh_plugin_directory }}/zsh-git-prompt/zshrc.sh"
+        dest: "{{ zsh_plugin_directory }}/zsh-git-prompt/zsh-git-prompt.plugin.zsh"
+        state: link
 
 
     - name: Install ZSH per directory history plugin
       get_url:
         url: https://raw.githubusercontent.com/jimhester/per-directory-history/master/per-directory-history.zsh
-        dest: "{{ target_directory }}/.zsh/plugins/per-directory-history.plugin.zsh"
+        dest: "{{ zsh_plugin_directory }}/per-directory-history.plugin.zsh"
 
 
     - name: Install ZSH pip plugin
       get_url:
         url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
-        dest: "{{ target_directory }}/.zsh/plugins/"
+        dest: "{{ zsh_plugin_directory }}/"
 
 
     - name: Install ZSH syntax highlighting plugin
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
-        dest: "{{ target_directory }}/.zsh/plugins/zsh-syntax-highlighting"
+        dest: "{{ zsh_plugin_directory }}/zsh-syntax-highlighting"
         update: no
 
 
     - name: Install ZSH system clipboard plugin
       git:
         repo: https://github.com/kutsan/zsh-system-clipboard.git
-        dest: "{{ target_directory }}/.zsh/plugins/zsh-system-clipboard"
+        dest: "{{ zsh_plugin_directory }}/zsh-system-clipboard"
         update: no
 
 # vim: syntax=ansible

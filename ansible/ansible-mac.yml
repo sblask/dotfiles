@@ -1,5 +1,4 @@
 - import_playbook: brew.yml
-- import_playbook: completion_directories.yml
 - import_playbook: completions.yml
 - import_playbook: dotfiles.yml
   vars:

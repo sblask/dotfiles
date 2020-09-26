@@ -1,6 +1,7 @@
 - hosts: all
 
   vars:
+    bash_completion_directory: "{{ target_directory }}/.config/zsh/bash_completions.d"
     packages:
       -
         package_name: aws-console
@@ -60,6 +61,11 @@
         state: link
       with_items: "{{ packages }}"
 
+    - name: Ensure directory for Bash completions
+      file:
+        path: "{{ bash_completion_directory }}"
+        state: directory
+
     - name: Install aws completions part one
       file:
         dest: "{{ target_directory }}/.bin/aws_completer"
@@ -67,7 +73,7 @@
         state: link
     - name: Install aws completions part two
       file:
-        dest: "{{ target_directory }}/.zsh/bash_completions.d/aws_zsh_completer.sh"
+        dest: "{{ bash_completion_directory }}/aws_zsh_completer.sh"
         src: "{{ target_directory }}/.opt/awscli/bin/aws_zsh_completer.sh"
         state: link
 

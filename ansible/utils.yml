@@ -39,24 +39,6 @@
         creates: "{{ target_directory }}/.bin/hub"
         warn: false
       when: hub_download is not skipped and hub_download is success
-    - name: Unpack hub completions
-      shell: |
-        {{ tar | default('tar') }} \
-        --extract \
-        --verbose \
-        --show-transformed-names \
-        --file hub.tgz \
-        --wildcards \
-        --strip-component 2 \
-        --directory "{{ target_directory }}/.zsh/completions.d/" \
-        --transform "s/hub.zsh_completion/_hub/" \
-        "*/etc/hub.zsh_completion"
-      args:
-        chdir: /tmp/
-        creates: "{{ target_directory }}/.zsh/completions.d/_hub"
-        warn: false
-      when: hub_download is not skipped and hub_download is success
-
 
     - name: Get pup
       unarchive:

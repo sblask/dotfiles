@@ -1,4 +1,4 @@
-for file in ~/.zsh/plugins/**/*.plugin.zsh; do
+for file in ~/.config/zsh/plugins/**/*.plugin.zsh; do
     source "$file"
 done
 
