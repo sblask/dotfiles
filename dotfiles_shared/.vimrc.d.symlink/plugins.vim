@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-sexp-mappings-for-regular-people'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
