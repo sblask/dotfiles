@@ -1,8 +1,8 @@
 [Configuration]
 ColorForeground=#b7b7b7
 ColorBackground=#131926
-ColorCursor=#0f4999
-ColorSelection=#163b59
+ColorCursor=#fcfcafaf3e3e
+ColorSelection=#000000000000
 ColorSelectionUseDefault=FALSE
 ColorBold=#ffffff
 ColorBoldUseDefault=FALSE
@@ -11,12 +11,12 @@ FontName=DejaVu Sans Mono 9
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
-MiscBordersDefault=TRUE
+MiscBordersDefault=FALSE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
-MiscMenubarDefault=TRUE
+MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
 MiscMouseWheelZoom=TRUE
 MiscToolbarDefault=FALSE
@@ -34,6 +34,9 @@ MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
-MiscShowUnsafePasteDialog=TRUE
+MiscShowUnsafePasteDialog=FALSE
 TabActivityColor=#0f4999
+ColorCursorUseDefault=FALSE
+ColorCursorForeground=#000000000000
+ColorSelectionBackground=#88888a8a8585
 
