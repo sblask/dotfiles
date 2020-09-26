@@ -48,7 +48,7 @@
         - xfce4-terminal
         - zsh
 
-    - name: Ensure useless packages are removed
+    - name: Ensure useless/unwanted packages are removed
       apt:
         state: absent
         name: "{{ item }}"
@@ -60,6 +60,7 @@
         - parole
         - pidgin
         - ristretto
+        - snapd
 
     - name: Make ZSH default shell
       user:
