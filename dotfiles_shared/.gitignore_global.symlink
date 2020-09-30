@@ -1,3 +1,4 @@
 .clj-kondo
 .conda_env
 .venv/
+.venv_off/
