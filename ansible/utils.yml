@@ -68,7 +68,7 @@
     - include: includes/hashicorp.yml
       vars:
         product: terraform
-        version: 0.13.3
+        version: 0.13.4
 
     - include: includes/hashicorp.yml
       vars:
