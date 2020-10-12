@@ -39,4 +39,7 @@ TabActivityColor=#0f4999
 ColorCursorUseDefault=FALSE
 ColorCursorForeground=#000000000000
 ColorSelectionBackground=#88888a8a8585
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ScrollingOnOutput=FALSE
+ScrollingOnKeystroke=FALSE
 
