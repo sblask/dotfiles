@@ -1,9 +1,0 @@
-backend = "glx";
-vsync = "opengl-swc";
-
-paint-on-overlay = true;
-glx-no-stencil = true;
-glx-no-rebind-pixmap = false; # freezes everything if set to true
-unredir-if-possible = true;
-
-detect-client-opacity = true;

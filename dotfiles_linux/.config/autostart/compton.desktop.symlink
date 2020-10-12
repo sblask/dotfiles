@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=compton
-Icon=display
-Name=Compton
-Terminal=false
-Type=Application
