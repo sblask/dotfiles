@@ -9,5 +9,6 @@
       loop:
         - fixjson
         - markdownlint-cli
+        - serverless
 
 # vim: syntax=ansible
