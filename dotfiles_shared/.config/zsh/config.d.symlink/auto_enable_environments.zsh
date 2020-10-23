@@ -35,6 +35,7 @@ function auto-enable-environment {
         source ${GIVEN_VIRTUALENV}/bin/activate
         maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
         maybe-install-requirements ${PWD}/requirements.txt
+        maybe-install-requirements ${PWD}/requirements-dev.txt
 
     elif [ -f "${CONDA_ENV_FILE}" ]; then
         local GIVEN_CONDA_ENV=$(cat "${CONDA_ENV_FILE}")
