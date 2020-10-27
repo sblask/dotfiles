@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail -o xtrace
+
+PID="$1"
+TARGET_NAME="$2"
+
+CHILD_PID="${PID}"
+while [ "${CHILD_PID}" != "" ]
+do
+
+   set +o errexit
+   CHILD_PID=$(pgrep --parent "${PID}")
+   set -o errexit
+
+   if [ "${CHILD_PID}" != "" ]
+   then
+      CURRENT_NAME=$(ps --format command= --pid "${CHILD_PID}")
+      if [ "${CURRENT_NAME}" != "${TARGET_NAME}" ]
+      then
+         CHILD_PID=
+      else
+         PID=${CHILD_PID}
+      fi
+   fi
+done
+
+echo "${PID}"

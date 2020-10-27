@@ -5,7 +5,6 @@ set -o errexit -o nounset -o pipefail -o xtrace
 PID="$1"
 shift
 
-COMMAND="$@"
-PANE_CWD=$(lsof -d cwd | grep ${PID} | awk '{print $NF}')
+CWD=$(lsof -d cwd | grep "${PID}" | awk '{print $NF}')
 
-$COMMAND "${PANE_CWD}"
+echo "${CWD}"
