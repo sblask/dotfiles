@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=xterm -e "xrdb -load ~/.Xresources"
-Icon=keyboard
-Name=Load .Xresources
-Terminal=false
-Type=Application
