@@ -3,26 +3,37 @@
 set -o errexit -o nounset -o pipefail -o xtrace
 
 PID="$1"
-TARGET_NAME="$2"
+shift
+POSSIBLE_NAMES=( "$@" )
+
+function is-possible-name {
+    for name in "${POSSIBLE_NAMES[@]}"
+    do
+        if [ "$name" == "$1" ] ; then
+            return 0
+        fi
+    done
+    return 1
+}
 
 CHILD_PID="${PID}"
 while [ "${CHILD_PID}" != "" ]
 do
 
-   set +o errexit
-   CHILD_PID=$(pgrep --parent "${PID}")
-   set -o errexit
+    set +o errexit
+    CHILD_PID=$(pgrep -P "${PID}")
+    set -o errexit
 
-   if [ "${CHILD_PID}" != "" ]
-   then
-      CURRENT_NAME=$(ps --format command= --pid "${CHILD_PID}")
-      if [ "${CURRENT_NAME}" != "${TARGET_NAME}" ]
-      then
-         CHILD_PID=
-      else
-         PID=${CHILD_PID}
-      fi
-   fi
+    if [ "${CHILD_PID}" != "" ]
+    then
+        CURRENT_NAME=$(lsof -p "${CHILD_PID}" | grep txt | head --lines 1 | awk '{print $NF}')
+        if is-possible-name "${CURRENT_NAME}"
+        then
+            PID=${CHILD_PID}
+        else
+            CHILD_PID=
+        fi
+    fi
 done
 
 echo "${PID}"
