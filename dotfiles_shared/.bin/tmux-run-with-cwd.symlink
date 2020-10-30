@@ -7,7 +7,7 @@ shift
 
 COMMAND="$*"
 
-CHILD_PID=$(get-child-pid-with-name "${PID}" zsh /bin/zsh)
+CHILD_PID=$(get-child-pid-with-name "${PID}" /bin/zsh /usr/bin/zsh)
 CHILD_CWD=$(pid-to-cwd "${CHILD_PID}")
 
 $COMMAND "${CHILD_CWD}"
