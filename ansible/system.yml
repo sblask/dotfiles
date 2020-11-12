@@ -9,6 +9,7 @@
       loop:
         - asunder  # cd ripper
         - audacity  # audio editor
+        - autofs
         - baobab  # to analyze disk usage from Thunar context menu
         - boxes
         - entr  # do stuff when files change
