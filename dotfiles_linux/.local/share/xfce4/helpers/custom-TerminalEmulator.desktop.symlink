@@ -4,8 +4,8 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=TerminalEmulator
-X-XFCE-CommandsWithParameter=xfce4-terminal --maximize --working-directory /home/sebastian/Desktop --command "%s"
+X-XFCE-CommandsWithParameter=xfce4-terminal --maximize --command "%s"
 Icon=xfce4-terminal
 Name=xfce4-terminal
-X-XFCE-Commands=xfce4-terminal --maximize --working-directory /home/sebastian/Desktop --command "tmux new"
+X-XFCE-Commands=xfce4-terminal --maximize --command "tmux new"
 
