@@ -13,6 +13,7 @@
         - baobab  # to analyze disk usage from Thunar context menu
         - boxes
         - entr  # do stuff when files change
+        - fd-find
         - feh
         - geary
         - gimp

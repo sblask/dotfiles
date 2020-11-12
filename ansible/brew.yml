@@ -9,6 +9,7 @@
         - colordiff
         - coreutils
         - entr
+        - fd
         - gnu-sed
         - gnu-tar
         - go

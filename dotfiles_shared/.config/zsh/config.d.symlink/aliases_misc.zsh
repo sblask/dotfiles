@@ -37,3 +37,8 @@ alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
 alias vimdiff='nvim -d'
 alias virtualenv3='python3 -m venv'
 alias virtualenv37='python3.7 -m venv'
+
+if command -v fdfind &> /dev/null
+then
+    alias fd=fdfind
+fi

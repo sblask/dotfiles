@@ -24,16 +24,6 @@ function p {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Private/ p
 
-function fd {
-    findi . -iname "*$@*" -type d -not -path "*/.venv/*" -not -path "*/.git/*" -not -path "*/node_modules/*"
-}
-function ff {
-    findi . -iname "*$@*" -type f -not -path "*/.venv/*" -not -path "*/.git/*" -not -path "*/node_modules/*"
-}
-function fn {
-    findi . -iname "*$@*"         -not -path "*/.venv/*" -not -path "*/.git/*" -not -path "*/node_modules/*"
-}
-
 function man {
     if [[ "$( type "$1" )" == *builtin ]]
     then
