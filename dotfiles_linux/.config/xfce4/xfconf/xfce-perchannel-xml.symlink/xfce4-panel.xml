@@ -40,6 +40,11 @@
     <property name="plugin-3" type="string" value="tasklist">
       <property name="show-handle" type="bool" value="false"/>
       <property name="flat-buttons" type="bool" value="true"/>
+      <property name="window-scrolling" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="sort-order" type="uint" value="4"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
+      <property name="show-wireframes" type="bool" value="false"/>
     </property>
     <property name="plugin-4" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -50,6 +55,7 @@
       <property name="square-icons" type="bool" value="true"/>
       <property name="size-max" type="uint" value="22"/>
       <property name="names-ordered" type="array">
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="task manager"/>
         <value type="string" value="parcellite"/>
       </property>
@@ -84,7 +90,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="enable-mpris" type="bool" value="true"/>
       <property name="mixer-command" type="string" value="pavucontrol"/>
-      <property name="mpris-players" type="string" value="parole;vlc"/>
+      <property name="mpris-players" type="string" value="chrome.instance1504;chrome.instance51413;chrome.instance52953;chrome.instance77061;parole;vlc"/>
       <property name="show-notifications" type="bool" value="true"/>
     </property>
     <property name="plugin-11" type="string" value="cpugraph"/>
