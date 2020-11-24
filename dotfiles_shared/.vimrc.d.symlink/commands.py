@@ -1,7 +1,8 @@
+# pylint: disable=import-outside-toplevel
+
 # https://jvanz.com/hacking-your-vim-with-python.html
 def apply_on_one_line_selection(function):
-    # pylint: disable=import-error,import-outside-toplevel
-    import vim
+    import vim  # pylint: disable=import-error
 
     # https://pynvim.readthedocs.io/en/latest/_modules/pynvim/api/buffer.html
     buffer_object = vim.current.buffer
@@ -29,3 +30,21 @@ def sort_comma_separated(input_string):
 
 def sort_whitespace_separated(input_string):
     return " ".join(sorted(input_string.split(" ")))
+
+
+def dict_to_json():
+    # some import are used by eval
+    # pylint: disable=unused-import
+    import datetime
+    import json
+    import sys
+
+    import vim  # pylint: disable=import-error
+    from dateutil.tz import tzlocal
+    from dateutil.tz import tzutc
+
+    as_dict = eval("".join(vim.current.buffer[:]))  # pylint: disable=eval-used
+    as_json = json.dumps(
+        as_dict, default=lambda something: something.isoformat()
+    )
+    vim.current.buffer[:] = [as_json]
