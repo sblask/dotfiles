@@ -22,13 +22,19 @@
         <value type="int" value="13"/>
         <value type="int" value="14"/>
       </property>
-      <property name="background-style" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="1"/>
       <property name="size" type="uint" value="24"/>
       <property name="length-adjust" type="bool" value="true"/>
       <property name="span-monitors" type="bool" value="false"/>
       <property name="mode" type="uint" value="0"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="disable-struts" type="bool" value="false"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.180392"/>
+        <value type="double" value="0.203922"/>
+        <value type="double" value="0.211765"/>
+        <value type="double" value="1.000000"/>
+      </property>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -90,7 +96,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="enable-mpris" type="bool" value="true"/>
       <property name="mixer-command" type="string" value="pavucontrol"/>
-      <property name="mpris-players" type="string" value="chrome.instance1504;chrome.instance51413;chrome.instance52953;chrome.instance77061;parole;vlc"/>
+      <property name="mpris-players" type="string" value="chrome.instance1504;chrome.instance15655;chrome.instance51413;chrome.instance52953;chrome.instance6540;chrome.instance77061;parole;vlc"/>
       <property name="show-notifications" type="bool" value="true"/>
     </property>
     <property name="plugin-11" type="string" value="cpugraph"/>
