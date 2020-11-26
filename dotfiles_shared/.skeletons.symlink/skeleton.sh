@@ -2,7 +2,10 @@
 
 set -o errexit -o nounset -o pipefail -o xtrace
 
-declare -r SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
+SCRIPT_DIRECTORY=$( dirname "${BASH_SOURCE:-$0}" | xargs realpath )
+declare -r SCRIPT_DIRECTORY
+
+echo "$SCRIPT_DIRECTORY"
 
 function do-something {
     if [ "$1" = "something" ]; then
@@ -13,8 +16,10 @@ function do-something {
         echo "else"
     fi
 
-    for argument in $( echo $@ )
+    for argument in "$@"
     do
-         echo "for"
+         echo "for $argument"
     done
 }
+
+do-something "something" "and" "something" "else"
