@@ -38,6 +38,9 @@
       -
         package_name: yamllint
         executable_name: yamllint
+      -
+        package_name: youtube-dl
+        executable_name: youtube-dl
 
   tasks:
 
