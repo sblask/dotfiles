@@ -32,7 +32,6 @@
 .ipython/profile_default/ipython_config.py
 .isort.cfg
 .local/share/Trash/
-.local/share/applications/
 .local/share/desktop-directories/
 .local/share/evolution/
 .local/share/gvfs-metadata/
@@ -76,3 +75,7 @@ Desktop/
 Downloads/
 Templates/
 snap
+
+.local/share/applications/*
+!.local/share/applications/*.desktop
+.local/share/applications/chrome-*.desktop
