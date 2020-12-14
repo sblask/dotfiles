@@ -1,16 +1,15 @@
 - hosts: all
 
+  vars:
+
+    fzf_version: 0.17.5
+    packer_version: 1.6.1
+    pup_version: 0.4.0
+    terraform_version: 0.13.5
+    tflint_version: 0.22.0
+    vault_version: 1.5.0
+
   tasks:
-
-    - name: Get fzf
-      unarchive:
-        src: https://github.com/junegunn/fzf-bin/releases/download/{{ version }}/fzf-{{ version }}-{{ os }}_amd64.tgz
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/fzf"
-        remote_src: yes
-      vars:
-        version: 0.17.5
-
 
     - name: Check for hub
       stat:
@@ -40,39 +39,46 @@
         warn: false
       when: hub_download is not skipped and hub_download is success
 
-    - name: Get pup
-      unarchive:
-        src: https://github.com/ericchiang/pup/releases/download/{{ version }}/pup_{{ version }}_{{ os }}_amd64.zip
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/pup"
-        remote_src: yes
+
+    - include: includes/zipped_executable.yml
       vars:
-        version: v0.4.0
+        product: fzf
+        url: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_amd64.tgz
+        version: "{{ fzf_version }}"
 
 
-    - name: Get tflint
-      unarchive:
-        src: https://github.com/terraform-linters/tflint/releases/download/v{{ version }}/tflint_{{ os }}_amd64.zip
-        dest: "{{ target_directory }}/.bin/"
-        creates: "{{ target_directory }}/.bin/tflint"
-        remote_src: yes
-      vars:
-        version: 0.14.0
-
-
-    - include: includes/hashicorp.yml
+    - include: includes/zipped_executable.yml
       vars:
         product: packer
-        version: 1.6.1
+        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_amd64.zip
+        version: "{{ packer_version }}"
 
-    - include: includes/hashicorp.yml
+
+    - include: includes/zipped_executable.yml
+      vars:
+        product: pup
+        url: https://github.com/ericchiang/pup/releases/download/{{ pup_version }}/pup_{{ pup_version }}_{{ os }}_amd64.zip
+        version: "{{ pup_version }}"
+
+
+    - include: includes/zipped_executable.yml
       vars:
         product: terraform
-        version: 0.13.5
+        url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_amd64.zip
+        version: "{{ terraform_version }}"
 
-    - include: includes/hashicorp.yml
+
+    - include: includes/zipped_executable.yml
+      vars:
+        product: tflint
+        url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_amd64.zip
+        version: "{{ tflint_version }}"
+
+
+    - include: includes/zipped_executable.yml
       vars:
         product: vault
-        version: 1.5.0
+        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_amd64.zip
+        version: "{{ vault_version }}"
 
 # vim: syntax=ansible

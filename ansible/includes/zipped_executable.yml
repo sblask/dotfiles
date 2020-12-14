@@ -7,7 +7,7 @@
 
     - name: Get {{ product | title }}
       get_url:
-        url: https://releases.hashicorp.com/{{ product }}/{{ version }}/{{ product }}_{{ version }}_{{ os }}_amd64.zip
+        url: "{{ url }}"
         dest: "/tmp/{{ product }}{{ version }}.zip"
     - name: Unpack {{ product | title }}
       unarchive:
