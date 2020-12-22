@@ -57,7 +57,7 @@
     - include: includes/zipped_executable.yml
       vars:
         product: pup
-        url: https://github.com/ericchiang/pup/releases/download/{{ pup_version }}/pup_{{ pup_version }}_{{ os }}_amd64.zip
+        url: https://github.com/ericchiang/pup/releases/download/v{{ pup_version }}/pup_v{{ pup_version }}_{{ os }}_amd64.zip
         version: "{{ pup_version }}"
 
 
