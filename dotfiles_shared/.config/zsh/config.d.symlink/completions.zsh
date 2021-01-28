@@ -16,7 +16,7 @@ unsetopt NOMATCH
 # globbing includes dotfiles
 setopt GLOBDOTS
 # insert fist match of menu immediately
-setopt MENU_COMPLETE
+setopt AUTO_MENU
 
 # general options
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
