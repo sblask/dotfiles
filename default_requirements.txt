@@ -1,5 +1,5 @@
 black==20.8b1
-ipython==7.19.0
+ipython==7.20.0
 jedi==0.17.2
 neovim==0.3.1
 pycodestyle==2.6.0
