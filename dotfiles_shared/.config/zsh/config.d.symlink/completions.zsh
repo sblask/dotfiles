@@ -34,10 +34,10 @@ zstyle ':completion:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*:processes' sort false
 
 # make sure we do not get the same suggestion twice
-zstyle ':completion:*:diff:*' ignore-line yes
-zstyle ':completion:*:kill:*' ignore-line yes
-zstyle ':completion:*:rm:*'   ignore-line yes
-zstyle ':completion:*:vim:*'  ignore-line yes
+zstyle ':completion:*:diff:*' ignore-line other
+zstyle ':completion:*:kill:*' ignore-line other
+zstyle ':completion:*:rm:*'   ignore-line other
+zstyle ':completion:*:vim:*'  ignore-line other
 
 # ignore some files during completion
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
