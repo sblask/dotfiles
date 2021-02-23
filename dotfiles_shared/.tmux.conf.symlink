@@ -72,6 +72,8 @@ set-window-option -g window-status-separator ' '
 bind-key -T root WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "select-pane -t = \; send-keys -M" "select-pane -t = \; if -F -t = '#{pane_in_mode}' 'send-keys -M' 'copy-mode -t='"
 bind-key -T root WheelDownPane select-pane -t = \; send-keys -M
 
+set -g @yank_action 'copy-pipe'
+
 set -g @plugin 'tmux-plugins/tpm'
 
 set -g @plugin 'tmux-plugins/tmux-copycat'
@@ -85,3 +87,4 @@ run '~/.tmux/plugins/tpm/tpm'
 
 # this needs to be done after running tmux-yank
 unbind-key -T copy-mode-vi MouseDragEnd1Pane
+
