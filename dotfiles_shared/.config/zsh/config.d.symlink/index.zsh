@@ -80,8 +80,6 @@ function __print-path-argument {
     fi
 }
 
-_git # run this here to get git completions to work
-
 function agi {
     local lines=$(command ag --color --group --literal $@)
     local restricted=false
@@ -133,17 +131,17 @@ function gashp {
 function gb {
     git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
 }
-compdef _git-branch gb
+compdef _git gb=git-branch
 
 function gba {
     git branch --all --sort=-committerdate $@               | add-index --input-type git_branch --print-indexables | set-index-variables
 }
-compdef _git-branch gba
+compdef _git gba=git-branch
 
 function gs {
     git status --untracked-files=all $@                     | add-index --input-type git_status --print-indexables | set-index-variables
 }
-compdef _git-status gs
+compdef _git gs=git-status
 
 function la {
     { __print-path-argument $@; ls -lhA --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
