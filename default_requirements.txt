@@ -1,6 +1,6 @@
 black==20.8b1
 ipython==7.19.0
-jedi==0.17.2
+jedi==0.18.0
 neovim==0.3.1
 pycodestyle==2.6.0
 pylint==2.6.0
