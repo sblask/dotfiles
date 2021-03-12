@@ -1,5 +1,11 @@
 scriptencoding utf-8
 
+let g:polyglot_disabled = [
+\    'jinja',
+\    'markdown',
+\    'tmux',
+\ ]
+
 call plug#begin('~/.vim/plugged')
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
@@ -123,12 +129,6 @@ let g:markdown_fenced_languages = [
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
 
-
-let g:polyglot_disabled = [
-\    'jinja',
-\    'markdown',
-\    'tmux',
-\ ]
 
 let g:python_highlight_space_errors = 0
 
