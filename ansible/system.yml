@@ -41,6 +41,7 @@
         - silversearcher-ag
         - taskwarrior
         - texlive
+        - texlive-lang-german
         - tmux  # use 'CTRL-B' + 'I' to install the plugins
         - tree
         - usb-creator-gtk
