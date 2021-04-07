@@ -32,6 +32,34 @@ def sort_whitespace_separated(input_string):
     return " ".join(sorted(input_string.split(" ")))
 
 
+def base64_encode():
+    import base64
+
+    import vim  # pylint: disable=import-error
+
+    input_string = "\n".join(vim.current.buffer[:])
+
+    input_bytes = input_string.encode("utf8")
+    base64_bytes = base64.b64encode(input_bytes)
+    base64_string = base64_bytes.decode("utf8")
+
+    vim.current.buffer[:] = [base64_string]
+
+
+def base64_decode():
+    import base64
+
+    import vim  # pylint: disable=import-error
+
+    base64_string = "".join(vim.current.buffer[:])
+
+    base64_bytes = base64_string.encode("utf8")
+    output_bytes = base64.b64decode(base64_bytes)
+    output_string = output_bytes.decode("utf8")
+
+    vim.current.buffer[:] = output_string.splitlines()
+
+
 def dict_to_json():
     # some import are used by eval
     # pylint: disable=unused-import

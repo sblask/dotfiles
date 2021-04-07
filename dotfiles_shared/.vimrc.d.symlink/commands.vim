@@ -7,6 +7,8 @@ command! -range Sort <line1>,<line2>!sort
 command! -range SortCommaSeparated <line1>,<line2>python3 apply_on_one_line_selection(sort_comma_separated)
 command! -range SortWhitespaceSeparated <line1>,<line2>python3 apply_on_one_line_selection(sort_whitespace_separated)
 
+command! Base64Decode % python3 base64_decode()
+command! Base64Encode % python3 base64_encode()
 command! Black ALEFix
 command! DictToJson % python3 dict_to_json()
 command! FoldDisable set nofoldenable | set foldcolumn=0
