@@ -1,2 +1,2 @@
 vim-vint==0.3.21
-yamllint==1.26.0
+yamllint==1.26.1
