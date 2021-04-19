@@ -6,6 +6,7 @@ CursiveClojure
 GTK
 Gitlab
 Greybird
+IAM
 IntelliJ
 JVM
 Keychain
@@ -16,8 +17,11 @@ MacOS
 Montoux
 Neovim
 Nginx
+RCloud
 REPL
+RStudio
 Route53
+SCP
 SES
 SNS
 TLS
@@ -54,6 +58,7 @@ cloudformation
 codebase
 config
 ctrl
+datascience
 del
 dest
 devDependencies
@@ -102,6 +107,7 @@ keybindings
 linux
 localhost
 macOS
+montoux
 mozilla
 nodejs
 npm
@@ -171,6 +177,7 @@ webextension
 whitelist
 whitelisted
 wildcards
+workflow
 www
 xml
 xpi
