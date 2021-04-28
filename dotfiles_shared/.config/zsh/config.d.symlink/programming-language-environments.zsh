@@ -4,6 +4,11 @@ if [ -d "$N_PREFIX/bin" ]; then
     PATH="$N_PREFIX/bin:$PATH"
 fi
 
+# Python version manager
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Ruby version manager
 if [ -d "$HOME/.rvm/bin" ]; then
     PATH="$HOME/.rvm/bin:$PATH"
