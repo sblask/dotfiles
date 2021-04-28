@@ -42,7 +42,13 @@ zstyle ':completion:*:vim:*'  ignore-line other
 # ignore some files during completion
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
-    '*.pyc' \
+    '**/*.pyc' \
+    '**/.terraform' \
+    '**/.terraform.lock.hcl' \
+    '**/plan' \
+
+zstyle ':completion:*:*:cd:*:*' ignored-patterns \
+    '**/.terraform' \
 
 # Do not ever propose ORIG_HEAD
 zstyle ':completion:*:*:*:*:*' ignored-patterns \
