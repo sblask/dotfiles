@@ -1,4 +1,4 @@
-black==21.4b0
+black==21.4b1
 ipython==7.21.0
 jedi==0.18.0
 neovim==0.3.1
