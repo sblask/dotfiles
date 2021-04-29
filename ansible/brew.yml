@@ -8,6 +8,7 @@
       loop:
         - colordiff
         - coreutils
+        - docker-credential-helper-ecr
         - entr
         - fd
         - gnu-sed
