@@ -14,6 +14,7 @@ alias gdsbs='vimdiff <(git diff | grep --invert-match --regexp "^+[^+]") <(git d
 alias gdsbsc='vimdiff <(git diff --cached | grep --invert-match --regexp "^+[^+]") <(git diff --cached | grep --invert-match --regexp "^-[^-]")'
 alias gdt='git difftool'
 alias gdtc='git difftool --cached'
+alias gdtf='vim -c Gvdiffsplit' # use Fugitive
 alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias gl='glog'
