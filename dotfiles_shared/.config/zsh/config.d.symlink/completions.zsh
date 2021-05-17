@@ -46,16 +46,20 @@ zstyle ':completion:*' completer _complete
 # see http://www.bash2zsh.com/zsh_refcard/refcard.pdf
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
     '*.pyc' \
+    '.git' \
     '.terraform' \
     '.terraform.lock.hcl' \
     'plan' \
     '**/*.pyc' \
+    '**/.git' \
     '**/.terraform' \
     '**/.terraform.lock.hcl' \
     '**/plan' \
 
 zstyle ':completion:*:*:cd:*:*' ignored-patterns \
+    '.git' \
     '.terraform' \
+    '**/.git' \
     '**/.terraform' \
 
 # Do not ever propose ORIG_HEAD
