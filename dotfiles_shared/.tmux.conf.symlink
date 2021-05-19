@@ -64,8 +64,8 @@ set-option -g status-bg colour24
 set-option -g status-left "#{prefix_highlight} #[fg=white]#H_session_#S #[fg=black]| "
 set-option -g status-left-length 50
 set-option -g status-right "#{?pane_synchronized,#[bg=yellow] SYNCHRONIZED #[bg=colour24],}"
-set-window-option -g window-status-current-format '#[fg=white]#I:#W#[fg=black] |'
-set-window-option -g window-status-format '#I:#W |'
+set-window-option -g window-status-current-format '#[fg=white]#I: #W #(cd #{pane_current_path}; dirs +0)#[fg=black] |'
+set-window-option -g window-status-format '#I: #W #(cd #{pane_current_path}; dirs +0) |'
 set-window-option -g window-status-separator ' '
 
 # when entering copy mode by scrolling, scrolling down exists copy mode by default - this keeps it in copy mode
