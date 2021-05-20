@@ -1,10 +1,11 @@
 function c {
+    local query=$(echo "$1" | sed 's|/$||')
     local subdirectory
-    if [[ "$1" == "" ]]
+    if [[ "$query" == "" ]]
     then
         subdirectory=""
     else
-        subdirectory=$(ls ~/Clones/ | grep "$1" | head --lines 1)
+        subdirectory=$(ls ~/Clones/ | grep "$query" | head --lines 1)
     fi
     cd ~/Clones/${subdirectory}
 }
@@ -12,12 +13,13 @@ function c {
 compctl -/ -W ~/Clones/ c
 
 function p {
+    local query=$(echo "$1" | sed 's|/$||')
     local subdirectory
-    if [[ "$1" == "" ]]
+    if [[ "$query" == "" ]]
     then
         subdirectory=""
     else
-        subdirectory=$(ls ~/Private/ | grep "$1" | head --lines 1)
+        subdirectory=$(ls ~/Private/ | grep "$query" | head --lines 1)
     fi
     cd ~/Private/${subdirectory}
 }
