@@ -1,10 +1,10 @@
 set-window-option -g mode-keys vi
 set-window-option -g xterm-keys on
 
-bind-key -r c run-shell "~/.bin/tmux-run-with-cwd #{pane_pid} tmux new-window      -c"
-bind-key -r C run-shell "~/.bin/tmux-run-with-cwd #{pane_pid} tmux new-window      -c"
-bind-key -r _ run-shell "~/.bin/tmux-run-with-cwd #{pane_pid} tmux split-window -v -c"
-bind-key -r | run-shell "~/.bin/tmux-run-with-cwd #{pane_pid} tmux split-window -h -c"
+bind-key -r c new-window      -c "#{pane_current_path}"
+bind-key -r C new-window      -c "#{pane_current_path}"
+bind-key -r _ split-window -v -c "#{pane_current_path}"
+bind-key -r | split-window -h -c "#{pane_current_path}"
 
 bind-key -r d split-window -h -c ~/Clones/dotfiles/
 bind-key -r D new-window -c ~/Clones/dotfiles/
