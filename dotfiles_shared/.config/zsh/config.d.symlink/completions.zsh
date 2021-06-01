@@ -49,18 +49,22 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns \
     '.git' \
     '.terraform' \
     '.terraform.lock.hcl' \
+    '.venv' \
     'plan' \
     '**/*.pyc' \
     '**/.git' \
     '**/.terraform' \
     '**/.terraform.lock.hcl' \
+    '**/.venv' \
     '**/plan' \
 
 zstyle ':completion:*:*:cd:*:*' ignored-patterns \
     '.git' \
     '.terraform' \
+    '.venv' \
     '**/.git' \
     '**/.terraform' \
+    '**/.venv' \
 
 # Do not ever propose ORIG_HEAD
 zstyle ':completion:*:*:*:*:*' ignored-patterns \
