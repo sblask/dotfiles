@@ -80,3 +80,6 @@ bindkey "^[[A" up-line-or-beginning-search
 autoload down-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+
+# autosuggestions plugin accept with shift Tab
+bindkey '^[[Z' autosuggest-accept

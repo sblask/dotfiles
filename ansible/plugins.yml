@@ -47,6 +47,12 @@
       when: base16.changed
 
 
+    - name: Install ZSH autosuggestions plugin
+      git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions
+        dest: "{{ zsh_plugin_directory }}/zsh-autosuggestions"
+
+
     - name: Install ZSH fzf plugin
       get_url:
         url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh

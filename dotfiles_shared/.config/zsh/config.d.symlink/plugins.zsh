@@ -5,6 +5,8 @@ done
 # set color scheme
 base16_eighties
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#333333"
+
 # configure git syntax highlighting plugin
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf*' 'fg=black,bg=red')
