@@ -16,6 +16,8 @@
         url: "{{ item }}"
         dest: "{{ zsh_completion_directory }}/{{ item.split('/')[-1] }}"
       with_items:
+        - https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
+        - https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose
         - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
         - https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
