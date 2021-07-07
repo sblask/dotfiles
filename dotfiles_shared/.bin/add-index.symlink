@@ -18,6 +18,16 @@ GIT_BRANCH_REGEXP = re.compile(
     r'(?P<prefix>[ *]{1} {1}(\x1b[^m]+m)?)'
     r'(?P<indexable>\S.+)'
 )
+GIT_STATUS_SUBMODULE_STATUS_REGEXP = re.compile(
+    r'(?P<line>.+)'
+    r'(?P<rest>'
+    r'( \(untracked content\))'
+    r'|'
+    r'( \(modified content\))'
+    r'|'
+    r'( \(new commits\))'
+    r')'
+)
 GIT_STATUS_REGEXP = re.compile(
     r'(?P<prefix>\t(\x1b[^m]+m)?([^:]+: +)?)'
     r'(?P<indexable>.+)'
@@ -158,12 +168,22 @@ def parse_git_status_input(arguments):
     indexables = []
 
     for line in arguments.infile:
+
+        match = GIT_STATUS_SUBMODULE_STATUS_REGEXP.match(line)
+        if match:
+            line = match.group('line')
+            rest = match.group('rest') or ''
+        else:
+            rest = ''
+
         match = GIT_STATUS_REGEXP.match(line)
         if not match:
             lines.append((line, None))
         else:
             indexable = match.group('indexable')
-            lines.append((match.group('prefix'), indexable))
+            lines.append(
+                (match.group('prefix'), indexable, rest),
+            )
 
             if 'renamed' in match.group('prefix'):
                 indexables.append(indexable.split(' -> ')[1])
@@ -252,13 +272,19 @@ def print_output(arguments, lines, indexables):
 
     padding = len(str(len(indexables))) + 2
     index = 1
-    for prefix, indexable in lines:
+    for prefix, indexable, *rest in lines:
         if indexable is None:
-            outfile.write(prefix)
+            outfile.write(prefix + ''.join(rest))
         else:
             index_string = '[%s]' % index
             fixed_length_index_string = index_string.rjust(padding, ' ') + ' '
-            outfile.write(prefix + fixed_length_index_string + indexable + '\n')
+            outfile.write(
+                prefix
+                + fixed_length_index_string
+                + indexable
+                + ''.join(rest)
+                + '\n'
+            )
             index += 1
 
 
