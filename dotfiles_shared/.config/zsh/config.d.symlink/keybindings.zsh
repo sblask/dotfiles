@@ -83,3 +83,7 @@ bindkey "^[[B" down-line-or-beginning-search
 
 # autosuggestions plugin accept with shift Tab
 bindkey '^[[Z' autosuggest-accept
+
+# jump words with option left/right
+bindkey '^[f' forward-word # also accepts autosuggestion words
+bindkey '^[b' backward-word
