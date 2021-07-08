@@ -78,12 +78,6 @@
         dest: "{{ zsh_plugin_directory }}/per-directory-history.plugin.zsh"
 
 
-    - name: Install ZSH pip plugin
-      get_url:
-        url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/pip/pip.plugin.zsh
-        dest: "{{ zsh_plugin_directory }}/"
-
-
     - name: Install ZSH syntax highlighting plugin
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
