@@ -6,8 +6,8 @@
     fzf_version: 0.17.5
     packer_version: 1.7.3
     pup_version: 0.4.0
-    terraform_version: 1.0.1
-    tflint_version: 0.29.0
+    terraform_version: 1.0.2
+    tflint_version: 0.30.0
     vault_version: 1.5.0
 
   tasks:
