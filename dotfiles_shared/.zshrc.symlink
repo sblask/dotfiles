@@ -3,22 +3,12 @@ case "$(uname -s)" in
     *)          OS=mac
 esac
 
-if [ $OS = mac ]
-then
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
-    PATH="$HOME/.bin:$PATH"
-fi
-
 autoload -Uz add-zsh-hook
 for file in ${HOME}/.config/zsh/config.d/*.zsh; do
     source "${file}"
 done
 
-if [ $OS = linux ]
+if [ "$OS" = linux ]
 then
     task minimal | boxes -d shell -p t2b2l5r5 | lolcat
 fi

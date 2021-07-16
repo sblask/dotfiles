@@ -1,10 +1,39 @@
-if [ -d "$HOME/.bin" ] ; then
+case "$(uname -s)" in
+    Linux*)     OS=linux;;
+    *)          OS=mac
+esac
+
+# use GNU utils over Mac utils
+if [ "$OS" = mac ]
+then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+fi
+
+# .bin from dotfiles
+if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
 # support tmux installed in home directory
 if [ -d "$HOME/.opt/tmux/bin" ]; then
     PATH="$HOME/.opt/tmux/bin:$PATH"
+fi
+
+# pyenv
+if [ -d "$HOME/.pyenv/bin" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    PATH="$PYENV_ROOT/bin:$PATH"
+fi
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+fi
+
+# allow machine specific modifications
+if [ -f "$HOME/.local_env" ]; then
+    . "$HOME/.local_env"
 fi
 
 # vim: filetype=sh
