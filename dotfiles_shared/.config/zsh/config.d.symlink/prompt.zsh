@@ -32,7 +32,7 @@ function __git_no_mail_warning {
 }
 
 function __history {
-    if [ $_per_directory_history_is_global == true ]; then
+    if [ "$_per_directory_history_is_global" == true ]; then
         echo "G"
     else
         echo "L"
@@ -40,7 +40,7 @@ function __history {
 }
 
 function __my_ip {
-    if [ $OS = mac ]; then
+    if [ "$OS" = mac ]; then
         ipconfig getifaddr en0
     else
         hostname --all-ip-addresses | awk '{print $1}'
