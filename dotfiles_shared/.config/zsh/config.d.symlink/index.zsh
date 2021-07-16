@@ -50,7 +50,7 @@ function __expand-indexes {
 }
 
 function expand-indexes-or-expand-or-complete {
-    local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" )
+    local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" 2>/dev/null )
     if [ "${MATCH}" != "" ]
     then
         local REPLACEMENT=$( __expand-indexes ${MATCH} )
