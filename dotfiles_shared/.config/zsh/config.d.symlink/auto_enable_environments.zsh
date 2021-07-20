@@ -1,15 +1,31 @@
-function maybe-install-requirements {
-    local VIRTUALENV_REQUIREMENTS_FILE=$1
-    if [ -f ${VIRTUALENV_REQUIREMENTS_FILE} ]; then
-        if ! python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())" 2>/dev/null; then
-            python -c "import pkg_resources; pkg_resources.require(open('${VIRTUALENV_REQUIREMENTS_FILE}').read().splitlines())"
-            echo -e "$fg[yellow]Installing requirements from ${VIRTUALENV_REQUIREMENTS_FILE}${reset_color}"
-            pip install --upgrade --requirement ${VIRTUALENV_REQUIREMENTS_FILE}
-        fi
+function __maybe-install-requirements {
+    local REQUIREMENTS_FILES=
+    REQUIREMENTS_FILES=( "$@" )
+    REQUIREMENTS_FILES=( $(__filter-existing "${REQUIREMENTS_FILES[@]}") )
+
+    local REQUIREMENTS_STRING=$(cat ${REQUIREMENTS_FILES[*]})
+    if ! python -c "import pkg_resources; pkg_resources.require(\"\"\"${REQUIREMENTS_STRING}\"\"\")" 2>/dev/null; then
+        python -c "import pkg_resources; pkg_resources.require(\"\"\"${REQUIREMENTS_STRING}\"\"\")"
+        echo -e "$fg[yellow]Installing requirements from ${REQUIREMENTS_FILES[*]}:\n${REQUIREMENTS_STRING}${reset_color}"
+        pip install --upgrade $(for filename in ${REQUIREMENTS_FILES[@]}; do echo "--requirement $filename"; done)
     fi
 }
 
+function __filter-existing {
+    local FILES=("$@")
+
+    for filename in "${FILES[@]}";
+    do
+        if [[ -f "$filename" ]]
+        then
+            echo "$filename"
+        fi
+    done
+}
+
 function auto-enable-environment {
+    SUPPORTED_REQUIREMENT_FILES=
+
     local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a) | tail -n 1)
     local CURRENT_VIRTUAL_ENV=${VIRTUAL_ENV}
 
@@ -33,9 +49,13 @@ function auto-enable-environment {
 
         echo "Activate ${GIVEN_VIRTUALENV}"
         source ${GIVEN_VIRTUALENV}/bin/activate
-        maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
-        maybe-install-requirements ${PWD}/requirements.txt
-        maybe-install-requirements ${PWD}/requirements-dev.txt
+
+        SUPPORTED_REQUIREMENT_FILES=(
+            ${HOME}/Clones/dotfiles/default_requirements.txt
+            ${PWD}/requirements.txt
+            ${PWD}/requirements-dev.txt
+        )
+        __maybe-install-requirements ${SUPPORTED_REQUIREMENT_FILES[@]}
 
     elif [ -f "${CONDA_ENV_FILE}" ]; then
         local GIVEN_CONDA_ENV=$(cat "${CONDA_ENV_FILE}")
@@ -58,7 +78,11 @@ function auto-enable-environment {
 
         echo "Activate ${GIVEN_CONDA_ENV}"
         conda activate ${GIVEN_CONDA_ENV}
-        maybe-install-requirements ${HOME}/Clones/dotfiles/default_requirements.txt
+
+        SUPPORTED_REQUIREMENT_FILES=(
+            ${HOME}/Clones/dotfiles/default_requirements.txt
+        )
+        __maybe-install-requirements ${SUPPORTED_REQUIREMENT_FILES[@]}
 
     elif [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
         deactivate
