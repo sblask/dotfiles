@@ -4,6 +4,7 @@
 
     consul_template_version: 0.26.0
     fzf_version: 0.17.5
+    grex_version: v1.2.0
     packer_version: 1.7.3
     pup_version: 0.4.0
     terraform_version: 1.0.2
@@ -53,6 +54,12 @@
         product: fzf
         url: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_amd64.tgz
         version: "{{ fzf_version }}"
+
+    - include: includes/zipped_executable.yml
+      vars:
+        product: grex
+        url: https://github.com/pemistahl/grex/releases/download/{{ grex_version }}/grex-{{ grex_version }}-{{ "x86_64-apple-darwin" if os == "darwin" else "unknown-linux-musl" }}.tar.gz
+        version: "{{ grex_version }}"
 
 
     - include: includes/zipped_executable.yml
