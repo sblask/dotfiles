@@ -20,13 +20,7 @@ GIT_BRANCH_REGEXP = re.compile(
 )
 GIT_STATUS_SUBMODULE_STATUS_REGEXP = re.compile(
     r'(?P<line>.+)'
-    r'(?P<rest>'
-    r'( \(untracked content\))'
-    r'|'
-    r'( \(modified content\))'
-    r'|'
-    r'( \(new commits\))'
-    r')'
+    r'(?P<rest> \((untracked|modified|new) .+\))'
 )
 GIT_STATUS_REGEXP = re.compile(
     r'(?P<prefix>\t(\x1b[^m]+m)?([^:]+: +)?)'
