@@ -23,6 +23,9 @@
         package_name: httpie
         executable_name: http
       -
+        package_name: systemdlint
+        executable_name: systemdlint
+      -
         package_name: tldr
         executable_name: tldr
       -
