@@ -76,6 +76,26 @@
         version: "{{ pup_version }}"
 
 
+    - name: Check for RVM installation
+      stat:
+        path: "{{ target_directory }}/.rvm"
+      register: rvm_directory
+    - name: Get RVM GPG key
+      command: gpg2 --recv-keys 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+      when: not rvm_directory.stat.exists
+    - name: Download RVM installer
+      get_url:
+        url: https://get.rvm.io
+        dest: /tmp/rvm-installer
+        mode: 0700
+      when: not rvm_directory.stat.exists
+    - name: Install RVM
+      command: /tmp/rvm-installer --path {{ target_directory }}/.rvm --ruby --ignore-dotfiles
+      args:
+        creates: "{{ target_directory }}/.rvm"
+      when: not rvm_directory.stat.exists
+
+
     - include: includes/zipped_executable.yml
       vars:
         product: terraform
