@@ -46,15 +46,23 @@ def base64_encode():
     vim.current.buffer[:] = [base64_string]
 
 
+BASE64URL_TO_BASE64 = {
+    ord("-"): "+",
+    ord("_"): "/",
+}
+
+
 def base64_decode():
     import base64
 
     import vim  # pylint: disable=import-error
 
-    base64_string = "".join(vim.current.buffer[:])
+    base64url_string = "".join(vim.current.buffer[:])
 
-    base64_bytes = base64_string.encode("utf8")
-    output_bytes = base64.b64decode(base64_bytes)
+    # sometimes padding is stripped away in base64url
+    padding = "=" * (4 - len(base64url_string) % 4)
+    base64_string = base64url_string.translate(BASE64URL_TO_BASE64) + padding
+    output_bytes = base64.b64decode(base64_string)
     output_string = output_bytes.decode("utf8")
 
     vim.current.buffer[:] = output_string.splitlines()
