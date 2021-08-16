@@ -150,10 +150,6 @@ augroup END
 
 cnoreabbrev tb TagbarToggle
 
-if has('python3')
-    let g:vim_isort_python_version = 'python3'
-endif
-
 let g:VM_maps = {}
 let g:VM_maps['Align'] = '<leader>a'
 let g:VM_maps['Skip Region'] = '<c-s>'
