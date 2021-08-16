@@ -84,10 +84,10 @@ function auto-enable-environment {
         )
         __maybe-install-requirements ${SUPPORTED_REQUIREMENT_FILES[@]}
 
-    elif [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
+    elif [[ "${CURRENT_VIRTUAL_ENV}" == */.venv ]]; then
         deactivate
 
-    elif [ "${CURRENT_CONDA_ENV}" != "" ]; then
+    elif [[ "${CURRENT_CONDA_ENV}" == */.conda_env ]]; then
         conda deactivate
     fi
 }
