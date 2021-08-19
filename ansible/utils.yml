@@ -3,11 +3,12 @@
   vars:
 
     consul_template_version: 0.26.0
+    editor_config_checker_version: 2.3.5
     fzf_version: 0.17.5
     grex_version: v1.2.0
     packer_version: 1.7.3
     pup_version: 0.4.0
-    terraform_version: 1.0.2
+    terraform_version: 1.0.5
     tflint_version: 0.31.0
     vault_version: 1.5.0
 
@@ -19,6 +20,14 @@
         url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_amd64.zip
         version: "{{ consul_template_version }}"
 
+
+    - include: includes/zipped_executable.yml
+      vars:
+        product: ec
+        zipped_binary_path: bin/ec-{{ os }}-amd64
+        url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-amd64.tar.gz
+        version: "{{ editor_config_checker_version }}"
+# https://github.com/editorconfig-checker/editorconfig-checker/releases/download/2.3.5/ec-darwin-amd64.tar.gz
 
     - name: Check for hub
       stat:

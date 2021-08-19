@@ -5,18 +5,19 @@
 - name: Add {{ product | title }}
   block:
 
-    - name: Get {{ product | title }}
+    - name: Download {{ product | title }}
       get_url:
         url: "{{ url }}"
         dest: "/tmp/{{ product }}{{ version }}.zip"
+      register: download
     - name: Unpack {{ product | title }}
       unarchive:
-        src: "/tmp/{{ product }}{{ version }}.zip"
+        src: "{{ download.dest }}"
         dest: /tmp/
         remote_src: yes
     - name: Copy {{ product | title }}
       copy:
-        src: /tmp/{{ product }}
+        src: /tmp/{{ zipped_binary_path | default(product) }}
         dest: "{{ target_directory }}/.bin/{{ product }}_{{ version | regex_replace('\\.', '_') }}"
         mode: 0755
         remote_src: yes
