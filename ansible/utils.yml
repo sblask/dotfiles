@@ -67,7 +67,7 @@
     - include: includes/zipped_executable.yml
       vars:
         product: grex
-        url: https://github.com/pemistahl/grex/releases/download/{{ grex_version }}/grex-{{ grex_version }}-{{ "x86_64-apple-darwin" if os == "darwin" else "unknown-linux-musl" }}.tar.gz
+        url: https://github.com/pemistahl/grex/releases/download/{{ grex_version }}/grex-{{ grex_version }}-x86_64-{{ "apple-darwin" if os == "darwin" else "unknown-linux-musl" }}.tar.gz
         version: "{{ grex_version }}"
 
 
