@@ -11,6 +11,5 @@ install:
   - pip install pathlib
   - pip install typing
 script:
-  - vint dotfiles_shared/.vimrc*
-  - yamllint --config-file dotfiles_shared/.config/yamllint/config.symlink .
+  - pre-commit run --all-files
   - ./run_tests.sh

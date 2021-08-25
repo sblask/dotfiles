@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line -->
 [![Build Status](https://travis-ci.org/sblask/dotfiles.svg?branch=master)](https://travis-ci.org/sblask/dotfiles)
 
 My Dotfiles

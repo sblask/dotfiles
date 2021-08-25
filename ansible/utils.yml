@@ -27,7 +27,6 @@
         zipped_binary_path: bin/ec-{{ os }}-amd64
         url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-amd64.tar.gz
         version: "{{ editor_config_checker_version }}"
-# https://github.com/editorconfig-checker/editorconfig-checker/releases/download/2.3.5/ec-darwin-amd64.tar.gz
 
     - name: Check for hub
       stat:

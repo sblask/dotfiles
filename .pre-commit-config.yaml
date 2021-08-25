@@ -1,0 +1,24 @@
+repos:
+
+  - repo: git://github.com/igorshubovych/markdownlint-cli
+    rev: v0.27.1
+    hooks:
+      - id: markdownlint
+
+  - repo: local
+    hooks:
+      - id: vint
+        name: Vint Vim script linting
+        description: Lints all vim files
+        language: system
+        entry: vint
+        files: dotfiles_shared/(.vimrc.symlink|.vimrc.d.symlink/.*\.vim)
+
+  - repo: local
+    hooks:
+      - id: yamllint
+        name: yamllint
+        description: This hook runs yamllint.
+        entry: yamllint --strict --config-file dotfiles_shared/.config/yamllint/config.symlink
+        language: system
+        types: [file, yaml]
