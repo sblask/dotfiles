@@ -5,17 +5,17 @@ current_directory=$PWD
 for directory in $(find ~/Clones -mindepth 1 -maxdepth 1 -type d -name "[a-zA-Z]*" | sort)
     do
         echo "\033[1;33m${directory}\033[0m"
-        cd ${directory}
+        cd "${directory}" || exit
         git -c color.status=always status \
             | grep --color=never -v '^$' \
             | grep --color=never -v "#$" \
             | grep --color=never -v "Your branch is up to date with" \
             | grep --color=never -v "Your branch is up-to-date with" \
             | grep --color=never -v --extended-regexp "On branch .*develop" \
+            | grep --color=never -v --extended-regexp "On branch .*main" \
             | grep --color=never -v --extended-regexp "On branch .*master" \
             | grep --color=never -v "nothing to commit" \
 
     done
 
-cd $current_directory
-
+cd "${current_directory}" || exit
