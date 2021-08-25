@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-[![Build Status](https://travis-ci.org/sblask/dotfiles.svg?branch=master)](https://travis-ci.org/sblask/dotfiles)
+[![Build Status](https://app.travis-ci.com/sblask/dotfiles.svg?branch=main)](https://app.travis-ci.com/sblask/dotfiles)
 
 My Dotfiles
 ===========
