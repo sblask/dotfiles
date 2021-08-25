@@ -5,6 +5,6 @@ jedi==0.18.0
 neovim==0.3.1
 pip==21.2.2
 pycodestyle==2.7.0
-pylint==2.9.6
+pylint==2.10.2
 python-dateutil==2.8.2
 wheel==0.37.0
