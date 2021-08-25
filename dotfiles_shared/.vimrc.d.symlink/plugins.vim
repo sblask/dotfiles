@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'stefandtw/quickfix-reflector.vim'
     Plug 'suy/vim-context-commentstring'
     Plug 'tmux-plugins/vim-tmux'
-    Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fireplace'
