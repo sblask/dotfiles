@@ -8,7 +8,7 @@
     - name: Download {{ product | title }}
       get_url:
         url: "{{ url }}"
-        dest: "/tmp/{{ product }}{{ version }}.zip"
+        dest: /tmp/{{ product }}{{ version }}.zip
       register: download
     - name: Unpack {{ product | title }}
       unarchive:

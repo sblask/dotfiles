@@ -1,5 +1,3 @@
----
-
 extends: default  # https://yamllint.readthedocs.io/en/latest/configuration.html
 
 rules:
@@ -8,5 +6,8 @@ rules:
     indent-sequences: consistent
   line-length: disable
   truthy: disable
+  quoted-strings:
+    quote-type: double
+    required: only-when-needed
 ignore: |
   .venv

@@ -35,7 +35,7 @@
     - name: Get hub
       get_url:
         url: https://github.com/github/hub/releases/download/v{{ version }}/hub-{{ os }}-amd64-{{ version }}.tgz
-        dest: "/tmp/hub.tgz"
+        dest: /tmp/hub.tgz
       vars:
         version: 2.10.0
       when: not hub_stat_result.stat.exists
