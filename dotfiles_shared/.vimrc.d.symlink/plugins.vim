@@ -1,10 +1,5 @@
 scriptencoding utf-8
 
-let g:polyglot_disabled = [
-\    'jinja',
-\    'tmux',
-\ ]
-
 call plug#begin('~/.vim/plugged')
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
