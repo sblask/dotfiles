@@ -89,7 +89,7 @@
         path: "{{ target_directory }}/.rvm"
       register: rvm_directory
     - name: Get RVM GPG key
-      command: gpg2 --recv-keys 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+      command: gpg2 --keyserver keyserver.ubuntu.com --recv-keys 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
       when: not rvm_directory.stat.exists
     - name: Download RVM installer
       get_url:
