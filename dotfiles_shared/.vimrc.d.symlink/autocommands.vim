@@ -6,6 +6,8 @@ augroup autocommands
     autocmd VimEnter     *                 normal ]c[c
     " update diff on save
     autocmd BufWritePost *                 if &diff | diffupdate | endif
+    " do not fold on autoread
+    autocmd FocusGained  *                 if &diff | set nofoldenable | endif
     " reload .vimrc automatically
     autocmd BufWritePost .vimrc.d/*        source %
     autocmd BufWritePost vimrc.d.dotfile/* source %
