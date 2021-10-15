@@ -9,7 +9,7 @@
     packer_version: 1.7.3
     pup_version: 0.4.0
     terraform_version: 1.0.8
-    tflint_version: 0.31.0
+    tflint_version: 0.33.0
     vault_version: 1.5.0
 
   tasks:
