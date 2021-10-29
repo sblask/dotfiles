@@ -4,6 +4,7 @@ alias glog='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-
 alias ga='git add'
 alias gap='git add --patch'
 alias gash='git stash --include-untracked --keep-index'
+alias gashd='git stash show --patch'
 alias gashl='git stash list'
 alias gc='git commit'
 alias gcd='cd $( echo (../)#.git(:a:h) | awk '\''{print $NF}'\'' )'
