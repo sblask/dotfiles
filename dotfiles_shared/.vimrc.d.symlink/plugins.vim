@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
     Plug 'triglav/vim-visual-increment'
+    Plug 'tyru/open-browser.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -120,7 +121,10 @@ let g:vim_markdown_fenced_languages = [
 
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
+let g:netrw_nogx = 1 " disable gx mapping
 
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 let g:python_highlight_space_errors = 0
 
