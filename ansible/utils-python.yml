@@ -18,6 +18,9 @@
         package_name: awscli
         executable_name: aws
       -
+        package_name: checkov
+        executable_name: checkov
+      -
         package_name: docker-compose
         executable_name: docker-compose
       -

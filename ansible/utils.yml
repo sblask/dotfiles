@@ -9,7 +9,9 @@
     packer_version: 1.7.3
     pup_version: 0.4.0
     terraform_version: 1.0.8
+    terrascan_version: 1.12.0
     tflint_version: 0.33.0
+    tfsec_version: 0.58.15
     vault_version: 1.5.0
 
   tasks:
@@ -110,12 +112,28 @@
         url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_amd64.zip
         version: "{{ terraform_version }}"
 
+    - include: includes/zipped_executable.yml
+      vars:
+        product: terrascan
+        url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_x86_64.tar.gz
+        version: "{{ terrascan_version }}"
 
     - include: includes/zipped_executable.yml
       vars:
         product: tflint
         url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_amd64.zip
         version: "{{ tflint_version }}"
+
+    - name: Get tfsec
+      get_url:
+        url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-amd64
+        dest: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
+        mode: 0755
+    - name: Link tfsec
+      file:
+        src: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
+        dest: "{{ target_directory }}/.bin/tfsec"
+        state: link
 
 
     - include: includes/zipped_executable.yml
