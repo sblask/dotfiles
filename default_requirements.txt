@@ -1,4 +1,4 @@
-black==21.9b0
+black==21.10b0
 ipython==7.25.0
 isort==5.10.1
 jedi==0.18.0
