@@ -1,5 +1,5 @@
 black==21.10b0
-ipython==7.25.0
+ipython==7.29.0
 isort==5.10.1
 jedi==0.18.0
 neovim==0.3.1
