@@ -10,6 +10,7 @@
     packer_version: 1.7.3
     pup_version: 0.4.0
     terraform_version: 1.0.8
+    terraform_ls_version: 0.24.0
     terrascan_version: 1.12.0
     tflint_version: 0.33.0
     tfsec_version: 0.58.15
@@ -116,6 +117,12 @@
       vars:
         product: terraform
         url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_amd64.zip
+        version: "{{ terraform_version }}"
+
+    - include: includes/zipped_executable.yml
+      vars:
+        product: terraform-ls
+        url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_amd64.zip
         version: "{{ terraform_version }}"
 
     - include: includes/zipped_executable.yml
