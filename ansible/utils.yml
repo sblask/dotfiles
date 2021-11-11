@@ -9,7 +9,7 @@
     grex_version: v1.2.0
     packer_version: 1.7.3
     pup_version: 0.4.0
-    terraform_version: 1.0.8
+    terraform_version: 1.0.11
     terraform_ls_version: 0.24.0
     terrascan_version: 1.12.0
     tflint_version: 0.33.0
