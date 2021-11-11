@@ -6,7 +6,8 @@
       -
         package_name: ansible-lint
         executable_name: ansible-lint
-        additional_packages: ansible ansible-core==2.11.4
+        additional_packages:
+          - ansible ansible-core==2.11.4
       -
         package_name: aws-console
         executable_name: aws-console
@@ -39,6 +40,12 @@
         package_name: pre-commit
         executable_name: pre-commit
       -
+        package_name: python-lsp-server
+        executable_name: pylsp
+        additional_packages:
+          - pyls-isort
+          - python-lsp-black
+      -
         package_name: unimatrix
         executable_name: unimatrix
         install_url: git+https://github.com/will8211/unimatrix.git
@@ -64,7 +71,7 @@
       shell: |
         python3 -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install -U pip && \
-        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }} {{ item.get("additional_packages", "") }}
+        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }} {{ item.get("additional_packages", []) | join(" ") }}
       args:
         creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
       with_items: "{{ packages }}"

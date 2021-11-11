@@ -9,12 +9,10 @@ command! -range SortWhitespaceSeparated <line1>,<line2>python3 apply_on_one_line
 
 command! Base64Decode % python3 base64_decode()
 command! Base64Encode % python3 base64_encode()
-command! Black ALEFix
 command! DictToJson % python3 dict_to_json()
 command! FoldDisable set nofoldenable | set foldcolumn=0
 command! FoldEnable set foldenable | set foldcolumn=3
 command! IgnoreWhitespace set diffopt+=iwhite
-command! Isort ALEFix
 command! JsonFormat % !json-format
 command! JsonFormatSorted % !json-format --sorted
 command! JsonToDict % !python -c "import json; import sys; asDict = json.load(sys.stdin); print(asDict)"
