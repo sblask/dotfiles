@@ -13,7 +13,7 @@ alias vimpager="vim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 
 # apt-get
 alias aptgrep='dpkg -l | grep'
 alias autoremove='sudo apt-get autoremove --purge'
-alias install='sudo apt-get install'
+alias aptstall='sudo apt-get install'
 alias policy='apt-cache policy'
 alias uninstall='sudo apt-get purge'
 # virtualenvwrapper stuff
