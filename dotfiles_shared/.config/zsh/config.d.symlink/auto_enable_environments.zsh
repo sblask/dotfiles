@@ -50,8 +50,13 @@ function auto-enable-environment {
         echo "Activate ${GIVEN_VIRTUALENV}"
         source ${GIVEN_VIRTUALENV}/bin/activate
 
+        ESSENTIAL_REQUIREMENT_FILES=(
+            ${HOME}/Clones/dotfiles/requirements-essential.txt
+        )
+        __maybe-install-requirements ${ESSENTIAL_REQUIREMENT_FILES[@]}
+
         SUPPORTED_REQUIREMENT_FILES=(
-            ${HOME}/Clones/dotfiles/default_requirements.txt
+            ${HOME}/Clones/dotfiles/requirements-default.txt
             ${PWD}/requirements.txt
             ${PWD}/requirements-dev.txt
         )
