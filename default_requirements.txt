@@ -1,7 +1,7 @@
 black==21.10b0
 ipython==7.25.0
 isort==5.10.1
-jedi==0.18.0
+jedi==0.18.1
 neovim==0.3.1
 pip==21.3.1
 pycodestyle==2.8.0
