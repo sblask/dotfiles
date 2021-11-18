@@ -69,7 +69,7 @@
 
     - name: Install Python utils
       shell: |
-        python3 -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
+        python3.9 -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install -U pip && \
         {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }} {{ item.get("additional_packages", []) | join(" ") }}
       args:
