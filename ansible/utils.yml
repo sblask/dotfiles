@@ -13,7 +13,7 @@
     terraform_ls_version: 0.24.0
     terrascan_version: 1.12.0
     tflint_version: 0.33.0
-    tfsec_version: 0.58.15
+    tfsec_version: 0.60.1
     vault_version: 1.5.0
 
   tasks:
