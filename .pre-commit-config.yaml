@@ -8,10 +8,11 @@ repos:
   - repo: local
     hooks:
       - id: vint
-        name: Vint Vim script linting
-        description: Lints all vim files
-        language: system
+        name: vint
         entry: vint
+        language: python
+        additional_dependencies:
+          - vim-vint
         files: dotfiles_shared/(.vimrc.symlink|.vimrc.d.symlink/.*\.vim)
 
   - repo: local
