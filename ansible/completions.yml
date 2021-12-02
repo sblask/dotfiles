@@ -10,6 +10,7 @@
       file:
         path: "{{ zsh_completion_directory }}"
         state: directory
+        mode: 0755
 
     - name: Install ZSH completions
       get_url:

@@ -1,5 +1,16 @@
 repos:
 
+  - repo: local
+    hooks:
+      - id: ansible-lint
+        name: ansible-lint
+        entry: ansible-lint --force-color
+        language: python
+        additional_dependencies:
+          - ansible
+          - ansible-lint
+        files: ansible/[^/]+\.yml
+
   - repo: git://github.com/igorshubovych/markdownlint-cli
     rev: v0.27.1
     hooks:

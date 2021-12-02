@@ -10,14 +10,15 @@
       find:
         patterns: "*.symlink"
         paths: "{{ dotfiles_path }}"
-        recurse: yes
+        recurse: true
         file_type: any
-        hidden: yes
+        hidden: true
       register: files_to_symlink
     - name: Ensure directories for symlinks
       file:
         path: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').rsplit('/', 1)[0] }}"
         state: directory
+        mode: 0755
       with_items: "{{ files_to_symlink.files }}"
     - name: Create symlinks
       file:

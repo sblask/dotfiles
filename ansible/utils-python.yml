@@ -65,6 +65,7 @@
       file:
         path: "{{ target_directory }}/.opt"
         state: directory
+        mode: 0755
 
 
     - name: Install Python utils
@@ -80,12 +81,14 @@
         dest: "{{ target_directory }}/.bin/{{ item.executable_name }}"
         src: "{{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }}"
         state: link
+        mode: 0644
       with_items: "{{ packages }}"
 
     - name: Ensure directory for Bash completions
       file:
         path: "{{ bash_completion_directory }}"
         state: directory
+        mode: 0755
 
     - name: Install aws completions part one
       file:

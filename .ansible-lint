@@ -1,0 +1,8 @@
+skip_list:
+  - git-latest
+  - no-handler
+  - package-latest
+  - yaml
+
+kinds:
+  - playbook: "**/ansible/*.yml"

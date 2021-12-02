@@ -10,13 +10,14 @@
       git:
         repo: https://github.com/tmux-plugins/tpm
         dest: "{{ target_directory }}/.tmux/plugins/tpm"
-        update: no
+        update: false
 
 
     - name: Ensure directory for Vim plugin manager
       file:
         path: "{{ target_directory }}/.vim/autoload"
         state: directory
+        mode: 0755
     - name: Install Vim plugin manager
       get_url:
         url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -32,13 +33,14 @@
       file:
         path: "{{ zsh_plugin_directory }}"
         state: directory
+        mode: 0755
 
 
     - name: Install ZSH base16 plugin
       git:
         repo: https://github.com/chriskempson/base16-shell
         dest: "{{ zsh_plugin_directory }}/base16-shell"
-        update: no
+        update: false
       register: base16
     - name: Patch base16 plugin
       patch:
@@ -63,7 +65,7 @@
       git:
         repo: https://github.com/zsh-git-prompt/zsh-git-prompt
         dest: "{{ zsh_plugin_directory }}/zsh-git-prompt"
-        update: no
+        update: false
       register: git_prompt_plugin
     - name: Create link with right naming for ZSH git prompt plugin
       file:
@@ -82,13 +84,13 @@
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
         dest: "{{ zsh_plugin_directory }}/zsh-syntax-highlighting"
-        update: no
+        update: false
 
 
     - name: Install ZSH system clipboard plugin
       git:
         repo: https://github.com/kutsan/zsh-system-clipboard.git
         dest: "{{ zsh_plugin_directory }}/zsh-system-clipboard"
-        update: no
+        update: false
 
 # vim: syntax=ansible
