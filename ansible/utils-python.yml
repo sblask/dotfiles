@@ -3,61 +3,22 @@
   vars:
     bash_completion_directory: "{{ target_directory }}/.config/zsh/bash_completions.d"
     packages:
-      -
-        package_name: ansible-lint
-        executable_name: ansible-lint
-        additional_packages:
-          - ansible ansible-core==2.11.4
-      -
-        package_name: aws-console
-        executable_name: aws-console
-        install_url: git+https://github.com/sblask/aws-console.git
-      -
-        package_name: aws-sam-cli
-        executable_name: sam
-      -
-        package_name: awscli
-        executable_name: aws
-      -
-        package_name: checkov
-        executable_name: checkov
-      -
-        package_name: docker-compose
-        executable_name: docker-compose
-      -
-        package_name: grip
-        executable_name: grip
-      -
-        package_name: httpie
-        executable_name: http
-      -
-        package_name: systemdlint
-        executable_name: systemdlint
-      -
-        package_name: tldr
-        executable_name: tldr
-      -
-        package_name: pre-commit
-        executable_name: pre-commit
-      -
-        package_name: python-lsp-server
-        executable_name: pylsp
-        additional_packages:
-          - pyls-isort
-          - python-lsp-black
-      -
-        package_name: unimatrix
-        executable_name: unimatrix
-        install_url: git+https://github.com/will8211/unimatrix.git
-      -
-        package_name: vulture
-        executable_name: vulture
-      -
-        package_name: yamllint
-        executable_name: yamllint
-      -
-        package_name: youtube-dl
-        executable_name: youtube-dl
+      ansible:
+        links:
+          ansible-lint: ansible-lint
+          ansible: ansible
+      httpie:
+        links:
+          httpie: http
+      aws:
+      docker-compose:
+      grip:
+      pre-commit:
+      pylsp:
+      sam:
+      systemdlint:
+      tldr:
+
 
   tasks:
 
@@ -67,22 +28,10 @@
         state: directory
         mode: 0755
 
-
-    - name: Install Python utils
-      shell: |
-        python3.9 -m venv {{ target_directory }}/.opt/{{ item.package_name }} && \
-        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install -U pip && \
-        {{ target_directory }}/.opt/{{ item.package_name }}/bin/pip install {{ item.get("install_url", item.package_name) }} {{ item.get("additional_packages", []) | join(" ") }}
-      args:
-        creates: "{{ target_directory }}/.opt/{{ item.package_name }}"
-      with_items: "{{ packages }}"
-    - name: Add link in .bin
-      file:
-        dest: "{{ target_directory }}/.bin/{{ item.executable_name }}"
-        src: "{{ target_directory }}/.opt/{{ item.package_name }}/bin/{{ item.executable_name }}"
-        state: link
-        mode: 0644
-      with_items: "{{ packages }}"
+    - include: includes/python-util.yml
+      loop: "{{ packages | dict2items }}"
+      loop_control:
+        loop_var: package
 
     - name: Ensure directory for Bash completions
       file:
@@ -93,12 +42,12 @@
     - name: Install aws completions part one
       file:
         dest: "{{ target_directory }}/.bin/aws_completer"
-        src: "{{ target_directory }}/.opt/awscli/bin/aws_completer"
+        src: "{{ target_directory }}/.opt/aws/bin/aws_completer"
         state: link
     - name: Install aws completions part two
       file:
         dest: "{{ bash_completion_directory }}/aws_zsh_completer.sh"
-        src: "{{ target_directory }}/.opt/awscli/bin/aws_zsh_completer.sh"
+        src: "{{ target_directory }}/.opt/aws/bin/aws_zsh_completer.sh"
         state: link
 
 # vim: ft=ansible.yml
