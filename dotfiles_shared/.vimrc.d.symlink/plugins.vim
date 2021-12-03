@@ -73,7 +73,6 @@ let g:ale_fixers = {
 \    'json': ['fixjson'],
 \ }
 let g:ale_linters = {
-\    'ansible': ['yamllint'],
 \    'clojure': ['clj-kondo'],
 \    'python': ['pycodestyle', 'pylint'],
 \ }
