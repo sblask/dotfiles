@@ -21,7 +21,7 @@ augroup autocommands_filetype
     autocmd FileType   html              set iskeyword+=-
     autocmd FileType   make              set iskeyword+=-
     autocmd FileType   sh                set iskeyword+=-
-    autocmd FileType   yaml              set iskeyword+=- | set iskeyword+=.
+    autocmd FileType   yaml              set iskeyword+=-
     autocmd FileType   zsh               set iskeyword+=-
     " misc
     autocmd FileType   groovy            set nospell
