@@ -73,4 +73,4 @@
         name: sebastian
         shell: /bin/zsh
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml

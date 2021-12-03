@@ -27,4 +27,4 @@
         state: link
       with_items: "{{ files_to_symlink.files }}"
 
-# vim: syntax=ansible
+# vim: ft=ansible.yaml

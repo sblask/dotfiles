@@ -39,4 +39,4 @@
         - postman
         - rectangle
 
-# vim: syntax=ansible
+# vim: ft=ansible.yaml

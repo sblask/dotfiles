@@ -11,4 +11,4 @@
         - markdownlint-cli
         - serverless
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml

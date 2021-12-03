@@ -12,4 +12,4 @@
         name: ansible
         state: latest
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml

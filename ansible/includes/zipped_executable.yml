@@ -30,4 +30,4 @@
     dest: "{{ target_directory }}/.bin/{{ product }}"
     state: link
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml

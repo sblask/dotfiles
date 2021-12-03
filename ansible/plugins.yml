@@ -93,4 +93,4 @@
         dest: "{{ zsh_plugin_directory }}/zsh-system-clipboard"
         update: false
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml

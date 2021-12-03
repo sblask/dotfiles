@@ -155,4 +155,4 @@
         url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_amd64.zip
         version: "{{ vault_version }}"
 
-# vim: syntax=ansible
+# vim: ft=ansible.yml
