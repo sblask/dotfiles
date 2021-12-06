@@ -1,1 +1,1 @@
-systemdlint==1.1.18
+systemdlint==1.2.0
