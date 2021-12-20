@@ -18,6 +18,7 @@
       sam:
       systemdlint:
       tldr:
+      yamllint:
 
 
   tasks:
