@@ -3,4 +3,4 @@ feh \
     --info "echo %N - %w:%h - %S - %u/%l"\
     --fullscreen \
     --action1 ";cp %F ~/Desktop/" \
-
+    --action2 "trash %F" \

@@ -1,4 +1,8 @@
-delete Delete
+remove
+delete
+
+action_1 C-c
+action_2 Delete
 next_img space l j
 prev_img BackSpace h k
 scroll_down Down

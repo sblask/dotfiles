@@ -43,6 +43,7 @@
         - shellcheck
         - silversearcher-ag
         - taskwarrior
+          trash-cli
         - texlive
         - texlive-lang-german
         - tmux  # use 'CTRL-B' + 'I' to install the plugins
