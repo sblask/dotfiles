@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE_NAME=$(basename "${@: -1}")
-FILE_DIRECTORY=$(dirname "${@: -1}")
+FILE_PATH=$(realpath "${@: -1}")
+FILE_DIRECTORY=$(dirname "${FILE_PATH}")
 
-/usr/bin/feh --auto-rotate --start-at "$FILE_DIRECTORY/$FILE_NAME" "$FILE_DIRECTORY"
+/usr/bin/feh --auto-rotate --edit --start-at "${FILE_PATH}" "${FILE_DIRECTORY}"
