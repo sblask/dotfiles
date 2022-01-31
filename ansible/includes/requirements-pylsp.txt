@@ -3,5 +3,5 @@ isort==5.10.1
 mypy==0.931
 pyls-isort==0.2.2
 pylsp-mypy==0.5.7
-python-lsp-black==1.0.1
+python-lsp-black==1.1.0
 python-lsp-server==1.3.3
