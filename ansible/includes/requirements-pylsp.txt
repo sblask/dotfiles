@@ -1,4 +1,4 @@
-black==21.12b0
+black==22.1.0
 isort==5.10.1
 mypy==0.931
 pyls-isort==0.2.2
