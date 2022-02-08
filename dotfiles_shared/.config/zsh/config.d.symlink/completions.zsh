@@ -1,5 +1,5 @@
 # enable completions and load more of them from files
-fpath=(${HOME}/.config/zsh/completions.d $fpath)
+fpath=(${ASDF_DIR}/completions ${HOME}/.config/zsh/completions.d $fpath)
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 for file in ${HOME}/.config/zsh/bash_completions.d/*; do

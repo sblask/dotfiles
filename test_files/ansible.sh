@@ -10,6 +10,8 @@ TARGET_DIRECTORY=/tmp/dotfiles-ansible-test
 
 mkdir ${TARGET_DIRECTORY}
 
+export ASDF_DATA_DIR=${TARGET_DIRECTORY}/.asdf/
+
 ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}"
 ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}" | tee ansible_result
 

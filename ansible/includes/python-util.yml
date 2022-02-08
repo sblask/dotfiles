@@ -1,7 +1,11 @@
 - name: "{{ package.key }}: Create virtualenv"
-  command:
-    cmd: python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
+  shell: |
+    source {{ target_directory }}/.asdf/asdf.sh
+    python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
+  args:
+    chdir: "{{ target_directory }}"  # make sure asdf config is picked up
     creates: "{{ target_directory }}/.opt/{{ package.key }}"
+    executable: /bin/bash
   environment:
     PATH: |
       {%- if "VIRTUAL_ENV" in ansible_env -%}
