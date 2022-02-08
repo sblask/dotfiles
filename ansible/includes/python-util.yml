@@ -14,7 +14,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/../requirements-essential.txt'))"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
   register: essential_requirements_check
 
 - name: "{{ package.key }}: Install essential requirements"
@@ -26,7 +26,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/includes/requirements-{{ package.key }}.txt'))"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
   register: requirements_check
 
 - name: "{{ package.key }}: Install requirements"
