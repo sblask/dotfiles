@@ -18,19 +18,19 @@
 
   tasks:
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: consul-template
         url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_amd64.zip
         version: "{{ consul_template_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: dive
         url: https://github.com/wagoodman/dive/releases/download/v{{ dive_version }}/dive_{{ dive_version }}_{{ os }}_amd64.tar.gz
         version: "{{ dive_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: ec
         zipped_binary_path: bin/ec-{{ os }}-amd64
@@ -66,27 +66,27 @@
       when: hub_download is not skipped and hub_download is success
 
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
         url: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_amd64.tgz
         version: "{{ fzf_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: grex
         url: https://github.com/pemistahl/grex/releases/download/{{ grex_version }}/grex-{{ grex_version }}-x86_64-{{ "apple-darwin" if os == "darwin" else "unknown-linux-musl" }}.tar.gz
         version: "{{ grex_version }}"
 
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: packer
         url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_amd64.zip
         version: "{{ packer_version }}"
 
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: pup
         url: https://github.com/ericchiang/pup/releases/download/v{{ pup_version }}/pup_v{{ pup_version }}_{{ os }}_amd64.zip
@@ -113,25 +113,25 @@
       when: not rvm_directory.stat.exists
 
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform
         url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_amd64.zip
         version: "{{ terraform_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
         url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_amd64.zip
         version: "{{ terraform_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: terrascan
         url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_x86_64.tar.gz
         version: "{{ terrascan_version }}"
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: tflint
         url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_amd64.zip
@@ -149,7 +149,7 @@
         state: link
 
 
-    - include: includes/zipped_executable.yml
+    - include_tasks: includes/zipped_executable.yml
       vars:
         product: vault
         url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_amd64.zip
