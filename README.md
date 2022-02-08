@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-next-line -->
-[![Build Status](https://app.travis-ci.com/sblask/dotfiles.svg?branch=main)](https://app.travis-ci.com/sblask/dotfiles)
+[![Build Status](https://github.com/sblask/dotfiles/actions/workflows/build.yml/badge.svg)](https://github.com/sblask/dotfiles/actions/workflows/build.yml)
 
 My Dotfiles
 ===========
