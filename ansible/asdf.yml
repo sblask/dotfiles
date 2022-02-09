@@ -1,0 +1,44 @@
+- hosts: all
+  tasks:
+
+    - name: Clone ASDF repository
+      git:
+        repo: https://github.com/asdf-vm/asdf.git
+        dest: "{{ target_directory }}/.asdf/"
+        version: v0.9.0
+
+    - name: Install ASDF plugins
+      shell: |
+        source {{ target_directory }}/.asdf/asdf.sh
+        asdf plugin-add {{ item }}
+      args:
+        creates: "{{ target_directory }}/.asdf/plugins/{{ item }}"
+        executable: /bin/bash
+      loop:
+        - python
+        - nodejs
+
+    - name: Get latest Python 3.9 version
+      shell: |
+        set -o pipefail
+        source {{ target_directory }}/.asdf/asdf.sh
+        asdf list-all python | grep "^3.9" | tail -n 1
+      args:
+        executable: /bin/bash
+      register: latest_python_39
+      changed_when: false
+
+    - name: Install latest Python 3.9
+      shell: |
+        source {{ target_directory }}/.asdf/asdf.sh
+        asdf install python {{ latest_python_39.stdout }}
+      args:
+        creates: "{{ target_directory }}/.asdf/shims/python3.9"
+        executable: /bin/bash
+
+    - name: Set latest Python 3.9 as global
+      lineinfile:
+        path: "{{ target_directory }}/.tool-versions"
+        create: true
+        mode: 0644
+        line: python {{ latest_python_39.stdout }}

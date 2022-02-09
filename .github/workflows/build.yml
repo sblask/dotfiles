@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: 0 0 * * 0  # weekly
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+    steps:
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        run: |-
+          sudo apt-get update
+          sudo apt-get install -y colordiff
+      - uses: actions/checkout@v2
+      - name: Install Python dependencies
+        run: |-
+          pip install --requirement requirements.txt
+          pip install ansible
+          pip install enum34
+          pip install pathlib
+          pip install typing
+      - run: pre-commit run --all-files
+      - run: ./run_tests.sh

@@ -1,7 +1,11 @@
 - name: "{{ package.key }}: Create virtualenv"
-  command:
-    cmd: python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
+  shell: |
+    source {{ target_directory }}/.asdf/asdf.sh
+    python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
+  args:
+    chdir: "{{ target_directory }}"  # make sure asdf config is picked up
     creates: "{{ target_directory }}/.opt/{{ package.key }}"
+    executable: /bin/bash
   environment:
     PATH: |
       {%- if "VIRTUAL_ENV" in ansible_env -%}
@@ -14,7 +18,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/../requirements-essential.txt'))"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
   register: essential_requirements_check
 
 - name: "{{ package.key }}: Install essential requirements"
@@ -26,7 +30,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/includes/requirements-{{ package.key }}.txt'))"
   changed_when: false
-  ignore_errors: true
+  failed_when: false
   register: requirements_check
 
 - name: "{{ package.key }}: Install requirements"

@@ -28,7 +28,7 @@
         state: directory
         mode: 0755
 
-    - include: includes/python-util.yml
+    - include_tasks: includes/python-util.yml
       loop: "{{ packages | dict2items }}"
       loop_control:
         loop_var: package
