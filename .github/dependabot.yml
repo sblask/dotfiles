@@ -8,3 +8,5 @@ updates:
     directory: /ansible/includes/
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: awscli
