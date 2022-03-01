@@ -26,15 +26,6 @@ function p {
 # complete with ~/Clones prefix
 compctl -/ -W ~/Private/ p
 
-function man {
-    if [[ "$( type "$1" )" == *builtin ]]
-    then
-        run-help "$1" | vimpager
-    else
-        command man "$@"
-    fi
-}
-
 function mcd {
     mkdir $1 && cd $1
 }
