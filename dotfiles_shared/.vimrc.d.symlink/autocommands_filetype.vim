@@ -27,6 +27,6 @@ augroup autocommands_filetype
     autocmd FileType   groovy            set nospell
     autocmd FileType   python            set foldmethod=indent
     " do something on write
-    autocmd FileType   hcl               autocmd BufWrite <buffer> execute ':%! packer fmt -'
+    autocmd FileType   hcl               autocmd BufWrite <buffer> execute ':PackerFmt'
     autocmd FileType   terraform         autocmd BufWrite <buffer> execute ':TerraformFmt'
 augroup END

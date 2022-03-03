@@ -18,6 +18,7 @@ command! JsonFormatSorted % !json-format --sorted
 command! JsonToDict % !python -c "import json; import sys; asDict = json.load(sys.stdin); print(asDict)"
 command! JsonToPrettyDict % !python -c "import json; import pprint; import sys; asDict = json.load(sys.stdin); pprint.pprint(asDict)"
 command! JsonToPrettyDictNewlines % !python -c "import json; import pprint; import sys; asDict = json.load(sys.stdin); print(pprint.pformat(asDict, indent=4).replace('{   ', '{\n').replace('[   ', '[\n').replace('}', '\n}').replace(']', '\n]').replace('\n', ',\n').replace(',,', ',').replace('[,', '[').replace('{,', '{'))"
+command! PackerFmt let b:view = winsaveview() | execute ':%! packer fmt -' | call winrestview(b:view)
 command! Q q
 command! RelativeNumber set relativenumber!
 command! SESNotificationClean % !python -c "import json; import sys; blob = sys.stdin.read(); parseable = blob.strip().split('}\n')[0].replace('\n', ''); content = json.loads(parseable)['content']; print(content.replace('=\r\n', '').replace('=3D', '=').replace('&amp;', '&').replace('\r\n', '\n'));"
