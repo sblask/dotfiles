@@ -1,6 +1,6 @@
 black==22.1.0
 isort==5.10.1
-mypy==0.940
+mypy==0.941
 pyls-isort==0.2.2
 pylsp-mypy==0.5.7
 python-lsp-black==1.1.0
