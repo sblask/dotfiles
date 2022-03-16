@@ -19,12 +19,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y colordiff
       - uses: actions/checkout@v2
-      - name: Install Python dependencies
-        run: |-
-          pip install ansible
-          pip install enum34
-          pip install pathlib
-          pip install pre-commit
-          pip install typing
+      - run: pip install ansible-core pre-commit
       - run: pre-commit run --all-files
       - run: ./run_tests.sh
