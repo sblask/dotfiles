@@ -56,4 +56,14 @@
         src: "{{ target_directory }}/.opt/aws/bin/aws_zsh_completer.sh"
         state: link
 
+    - name: Install ansible collections
+      environment:
+        ANSIBLE_COLLECTIONS_PATH: "{{ target_directory }}/.ansible/collections"
+      command: ansible-galaxy collection install {{ item }}
+      args:
+        creates: "{{ target_directory }}/.ansible/collections/ansible_collections/{{ item.replace('.', '/') }}"
+      loop:
+        - ansible.posix
+        - community.general
+
 # vim: ft=ansible.yml

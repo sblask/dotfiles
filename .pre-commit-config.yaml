@@ -7,7 +7,6 @@ repos:
         entry: ansible-lint --force-color
         language: python
         additional_dependencies:
-          - ansible
           - ansible-lint
         files: ansible/[^/]+\.yml
 
