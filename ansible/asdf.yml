@@ -43,3 +43,12 @@
         mode: 0644
         regexp: python .+
         line: python {{ latest_python_39.stdout }}
+
+    - name: Install Node
+      shell: |
+        source {{ target_directory }}/.asdf/asdf.sh
+        asdf install nodejs lts
+        asdf global nodejs lts
+      args:
+        creates: "{{ target_directory }}/.asdf/installs/nodejs/lts"
+        executable: /bin/bash
