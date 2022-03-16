@@ -13,6 +13,7 @@
       aws:
       docker-compose:
       grip:
+      pre-commit:
       pylsp:
       sam:
       systemdlint:
