@@ -17,6 +17,9 @@
       sam:
       systemdlint:
       tldr:
+      vim-vint:
+        links:
+          vint: vint
       yamllint:
 
 

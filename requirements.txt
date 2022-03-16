@@ -1,2 +1,1 @@
 pre-commit==2.17.0
-vim-vint==0.3.21
