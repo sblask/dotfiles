@@ -5,7 +5,9 @@
     packages:
       ansible:
         links:
+          ansible-galaxy: ansible-galaxy
           ansible-lint: ansible-lint
+          ansible-playbook: ansible-playbook
           ansible: ansible
       httpie:
         links:
