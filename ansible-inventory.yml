@@ -1,1 +1,5 @@
-localhost ansible_connection=local target_directory="{{ lookup('env', 'HOME') }}"
+localhost:
+  hosts:
+    localhost:
+      ansible_connection: local
+      target_directory: "{{ lookup('env', 'HOME') }}"
