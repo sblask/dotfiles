@@ -33,7 +33,7 @@
         source {{ target_directory }}/.asdf/asdf.sh
         asdf install python {{ latest_python_39.stdout }}
       args:
-        creates: "{{ target_directory }}/.asdf/shims/python3.9"
+        creates: "{{ target_directory }}/.asdf/installs/python/{{ latest_python_39.stdout }}"
         executable: /bin/bash
 
     - name: Set latest Python 3.9 as global
@@ -41,4 +41,5 @@
         path: "{{ target_directory }}/.tool-versions"
         create: true
         mode: 0644
+        regexp: python .+
         line: python {{ latest_python_39.stdout }}
