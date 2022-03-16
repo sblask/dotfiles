@@ -34,7 +34,6 @@
       loop:
         - alt-tab
         - aws-vault
-        - docker
         - firefox
         - inkscape
         - postman
