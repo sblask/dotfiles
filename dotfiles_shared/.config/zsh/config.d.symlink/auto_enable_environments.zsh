@@ -26,16 +26,22 @@ function __filter-existing {
 function auto-enable-environment {
     SUPPORTED_REQUIREMENT_FILES=
 
-    local VIRTUALENV_DIRECTORY=$(print -l (../)#.venv(N:a) | tail -n 1)
+    local VENV_DIRECTORY=$(print -l (../)#.venv(N:a) | tail -n 1)
     local CURRENT_VIRTUAL_ENV=${VIRTUAL_ENV}
 
-    local CONDA_ENV_FILE=$(print -l (../)#.conda_env(N:a) | tail -n 1)
+    local CONDA_ENV_DIRECTORY=$(print -l (../)#.conda_env(N:a) | tail -n 1)
     local CURRENT_CONDA_ENV=${CONDA_DEFAULT_ENV}
 
-    if [ -d "${VIRTUALENV_DIRECTORY}" ]; then
-        local GIVEN_VIRTUALENV=${VIRTUALENV_DIRECTORY}
+    local ENV_DIR=
+    if [ -d "${VENV_DIRECTORY}" ]; then
+        ENV_DIR=${VENV_DIRECTORY}
+    elif [ -d "${CONDA_ENV_DIRECTORY}" ]; then
+        ENV_DIR=${CONDA_ENV_DIRECTORY}
+    fi
 
-        if [ "${GIVEN_VIRTUALENV}" = "${CURRENT_VIRTUAL_ENV}" ]; then
+    if [ "${ENV_DIR}" != "" ]; then
+
+        if [ "${ENV_DIR}" = "${CURRENT_VIRTUAL_ENV}" ] || [ "${ENV_DIR}" = "${CURRENT_CONDA_ENV}" ]; then
             return
         fi
 
@@ -47,8 +53,17 @@ function auto-enable-environment {
             deactivate
         fi
 
-        echo "Activate ${GIVEN_VIRTUALENV}"
-        source ${GIVEN_VIRTUALENV}/bin/activate
+        echo "Activate ${ENV_DIR}"
+        if [[ "${ENV_DIR}" == */.venv ]]; then
+            source ${ENV_DIR}/bin/activate
+        else
+            conda activate ${ENV_DIR}
+        fi
+
+        # make sure not to install into the wrong place if activation failed
+        if [ $? -ne 0 ]; then
+            return
+        fi
 
         ESSENTIAL_REQUIREMENT_FILES=(
             ${HOME}/Clones/dotfiles/requirements-essential.txt
@@ -62,38 +77,12 @@ function auto-enable-environment {
         )
         __maybe-install-requirements ${SUPPORTED_REQUIREMENT_FILES[@]}
 
-    elif [ -f "${CONDA_ENV_FILE}" ]; then
-        local GIVEN_CONDA_ENV=$(cat "${CONDA_ENV_FILE}")
-
-        if [ "${GIVEN_CONDA_ENV}" = "" ]; then
-            return
-        fi
-
-        if [ "${GIVEN_CONDA_ENV}" = "${CURRENT_CONDA_ENV}" ]; then
-            return
-        fi
-
-        if [ "${CURRENT_CONDA_ENV}" != "" ]; then
-            conda deactivate
-        fi
-
-        if [ "${CURRENT_VIRTUAL_ENV}" != "" ]; then
-            deactivate
-        fi
-
-        echo "Activate ${GIVEN_CONDA_ENV}"
-        conda activate ${GIVEN_CONDA_ENV}
-
-        SUPPORTED_REQUIREMENT_FILES=(
-            ${HOME}/Clones/dotfiles/default_requirements.txt
-        )
-        __maybe-install-requirements ${SUPPORTED_REQUIREMENT_FILES[@]}
-
     elif [[ "${CURRENT_VIRTUAL_ENV}" == */.venv ]]; then
         deactivate
 
     elif [[ "${CURRENT_CONDA_ENV}" == */.conda_env ]]; then
         conda deactivate
+
     fi
 }
 
