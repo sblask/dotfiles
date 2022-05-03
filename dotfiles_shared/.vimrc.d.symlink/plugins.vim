@@ -110,6 +110,7 @@ let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
+let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_fenced_languages = [
 \    'bash=sh',
 \    'clojure',
