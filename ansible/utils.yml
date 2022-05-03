@@ -7,7 +7,7 @@
     editor_config_checker_version: 2.3.5
     fzf_version: 0.17.5
     grex_version: v1.2.0
-    micromamba_version: 0.22.0
+    micromamba_version: 0.23.0
     packer_version: 1.7.3
     pup_version: 0.4.0
     terraform_ls_version: 0.25.2
