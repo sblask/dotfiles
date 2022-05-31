@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
+    Plug 'inkarkat/vim-GrepCommands'
+    Plug 'inkarkat/vim-ingo-library'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mg979/vim-visual-multi'
