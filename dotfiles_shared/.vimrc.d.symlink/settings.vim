@@ -49,6 +49,9 @@ set sidescroll=1
 " splits
 set splitbelow
 set splitright
+" if quickfix list jump wants to go to a file that is already open in a split,
+" switch to that split instead of opening the file in the current split
+set switchbuf=useopen
 " no delay for esc
 set ttimeoutlen=0
 " zsh-like command completion
