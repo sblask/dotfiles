@@ -10,7 +10,7 @@
     micromamba_version: 0.23.0
     packer_version: 1.7.3
     pup_version: 0.4.0
-    terraform_ls_version: 0.25.2
+    terraform_ls_version: 0.28.0
     terraform_version: 1.2.0
     terrascan_version: 1.12.0
     tflint_version: 0.33.0
@@ -132,7 +132,7 @@
       vars:
         product: terraform-ls
         url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_amd64.zip
-        version: "{{ terraform_version }}"
+        version: "{{ terraform_ls_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
