@@ -30,3 +30,13 @@ command! WindowsToLinux :%s/$//
 command! Wrap windo set wrap
 command! YamlFormat % !python -c "import yaml; import sys; asDict = yaml.load(sys.stdin); print(yaml.dump(asDict, default_flow_style=False))"
 command! YamlToDict % !python -c "import yaml; import sys; asDict = yaml.load(sys.stdin); print(asDict)"
+
+command! Cnext try | cnext | catch /E553/ | cfirst | catch /E42/ | echohl WarningMsg | echo "Nothing in quickfix-list" | echohl None | endtry
+command! Cprev try | cprev | catch /E553/ | clast | catch /E42/ | echohl WarningMsg | echo "Nothing in quickfix-list" | echohl None | endtry
+nmap [q :Cprev<CR>
+nmap ]q :Cnext<CR>
+
+command! Lnext try | lnext | catch /E553/ | lfirst | catch /E42/ | echohl WarningMsg | echo "Nothing in location-list" | echohl None | endtry
+command! Lprev try | lprev | catch /E553/ | llast | catch /E42/ | echohl WarningMsg | echo "Nothing in location-list" | echohl None | endtry
+nmap [l :Lprev<CR>
+nmap ]l :Lnext<CR>
