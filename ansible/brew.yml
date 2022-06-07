@@ -23,6 +23,7 @@
         - node
         - oath-toolkit
         - rename
+        - ripgrep
         - shellcheck
         - terraform-docs
         - tmux
