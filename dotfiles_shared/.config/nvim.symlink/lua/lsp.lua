@@ -1,6 +1,5 @@
-" See https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+-- See https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
 
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -69,4 +68,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         update_in_insert = false,
     }
 )
-EOF
