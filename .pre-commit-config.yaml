@@ -23,7 +23,7 @@ repos:
         language: python
         additional_dependencies:
           - vim-vint
-        files: dotfiles_shared/(.vimrc.symlink|.vimrc.d.symlink/.*\.vim)
+        files: dotfiles_shared/.config/nvim.symlink/(init.vim|vim/.*\.vim)
 
   - repo: local
     hooks:

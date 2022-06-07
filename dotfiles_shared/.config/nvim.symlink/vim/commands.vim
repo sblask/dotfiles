@@ -1,5 +1,5 @@
 if has('python3')
-    py3file ~/.vimrc.d/commands.py
+    py3file ~/.config/nvim/vim/commands.py
 endif
 
 command! -nargs=? Outline VoomToggle <args>

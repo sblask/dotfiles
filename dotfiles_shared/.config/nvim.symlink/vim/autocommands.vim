@@ -8,9 +8,6 @@ augroup autocommands
     autocmd BufWritePost *                 if &diff | diffupdate | endif
     " do not fold in diff mode
     autocmd DiffUpdated  *                 if &diff | set nofoldenable | endif
-    " reload .vimrc automatically
-    autocmd BufWritePost .vimrc.d/*        source %
-    autocmd BufWritePost vimrc.d.dotfile/* source %
     " exit insert mode immediately while keeping leader and esc maps intact in
     " other modes
     autocmd InsertEnter  *                 set timeoutlen=0

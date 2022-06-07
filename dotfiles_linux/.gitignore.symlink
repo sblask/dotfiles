@@ -15,7 +15,6 @@
 .config/google-chrome/
 .config/libreoffice/
 .config/mono.addins/
-.config/nvim
 .config/pulse/
 .config/vlc
 .config/xfce4/desktop/
@@ -58,11 +57,6 @@
 .thunderbird/
 .tmux.conf
 .tmux/plugins/
-.vim/
-.vim/plugged/
-.vimrc
-.vimrc.d
-.vimrc_background
 .xscreensaver
 .xsession-errors
 .xsession-errors.old
