@@ -13,6 +13,7 @@ set completeopt=menuone,noselect
 " hopefully better diffs, see https://vimways.org/2018/the-power-of-diff/
 set diffopt=
 set diffopt+=algorithm:minimal
+set diffopt+=context:9999 " disable folding
 set diffopt+=filler
 set diffopt+=indent-heuristic
 set diffopt+=internal
@@ -22,11 +23,8 @@ set nocursorline
 set fileignorecase
 " uninterrupted line between splits
 set fillchars=vert:│
-" configure folding
-set foldlevelstart=99
-set foldmethod=syntax
-set foldminlines=5
-set foldnestmax=2
+" disable folding
+set foldmethod=manual
 set nofoldenable
 " always show statusline
 set laststatus=2

@@ -25,7 +25,6 @@ augroup autocommands_filetype
     autocmd FileType   zsh               set iskeyword+=-
     " misc
     autocmd FileType   groovy            set nospell
-    autocmd FileType   python            set foldmethod=indent
     " do something on write
     autocmd FileType   hcl               autocmd BufWrite <buffer> execute ':PackerFmt'
     autocmd FileType   terraform         autocmd BufWrite <buffer> execute ':TerraformFmt'
