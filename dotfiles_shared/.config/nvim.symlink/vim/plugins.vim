@@ -12,14 +12,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'inkarkat/vim-ingo-library'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'lewis6991/spellsitter.nvim'
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
     Plug 'nathanmsmith/nvim-ale-diagnostic'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
-    Plug 'sheerun/vim-polyglot'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'suy/vim-context-commentstring'
     Plug 'tmux-plugins/vim-tmux'
@@ -124,6 +125,9 @@ let g:python_highlight_space_errors = 0
 let g:rainbow#max_level = 32
 
 let g:sexp_enable_insert_mode_mappings = 0
+
+
+lua require('spellsitter').setup()
 
 
 let g:SuperTabDefaultCompletionType = 'context'
