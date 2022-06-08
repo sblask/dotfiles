@@ -8,7 +8,7 @@
 	prompt = false
 	trustExitCode = true
 [difftool "vimdiff2"]
-	cmd = vim -f -d \"$LOCAL\" \"$REMOTE\" -c \"1bufdo set nomodifiable\"
+	cmd = vim -f -d \"$LOCAL\" \"$REMOTE\" -c \"1bufdo set nomodifiable\" -c \"windo set nofoldenable\"
 [merge]
 	tool = vimdiff3
 [mergetool]

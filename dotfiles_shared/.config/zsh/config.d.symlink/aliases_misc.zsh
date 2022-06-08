@@ -35,7 +35,7 @@ alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
 alias tophead='top -b -n1 | head -n 5'
 alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
-alias vimdiff='nvim -d'
+alias vimdiff='nvim -d -c "windo set nofoldenable"'
 alias virtualenv3='python3 -m venv'
 alias virtualenv37='python3.7 -m venv'
 
