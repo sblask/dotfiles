@@ -76,55 +76,17 @@ let g:ale_sign_warning = '✗'
 
 call camelcasemotion#CreateMotionMappings('<leader>')
 
-let g:clojure_fuzzy_indent_patterns = [
-\    '^def',
-\    '^div',
-\    '^let',
-\    '^with',
-\ ]
 
 let g:fzf_nvim_statusline = 0
-
-let g:ctrlp_by_filename = 1
-let g:ctrlp_extensions = []
-let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files --cached --others --exclude-standard | xargs ls -d 2>/dev/null']
-
-let g:ctrlp_prompt_mappings = {
-\    'PrtSelectMove("j")':   ['<s-tab>', '<down>'],
-\    'PrtSelectMove("k")':   ['<tab>', '<up>'],
-\    'ToggleFocus()':        [],
-\    'PrtExpandDir()':       [],
-\ }
-
-
-let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
-
-
-let g:jedi#popup_on_dot = 0
-let g:jedi#use_tabs_not_buffers = 0
-
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_fenced_languages = [
-\    'bash=sh',
-\    'clojure',
-\    'python',
-\    'sh',
-\ ]
 
 
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
 let g:netrw_nogx = 1 " disable gx mapping
 
+
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-
-let g:python_highlight_space_errors = 0
-
-let g:rainbow#max_level = 32
-
-let g:sexp_enable_insert_mode_mappings = 0
 
 
 lua require('spellsitter').setup()
@@ -141,7 +103,6 @@ augroup supertab-chaining
                 \ endif
 augroup END
 
-cnoreabbrev tb TagbarToggle
 
 let g:VM_maps = {}
 let g:VM_maps['Align'] = '<leader>a'
