@@ -63,9 +63,6 @@ let g:airline_section_z = '%l/%L : %c'
 
 let g:ale_disable_lsp = 1
 let g:ale_echo_msg_format = '[%linter%] %s (%code%) [%severity%]'
-let g:ale_fixers = {
-\    'json': ['fixjson'],
-\ }
 let g:ale_linters = {
 \    'clojure': ['clj-kondo'],
 \    'python': ['pycodestyle', 'pylint'],

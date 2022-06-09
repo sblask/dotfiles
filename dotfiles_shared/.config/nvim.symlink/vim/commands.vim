@@ -20,6 +20,7 @@ function! RunWithErrorHandling(command) abort
   call winrestview(view)
 endfunction
 
+command! JsonFix          call RunWithErrorHandling('% ! fixjson')
 command! JsonFormat       call RunWithErrorHandling('% ! json-format')
 command! JsonFormatSorted call RunWithErrorHandling('% ! json-format --sorted')
 command! JsonToDict       call RunWithErrorHandling('% ! python -c "import json; import sys; as_dict = json.load(sys.stdin); print(as_dict)"')
