@@ -43,6 +43,7 @@ command! IgnoreWhitespaceOff set diffopt-=iwhite
 command! IgnoreWhitespaceOn  set diffopt+=iwhite
 command! RelativeNumber      set relativenumber!
 
+command! ReloadConfig source $MYVIMRC
 command! SudoWrite w !sudo tee % > /dev/null
 command! Todo Gcd | Ack! "TODO|FIXME"
 command! WindowsToLinux :%s/$//
