@@ -26,6 +26,6 @@ augroup autocommands_filetype
     " misc
     autocmd FileType   groovy            set nospell
     " do something on write
-    autocmd FileType   hcl               autocmd BufWrite <buffer> execute 'normal mZHmY' | execute ':%! packer fmt -' | execute 'normal `Yzt`Z'
-    autocmd FileType   terraform         autocmd BufWrite <buffer> execute 'normal mZHmY' | execute ':%! terraform fmt -' | execute 'normal `Yzt`Z'
+    autocmd FileType   hcl               autocmd BufWrite <buffer> PackerFmt
+    autocmd FileType   terraform         autocmd BufWrite <buffer> TerraformFmt
 augroup END
