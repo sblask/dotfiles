@@ -9,6 +9,7 @@
       get_url:
         url: "{{ url }}"
         dest: /tmp/{{ product }}{{ version }}.zip
+        mode: 0644
       register: download
     - name: Unpack {{ product | title }}
       unarchive:

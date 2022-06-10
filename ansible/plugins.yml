@@ -22,6 +22,7 @@
       get_url:
         url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         dest: "{{ target_directory }}/.config/nvim/autoload/plug.vim"
+        mode: 0644
     - name: Install Vim plugins
       shell: |
         vim -c 'PlugUpdate' -c 'qall'
@@ -60,6 +61,7 @@
       get_url:
         url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh
         dest: "{{ zsh_plugin_directory }}/fzf.plugin.zsh"
+        mode: 0644
 
 
     - name: Install ZSH git prompt plugin
@@ -79,6 +81,7 @@
       get_url:
         url: https://raw.githubusercontent.com/jimhester/per-directory-history/master/per-directory-history.zsh
         dest: "{{ zsh_plugin_directory }}/per-directory-history.plugin.zsh"
+        mode: 0644
 
 
     - name: Install ZSH syntax highlighting plugin

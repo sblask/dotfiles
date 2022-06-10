@@ -16,6 +16,7 @@
       get_url:
         url: "{{ item }}"
         dest: "{{ zsh_completion_directory }}/{{ item.split('/')[-1] }}"
+        mode: 0644
       with_items:
         - https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
         - https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose
@@ -34,6 +35,7 @@
       get_url:
         url: "{{ item.url }}"
         dest: "{{ zsh_completion_directory }}/{{ item.name }}"
+        mode: 0644
       with_items:
         - url: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
           name: _ag
