@@ -43,12 +43,10 @@
         repo: https://github.com/chriskempson/base16-shell
         dest: "{{ zsh_plugin_directory }}/base16-shell"
         update: false
-      register: base16
     - name: Patch base16 plugin
       patch:
         src: "{{ playbook_dir }}/../patches/base16-shell"
         basedir: "{{ zsh_plugin_directory }}/base16-shell"
-      when: base16.changed
 
 
     - name: Install ZSH autosuggestions plugin
