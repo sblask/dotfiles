@@ -10,5 +10,7 @@ updates:
     schedule:
       interval: daily
     ignore:
+      - dependency-name: aws-sam-cli
       - dependency-name: awscli
+      - dependency-name: boto3-stubs
     open-pull-requests-limit: 99
