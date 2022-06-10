@@ -13,7 +13,11 @@ function! RunWithErrorHandling(command) abort
 
   if v:shell_error != 0
     silent undo
-    echo join(readfile(errorOutputFile), "\n")
+    echohl ErrorMsg
+    for error in readfile(errorOutputFile)
+        echoerr error
+    endfor
+    echohl None
   endif
 
   call delete(errorOutputFile)
