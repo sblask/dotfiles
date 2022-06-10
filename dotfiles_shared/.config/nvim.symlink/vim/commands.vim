@@ -55,12 +55,21 @@ command! SudoWrite w !sudo tee % > /dev/null
 command! Todo Gcd | Ack! "TODO|FIXME"
 command! WindowsToLinux :%s/$//
 
-command! Cnext try | cnext | catch /E553/ | cfirst | catch /E42/ | echohl WarningMsg | echo "Nothing in quickfix-list" | echohl None | endtry
-command! Cprev try | cprev | catch /E553/ | clast | catch /E42/ | echohl WarningMsg | echo "Nothing in quickfix-list" | echohl None | endtry
-nmap [q :Cprev<CR>
-nmap ]q :Cnext<CR>
 
-command! Lnext try | lnext | catch /E553/ | lfirst | catch /E42/ | echohl WarningMsg | echo "Nothing in location-list" | echohl None | endtry
-command! Lprev try | lprev | catch /E553/ | llast | catch /E42/ | echohl WarningMsg | echo "Nothing in location-list" | echohl None | endtry
-nmap [l :Lprev<CR>
-nmap ]l :Lnext<CR>
+function! JumpInList(move, backup) abort
+    try
+        execute a:move
+    catch /E553/ " reached end of list
+        execute a:backup
+    catch /E42/
+        echohl WarningMsg
+        echo 'Nothing in list'
+        echohl None
+    endtry
+endfunction
+
+nmap [q :call JumpInList('cprev', 'clast')<CR>
+nmap ]q :call JumpInList('cnext', 'cfirst')<CR>
+
+nmap [l :call JumpInList('lprev', 'llast')<CR>
+nmap ]l :call JumpInList('lnext', 'lfirst')<CR>
