@@ -6,6 +6,10 @@ function! RunWithErrorHandling(command) abort
   let view = winsaveview()
   let errorOutputFile = tempname()
 
+  " fake change so undo does not jump to top of file
+  normal! ix
+  normal! "_x
+
   let shellredir_save = &shellredir
   let &shellredir = '>%s 2>' . errorOutputFile
   silent execute a:command
@@ -13,11 +17,9 @@ function! RunWithErrorHandling(command) abort
 
   if v:shell_error != 0
     silent undo
-    echohl ErrorMsg
     for error in readfile(errorOutputFile)
         echoerr error
     endfor
-    echohl None
   endif
 
   call delete(errorOutputFile)
