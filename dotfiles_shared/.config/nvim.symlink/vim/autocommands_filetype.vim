@@ -9,6 +9,7 @@ augroup autocommands_filetype
     autocmd BufRead    *.sls             set filetype=yaml
     autocmd BufNewFile *.template        set filetype=json
     autocmd BufRead    *.template        set filetype=json
+    autocmd BufRead    .ansible-lint     set filetype=yaml
     autocmd BufRead    .bash*            set filetype=sh
     autocmd BufRead    .pylintrc         set filetype=dosini
     autocmd BufRead    Buildfile         set filetype=make
