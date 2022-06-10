@@ -25,6 +25,10 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
+  context_commentstring = {
+    enable = true,
+  },
+
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -34,4 +38,18 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 
+  textobjects = {
+      select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["aa"] = "@parameter.outer",
+              ["ia"] = "@parameter.inner",
+          }
+      },
+  },
 }

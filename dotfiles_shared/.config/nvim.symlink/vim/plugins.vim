@@ -3,6 +3,7 @@ scriptencoding utf-8
 call plug#begin('~/.config/nvim/plugged')
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'bkad/CamelCaseMotion'
     Plug 'breuckelen/vim-resize'
     Plug 'dense-analysis/ale'
@@ -19,10 +20,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nathanmsmith/nvim-ale-diagnostic'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
     Plug 'shumphrey/fugitive-gitlab.vim'
-    Plug 'suy/vim-context-commentstring'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
