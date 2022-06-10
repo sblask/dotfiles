@@ -1,6 +1,7 @@
 skip_list:
   - fqcn-builtins
   - git-latest
+  - var-spacing
 
 kinds:
   - playbook: "**/ansible/*.yml"
