@@ -62,6 +62,9 @@ require'treesitter-context'.setup{
             'function',
             'method',
         },
+        terraform = {
+            'block',
+        }
     },
     mode = 'topline',
 }
