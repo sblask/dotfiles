@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nathanmsmith/nvim-ale-diagnostic'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
