@@ -1,6 +1,8 @@
 alias av='deactivate 2>/dev/null; aws-vault'
 alias cal='echo -n "       Week "; week;ncal -wC'
+alias cf='clone_fetch'
 alias conda='micromamba'
+alias cs='clone_status'
 alias diff='colordiff'
 alias extensionUpdateVersion='version=$(jq --raw-output .version manifest.json) && vared -p "Current version is ${version}, specify new version: " version && jq --indent 4 ".version = \"$version\"" manifest.json | sponge manifest.json && jq --indent 4 ".version = \"$version\"" package.json | sponge package.json'
 alias less='less -K'
