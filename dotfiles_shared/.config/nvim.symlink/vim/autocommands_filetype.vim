@@ -12,6 +12,7 @@ augroup autocommands_filetype
     autocmd BufRead    .ansible-lint     set filetype=yaml
     autocmd BufRead    .bash*            set filetype=sh
     autocmd BufRead    .pylintrc         set filetype=dosini
+    autocmd BufRead    .pylintrc.symlink set filetype=dosini
     autocmd BufRead    Buildfile         set filetype=make
     autocmd BufRead    bash*.dotfile     set filetype=sh
     autocmd BufRead    gitconfig.dotfile set filetype=gitconfig
