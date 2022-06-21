@@ -56,20 +56,17 @@ command! Todo Gcd | Ack! "TODO|FIXME"
 command! WindowsToLinux :%s/$//
 
 
-function! JumpInList(move, backup) abort
-    try
-        execute a:move
-    catch /E553/ " reached end of list
-        execute a:backup
-    catch /E42/
-        echohl WarningMsg
-        echo 'Nothing in list'
-        echohl None
-    endtry
+function! JumpInList(count, isLocationList, isBackward) abort
+    if ! QuickFixCurrentNumber#Next(a:count, a:isLocationList, a:isBackward) && ! QuickFixCurrentNumber#Border(a:count, a:isLocationList, a:isBackward)
+        if ingo#err#IsSet()
+            call ingo#msg#ErrorMsg(ingo#err#Get())
+        else
+            call ingo#msg#WarningMsg('Nothing in list')
+        endif
+    endif
 endfunction
 
-nmap [q :call JumpInList('cprev', 'clast')<CR>
-nmap ]q :call JumpInList('cnext', 'cfirst')<CR>
-
-nmap [l :call JumpInList('lprev', 'llast')<CR>
-nmap ]l :call JumpInList('lnext', 'lfirst')<CR>
+nnoremap <silent> ]q :<C-u>call JumpInList(v:count1, 0, 0)<CR>
+nnoremap <silent> [q :<C-u>call JumpInList(v:count1, 0, 1)<CR>
+nnoremap <silent> ]l :<C-u>call JumpInList(v:count1, 1, 0)<CR>
+nnoremap <silent> [l :<C-u>call JumpInList(v:count1, 1, 1)<CR>

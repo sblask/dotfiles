@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'inkarkat/vim-GrepCommands'
+    Plug 'inkarkat/vim-QuickFixCurrentNumber'
     Plug 'inkarkat/vim-ingo-library'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -86,6 +87,9 @@ let g:netrw_nogx = 1 " disable gx mapping
 
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+
+let g:no_QuickFixCurrentNumber_maps = 1
 
 
 lua require('spellsitter').setup()
