@@ -17,7 +17,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
-    Plug 'nathanmsmith/nvim-ale-diagnostic'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'nvim-treesitter/nvim-treesitter-context'
