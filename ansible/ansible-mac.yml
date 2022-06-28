@@ -8,7 +8,7 @@
 - import_playbook: utils.yml
   vars:
     os: darwin
-    tar: /usr/local/bin/gtar
+    tar: /opt/homebrew/bin/gtar
 - import_playbook: utils-npm.yml
 - import_playbook: utils-python.yml
 
