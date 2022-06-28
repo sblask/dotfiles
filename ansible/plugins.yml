@@ -25,7 +25,7 @@
         mode: 0644
     - name: Install Vim plugins
       shell: |
-        vim -c 'PlugUpdate' -c 'qall'
+        nvim -c 'PlugUpdate' -c 'qall'
       args:
         creates: "{{ target_directory }}/.config/nvim/plugged/"
       when: target_directory == lookup('env', 'HOME')
