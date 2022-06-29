@@ -91,8 +91,9 @@ set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 
+# set environment with homebrew path to fix tpm
+set-environment -g PATH "/opt/homebrew/bin:/usr/local/bin:/bin:/usr/bin"
 run '~/.tmux/plugins/tpm/tpm'
 
 # this needs to be done after running tmux-yank
 unbind-key -T copy-mode-vi MouseDragEnd1Pane
-
