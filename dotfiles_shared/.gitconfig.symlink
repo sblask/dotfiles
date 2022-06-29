@@ -8,7 +8,7 @@
 	prompt = false
 	trustExitCode = true
 [difftool "vimdiff2"]
-	cmd = vim -f -d \"$LOCAL\" \"$REMOTE\" -c \"1bufdo set nomodifiable\" -c \"windo set nofoldenable\"
+	cmd = nvim -f -d \"$LOCAL\" \"$REMOTE\" -c \"1bufdo set nomodifiable\" -c \"windo set nofoldenable\"
 [merge]
 	tool = vimdiff3
 [mergetool]
@@ -16,14 +16,15 @@
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool "vimdiff3"]
-	cmd = vim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"1windo set nomodifiable | 3windo set nomodifiable\"
+	cmd = nvim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"1windo set nomodifiable | 3windo set nomodifiable\"
 [user]
 	name = Sebastian Blask
 [push]
 	default = upstream
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = sed 's/\t/    /g' | vim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
+	pager = sed 's/\t/    /g' | nvim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
+	editor = nvim
 [tag]
 	sort = version:refname
 [color "status"]

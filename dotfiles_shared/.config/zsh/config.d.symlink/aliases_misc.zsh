@@ -12,7 +12,11 @@ alias pss='ps aufx'
 alias untar='tar -xzf'
 alias week='date +%W'
 # allow vim instead of less
-alias vimpager="vim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -"
+alias vimpager="nvim -c 'set tabstop=4 nomodified nomodifiable nolist nowrap' -c 'AnsiEsc' -"
+# use nvim instead of vi/vim
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d -c "windo set nofoldenable"'
 # apt-get
 alias aptgrep='dpkg -l | grep'
 alias autoremove='sudo apt-get autoremove --purge'
@@ -37,7 +41,6 @@ alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
 alias tophead='top -b -n1 | head -n 5'
 alias topmem='top -b -n1 | tail -n +8 | sort -n -r -k 10'
-alias vimdiff='nvim -d -c "windo set nofoldenable"'
 alias virtualenv3='python3 -m venv'
 alias virtualenv37='python3.7 -m venv'
 
