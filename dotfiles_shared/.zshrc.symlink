@@ -3,6 +3,15 @@ case "$(uname -s)" in
     *)          OS=mac
 esac
 
+if [ "$OS" = linux ]
+then
+    alias gnu-grep=grep
+    alias gnu-sed=sed
+else
+    alias gnu-grep=ggrep
+    alias gnu-sed=gsed
+fi
+
 autoload -Uz add-zsh-hook
 for file in ${HOME}/.config/zsh/config.d/*.zsh; do
     source "${file}"

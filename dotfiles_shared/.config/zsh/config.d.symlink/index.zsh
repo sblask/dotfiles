@@ -5,13 +5,13 @@ function set-index-variables {
     IFS=$'\n'
 
     local index=1
-    echo $input | sed -e '0,/@@indexables@@/d' | while read -r file
+    echo $input | gnu-sed --expression '0,/@@indexables@@/d' | while read -r file
     do
         export e$index="$file"
         let index++
     done
 
-    echo $input | sed -e '/@@indexables@@/,$d' | while read -r line
+    echo $input | gnu-sed --expression '/@@indexables@@/,$d' | while read -r line
     do
         echo $line
     done
@@ -41,7 +41,7 @@ function __expand-indexes {
         local resolved_index=$( eval echo "\"\${${index_variable}}\"" )
         if [ "${resolved_index}" != "" ]
         then
-            printf "${resolved_index}" | sed --regexp-extended "s|([ '\"])|\\\\\1|g"
+            printf "${resolved_index}" | gnu-sed --regexp-extended "s|([ '\"])|\\\\\1|g"
             printf " "
         else
             printf ""
@@ -50,7 +50,7 @@ function __expand-indexes {
 }
 
 function expand-indexes-or-expand-or-complete {
-    local MATCH=$( echo ${LBUFFER} | grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" 2>/dev/null )
+    local MATCH=$( echo ${LBUFFER} | gnu-grep --perl-regexp --only-matching "(?<=^| )([0-9]+([ -][0-9]+)*)$" 2>/dev/null )
     if [ "${MATCH}" != "" ]
     then
         local REPLACEMENT=$( __expand-indexes ${MATCH} )
