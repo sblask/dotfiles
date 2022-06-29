@@ -18,6 +18,7 @@
         dest: "{{ zsh_completion_directory }}/{{ item.split('/')[-1] }}"
         mode: 0644
       with_items:
+        - https://raw.githubusercontent.com/BurntSushi/ripgrep/master/complete/_rg
         - https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
         - https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose
         - https://raw.githubusercontent.com/esc/conda-zsh-completion/master/_conda
@@ -26,6 +27,7 @@
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/taskwarrior/_task
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/terraform/_terraform
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vault/_vault
+        - https://raw.githubusercontent.com/sharkdp/fd/master/contrib/completion/_fd
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
         - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_ansible
         - https://raw.githubusercontent.com/zsh-users/zsh/master/Completion/Unix/Command/_gem
