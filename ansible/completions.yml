@@ -39,8 +39,6 @@
         dest: "{{ zsh_completion_directory }}/{{ item.name }}"
         mode: 0644
       with_items:
-        - url: https://raw.githubusercontent.com/ggreer/the_silver_searcher/master/_the_silver_searcher
-          name: _ag
         - url: https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
           name: _hub
 
