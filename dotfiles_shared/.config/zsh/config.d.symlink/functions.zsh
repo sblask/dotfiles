@@ -1,30 +1,16 @@
 function c {
     local query=$(echo "$1" | sed 's|/$||')
-    local subdirectory
     if [[ "$query" == "" ]]
     then
-        subdirectory=""
+        cd ~/Code
     else
-        subdirectory=$(ls ~/Clones/ | grep "$query" | head --lines 1)
+        local directory
+        directory=$(find ~/Code -mindepth 2 -maxdepth 2 -type d | grep "$query" | head --lines 1)
+        cd ${directory}
     fi
-    cd ~/Clones/${subdirectory}
 }
-# complete with ~/Clones prefix
-compctl -/ -W ~/Clones/ c
-
-function p {
-    local query=$(echo "$1" | sed 's|/$||')
-    local subdirectory
-    if [[ "$query" == "" ]]
-    then
-        subdirectory=""
-    else
-        subdirectory=$(ls ~/Private/ | grep "$query" | head --lines 1)
-    fi
-    cd ~/Private/${subdirectory}
-}
-# complete with ~/Clones prefix
-compctl -/ -W ~/Private/ p
+# complete with ~/Code prefix
+compctl -/ -W ~/Code/ c
 
 function mcd {
     mkdir $1 && cd $1

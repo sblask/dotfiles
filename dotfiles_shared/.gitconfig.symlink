@@ -37,3 +37,7 @@
 [filter "clean_ipynb"]
 	clean = jq --indent 1 '.cells |= map(if .execution_count? then .execution_count = null else . end | if .outputs? then .outputs = [] else . end) | del(.metadata.version)'
 	smudge = cat
+[includeIf "gitdir:~/Code/personal/"]
+	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/Code/work/"]
+	path = ~/.gitconfig-work

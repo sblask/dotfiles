@@ -2,7 +2,7 @@
 
 current_directory=$PWD
 
-for directory in $(find ~/Clones -mindepth 1 -maxdepth 1 -type d -name "[a-zA-Z]*")
+for directory in $(find ~/Code -mindepth 2 -maxdepth 2 -type d -name "[a-zA-Z]*")
     do
         echo $directory
         cd $directory

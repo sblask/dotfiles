@@ -6,8 +6,8 @@ bind-key -r C new-window      -c "#{pane_current_path}"
 bind-key -r _ split-window -v -c "#{pane_current_path}"
 bind-key -r | split-window -h -c "#{pane_current_path}"
 
-bind-key -r d split-window -h -c ~/Clones/dotfiles/
-bind-key -r D new-window -c ~/Clones/dotfiles/
+bind-key -r d split-window -h -c ~/Code/personal/dotfiles/
+bind-key -r D new-window -c ~/Code/personal/dotfiles/
 
 bind-key -r C-S-Tab previous-window
 bind-key -r S-Tab previous-window

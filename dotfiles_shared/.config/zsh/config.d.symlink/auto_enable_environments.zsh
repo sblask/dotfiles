@@ -66,12 +66,12 @@ function auto-enable-environment {
         fi
 
         ESSENTIAL_REQUIREMENT_FILES=(
-            ${HOME}/Clones/dotfiles/requirements-essential.txt
+            ${HOME}/Code/personal/dotfiles/requirements-essential.txt
         )
         __maybe-install-requirements ${ESSENTIAL_REQUIREMENT_FILES[@]}
 
         SUPPORTED_REQUIREMENT_FILES=(
-            ${HOME}/Clones/dotfiles/requirements-default.txt
+            ${HOME}/Code/personal/dotfiles/requirements-default.txt
             ${PWD}/requirements.txt
             ${PWD}/requirements-dev.txt
         )
