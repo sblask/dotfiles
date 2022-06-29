@@ -1,17 +1,3 @@
-case "$(uname -s)" in
-    Linux*)     OS=linux;;
-    *)          OS=mac
-esac
-
-# use GNU utils over Mac utils
-if [ "$OS" = mac ]
-then
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-    PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-fi
-
 # .bin from dotfiles
 if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
@@ -25,6 +11,11 @@ fi
 # allow machine specific modifications
 if [ -f "$HOME/.local_env" ]; then
     . "$HOME/.local_env"
+fi
+
+# allow machine specific modifications
+if [ -f /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # vim: filetype=sh
