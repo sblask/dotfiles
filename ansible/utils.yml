@@ -2,43 +2,43 @@
 
   vars:
 
-    consul_template_version: 0.26.0
-    editor_config_checker_version: 2.3.5
-    fzf_version: 0.17.5
-    micromamba_version: 0.23.0
-    packer_version: 1.7.3
-    terraform_ls_version: 0.28.0
-    terraform_version: 1.2.0
-    terrascan_version: 1.12.0
-    tflint_version: 0.33.0
-    tfsec_version: 0.60.1
-    vault_version: 1.9.4
+    consul_template_version: 0.29.1
+    editor_config_checker_version: 2.5.0
+    fzf_version: 0.30.0
+    micromamba_version: 0.24.0
+    packer_version: 1.8.2
+    terraform_ls_version: 0.28.1
+    terraform_version: 1.2.4
+    terrascan_version: 1.15.2
+    tflint_version: 0.38.1
+    tfsec_version: 1.26.0
+    vault_version: 1.11.0
 
   tasks:
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: consul-template
-        url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_amd64.zip
+        url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ consul_template_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: ec
-        zipped_binary_path: bin/ec-{{ os }}-amd64
-        url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-amd64.tar.gz
+        zipped_binary_path: bin/ec-{{ os }}-{{ architecture | default('amd64') }}
+        url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-{{ architecture | default('amd64') }}.tar.gz
         version: "{{ editor_config_checker_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
-        url: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_amd64.tgz
+        url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ fzf_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: micromamba
-        url: https://micro.mamba.pm/api/micromamba/{% if os == "darwin" %}osx{% else %}linux{% endif %}-64/{{ micromamba_version }}
+        url: https://micro.mamba.pm/api/micromamba/{% if os == "darwin" %}osx{% else %}linux{% endif %}-{{ architecture | default('64') }}/{{ micromamba_version }}
         version: "{{ micromamba_version }}"
         unarchive_options:
           - --strip-components=1
@@ -46,36 +46,36 @@
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: packer
-        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_amd64.zip
+        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ packer_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform
-        url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_amd64.zip
+        url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
-        url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_amd64.zip
+        url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: terrascan
-        url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_x86_64.tar.gz
+        url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_{{ architecture | default('x86_64') }}.tar.gz
         version: "{{ terrascan_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: tflint
-        url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_amd64.zip
+        url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ tflint_version }}"
 
     - name: Get tfsec
       get_url:
-        url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-amd64
+        url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-{{ architecture | default('amd64') }}
         dest: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link tfsec
@@ -87,5 +87,5 @@
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: vault
-        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_amd64.zip
+        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ vault_version }}"

@@ -7,6 +7,7 @@
 - import_playbook: plugins.yml
 - import_playbook: utils.yml
   vars:
+    architecture: arm64
     os: darwin
     tar: /opt/homebrew/bin/gtar
 - import_playbook: utils-npm.yml
