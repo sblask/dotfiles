@@ -1,12 +1,21 @@
 function c {
     local query=$(echo "$1" | sed 's|/$||')
-    if [[ "$query" == "" ]]
+    if [[ "${query}" == "" ]]
     then
         cd ~/Code
     else
         local directory
-        directory=$(find ~/Code -mindepth 2 -maxdepth 2 -type d | grep "$query" | head --lines 1)
-        cd ${directory}
+        directory=$(find ~/Code -mindepth 2 -maxdepth 2 -type d | grep "${query}" | head --lines 1)
+
+        if [[ "${directory}" == "" ]]
+        then
+            RED='\033[0;31m'
+            NC='\033[0m'
+            printf "${RED}No match found for '${query}'${NC}\n"
+            return 1
+        else
+            cd ${directory}
+        fi
     fi
 }
 # complete with ~/Code prefix
