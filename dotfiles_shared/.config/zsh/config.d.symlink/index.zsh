@@ -144,11 +144,11 @@ function gs {
 compdef _git gs=git-status
 
 function la {
-    { __print-path-argument $@; ls -lhA --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+    { __print-path-argument $@; gnu-ls -lhA --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
 }
 compdef _ls la
 
 function ll {
-    { __print-path-argument $@; ls -lh  --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
+    { __print-path-argument $@; gnu-ls -lh  --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
 }
 compdef _ls ll
