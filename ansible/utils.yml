@@ -6,7 +6,6 @@
     dive_version: 0.10.0
     editor_config_checker_version: 2.3.5
     fzf_version: 0.17.5
-    grex_version: v1.2.0
     micromamba_version: 0.23.0
     packer_version: 1.7.3
     pup_version: 0.4.0
@@ -43,13 +42,6 @@
         product: fzf
         url: https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_amd64.tgz
         version: "{{ fzf_version }}"
-
-    - include_tasks: includes/zipped_executable.yml
-      vars:
-        product: grex
-        url: https://github.com/pemistahl/grex/releases/download/{{ grex_version }}/grex-{{ grex_version }}-x86_64-{{ "apple-darwin" if os == "darwin" else "unknown-linux-musl" }}.tar.gz
-        version: "{{ grex_version }}"
-
 
     - include_tasks: includes/zipped_executable.yml
       vars:
