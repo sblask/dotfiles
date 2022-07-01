@@ -38,36 +38,6 @@
         url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-amd64.tar.gz
         version: "{{ editor_config_checker_version }}"
 
-    - name: Check for hub
-      stat:
-        path: "{{ target_directory }}/.bin/hub"
-      register: hub_stat_result
-    - name: Get hub
-      get_url:
-        url: https://github.com/github/hub/releases/download/v{{ version }}/hub-{{ os }}-amd64-{{ version }}.tgz
-        dest: /tmp/hub.tgz
-        mode: 0644
-      vars:
-        version: 2.10.0
-      when: not hub_stat_result.stat.exists
-      register: hub_download
-    - name: Unpack hub
-      shell: |
-        {{ tar | default('tar') }} \
-        --extract \
-        --verbose \
-        --file hub.tgz \
-        --wildcards \
-        --strip-component 2 \
-        --directory {{ target_directory }}/.bin/ \
-        "*/hub"
-      args:
-        chdir: /tmp/
-        creates: "{{ target_directory }}/.bin/hub"
-        warn: false
-      when: hub_download is not skipped and hub_download is success
-
-
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
