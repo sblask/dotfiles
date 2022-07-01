@@ -8,7 +8,6 @@
     fzf_version: 0.17.5
     micromamba_version: 0.23.0
     packer_version: 1.7.3
-    pup_version: 0.4.0
     terraform_ls_version: 0.28.0
     terraform_version: 1.2.0
     terrascan_version: 1.12.0
@@ -45,25 +44,17 @@
 
     - include_tasks: includes/zipped_executable.yml
       vars:
-        product: packer
-        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_amd64.zip
-        version: "{{ packer_version }}"
-
-    - include_tasks: includes/zipped_executable.yml
-      vars:
         product: micromamba
         url: https://micro.mamba.pm/api/micromamba/{% if os == "darwin" %}osx{% else %}linux{% endif %}-64/{{ micromamba_version }}
         version: "{{ micromamba_version }}"
         unarchive_options:
           - --strip-components=1
 
-
     - include_tasks: includes/zipped_executable.yml
       vars:
-        product: pup
-        url: https://github.com/ericchiang/pup/releases/download/v{{ pup_version }}/pup_v{{ pup_version }}_{{ os }}_amd64.zip
-        version: "{{ pup_version }}"
-
+        product: packer
+        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_amd64.zip
+        version: "{{ packer_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
