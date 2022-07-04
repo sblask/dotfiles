@@ -39,8 +39,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
-cnoreabbrev ag Gcd <bar> Ack!
+let g:ackprg = 'rg --color never --column'
+cnoreabbrev rg Gcd <bar> Ack!
 
 
 let g:airline_powerline_fonts = 0
