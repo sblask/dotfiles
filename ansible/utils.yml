@@ -32,7 +32,7 @@
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
-        url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.zip
+        url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ fzf_version }}"
 
     - include_tasks: includes/zipped_executable.yml
