@@ -7,9 +7,12 @@ fpath=(
 )
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
+
+setopt NULL_GLOB
 for file in ${HOME}/.config/zsh/bash_completions.d/*; do
     source "${file}"
 done
+unsetopt NULL_GLOB
 
 # complete in both directions
 setopt COMPLETE_IN_WORD
