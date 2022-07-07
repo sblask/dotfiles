@@ -1,1 +1,1 @@
-awscli==1.22.21
+git+https://github.com/aws/aws-cli.git@v2

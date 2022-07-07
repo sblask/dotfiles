@@ -45,15 +45,10 @@
         state: directory
         mode: 0755
 
-    - name: Install aws completions part one
+    - name: Install aws completions
       file:
         dest: "{{ target_directory }}/.bin/aws_completer"
         src: "{{ target_directory }}/.opt/aws/bin/aws_completer"
-        state: link
-    - name: Install aws completions part two
-      file:
-        dest: "{{ bash_completion_directory }}/aws_zsh_completer.sh"
-        src: "{{ target_directory }}/.opt/aws/bin/aws_zsh_completer.sh"
         state: link
 
     - name: Install ansible collections
