@@ -10,5 +10,3 @@
         - fixjson
         - markdownlint-cli
         - serverless
-
-# vim: ft=ansible.yml

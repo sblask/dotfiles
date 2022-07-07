@@ -26,5 +26,3 @@
         dest: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').replace('.symlink', '') }}"
         state: link
       with_items: "{{ files_to_symlink.files }}"
-
-# vim: ft=ansible.yaml

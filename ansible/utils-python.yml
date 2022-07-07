@@ -65,5 +65,3 @@
       loop:
         - ansible.posix
         - community.general
-
-# vim: ft=ansible.yml

@@ -45,6 +45,3 @@
     state: link
     mode: 0755
   loop: "{{ package.value.links | default({ package.key: package.key }) | dict2items }}"
-
-
-# vim: ft=ansible.yaml

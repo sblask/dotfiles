@@ -94,5 +94,3 @@
         repo: https://github.com/kutsan/zsh-system-clipboard.git
         dest: "{{ zsh_plugin_directory }}/zsh-system-clipboard"
         update: false
-
-# vim: ft=ansible.yml

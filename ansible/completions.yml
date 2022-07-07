@@ -41,6 +41,3 @@
       with_items:
         - url: https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
           name: _hub
-
-
-# vim: ft=ansible.yaml

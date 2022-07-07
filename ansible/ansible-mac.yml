@@ -12,5 +12,3 @@
     tar: /opt/homebrew/bin/gtar
 - import_playbook: utils-npm.yml
 - import_playbook: utils-python.yml
-
-# vim: ft=ansible.yaml

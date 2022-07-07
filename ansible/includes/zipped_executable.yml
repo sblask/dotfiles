@@ -31,5 +31,3 @@
     src: "{{ target_directory }}/.bin/{{ product }}_{{ version | regex_replace('\\.', '_') }}"
     dest: "{{ target_directory }}/.bin/{{ product }}"
     state: link
-
-# vim: ft=ansible.yml

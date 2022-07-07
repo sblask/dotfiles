@@ -75,5 +75,3 @@
       user:
         name: sebastian
         shell: /bin/zsh
-
-# vim: ft=ansible.yml
