@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
+    Plug 'pearofducks/ansible-vim'
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
     Plug 'shumphrey/fugitive-gitlab.vim'
