@@ -6,6 +6,14 @@ function __aws_region {
     fi
 }
 
+function __aws_profile {
+    if [ "$AWS_PROFILE" = "" ]; then
+        echo ""
+    else
+        echo "$AWS_PROFILE "
+    fi
+}
+
 function __aws_session {
     if [ "$AWS_SESSION_EXPIRATION" = "" ]; then
         echo ""
@@ -97,6 +105,7 @@ function __print_first_line {
         "$fg[yellow]$(__vault_profile)$reset_color"
         "$fg[yellow]$(__terraform_workspace)$reset_color"
         "$fg[yellow]$(__aws_session)$reset_color"
+        "$fg[yellow]$(__aws_profile)$reset_color"
         "$fg[blue]$(__virtual_env)$(__conda_env)$reset_color"
         "%n " # username
         "$fg[blue]%m$reset_color " # hostname
