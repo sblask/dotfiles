@@ -36,7 +36,7 @@
 - name: "{{ package.key }}: Install requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/includes/requirements-{{ package.key }}.txt
-  when: requirements_check.rc != 0
+  when: requirements_check.stderr | regex_search("pkg_resources.DistributionNotFound|pkg_resources.VersionConflict")
 
 - name: "{{ package.key }}: Add link in .bin"
   file:
