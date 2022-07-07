@@ -73,6 +73,14 @@
         url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ tflint_version }}"
 
+    - include_tasks: includes/zipped_executable.yml
+      vars:
+        product: vault
+        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ vault_version }}"
+
+    # non-zipped utils
+
     - name: Get tfsec
       get_url:
         url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-{{ architecture | default('amd64') }}
@@ -83,9 +91,3 @@
         src: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/tfsec"
         state: link
-
-    - include_tasks: includes/zipped_executable.yml
-      vars:
-        product: vault
-        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ vault_version }}"
