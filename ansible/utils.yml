@@ -3,6 +3,7 @@
   vars:
 
     consul_template_version: 0.29.1
+    direnv_version: 2.32.1
     editor_config_checker_version: 2.5.0
     fzf_version: 0.30.0
     micromamba_version: 0.24.0
@@ -80,6 +81,17 @@
         version: "{{ vault_version }}"
 
     # non-zipped utils
+
+    - name: Get direnv
+      get_url:
+        url: https://github.com/direnv/direnv/releases/download/v{{ direnv_version }}/direnv.{{ os }}-{{ architecture | default('amd64') }}
+        dest: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
+        mode: 0755
+    - name: Link direnv
+      file:
+        src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
+        dest: "{{ target_directory }}/.bin/direnv"
+        state: link
 
     - name: Get tfsec
       get_url:
