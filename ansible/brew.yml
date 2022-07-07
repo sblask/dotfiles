@@ -6,8 +6,10 @@
       homebrew:
         name: "{{ item }}"
       loop:
+        - colima
         - colordiff
         - coreutils
+        - docker
         - docker-credential-helper-ecr
         - entr
         - fd
