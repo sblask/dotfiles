@@ -31,8 +31,8 @@ fi
 
 for COMMAND in "$@"
 do
-  # keep environment clean
-  WINDOW_ID=$(env --ignore-environment ${TMUX_EXECUTABLE} split-window -P -c $TMUX_START_DIRECTORY)
+  # use `env -i` to keep environment clean
+  WINDOW_ID=$(env -i ${TMUX_EXECUTABLE} split-window -P -c $TMUX_START_DIRECTORY)
   ${TMUX_EXECUTABLE} send-keys -t ${WINDOW_ID} "${COMMAND}" C-m
   ${TMUX_EXECUTABLE} select-layout tiled
 done

@@ -5,10 +5,12 @@ esac
 
 if [ "$OS" = linux ]
 then
+    alias gnu-env=env
     alias gnu-grep=grep
     alias gnu-ls=ls
     alias gnu-sed=sed
 else
+    alias gnu-env=genv
     alias gnu-grep=ggrep
     alias gnu-ls=gls
     alias gnu-sed=gsed
