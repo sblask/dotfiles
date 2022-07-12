@@ -3,6 +3,6 @@ boto3-stubs==1.21.23
 isort==5.10.1
 mypy==0.961
 pyls-isort==0.2.2
-pylsp-mypy==0.5.8
+pylsp-mypy==0.6.2
 python-lsp-black==1.2.1
 python-lsp-server==1.5.0
