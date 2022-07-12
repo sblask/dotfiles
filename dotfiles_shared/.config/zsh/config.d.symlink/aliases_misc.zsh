@@ -32,10 +32,10 @@ alias td='task delete'
 alias tl='task list'
 alias tm='task minimal'
 # Terraform
-alias tera='terraform apply plan'
+alias tera='terraform apply tfplan'
 alias teri='terraform init'
 alias termv='terraform state mv'
-alias terp='terraform plan -out plan'
+alias terp='terraform plan -out tfplan'
 # top
 alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
