@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'bkad/CamelCaseMotion'
     Plug 'breuckelen/vim-resize'
+    Plug 'chriskempson/base16-vim'
     Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
@@ -73,6 +74,33 @@ let g:ale_linters = {
 \ }
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '✗'
+
+
+let base16colorspace=256
+
+function! s:base16_customize() abort
+  "             group,            guifg, guibg, ctermfg,          ctermbg,          attr
+
+  call Base16hi('AleErrorSign',   '',    '',    g:base16_cterm0A, g:base16_cterm00)
+  call Base16hi('AleWarningSign', '',    '',    g:base16_cterm08, g:base16_cterm00)
+  call Base16hi('Cursor',         '',    '',    '',               g:base16_cterm09)
+  call Base16hi('DiffText',       '',    '',    g:base16_cterm09, '')
+  call Base16hi('FoldColumn',     '',    '',    '',               g:base16_cterm00)
+  call Base16hi('LineNr',         '',    '',    '',               g:base16_cterm00)
+  call Base16hi('MatchParen',     '',    '',    '',               g:base16_cterm00, 'underline')
+  call Base16hi('SignColumn',     '',    '',    '',               g:base16_cterm00)
+  call Base16hi('SpellBad',       '',    '',    '',               g:base16_cterm00, 'undercurl')
+  call Base16hi('SpellCap',       '',    '',    '',               g:base16_cterm00, 'undercurl') " used by Ale
+  call Base16hi('VertSplit',      '',    '',    '',               'NONE')
+
+endfunction
+
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
+
+colorscheme base16-eighties
 
 
 call camelcasemotion#CreateMotionMappings('<leader>')

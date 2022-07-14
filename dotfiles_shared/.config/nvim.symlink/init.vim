@@ -1,5 +1,3 @@
-colorscheme base16-eighties-modified
-
 " load plugins first as other configs require parts of them
 source ~/.config/nvim/vim/plugins.vim
 
