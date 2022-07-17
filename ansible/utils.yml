@@ -13,6 +13,7 @@
     terrascan_version: 1.15.2
     tflint_version: 0.38.1
     tfsec_version: 1.26.0
+    trivy_version: 0.30.0
     vault_version: 1.11.0
 
   tasks:
@@ -73,6 +74,12 @@
         product: tflint
         url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ tflint_version }}"
+
+    - include_tasks: includes/zipped_executable.yml
+      vars:
+        product: trivy
+        url: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('amd64') }}.tar.gz
+        version: "{{ trivy_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
