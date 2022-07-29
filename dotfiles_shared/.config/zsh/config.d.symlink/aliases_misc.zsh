@@ -35,6 +35,7 @@ alias tm='task minimal'
 alias tera='terraform apply tfplan'
 alias teri='terraform init'
 alias termv='terraform state mv'
+alias tero='terraform output'
 alias terp='terraform plan -out tfplan'
 # top
 alias top='top -c'
