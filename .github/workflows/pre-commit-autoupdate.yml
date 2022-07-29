@@ -1,4 +1,4 @@
-name: pre-commit autoupdate
+name: Autoupdate pre-commit
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     - cron: 0 0 * * 0  # weekly
 
 jobs:
-  build:
+  pre-commit-autoupdate:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
