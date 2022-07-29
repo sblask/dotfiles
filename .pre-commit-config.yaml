@@ -21,11 +21,3 @@ repos:
     hooks:
       - id: yamllint
         entry: yamllint --strict --config-file dotfiles_shared/.config/yamllint/config.symlink
-
-  - repo: local
-    hooks:
-      - id: pre-commit autoupdate
-        language: system
-        name: pre-commit autoupdate
-        entry: pre-commit autoupdate
-        pass_filenames: false
