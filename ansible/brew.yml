@@ -6,6 +6,7 @@
       homebrew:
         name: "{{ item }}"
       loop:
+        - bat
         - colima
         - colordiff
         - coreutils

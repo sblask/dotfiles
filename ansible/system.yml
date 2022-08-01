@@ -12,6 +12,7 @@
         - audacity  # audio editor
         - autofs
         - baobab  # to analyze disk usage from Thunar context menu
+        - bat
         - boxes
         - entr  # do stuff when files change
         - fd-find
