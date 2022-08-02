@@ -13,6 +13,7 @@ jobs:
         os:
           - ubuntu-20.04
           - ubuntu-22.04
+      fail-fast: false
     steps:
       - name: Install system dependencies
         if: runner.os == 'Linux'
