@@ -7,20 +7,54 @@ on:
 
 jobs:
   test:
+
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
           - ubuntu-22.04
       fail-fast: false
+
+    env:
+      ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf/
+      PLAYBOOK: ./ansible/ansible-test.yml
+      TARGET_DIRECTORY: /tmp/dotfiles-ansible-test/
+
     steps:
+
+      - uses: actions/checkout@v3
+
       - name: Install system dependencies
-        if: runner.os == 'Linux'
-        run: |-
+        run: |
           sudo apt-get update
           sudo apt-get install -y colordiff
-      - uses: actions/checkout@v3
-      - run: pip install ansible-core pre-commit
-      - run: ansible-galaxy collection install ansible.posix community.general
-      - run: pre-commit run --all-files
-      - run: ./run_tests.sh
+      - name: Install other dependencies
+        run: |
+          pip install ansible-core pre-commit
+          ansible-galaxy collection install ansible.posix community.general
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files
+
+      - name: Test add-index
+        run: ./test_files/add-index.sh
+
+      - name: Run Python tests
+        run: ./test_files/python.sh
+
+      - name: Prepare Ansible test
+        run: mkdir ${TARGET_DIRECTORY}
+      - name: Run Ansible playbook
+        run: ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}"
+      - name: Run Ansible playbook again
+        run: ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}" | tee ansible_result
+      - name: Check Ansible idempotency
+        run: |
+          if grep --quiet 'changed=0.*failed=0' ansible_result
+          then
+            echo 'Idempotence test: pass'
+            exit 0
+          else
+            echo 'Idempotence test: fail'
+            exit 1
+          fi
