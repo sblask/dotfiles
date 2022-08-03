@@ -4,10 +4,6 @@ set -o errexit -o nounset -o pipefail -o xtrace
 
 SCRIPT_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE:-$0}" )" && pwd )
 
-
-GLOBIGNORE=.venv
-for file_path in */**/test_*.py; do
-    pushd $(dirname $file_path)
-    python -m unittest discover
-    popd
-done
+find "$SCRIPT_DIRECTORY/.." -name 'test_*.py' -not -path '*/.venv/*' -not -path '*/plugged/*' -exec dirname {} \; \
+    | sort --unique \
+    | xargs -I _ sh -c "cd \$0 && pwd && python -m unittest discover" _
