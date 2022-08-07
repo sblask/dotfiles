@@ -11,7 +11,7 @@
       git:
         repo: https://github.com/asdf-vm/asdf.git
         dest: "{{ target_directory }}/.asdf/"
-        version: v0.9.0
+        version: v0.10.2
 
     - name: Install ASDF plugins
       shell: |
@@ -34,6 +34,13 @@
       loop: "{{ packages }}"
       register: package_versions
       changed_when: false
+
+    - name: Print latest package versions from ASDF
+      debug:
+        msg: Latest package version of {{ item.plugin }} is {{ package_versions.results[index].stdout }}
+      loop: "{{ packages }}"
+      loop_control:
+        index_var: index
 
     - name: Install packages with ASDF
       shell: |
