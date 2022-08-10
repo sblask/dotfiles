@@ -6,6 +6,7 @@
     direnv_version: 2.32.1
     editor_config_checker_version: 2.5.0
     fzf_version: 0.32.1
+    iamlive_version: 0.48.0
     micromamba_version: 0.24.0
     packer_version: 1.8.2
     terraform_ls_version: 0.28.1
@@ -36,6 +37,12 @@
         product: fzf
         url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ fzf_version }}"
+
+    - include_tasks: includes/zipped_executable.yml
+      vars:
+        product: iamlive
+        url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.zip
+        version: "{{ iamlive_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:
