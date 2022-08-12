@@ -36,7 +36,7 @@ alias tera='terraform apply tfplan'
 alias teri='terraform init'
 alias termv='terraform state mv'
 alias tero='terraform output'
-alias terp='terraform plan -out tfplan'
+alias terp='terraform plan -lock-timeout=60s -out tfplan'
 alias terv='terraform validate'
 # top
 alias top='top -c'
