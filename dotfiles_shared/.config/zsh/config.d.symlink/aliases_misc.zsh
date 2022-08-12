@@ -37,6 +37,7 @@ alias teri='terraform init'
 alias termv='terraform state mv'
 alias tero='terraform output'
 alias terp='terraform plan -out tfplan'
+alias terv='terraform validate'
 # top
 alias top='top -c'
 alias topcpu='top -b -n1 | tail -n +8 | sort -n -r -k 9'
