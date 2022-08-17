@@ -1,7 +1,5 @@
-" enable mouse, but disable drag (in all modes and command mode)
+" enable mouse
 set mouse=a
-noremap <LeftDrag> <LeftMouse>
-noremap! <LeftDrag> <LeftMouse>
 
 " no paste with middle click
 map <MiddleMouse> <LeftMouse>
