@@ -41,7 +41,7 @@
     - include_tasks: includes/zipped_executable.yml
       vars:
         product: iamlive
-        url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.zip
+        url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ iamlive_version }}"
 
     - include_tasks: includes/zipped_executable.yml
