@@ -1,6 +1,6 @@
 - name: Check for {{ product | title }}
   stat:
-    path: "{{ target_directory }}/.bin/{{ product }}_{{ version | regex_replace('\\.', '_')  }}"
+    path: "{{ target_directory }}/.bin/{{ product }}_{{ version | regex_replace('\\.', '_') }}"
   register: stat_result
 - name: Add {{ product | title }}
   block:
@@ -16,7 +16,7 @@
         src: "{{ download.dest }}"
         dest: /tmp/
         remote_src: true
-        extra_opts: "{{ unarchive_options|default([], True) }}"
+        extra_opts: "{{ unarchive_options | default([], True) }}"
     - name: Copy {{ product | title }}
       copy:
         src: /tmp/{{ zipped_binary_path | default(product) }}

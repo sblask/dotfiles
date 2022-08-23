@@ -15,7 +15,7 @@
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"
-        dest: "{{ zsh_completion_directory }}/{{ item.split('/')[-1] }}"
+        dest: "{{ zsh_completion_directory }}/{{ item.split('/') | last }}"
         mode: 0644
       with_items:
         - https://raw.githubusercontent.com/BurntSushi/ripgrep/master/complete/_rg

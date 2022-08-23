@@ -1,4 +1,4 @@
-- name: "{{ package.key }}: Create virtualenv"
+- name: "Python package {{ package.key }}: Create virtualenv"
   shell: |
     source {{ target_directory }}/.asdf/asdf.sh
     python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
@@ -15,34 +15,34 @@
       {%- endif -%}
   register: virtual_env_creation
 
-- name: "{{ package.key }}: Check essential requirements"
+- name: "Python package {{ package.key }}: Check essential requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/../requirements-essential.txt'))"
   changed_when: false
   failed_when: false
   register: essential_requirements_check
 
-- name: "{{ package.key }}: Install essential requirements"
+- name: "Python package {{ package.key }}: Install essential requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/../requirements-essential.txt
   when: essential_requirements_check.rc != 0
 
-- name: "{{ package.key }}: Check requirements"
+- name: "Python package {{ package.key }}: Check requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/includes/requirements-{{ package.key }}.txt'))"
   changed_when: false
   failed_when: false
   register: requirements_check
 
-- name: "{{ package.key }}: Install requirements"
+- name: "Python package {{ package.key }}: Install requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/includes/requirements-{{ package.key }}.txt
   when: not (virtual_env_creation.stdout | regex_search("skipped")) or requirements_check.stderr | regex_search("pkg_resources.DistributionNotFound|pkg_resources.VersionConflict")
 
-- name: "{{ package.key }}: Add link in .bin"
+- name: "Python package {{ package.key }}: Add link in .bin"
   file:
     dest: "{{ target_directory }}/.bin/{{ item.key }}"
     src: "{{ target_directory }}/.opt/{{ package.key }}/bin/{{ item.value }}"
     state: link
     mode: 0755
-  loop: "{{ package.value.links | default({ package.key: package.key }) | dict2items }}"
+  loop: "{{ package.value.links | default({package.key: package.key}) | dict2items }}"
