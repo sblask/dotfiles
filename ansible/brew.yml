@@ -40,5 +40,6 @@
         - aws-vault
         - firefox
         - inkscape
+        - meld
         - postman
         - rectangle
