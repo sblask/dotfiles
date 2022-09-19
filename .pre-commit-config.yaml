@@ -17,7 +17,7 @@ repos:
         files: dotfiles_shared/.config/nvim.symlink/(init.vim|vim/.*\.vim)
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.27.1
+    rev: v1.28.0
     hooks:
       - id: yamllint
         entry: yamllint --strict --config-file dotfiles_shared/.config/yamllint/config.symlink
