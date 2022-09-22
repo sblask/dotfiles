@@ -10,7 +10,7 @@
     micromamba_version: 0.24.0
     packer_version: 1.8.2
     terraform_ls_version: 0.29.0
-    terraform_version: 1.2.4
+    terraform_version: 1.3.0
     terrascan_version: 1.15.2
     tflint_version: 0.40.1
     tfsec_version: 1.27.6
