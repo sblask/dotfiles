@@ -20,4 +20,7 @@ repos:
     rev: v1.28.0
     hooks:
       - id: yamllint
-        entry: yamllint --strict --config-file dotfiles_shared/.config/yamllint/config.symlink
+        args:
+          - --strict
+          - --config-file
+          - dotfiles_shared/.config/yamllint/config.symlink
