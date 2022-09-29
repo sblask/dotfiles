@@ -1,4 +1,5 @@
-- hosts: all
+- name: Play to install Python utils
+  hosts: all
 
   vars:
     bash_completion_directory: "{{ target_directory }}/.config/zsh/bash_completions.d"

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Play to install ZSH completions
+  hosts: all
 
   vars:
     zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"

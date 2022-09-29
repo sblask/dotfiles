@@ -1,4 +1,5 @@
-- hosts: all
+- name: Play to install ASDF
+  hosts: all
 
   vars:
     packages:

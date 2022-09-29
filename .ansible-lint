@@ -1,6 +1,14 @@
+exclude_paths:
+  - ansible/ansible-linux.yml
+  - ansible/ansible-mac.yml
+  - ansible/ansible-test.yml
+
 skip_list:
   - fqcn-builtins
   - git-latest
+  - name[template]
+
+warn_list: []  # Throw errors for all rules that aren't skipped
 
 kinds:
   - playbook: "**/ansible/*.yml"
