@@ -1,4 +1,6 @@
-- hosts: all
+- name: Play to install Linux packages
+  hosts: all
+
   become: true
   tasks:
 

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Play to install NPM packages
+  hosts: all
 
   tasks:
 

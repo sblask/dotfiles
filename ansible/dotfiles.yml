@@ -1,4 +1,5 @@
-- hosts: all
+- name: Play to install dotfiles
+  hosts: all
 
   vars:
     root_directory: "{{ playbook_dir.rsplit('/', 1)[0] }}"
