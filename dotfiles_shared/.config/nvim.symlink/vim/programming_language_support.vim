@@ -47,7 +47,7 @@ fun! ConfigureScss()
 endf
 
 fun! ConfigureYaml()
-    let l:config = findfile('.yamllint', '.;')
+    let l:config = findfile('.yamllint.yml', '.;')
     if l:config !=? ''
         let b:ale_yaml_yamllint_options = '--config-file ' . fnamemodify(l:config, ':p')
     endif

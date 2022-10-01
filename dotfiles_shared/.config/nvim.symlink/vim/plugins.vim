@@ -75,6 +75,7 @@ let g:ale_linters = {
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '✗'
 
+let g:ansible_ftdetect_filename_regex = 'ignore-filenames'
 
 let base16colorspace=256
 
