@@ -43,12 +43,6 @@ jobs:
       - name: Run pre-commit
         run: pre-commit run --all-files
 
-      - name: Test add-index
-        run: ./test_files/add-index.sh
-
-      - name: Run Python tests
-        run: ./test_files/python.sh
-
       - name: Prepare Ansible test
         run: mkdir "${TARGET_DIRECTORY}"
       - name: Run Ansible playbook

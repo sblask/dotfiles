@@ -3,8 +3,24 @@ repos:
   - repo: local
     hooks:
       - id: actionlint
-        name: actionlint
+        name: Run actionlint
         entry: actionlint
+        language: system
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: add-index
+        name: Test add-index
+        entry: ./test_files/add-index.sh
+        language: system
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: python-tests
+        name: Python Tests
+        entry: ./test_files/python.sh
         language: system
         pass_filenames: false
 
