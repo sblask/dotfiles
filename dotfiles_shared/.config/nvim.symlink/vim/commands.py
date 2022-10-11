@@ -15,10 +15,12 @@ def apply_on_one_line_selection(function):
     input_string = input_line[start_character : end_character + 1]
     output_string = function(input_string)
 
-    output_line = (
-        input_line[0:start_character]
-        + output_string
-        + input_line[end_character + 1 :]
+    output_line = "".join(
+        [
+            input_line[0:start_character],
+            output_string,
+            input_line[end_character + 1 :],
+        ]
     )
 
     buffer_object[start_line - 1] = output_line
@@ -76,8 +78,7 @@ def dict_to_json():
     import sys
 
     import vim  # pylint: disable=import-error
-    from dateutil.tz import tzlocal
-    from dateutil.tz import tzutc
+    from dateutil.tz import tzlocal, tzutc
 
     as_dict = eval("".join(vim.current.buffer[:]))  # pylint: disable=eval-used
     as_json = json.dumps(

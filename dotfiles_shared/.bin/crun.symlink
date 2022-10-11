@@ -35,7 +35,7 @@ def main():
         "tmux-command-split",
         arguments.window_name or "",
         *[
-            ' '.join([arguments.command, argument])
+            " ".join([arguments.command, argument])
             for argument in arguments.arguments
         ],
     ]

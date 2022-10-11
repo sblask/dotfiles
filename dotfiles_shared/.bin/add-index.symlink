@@ -5,7 +5,9 @@ import os.path
 import re
 import sys
 
-TREE_CHARACTERS = u'\u2502 \xa0 \u251c \u2500 \u2514'
+TREE_CHARACTERS = "\u2502 \xa0 \u251c \u2500 \u2514"
+
+# fmt: off
 
 ANSI_REGEXP = re.compile(
     r'(\x1b[^m]+m)|(\x1b\[K)'
@@ -46,46 +48,48 @@ TREE_SUMMARY_REGEXP = re.compile(
     r'\d+ directories, \d+ files'
 )
 
+# fmt: on
+
 SUPPORTED_INPUT_TYPES = (
-    'ag',
-    'git_branch',
-    'git_status',
-    'list',
-    'ls_list',
-    'mixed',
-    'tree',
+    "ag",
+    "git_branch",
+    "git_status",
+    "list",
+    "ls_list",
+    "mixed",
+    "tree",
 )
 
-UNDESIRED_BRANCH_PREFIX = 'remotes/origin/'
+UNDESIRED_BRANCH_PREFIX = "remotes/origin/"
 
 
 def get_arguments():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        '--input-type',
+        "--input-type",
         required=True,
         choices=SUPPORTED_INPUT_TYPES,
     )
     parser.add_argument(
-        '--print-indexables',
-        action='store_true',
+        "--print-indexables",
+        action="store_true",
     )
     parser.add_argument(
-        '--relative-paths',
-        action='store_true',
+        "--relative-paths",
+        action="store_true",
     )
 
     parser.add_argument(
-        'infile',
-        nargs='?',
-        type=argparse.FileType('r'),
+        "infile",
+        nargs="?",
+        type=argparse.FileType("r"),
         default=sys.stdin,
     )
     parser.add_argument(
-        'outfile',
-        nargs='?',
-        type=argparse.FileType('w'),
+        "outfile",
+        nargs="?",
+        type=argparse.FileType("w"),
         default=sys.stdout,
     )
     return parser.parse_args()
@@ -94,21 +98,21 @@ def get_arguments():
 def main():
     arguments = get_arguments()
 
-    if arguments.input_type == 'ag':
+    if arguments.input_type == "ag":
         indexables = parse_ag_input(arguments)
         maybe_print_indexables(arguments, indexables)
         return
-    elif arguments.input_type == 'git_branch':
+    elif arguments.input_type == "git_branch":
         lines, indexables = parse_git_branch_input(arguments)
-    elif arguments.input_type == 'git_status':
+    elif arguments.input_type == "git_status":
         lines, indexables = parse_git_status_input(arguments)
-    elif arguments.input_type == 'list':
+    elif arguments.input_type == "list":
         lines, indexables = parse_list_input(arguments)
-    elif arguments.input_type == 'ls_list':
+    elif arguments.input_type == "ls_list":
         lines, indexables = parse_ls_list_input(arguments)
-    elif arguments.input_type == 'mixed':
+    elif arguments.input_type == "mixed":
         lines, indexables = parse_mixed_input(arguments)
-    elif arguments.input_type == 'tree':
+    elif arguments.input_type == "tree":
         lines, indexables = parse_tree_input(arguments)
 
     print_output(arguments, lines, indexables)
@@ -120,14 +124,14 @@ def parse_ag_input(arguments):
 
     index = 1
     for line in arguments.infile:
-        clean_line = ANSI_REGEXP.sub('', line).strip()
+        clean_line = ANSI_REGEXP.sub("", line).strip()
         if os.path.exists(clean_line):
             match = COLOURED_LINE_REGEXP.match(line)
             if match:
-                arguments.outfile.write(match.group('prefix'))
-                arguments.outfile.write('[%s] ' % index)
-                arguments.outfile.write(match.group('rest'))
-                arguments.outfile.write('\n')
+                arguments.outfile.write(match.group("prefix"))
+                arguments.outfile.write(f"[{index}] ")
+                arguments.outfile.write(match.group("rest"))
+                arguments.outfile.write("\n")
 
             indexables.append(clean_line)
             index += 1
@@ -146,11 +150,11 @@ def parse_git_branch_input(arguments):
         if not match:
             lines.append((line, None))
         else:
-            indexable = match.group('indexable')
-            lines.append((match.group('prefix'), indexable))
+            indexable = match.group("indexable")
+            lines.append((match.group("prefix"), indexable))
 
             if indexable.startswith(UNDESIRED_BRANCH_PREFIX):
-                indexables.append(indexable[len(UNDESIRED_BRANCH_PREFIX):])
+                indexables.append(indexable[len(UNDESIRED_BRANCH_PREFIX) :])
             else:
                 indexables.append(indexable)
 
@@ -165,22 +169,22 @@ def parse_git_status_input(arguments):
 
         match = GIT_STATUS_SUBMODULE_STATUS_REGEXP.match(line)
         if match:
-            line = match.group('line')
-            rest = match.group('rest') or ''
+            line = match.group("line")
+            rest = match.group("rest") or ""
         else:
-            rest = ''
+            rest = ""
 
         match = GIT_STATUS_REGEXP.match(line)
         if not match:
             lines.append((line, None))
         else:
-            indexable = match.group('indexable')
+            indexable = match.group("indexable")
             lines.append(
-                (match.group('prefix'), indexable, rest),
+                (match.group("prefix"), indexable, rest),
             )
 
-            if 'renamed' in match.group('prefix'):
-                indexables.append(indexable.split(' -> ')[1])
+            if "renamed" in match.group("prefix"):
+                indexables.append(indexable.split(" -> ")[1])
             else:
                 indexables.append(indexable)
 
@@ -189,29 +193,29 @@ def parse_git_status_input(arguments):
 
 def parse_list_input(arguments):
     indexables = [line.strip() for line in arguments.infile]
-    lines = [('', indexable) for indexable in indexables]
+    lines = [("", indexable) for indexable in indexables]
     return lines, indexables
 
 
 def parse_ls_list_input(arguments):
     lines = []
     indexables = []
-    relative_path = ''
+    relative_path = ""
 
     for line in arguments.infile:
         path_match = LS_PATH_REGEXP.match(line)
 
-        if path_match and os.path.exists(path_match.group('directory')):
-            relative_path = path_match.group('directory')
+        if path_match and os.path.exists(path_match.group("directory")):
+            relative_path = path_match.group("directory")
 
         line_match = LS_REGEXP.match(line)
         if not line_match:
             lines.append((line, None))
         else:
-            indexable = line_match.group('indexable')
-            lines.append((line_match.group('prefix'), indexable))
+            indexable = line_match.group("indexable")
+            lines.append((line_match.group("prefix"), indexable))
 
-            path = indexable.split(' -> ')[0]
+            path = indexable.split(" -> ")[0]
             if not arguments.relative_paths:
                 path = os.path.abspath(os.path.join(relative_path, path))
 
@@ -225,17 +229,17 @@ def parse_mixed_input(arguments):
     indexables = []
 
     for line in arguments.infile:
-        clean_line = ANSI_REGEXP.sub('', line).strip()
-        possible_file = clean_line.split(' ')[0]
+        clean_line = ANSI_REGEXP.sub("", line).strip()
+        possible_file = clean_line.split(" ")[0]
 
         if not os.path.exists(possible_file):
-            if possible_file.endswith(':'):
+            if possible_file.endswith(":"):
                 possible_file = possible_file[:-1]
-            possible_file = possible_file.split(':')[0]
+            possible_file = possible_file.split(":")[0]
 
         if PATH_REGEXP.match(possible_file) or os.path.exists(possible_file):
             match = COLOURED_LINE_REGEXP.match(line)
-            lines.append((match.group('prefix'), match.group('rest')))
+            lines.append((match.group("prefix"), match.group("rest")))
             indexables.append(possible_file)
         else:
             lines.append((line, None))
@@ -252,11 +256,11 @@ def parse_tree_input(arguments):
         if not match or TREE_SUMMARY_REGEXP.match(line):
             lines.append((line, None))
         else:
-            prefix = match.group('prefix')
-            rest = match.group('rest')
+            prefix = match.group("prefix")
+            rest = match.group("rest")
 
-            lines.append((prefix.replace(' ', ''), rest))
-            indexables.append(ANSI_REGEXP.sub('', rest).strip())
+            lines.append((prefix.replace(" ", ""), rest))
+            indexables.append(ANSI_REGEXP.sub("", rest).strip())
 
     return lines, indexables
 
@@ -268,16 +272,16 @@ def print_output(arguments, lines, indexables):
     index = 1
     for prefix, indexable, *rest in lines:
         if indexable is None:
-            outfile.write(prefix + ''.join(rest))
+            outfile.write(prefix + "".join(rest))
         else:
-            index_string = '[%s]' % index
-            fixed_length_index_string = index_string.rjust(padding, ' ') + ' '
+            index_string = f"[{index}]"
+            fixed_length_index_string = index_string.rjust(padding, " ") + " "
             outfile.write(
                 prefix
                 + fixed_length_index_string
                 + indexable
-                + ''.join(rest)
-                + '\n'
+                + "".join(rest)
+                + "\n"
             )
             index += 1
 
@@ -286,11 +290,11 @@ def maybe_print_indexables(arguments, indexables):
     outfile = arguments.outfile
 
     if arguments.print_indexables:
-        outfile.write('@@indexables@@\n')
+        outfile.write("@@indexables@@\n")
         for indexable in indexables:
-            outfile.write(ANSI_REGEXP.sub('', indexable))
-            outfile.write('\n')
+            outfile.write(ANSI_REGEXP.sub("", indexable))
+            outfile.write("\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
