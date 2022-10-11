@@ -3,6 +3,7 @@
 
   vars:
 
+    actionlint_version: 1.6.21
     consul_template_version: 0.29.1
     direnv_version: 2.32.1
     editor_config_checker_version: 2.5.0
@@ -19,6 +20,12 @@
     vault_version: 1.11.0
 
   tasks:
+
+    - include_tasks: includes/zipped_executable.yml
+      vars:
+        product: actionlint
+        url: https://github.com/rhysd/actionlint/releases/download/v{{ actionlint_version }}/actionlint_{{ actionlint_version }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
+        version: "{{ actionlint_version }}"
 
     - include_tasks: includes/zipped_executable.yml
       vars:

@@ -1,5 +1,13 @@
 repos:
 
+  - repo: local
+    hooks:
+      - id: actionlint
+        name: actionlint
+        entry: actionlint
+        language: system
+        pass_filenames: false
+
   - repo: https://github.com/ansible/ansible-lint
     rev: v6.7.0
     hooks:

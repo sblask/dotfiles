@@ -16,6 +16,7 @@ jobs:
       fail-fast: false
 
     env:
+      ACTIONLINT_VERSION: 1.6.21
       ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf/
       PLAYBOOK: ./ansible/ansible-test.yml
       TARGET_DIRECTORY: /tmp/dotfiles-ansible-test/
@@ -32,6 +33,12 @@ jobs:
         run: |
           pip install ansible-core pre-commit
           ansible-galaxy collection install ansible.posix community.general
+      - name: Install actionlint
+        run: |
+          cd /tmp/
+          curl --location --output actionlint.tar.gz "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          tar --extract --gunzip --file actionlint.tar.gz
+          install actionlint /usr/local/bin/actionlint
 
       - name: Run pre-commit
         run: pre-commit run --all-files
@@ -43,11 +50,11 @@ jobs:
         run: ./test_files/python.sh
 
       - name: Prepare Ansible test
-        run: mkdir ${TARGET_DIRECTORY}
+        run: mkdir "${TARGET_DIRECTORY}"
       - name: Run Ansible playbook
-        run: ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}"
+        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}"
       - name: Run Ansible playbook again
-        run: ansible-playbook --extra-vars target_directory=${TARGET_DIRECTORY} "${PLAYBOOK}" | tee ansible_result
+        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}" | tee ansible_result
       - name: Check Ansible idempotency
         run: |
           if grep --quiet 'changed=0.*failed=0' ansible_result
