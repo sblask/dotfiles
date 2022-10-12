@@ -17,6 +17,9 @@
         links:
           httpie: http
       pre-commit:
+        links:
+          pre-commit: pre-commit
+          identify-cli: identify-cli
       pylsp:
       sam:
       systemdlint:
