@@ -10,12 +10,12 @@
           ansible-lint: ansible-lint
           ansible-playbook: ansible-playbook
           ansible: ansible
-      httpie:
-        links:
-          httpie: http
       aws:
       docker-compose:
       grip:
+      httpie:
+        links:
+          httpie: http
       pre-commit:
       pylsp:
       sam:
