@@ -16,6 +16,7 @@ augroup autocommands_filetype
     autocmd BufRead            gitconfig.dotfile   set filetype=gitconfig
     autocmd BufRead            pylintrc.dotfile    set filetype=dosini
     autocmd BufRead            tmux.conf.dotfile   set filetype=tmux
+    autocmd BufRead            ~/.aws/config       set filetype=dosini
     " keyword settings
     autocmd FileType           css                 set iskeyword+=-
     autocmd FileType           html                set iskeyword+=-
