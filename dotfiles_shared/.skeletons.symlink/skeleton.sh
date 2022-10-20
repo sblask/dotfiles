@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail -o xtrace
 
-SCRIPT_DIRECTORY=$( dirname "${BASH_SOURCE:-$0}" | xargs realpath )
+SCRIPT_DIRECTORY=$(dirname "${BASH_SOURCE:-$0}" | xargs realpath)
 declare -r SCRIPT_DIRECTORY
 
 echo "$SCRIPT_DIRECTORY"
@@ -16,9 +16,8 @@ function do-something {
         echo "else"
     fi
 
-    for argument in "$@"
-    do
-         echo "for $argument"
+    for argument in "$@"; do
+        echo "for $argument"
     done
 }
 

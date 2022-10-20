@@ -11,6 +11,7 @@
     iamlive_version: 0.48.0
     micromamba_version: 0.24.0
     packer_version: 1.8.2
+    shfmt_version: 3.5.1
     terraform_ls_version: 0.29.0
     terraform_version: 1.3.3
     terrascan_version: 1.15.2
@@ -113,6 +114,17 @@
       file:
         src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/direnv"
+        state: link
+
+    - name: Get shfmt
+      get_url:
+        url: https://github.com/mvdan/sh/releases/download/v{{ shfmt_version }}/shfmt_v{{ shfmt_version }}_{{ os }}_{{ architecture | default('amd64') }}
+        dest: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
+        mode: 0755
+    - name: Link shfmt
+      file:
+        src: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
+        dest: "{{ target_directory }}/.bin/shfmt"
         state: link
 
     - name: Get tfsec
