@@ -9,5 +9,6 @@
         global: yes
       loop:
         - fixjson
+        - jsonlint
         - markdownlint-cli
         - serverless
