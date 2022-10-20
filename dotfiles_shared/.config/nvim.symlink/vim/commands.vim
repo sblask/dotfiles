@@ -26,13 +26,10 @@ function! RunWithErrorHandling(command) abort
   call winrestview(view)
 endfunction
 
-command! JsonFix          call RunWithErrorHandling('% ! fixjson')
 command! JsonFormat       call RunWithErrorHandling('% ! json-format')
 command! JsonFormatSorted call RunWithErrorHandling('% ! json-format --sorted')
 command! JsonToDict       call RunWithErrorHandling('% ! python -c "import json; import sys; as_dict = json.load(sys.stdin); print(as_dict)"')
-command! PackerFmt        call RunWithErrorHandling('% ! packer fmt -no-color -')
 command! PrettyDict       call RunWithErrorHandling('% ! python -c "import pprint; import sys; as_dict = eval(sys.stdin); pprint.pprint(as_dict)"')
-command! TerraformFmt     call RunWithErrorHandling('% ! terraform fmt -no-color -')
 command! YamlFormat       call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(yaml.dump(as_dict, default_flow_style=False))"')
 command! YamlToDict       call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(as_dict)"')
 

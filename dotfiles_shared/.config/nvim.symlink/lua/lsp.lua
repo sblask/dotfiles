@@ -1,46 +1,96 @@
--- See https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+vim.diagnostic.config({
+  severity_sort = true,
+  virtual_text = false,
+})
 
-local nvim_lsp = require('lspconfig')
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+vim.api.nvim_set_hl(0, 'Pmenu', { ctermbg = 0 })
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap=true, silent=true }
+--
+-- Change sign column highlighting
+--
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', '<leader>D',   '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<leader>d',   '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>h',   '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>i',   '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>s',   '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa',  '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr',  '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl',  '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>t',   '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rn',  '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>ca',  '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<leader>rf',  '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e',   '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q',   '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>f',   '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
+local sign = function(opts)
+  vim.fn.sign_define(opts.name, {
+    texthl = opts.name,
+    text = opts.text,
+  })
 end
 
+sign({name = 'DiagnosticSignError', text = '✘'})
+sign({name = 'DiagnosticSignWarn', text = '▲'})
+sign({name = 'DiagnosticSignHint', text = '⚑'})
+sign({name = 'DiagnosticSignInfo', text = 'ⓘ'})
+
+
+-- See https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
+local map_keys = function(buffer)
+  vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  local opts = { noremap=true, silent=true }
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>D',   '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>d',   '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>h',   '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>i',   '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>s',   '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>wa',  '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>wr',  '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>wl',  '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>t',   '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>rn',  '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>ca',  '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>rf',  '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>e',   '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>q',   '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>f',   '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+end
+
+
+local setup_format_on_save = function(buffer)
+  local augroup_name = 'lsp-format-on-save'
+  vim.api.nvim_create_augroup(augroup_name, { clear = true })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    buffer = buffer,
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+    group = augroup_name,
+  })
+end
+
+
+local setup_location_list_updates = function(buffer)
+  local augroup_name = 'lsp-location-list-updates'
+  vim.api.nvim_create_augroup(augroup_name, { clear = true })
+  vim.api.nvim_create_autocmd('DiagnosticChanged', {
+    buffer = buffer,
+    callback = function()
+      vim.diagnostic.setloclist({open = false})
+    end,
+    group = augroup_name,
+  })
+end
+
+
+--
+-- Configure LSP
+--
+
 local servers = {
-    'pylsp',
+  'pylsp',
 }
 
+local nvim_lsp = require('lspconfig')
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach,
+    on_attach = function(client, buffer)
+      map_keys(buffer)
+      setup_format_on_save(buffer)
+      setup_location_list_updates(buffer)
+    end,
     flags = {
       debounce_text_changes = 150,
     }
@@ -48,7 +98,12 @@ for _, lsp in ipairs(servers) do
 end
 
 nvim_lsp['terraformls'].setup {
-  on_attach = on_attach,
+  on_attach = function(client, buffer)
+    map_keys(buffer)
+    setup_location_list_updates(buffer)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
   flags = {
     debounce_text_changes = 150,
   },
@@ -57,59 +112,38 @@ nvim_lsp['terraformls'].setup {
   end
 }
 
+
 --
--- Send diagnostics to ALE
--- adapted from: https://github.com/nathanmsmith/nvim-ale-diagnostic
+-- Configure null-ls
 --
-local ale_diagnostic_severity_map = {
-  [vim.lsp.protocol.DiagnosticSeverity.Error] = "E";
-  [vim.lsp.protocol.DiagnosticSeverity.Warning] = "W";
-  [vim.lsp.protocol.DiagnosticSeverity.Information] = "I";
-  [vim.lsp.protocol.DiagnosticSeverity.Hint] = "I";
+
+local null_ls = require 'null-ls'
+local null_ls_sources = {
+  null_ls.builtins.diagnostics.actionlint,
+  null_ls.builtins.diagnostics.ansiblelint,
+  null_ls.builtins.diagnostics.editorconfig_checker,
+  null_ls.builtins.diagnostics.eslint_d,
+  null_ls.builtins.diagnostics.jsonlint,
+  null_ls.builtins.diagnostics.markdownlint,
+  null_ls.builtins.diagnostics.mypy,
+  null_ls.builtins.diagnostics.pylint,
+  null_ls.builtins.diagnostics.shellcheck,
+  null_ls.builtins.diagnostics.vint,
+  null_ls.builtins.diagnostics.yamllint,
+  null_ls.builtins.diagnostics.zsh,
+  null_ls.builtins.formatting.fixjson,
+  null_ls.builtins.formatting.isort,
+  null_ls.builtins.formatting.black,
+  null_ls.builtins.formatting.packer,
+  null_ls.builtins.formatting.terraform_fmt,
+  null_ls.builtins.formatting.trim_newlines,
 }
 
-vim.lsp.diagnostic.original_clear = vim.lsp.diagnostic.clear
-vim.lsp.diagnostic.clear = function(bufnr, client_id, diagnostic_ns, sign_ns)
-  vim.lsp.diagnostic.original_clear(bufnr, client_id, diagnostic_ns, sign_ns)
-  -- Clear ALE
-  vim.api.nvim_call_function('ale#other_source#ShowResults', {bufnr, "nvim-lsp", {}})
-end
-
-local function set_signs(bufnr)
-    -- Get all diagnostics from the current buffer
-    local diagnostics = vim.diagnostic.get(bufnr)
-    local items = {}
-
-    for _, item in ipairs(diagnostics) do
-        local nr = ''
-        if item.user_data and item.user_data.lsp and item.user_data.lsp.code then
-            nr = item.user_data.lsp.code
-        end
-        table.insert(items, {
-            nr = nr,
-            text = item.message,
-            lnum = item.lnum+1,
-            end_lnum = item.end_lnum,
-            col = item.col,
-            end_col = item.end_col,
-            type = ale_diagnostic_severity_map[item.severity],
-        })
-    end
-
-    vim.api.nvim_call_function('ale#other_source#ShowResults', {bufnr, "nvim-lsp", items})
-end
-
-function vim.diagnostic.show(namespace, bufnr, ...)
-    set_signs(bufnr)
-end
-
--- configure how errors are displayed - ALE will take care of it, so disable everything
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-        underline = false,
-        virtual_text = false,
-        signs = false,
-        update_in_insert = false,
-    }
-)
+null_ls.setup({
+  on_attach = function(client, buffer)
+    map_keys(buffer)
+    setup_format_on_save(buffer)
+    setup_location_list_updates(buffer)
+  end,
+  sources = null_ls_sources,
+})

@@ -4,15 +4,16 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'bkad/CamelCaseMotion'
     Plug 'breuckelen/vim-resize'
     Plug 'chriskempson/base16-vim'
-    Plug 'dense-analysis/ale'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
     Plug 'inkarkat/vim-GrepCommands'
     Plug 'inkarkat/vim-QuickFixCurrentNumber'
     Plug 'inkarkat/vim-ingo-library'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'lewis6991/spellsitter.nvim'
@@ -20,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/plenary.nvim'  " for null-ls
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -49,7 +51,6 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme = 'luna'
 
 let g:airline_extensions = [
-\ 'ale',
 \ 'tabline',
 \ ]
 
@@ -108,6 +109,9 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 
 
 let g:fzf_nvim_statusline = 0
+
+
+lua require("lsp_lines").setup()
 
 
 let g:netrw_banner = 0 " no header, toggle with I

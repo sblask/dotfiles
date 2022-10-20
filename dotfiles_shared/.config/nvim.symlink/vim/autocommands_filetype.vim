@@ -27,8 +27,4 @@ augroup autocommands_filetype
     autocmd FileType           zsh                 set iskeyword+=-
     " misc
     autocmd FileType           groovy              set nospell
-    " do something on write
-    autocmd FileType           hcl                 autocmd BufWrite <buffer> execute 'PackerFmt' | execute 'echo ""'
-    autocmd FileType           json                autocmd BufWrite <buffer> execute 'JsonFix' | execute 'echo ""'
-    autocmd FileType           terraform           autocmd BufWrite <buffer> execute 'TerraformFmt' | execute 'echo ""'
 augroup END
