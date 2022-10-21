@@ -50,7 +50,7 @@ end
 
 
 local setup_format_on_save = function(buffer)
-  local augroup_name = 'lsp-format-on-save'
+  local augroup_name = 'lsp-format-on-save' .. buffer
   vim.api.nvim_create_augroup(augroup_name, { clear = true })
   vim.api.nvim_create_autocmd('BufWritePre', {
     buffer = buffer,
@@ -63,7 +63,7 @@ end
 
 
 local setup_location_list_updates = function(buffer)
-  local augroup_name = 'lsp-location-list-updates'
+  local augroup_name = 'lsp-location-list-updates' .. buffer
   vim.api.nvim_create_augroup(augroup_name, { clear = true })
   vim.api.nvim_create_autocmd('DiagnosticChanged', {
     buffer = buffer,
