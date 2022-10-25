@@ -4,11 +4,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-    Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'bkad/CamelCaseMotion'
     Plug 'chriskempson/base16-vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
+    Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'inkarkat/vim-GrepCommands'
     Plug 'inkarkat/vim-QuickFixCurrentNumber'
     Plug 'inkarkat/vim-ingo-library'
@@ -29,6 +29,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
     Plug 'shumphrey/fugitive-gitlab.vim'
+    Plug 'sindrets/winshift.nvim'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
@@ -150,3 +151,5 @@ augroup visual_multi_autocommands
     autocmd!
     autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)
 augroup END
+
+lua require("winshift").setup()
