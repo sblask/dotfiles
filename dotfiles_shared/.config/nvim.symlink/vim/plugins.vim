@@ -6,7 +6,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'bkad/CamelCaseMotion'
-    Plug 'breuckelen/vim-resize'
     Plug 'chriskempson/base16-vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ervandew/supertab'
