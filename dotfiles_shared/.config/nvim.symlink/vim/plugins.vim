@@ -67,24 +67,14 @@ let g:airline_section_c = airline#section#create_left(['%{getcwd()}', '%n: %f'])
 let g:airline_section_z = '%l/%L : %c'
 
 
-let g:ale_disable_lsp = 1
-let g:ale_echo_msg_format = '[%linter%] %s (%code%) [%severity%]'
-let g:ale_linters = {
-\    'clojure': ['clj-kondo'],
-\    'python': ['pycodestyle', 'pylint'],
-\ }
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '✗'
-
 let g:ansible_ftdetect_filename_regex = 'ignore-filenames'
+
 
 let base16colorspace=256
 
 function! s:base16_customize() abort
   "             group,            guifg, guibg, ctermfg,          ctermbg,          attr
 
-  call Base16hi('AleErrorSign',   '',    '',    g:base16_cterm0A, g:base16_cterm00)
-  call Base16hi('AleWarningSign', '',    '',    g:base16_cterm08, g:base16_cterm00)
   call Base16hi('Cursor',         '',    '',    '',               g:base16_cterm09)
   call Base16hi('DiffText',       '',    '',    g:base16_cterm09, '')
   call Base16hi('FoldColumn',     '',    '',    '',               g:base16_cterm00)
@@ -92,7 +82,6 @@ function! s:base16_customize() abort
   call Base16hi('MatchParen',     '',    '',    '',               g:base16_cterm00, 'underline')
   call Base16hi('SignColumn',     '',    '',    '',               g:base16_cterm00)
   call Base16hi('SpellBad',       '',    '',    '',               g:base16_cterm00, 'undercurl')
-  call Base16hi('SpellCap',       '',    '',    '',               g:base16_cterm00, 'undercurl') " used by Ale
   call Base16hi('VertSplit',      '',    '',    '',               'NONE')
 
 endfunction
@@ -151,5 +140,6 @@ augroup visual_multi_autocommands
     autocmd!
     autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)
 augroup END
+
 
 lua require("winshift").setup()
