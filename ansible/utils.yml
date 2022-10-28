@@ -15,7 +15,7 @@
     terraform_ls_version: 0.29.0
     terraform_version: 1.3.3
     terrascan_version: 1.15.2
-    tflint_version: 0.40.1
+    tflint_version: 0.42.2
     tfsec_version: 1.28.0
     trivy_version: 0.32.0
     vault_version: 1.11.0
