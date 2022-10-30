@@ -144,6 +144,7 @@ null_ls.setup({
     map_keys(buffer)
     setup_format_on_save(buffer)
     setup_location_list_updates(buffer)
+    vim.api.nvim_buf_set_option(buffer, 'formatexpr', '')
   end,
   sources = null_ls_sources,
 })
