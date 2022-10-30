@@ -73,16 +73,18 @@ let g:ansible_ftdetect_filename_regex = 'ignore-filenames'
 let base16colorspace=256
 
 function! s:base16_customize() abort
-  "             group,            guifg, guibg, ctermfg,          ctermbg,          attr
+  "             group,                           guifg, guibg, ctermfg,          ctermbg,          attr
 
-  call Base16hi('Cursor',         '',    '',    '',               g:base16_cterm09)
-  call Base16hi('DiffText',       '',    '',    g:base16_cterm09, '')
-  call Base16hi('FoldColumn',     '',    '',    '',               g:base16_cterm00)
-  call Base16hi('LineNr',         '',    '',    '',               g:base16_cterm00)
-  call Base16hi('MatchParen',     '',    '',    '',               g:base16_cterm00, 'underline')
-  call Base16hi('SignColumn',     '',    '',    '',               g:base16_cterm00)
-  call Base16hi('SpellBad',       '',    '',    '',               g:base16_cterm00, 'undercurl')
-  call Base16hi('VertSplit',      '',    '',    '',               'NONE')
+  call Base16hi('Cursor',                        '',    '',    '',               g:base16_cterm09)
+  call Base16hi('DiffText',                      '',    '',    g:base16_cterm09, '')
+  call Base16hi('FoldColumn',                    '',    '',    '',               g:base16_cterm00)
+  call Base16hi('LineNr',                        '',    '',    '',               g:base16_cterm00)
+  call Base16hi('MatchParen',                    '',    '',    '',               g:base16_cterm00, 'underline')
+  call Base16hi('SignColumn',                    '',    '',    '',               g:base16_cterm00)
+  call Base16hi('SpellBad',                      '',    '',    '',               g:base16_cterm00, 'undercurl')
+  call Base16hi('TreesitterContext',             '',    '',    '',               g:base16_cterm01)
+  call Base16hi('TreesitterContextLineNumber',   '',    '',    '',               g:base16_cterm01)
+  call Base16hi('VertSplit',                     '',    '',    '',               'NONE')
 
 endfunction
 
