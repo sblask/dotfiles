@@ -7,7 +7,7 @@
     consul_template_version: 0.29.1
     direnv_version: 2.32.1
     editor_config_checker_version: 2.5.0
-    fzf_version: 0.32.1
+    fzf_version: 0.34.0
     iamlive_version: 0.48.0
     micromamba_version: 0.24.0
     packer_version: 1.8.2
