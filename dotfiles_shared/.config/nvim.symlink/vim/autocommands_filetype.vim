@@ -5,6 +5,7 @@ augroup autocommands_filetype
     autocmd BufNewFile,BufRead *.jsm               set filetype=javascript
     autocmd BufNewFile,BufRead *.sls               set filetype=yaml
     autocmd BufNewFile,BufRead *.template          set filetype=json
+    autocmd BufNewFile,BufRead *.tf.j2             set filetype=tf
     autocmd BufNewFile,BufRead */ansible/**        TSDisable highlight | set filetype=yaml.ansible
     autocmd BufRead            .ansible-lint       set filetype=yaml
     autocmd BufRead            .bash*              set filetype=sh
