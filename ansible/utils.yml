@@ -3,7 +3,7 @@
 
   vars:
 
-    actionlint_version: 1.6.21
+    actionlint_version: 1.6.22
     consul_template_version: 0.29.1
     direnv_version: 2.32.1
     editor_config_checker_version: 2.5.0
