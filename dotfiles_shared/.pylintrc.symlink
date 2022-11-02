@@ -1,6 +1,6 @@
 [BASIC]
+good-names=id,ip
 const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|app|logger)$
-variable-rgx=(([a-z_][a-z0-9_]{2,30})|ip)$
 
 [Format]
 max-line-length=79
@@ -22,8 +22,5 @@ disable=
 [REPORTS]
 msg-template={path}:{line} [{symbol}] {msg}
 
-[TYPECHECK]
-generated-members=boto3.resource.*,zmq.*
-
 [VARIABLES]
-dummy-variables-rgx=_.*|dummy
+dummy-variables-rgx=_.*
