@@ -54,3 +54,17 @@
       loop: "{{ packages }}"
       loop_control:
         index_var: index
+
+    # this is created when installing packages, but the nodejs install is brand new
+    - name: Create node_modules directory
+      file:
+        path: "{{ target_directory }}/.asdf/installs/nodejs/{{ package_versions.results[0].stdout }}/.npm/lib/node_modules"
+        state: directory
+        mode: 0755
+
+    # see https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
+    - name: Create ~/.node_modules link
+      file:
+        src: "{{ target_directory }}/.asdf/installs/nodejs/{{ package_versions.results[0].stdout }}/.npm/lib/node_modules"
+        dest: "{{ target_directory }}/.node_modules"
+        state: link

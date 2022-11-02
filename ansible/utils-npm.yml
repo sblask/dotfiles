@@ -12,3 +12,5 @@
         - jsonlint
         - markdownlint-cli
         - serverless
+        - stylelint
+        - stylelint-config-standard
