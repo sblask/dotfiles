@@ -1,1 +1,1 @@
-python-lsp-server==1.5.0
+python-lsp-server==1.6.0
