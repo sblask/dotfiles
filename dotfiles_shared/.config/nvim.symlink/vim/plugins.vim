@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mileszs/ack.vim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'  " for null-ls
-    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'v0.8.0', 'do': ':TSUpdate' }
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
