@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+set diffopt= " hopefully better diffs, see https://vimways.org/2018/the-power-of-diff/
+
 set autoindent
 set autoread " reload file automatically on focus if unchanged here but changed somewhere else
 set completeopt=menuone,noselect
@@ -8,7 +10,6 @@ set diffopt+=context:9999 " disable folding
 set diffopt+=filler
 set diffopt+=indent-heuristic
 set diffopt+=internal
-set diffopt= " hopefully better diffs, see https://vimways.org/2018/the-power-of-diff/
 set expandtab
 set fileignorecase " ignore case when completing filenames
 set foldmethod=manual
