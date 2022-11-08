@@ -7,7 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'bkad/CamelCaseMotion'
     Plug 'chriskempson/base16-vim'
     Plug 'editorconfig/editorconfig-vim'
-    Plug 'ervandew/supertab'
     Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'inkarkat/vim-GrepCommands'
     Plug 'inkarkat/vim-QuickFixCurrentNumber'
@@ -118,18 +117,6 @@ let g:no_QuickFixCurrentNumber_maps = 1
 
 
 lua require('spellsitter').setup()
-
-
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<c-n>'
-
-augroup supertab-chaining
-    autocmd!
-    autocmd FileType *
-                \ if &omnifunc != '' |
-                \   call SuperTabChain(&omnifunc, '<c-n>') |
-                \ endif
-augroup END
 
 
 let g:VM_maps = {}
