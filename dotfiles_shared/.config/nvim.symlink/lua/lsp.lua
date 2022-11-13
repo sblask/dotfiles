@@ -3,10 +3,6 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
-
-vim.api.nvim_set_hl(0, 'Pmenu', { ctermbg = 0 })
-
-
 --
 -- Change sign column highlighting
 --
