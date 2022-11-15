@@ -1,0 +1,11 @@
+- name: Play to install Cargo packages
+  hosts: all
+
+  tasks:
+
+    - name: Install Cargo packages
+      community.general.cargo:
+        name: "{{ item }}"
+      loop:
+        - selene
+        - stylua

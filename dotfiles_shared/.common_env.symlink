@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # .bin from dotfiles
 if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
@@ -13,11 +15,17 @@ if [ -f "$HOME/.local_env" ]; then
     . "$HOME/.local_env"
 fi
 
-# allow machine specific modifications
+# add cargo to the PATH
+if [ -d "$HOME/.cargo/bin" ]; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# add homebrew to the PATH
 if [ -f /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# setup direnv, see https://direnv.net/docs/hook.html
 if type direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi

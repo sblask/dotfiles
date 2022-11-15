@@ -5,6 +5,7 @@
     packages:
       - {plugin: nodejs, version: 16}
       - {plugin: python, version: 3.9}
+      - {plugin: rust, version: 1.65, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
   tasks:
 
@@ -17,13 +18,11 @@
     - name: Install ASDF plugins
       shell: |
         source {{ target_directory }}/.asdf/asdf.sh
-        asdf plugin-add {{ item }}
+        asdf plugin-add {{ item.plugin }} {{ item.additional_option | default('') }}
       args:
-        creates: "{{ target_directory }}/.asdf/plugins/{{ item }}"
+        creates: "{{ target_directory }}/.asdf/plugins/{{ item.plugin }}"
         executable: /bin/bash
-      loop:
-        - python
-        - nodejs
+      loop: "{{ packages }}"
 
     - name: Get latest package versions with ASDF
       shell: |
