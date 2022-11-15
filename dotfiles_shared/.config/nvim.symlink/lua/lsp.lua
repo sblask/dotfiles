@@ -81,7 +81,7 @@ local servers = {
 local nvim_lsp = require("lspconfig")
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
-        on_attach = function(client, buffer)
+        on_attach = function(_client, buffer)
             map_keys(buffer)
             setup_format_on_save(buffer)
             setup_location_list_updates(buffer)
@@ -102,7 +102,7 @@ nvim_lsp["terraformls"].setup({
     flags = {
         debounce_text_changes = 150,
     },
-    root_dir = function(startpath)
+    root_dir = function(_startpath)
         return vim.fn.getcwd()
     end,
 })
@@ -135,7 +135,7 @@ local null_ls_sources = {
 }
 
 null_ls.setup({
-    on_attach = function(client, buffer)
+    on_attach = function(_client, buffer)
         map_keys(buffer)
         setup_format_on_save(buffer)
         setup_location_list_updates(buffer)
