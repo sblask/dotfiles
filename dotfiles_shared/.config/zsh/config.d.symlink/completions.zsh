@@ -96,3 +96,6 @@ zstyle ':completion::complete:git-rebase:options-argument-1:headrefs' command "g
 
 # disable HEAD completion in git checkout
 __git_recent_commits(){}
+
+# Use Terraform's builtin completion
+complete -o nospace -C terraform terraform
