@@ -121,6 +121,7 @@ local null_ls_sources = {
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.pylint,
+    null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.diagnostics.vint,
@@ -130,6 +131,7 @@ local null_ls_sources = {
     null_ls.builtins.formatting.fixjson,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.packer,
+    null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
     null_ls.builtins.formatting.trim_newlines,
 }
