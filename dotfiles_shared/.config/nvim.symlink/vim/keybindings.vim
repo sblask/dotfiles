@@ -2,6 +2,8 @@
 set backspace=indent,eol,start
 " confirm completion with enter
 inoremap <expr> <CR> pumvisible() ? "<C-Y>" : "<CR>"
+inoremap <expr> <TAB> pumvisible() ? "<C-N>" : "<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "<C-P>" : "<TAB>"
 " better redo combination
 nnoremap U <C-R>
 " Disable page up and down
