@@ -1,6 +1,7 @@
 repos:
 
   - repo: local
+
     hooks:
       - id: actionlint
         name: Run actionlint
@@ -8,16 +9,12 @@ repos:
         language: system
         pass_filenames: false
 
-  - repo: local
-    hooks:
       - id: add-index
         name: Test add-index
         entry: ./test_files/add-index.sh
         language: system
         pass_filenames: false
 
-  - repo: local
-    hooks:
       - id: python-tests
         name: Python Tests
         entry: ./test_files/python.sh
@@ -33,6 +30,11 @@ repos:
     rev: v0.32.2
     hooks:
       - id: markdownlint
+
+  - repo: https://github.com/johnnymorganz/stylua
+    rev: v0.15.2
+    hooks:
+      - id: stylua-github
 
   - repo: https://github.com/Vimjas/vint
     rev: v0.4a3
