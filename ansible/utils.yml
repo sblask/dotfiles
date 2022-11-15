@@ -22,38 +22,44 @@
 
   tasks:
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Actionlint
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: actionlint
         url: https://github.com/rhysd/actionlint/releases/download/v{{ actionlint_version }}/actionlint_{{ actionlint_version }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ actionlint_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install consul-template
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: consul-template
         url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ consul_template_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Editor Config Checker
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: ec
         zipped_binary_path: bin/ec-{{ os }}-{{ architecture | default('amd64') }}
         url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-{{ architecture | default('amd64') }}.tar.gz
         version: "{{ editor_config_checker_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install fzf
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
         url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ fzf_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install IAM live
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: iamlive
         url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ iamlive_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Micromamba
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: micromamba
         url: https://micro.mamba.pm/api/micromamba/{% if os == "darwin" %}osx{% else %}linux{% endif %}-{{ architecture | default('64') }}/{{ micromamba_version }}
@@ -61,43 +67,50 @@
         unarchive_options:
           - --strip-components=1
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Packer
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: packer
         url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ packer_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Terraform
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform
         url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Terraform LS
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
         url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Terrascane
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: terrascan
         url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_{{ architecture | default('x86_64') }}.tar.gz
         version: "{{ terrascan_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Tflint
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: tflint
         url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ tflint_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Trivy
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: trivy
         url: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('64bit') }}.tar.gz
         version: "{{ trivy_version }}"
 
-    - include_tasks: includes/zipped_executable.yml
+    - name: Install Vault
+      include_tasks: includes/zipped_executable.yml
       vars:
         product: vault
         url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip

@@ -4,7 +4,7 @@
   tasks:
 
     - name: Install homebrew packages
-      homebrew:
+      community.general.packaging.os.homebrew:
         name: "{{ item }}"
       loop:
         - bat
@@ -34,7 +34,7 @@
         - tree
 
     - name: Install homebrew casks
-      homebrew_cask:
+      community.general.packaging.os.homebrew_cask:
         name: "{{ item }}"
       loop:
         - alt-tab

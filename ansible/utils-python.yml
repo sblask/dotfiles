@@ -39,7 +39,8 @@
         state: directory
         mode: 0755
 
-    - include_tasks: includes/python-util.yml
+    - name: Install {{ package }}
+      include_tasks: includes/python-util.yml
       loop: "{{ packages | dict2items }}"
       loop_control:
         loop_var: package

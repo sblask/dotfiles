@@ -45,7 +45,7 @@
         dest: "{{ zsh_plugin_directory }}/base16-shell"
         update: false
     - name: Patch base16 plugin
-      patch:
+      ansible.posix.patch:
         src: "{{ playbook_dir }}/../patches/base16-shell"
         basedir: "{{ zsh_plugin_directory }}/base16-shell"
 
