@@ -26,7 +26,6 @@
         - https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/taskwarrior/_task
-        - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/terraform/_terraform
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/vault/_vault
         - https://raw.githubusercontent.com/sharkdp/fd/master/contrib/completion/_fd
         - https://raw.githubusercontent.com/zsh-users/zsh-completions/master/src/_httpie
