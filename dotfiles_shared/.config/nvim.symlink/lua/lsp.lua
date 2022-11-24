@@ -107,6 +107,17 @@ lspconfig["terraformls"].setup({
     end,
 })
 
+lspconfig["tflint"].setup({
+    on_attach = function(_client, buffer)
+        map_keys(buffer)
+        setup_location_list_updates(buffer)
+    end,
+    flags = {
+        debounce_text_changes = 150,
+    },
+    root_dir = lspconfig.util.root_pattern(".git", ".tflint.hcl"),
+})
+
 --
 -- Configure null-ls
 --
