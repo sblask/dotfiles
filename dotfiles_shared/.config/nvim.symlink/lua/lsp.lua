@@ -78,9 +78,9 @@ local servers = {
     "pylsp",
 }
 
-local nvim_lsp = require("lspconfig")
+local lspconfig = require("lspconfig")
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup({
+    lspconfig[lsp].setup({
         on_attach = function(_client, buffer)
             map_keys(buffer)
             setup_format_on_save(buffer)
@@ -92,7 +92,7 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-nvim_lsp["terraformls"].setup({
+lspconfig["terraformls"].setup({
     on_attach = function(client, buffer)
         map_keys(buffer)
         setup_location_list_updates(buffer)
