@@ -102,6 +102,7 @@ let g:fzf_nvim_statusline = 0
 
 
 lua require("lsp_lines").setup()
+command! LspLinesToggle :lua require("lsp_lines").toggle()
 
 
 let g:netrw_banner = 0 " no header, toggle with I
