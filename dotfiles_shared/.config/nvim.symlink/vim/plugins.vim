@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 call plug#begin('~/.config/nvim/plugged')
+    Plug 'AndrewRadev/bufferize.vim'
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
