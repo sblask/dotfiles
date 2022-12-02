@@ -122,9 +122,19 @@ lua require('spellsitter').setup()
 
 let g:VM_maps = {}
 let g:VM_maps['Align'] = '<leader>a'
-let g:VM_maps['Skip Region'] = '<c-s>'
-let g:VM_maps['Remove Region'] = '<c-x>'
 let g:VM_maps['Duplicate'] = ''
+let g:VM_maps['Find Subword Under'] = '' " unset this to make VMVisualBlock work
+let g:VM_maps['Remove Region'] = '<c-x>'
+let g:VM_maps['Skip Region'] = '<c-s>'
+
+function VMVisualBlock() abort
+    if mode() ==# ''
+        return "\<Plug>(VM-Visual-Cursors)"
+    else
+        return "\<Plug>(VM-Find-Subword-Under)"
+    endif
+endfunction
+xmap <expr> <c-n> VMVisualBlock()
 
 augroup visual_multi_autocommands
     autocmd!
