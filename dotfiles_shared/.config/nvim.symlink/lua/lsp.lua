@@ -147,6 +147,7 @@ local null_ls_sources = {
 }
 
 null_ls.setup({
+    debug = false,
     on_attach = function(_client, buffer)
         map_keys(buffer)
         setup_format_on_save(buffer)
