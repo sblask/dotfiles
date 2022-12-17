@@ -126,7 +126,6 @@ local null_ls = require("null-ls")
 local null_ls_sources = {
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.editorconfig_checker,
     null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.diagnostics.jsonlint,
     null_ls.builtins.diagnostics.markdownlint,
