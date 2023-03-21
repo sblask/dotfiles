@@ -13,7 +13,7 @@
     packer_version: 1.8.2
     shfmt_version: 3.5.1
     terraform_ls_version: 0.30.1
-    terraform_version: 1.3.3
+    terraform_version: 1.4.2
     terrascan_version: 1.15.2
     tflint_version: 0.43.0
     tfsec_version: 1.28.0
