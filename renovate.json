@@ -12,5 +12,16 @@
   "prHourlyLimit": 0,
   "pre-commit": {
     "enabled": true
-  }
+  },
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^ansible/utils\\.yml$"
+      ],
+      "datasourceTemplate": "github-tags",
+      "matchStrings": [
+        "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
+      ]
+    }
+  ]
 }

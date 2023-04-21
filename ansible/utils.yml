@@ -3,22 +3,21 @@
 
   vars:
 
-    actionlint_version: 1.6.22
-    consul_template_version: 0.29.1
-    direnv_version: 2.32.1
-    editor_config_checker_version: 2.5.0
-    fzf_version: 0.34.0
-    iamlive_version: 0.48.0
-    micromamba_version: 0.24.0
-    packer_version: 1.8.2
-    shfmt_version: 3.5.1
-    terraform_ls_version: 0.30.1
-    terraform_version: 1.4.2
-    terrascan_version: 1.15.2
-    tflint_version: 0.43.0
-    tfsec_version: 1.28.0
-    trivy_version: 0.32.0
-    vault_version: 1.11.0
+    actionlint_version: v1.6.22  # rhysd/actionlint
+    consul_template_version: v0.29.1  # hashicorp/consul-template
+    direnv_version: v2.32.1  # direnv/direnv
+    editor_config_checker_version: 2.5.0  # editorconfig-checker/editorconfig-checker
+    fzf_version: 0.34.0  # junegunn/fzf
+    iamlive_version: v0.48.0  # iann0036/iamlive
+    packer_version: v1.8.2  # hashicorp/packer
+    shfmt_version: v3.5.1  # mvdan/sh
+    terraform_ls_version: v0.30.1  # hashicorp/terraform-ls
+    terraform_version: v1.4.2  # hashicorp/terraform
+    terrascan_version: v1.15.2  # tenable/terrascan
+    tflint_version: v0.43.0  # terraform-linters/tflint
+    tfsec_version: v1.28.0  # aquasecurity/tfsec
+    trivy_version: v0.32.0  # aquasecurity/trivy
+    vault_version: v1.11.0  # hashicorp/vault
 
   tasks:
 
@@ -26,15 +25,15 @@
       include_tasks: includes/zipped_executable.yml
       vars:
         product: actionlint
-        url: https://github.com/rhysd/actionlint/releases/download/v{{ actionlint_version }}/actionlint_{{ actionlint_version }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
-        version: "{{ actionlint_version }}"
+        url: https://github.com/rhysd/actionlint/releases/download/{{ actionlint_version }}/actionlint_{{ actionlint_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
+        version: "{{ actionlint_version | trim('v') }}"
 
     - name: Install consul-template
       include_tasks: includes/zipped_executable.yml
       vars:
         product: consul-template
-        url: https://releases.hashicorp.com/consul-template/{{ consul_template_version }}/consul-template_{{ consul_template_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ consul_template_version }}"
+        url: https://releases.hashicorp.com/consul-template/{{ consul_template_version | trim('v') }}/consul-template_{{ consul_template_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ consul_template_version | trim('v') }}"
 
     - name: Install Editor Config Checker
       include_tasks: includes/zipped_executable.yml
@@ -55,98 +54,89 @@
       include_tasks: includes/zipped_executable.yml
       vars:
         product: iamlive
-        url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
-        version: "{{ iamlive_version }}"
-
-    - name: Install Micromamba
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: micromamba
-        url: https://micro.mamba.pm/api/micromamba/{% if os == "darwin" %}osx{% else %}linux{% endif %}-{{ architecture | default('64') }}/{{ micromamba_version }}
-        version: "{{ micromamba_version }}"
-        unarchive_options:
-          - --strip-components=1
+        url: https://github.com/iann0036/iamlive/releases/download/{{ iamlive_version }}/iamlive-{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
+        version: "{{ iamlive_version | trim('v') }}"
 
     - name: Install Packer
       include_tasks: includes/zipped_executable.yml
       vars:
         product: packer
-        url: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ packer_version }}"
+        url: https://releases.hashicorp.com/packer/{{ packer_version | trim('v') }}/packer_{{ packer_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ packer_version | trim('v') }}"
 
     - name: Install Terraform
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform
-        url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ terraform_version }}"
+        url: https://releases.hashicorp.com/terraform/{{ terraform_version | trim('v') }}/terraform_{{ terraform_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ terraform_version | trim('v') }}"
 
     - name: Install Terraform LS
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
-        url: https://github.com/hashicorp/terraform-ls/releases/download/v{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ terraform_ls_version }}"
+        url: https://github.com/hashicorp/terraform-ls/releases/download/{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ terraform_ls_version | trim('v') }}"
 
     - name: Install Terrascane
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terrascan
-        url: https://github.com/accurics/terrascan/releases/download/v{{ terrascan_version }}/terrascan_{{ terrascan_version }}_{{ os }}_{{ architecture | default('x86_64') }}.tar.gz
-        version: "{{ terrascan_version }}"
+        url: https://github.com/accurics/terrascan/releases/download/{{ terrascan_version }}/terrascan_{{ terrascan_version | trim('v') }}_{{ os }}_{{ architecture | default('x86_64') }}.tar.gz
+        version: "{{ terrascan_version | trim('v') }}"
 
     - name: Install Tflint
       include_tasks: includes/zipped_executable.yml
       vars:
         product: tflint
-        url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ tflint_version }}"
+        url: https://github.com/terraform-linters/tflint/releases/download/{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ tflint_version | trim('v') }}"
 
     - name: Install Trivy
       include_tasks: includes/zipped_executable.yml
       vars:
         product: trivy
-        url: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('64bit') }}.tar.gz
-        version: "{{ trivy_version }}"
+        url: https://github.com/aquasecurity/trivy/releases/download/{{ trivy_version }}/trivy_{{ trivy_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('64bit') }}.tar.gz
+        version: "{{ trivy_version | trim('v') }}"
 
     - name: Install Vault
       include_tasks: includes/zipped_executable.yml
       vars:
         product: vault
-        url: https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ vault_version }}"
+        url: https://releases.hashicorp.com/vault/{{ vault_version | trim('v') }}/vault_{{ vault_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        version: "{{ vault_version | trim('v') }}"
 
     # non-zipped utils
 
     - name: Get direnv
       get_url:
-        url: https://github.com/direnv/direnv/releases/download/v{{ direnv_version }}/direnv.{{ os }}-{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
+        url: https://github.com/direnv/direnv/releases/download/{{ direnv_version }}/direnv.{{ os }}-{{ architecture | default('amd64') }}
+        dest: "{{ target_directory }}/.bin/direnv_{{ direnv_version | trim('v') | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link direnv
       file:
-        src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
+        src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | trim('v') | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/direnv"
         state: link
 
     - name: Get shfmt
       get_url:
-        url: https://github.com/mvdan/sh/releases/download/v{{ shfmt_version }}/shfmt_v{{ shfmt_version }}_{{ os }}_{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
+        url: https://github.com/mvdan/sh/releases/download/{{ shfmt_version }}/shfmt_{{ shfmt_version }}_{{ os }}_{{ architecture | default('amd64') }}
+        dest: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | trim('v') | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link shfmt
       file:
-        src: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
+        src: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | trim('v') | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/shfmt"
         state: link
 
     - name: Get tfsec
       get_url:
-        url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
+        url: https://github.com/aquasecurity/tfsec/releases/download/{{ tfsec_version }}/tfsec-{{ os }}-{{ architecture | default('amd64') }}
+        dest: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | trim('v') | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link tfsec
       file:
-        src: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
+        src: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | trim('v') | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/tfsec"
         state: link
