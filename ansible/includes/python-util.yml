@@ -26,6 +26,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/../requirements-essential.txt
   when: essential_requirements_check.rc != 0
+  changed_when: true
 
 - name: "Python package {{ package.key }}: Check requirements"
   command: |
@@ -38,6 +39,7 @@
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/includes/requirements-{{ package.key }}.txt
   when: not (virtual_env_creation.stdout | regex_search("skipped")) or requirements_check.stderr | regex_search("pkg_resources.DistributionNotFound|pkg_resources.VersionConflict")
+  changed_when: true
 
 - name: "Python package {{ package.key }}: Add link in .bin"
   file:
