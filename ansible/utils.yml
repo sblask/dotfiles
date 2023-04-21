@@ -17,7 +17,7 @@
     tflint_version: v0.43.0  # terraform-linters/tflint
     tfsec_version: v1.28.0  # aquasecurity/tfsec
     trivy_version: v0.32.0  # aquasecurity/trivy
-    vault_version: v1.11.0  # hashicorp/vault
+    vault_version: v1.13.1  # hashicorp/vault
 
   tasks:
 
