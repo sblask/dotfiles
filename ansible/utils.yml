@@ -5,7 +5,7 @@
 
     actionlint_version: v1.6.22  # rhysd/actionlint
     consul_template_version: v0.29.1  # hashicorp/consul-template
-    direnv_version: v2.32.1  # direnv/direnv
+    direnv_version: v2.32.2  # direnv/direnv
     editor_config_checker_version: 2.5.0  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.34.0  # junegunn/fzf
     iamlive_version: v0.48.0  # iann0036/iamlive
