@@ -22,7 +22,6 @@
           pre-commit: pre-commit
           identify-cli: identify-cli
       pylsp:
-      sam:
       systemdlint:
       tldr:
       vim-vint:
