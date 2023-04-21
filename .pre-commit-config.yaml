@@ -31,6 +31,11 @@ repos:
     hooks:
       - id: markdownlint
 
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 35.55.1
+    hooks:
+      - id: renovate-config-validator
+
   - repo: https://github.com/johnnymorganz/stylua
     rev: v0.15.2
     hooks:
