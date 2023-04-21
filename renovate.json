@@ -8,5 +8,8 @@
       "requirements-.+\\.txt"
     ]
   },
-  "prHourlyLimit": 0
+  "prHourlyLimit": 0,
+  "pre-commit": {
+    "enabled": true
+  }
 }
