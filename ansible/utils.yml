@@ -4,7 +4,6 @@
   vars:
 
     actionlint_version: v1.6.22  # rhysd/actionlint
-    direnv_version: v2.32.1  # direnv/direnv
     editor_config_checker_version: 2.5.0  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.34.0  # junegunn/fzf
     iamlive_version: v0.48.0  # iann0036/iamlive
@@ -75,17 +74,6 @@
         version: "{{ trivy_version | trim('v') }}"
 
     # non-zipped utils
-
-    - name: Get direnv
-      get_url:
-        url: https://github.com/direnv/direnv/releases/download/{{ direnv_version }}/direnv.{{ os }}-{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/direnv_{{ direnv_version | trim('v') | regex_replace('\\.', '_') }}"
-        mode: 0755
-    - name: Link direnv
-      file:
-        src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | trim('v') | regex_replace('\\.', '_') }}"
-        dest: "{{ target_directory }}/.bin/direnv"
-        state: link
 
     - name: Get shfmt
       get_url:
