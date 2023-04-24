@@ -17,7 +17,6 @@
     tflint_version: v0.46.1  # terraform-linters/tflint
     tfsec_version: v1.28.0  # aquasecurity/tfsec
     trivy_version: v0.32.0  # aquasecurity/trivy
-    vault_version: v1.11.0  # hashicorp/vault
 
   tasks:
 
@@ -98,13 +97,6 @@
         product: trivy
         url: https://github.com/aquasecurity/trivy/releases/download/{{ trivy_version }}/trivy_{{ trivy_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('64bit') }}.tar.gz
         version: "{{ trivy_version | trim('v') }}"
-
-    - name: Install Vault
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: vault
-        url: https://releases.hashicorp.com/vault/{{ vault_version | trim('v') }}/vault_{{ vault_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ vault_version | trim('v') }}"
 
     # non-zipped utils
 
