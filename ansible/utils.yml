@@ -75,7 +75,7 @@
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
-        url: https://github.com/hashicorp/terraform-ls/releases/download/{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        url: https://releases.hashicorp.com/terraform-ls/{{ terraform_ls_version | trim('v') }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version | trim('v') }}"
 
     - name: Install Terrascane
