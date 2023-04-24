@@ -11,7 +11,7 @@
     iamlive_version: v0.48.0  # iann0036/iamlive
     packer_version: v1.8.2  # hashicorp/packer
     shfmt_version: v3.5.1  # mvdan/sh
-    terraform_ls_version: v0.30.1  # hashicorp/terraform-ls
+    terraform_ls_version: v0.31.0  # hashicorp/terraform-ls
     terraform_version: v1.4.2  # hashicorp/terraform
     terrascan_version: v1.15.2  # tenable/terrascan
     tflint_version: v0.43.0  # terraform-linters/tflint
@@ -75,7 +75,7 @@
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
-        url: https://github.com/hashicorp/terraform-ls/releases/download/{{ terraform_ls_version }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
+        url: https://releases.hashicorp.com/terraform-ls/{{ terraform_ls_version | trim('v') }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version | trim('v') }}"
 
     - name: Install Terrascane
