@@ -4,7 +4,6 @@
   vars:
 
     actionlint_version: v1.6.22  # rhysd/actionlint
-    consul_template_version: v0.29.1  # hashicorp/consul-template
     direnv_version: v2.32.1  # direnv/direnv
     editor_config_checker_version: 2.5.0  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.34.0  # junegunn/fzf
@@ -25,13 +24,6 @@
         product: actionlint
         url: https://github.com/rhysd/actionlint/releases/download/{{ actionlint_version }}/actionlint_{{ actionlint_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ actionlint_version | trim('v') }}"
-
-    - name: Install consul-template
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: consul-template
-        url: https://releases.hashicorp.com/consul-template/{{ consul_template_version | trim('v') }}/consul-template_{{ consul_template_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ consul_template_version | trim('v') }}"
 
     - name: Install Editor Config Checker
       include_tasks: includes/zipped_executable.yml
