@@ -8,7 +8,6 @@
     editor_config_checker_version: 2.5.0  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.34.0  # junegunn/fzf
     iamlive_version: v0.48.0  # iann0036/iamlive
-    packer_version: v1.8.2  # hashicorp/packer
     shfmt_version: v3.5.1  # mvdan/sh
     terraform_ls_version: v0.31.0  # hashicorp/terraform-ls
     terraform_version: v1.4.5  # hashicorp/terraform
@@ -46,13 +45,6 @@
         product: iamlive
         url: https://github.com/iann0036/iamlive/releases/download/{{ iamlive_version }}/iamlive-{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ iamlive_version | trim('v') }}"
-
-    - name: Install Packer
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: packer
-        url: https://releases.hashicorp.com/packer/{{ packer_version | trim('v') }}/packer_{{ packer_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ packer_version | trim('v') }}"
 
     - name: Install Terraform
       include_tasks: includes/zipped_executable.yml
