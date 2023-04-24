@@ -26,12 +26,14 @@ function! RunWithErrorHandling(command) abort
   call winrestview(view)
 endfunction
 
-command! JsonFormat       call RunWithErrorHandling('% ! json-format')
-command! JsonFormatSorted call RunWithErrorHandling('% ! json-format --sorted')
-command! JsonToDict       call RunWithErrorHandling('% ! python -c "import json; import sys; as_dict = json.load(sys.stdin); print(as_dict)"')
-command! PrettyDict       call RunWithErrorHandling('% ! python -c "import pprint; import sys; as_dict = eval(sys.stdin); pprint.pprint(as_dict)"')
-command! YamlFormat       call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(yaml.dump(as_dict, default_flow_style=False))"')
-command! YamlToDict       call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(as_dict)"')
+command! JsonFormat        call RunWithErrorHandling('% ! json-format')
+command! JsonFormat2       call RunWithErrorHandling('% ! json-format --indent 2')
+command! JsonFormatSorted  call RunWithErrorHandling('% ! json-format --sorted')
+command! JsonFormatSorted2 call RunWithErrorHandling('% ! json-format --indent 2 --sorted')
+command! JsonToDict        call RunWithErrorHandling('% ! python -c "import json; import sys; as_dict = json.load(sys.stdin); print(as_dict)"')
+command! PrettyDict        call RunWithErrorHandling('% ! python -c "import pprint; import sys; as_dict = eval(sys.stdin); pprint.pprint(as_dict)"')
+command! YamlFormat        call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(yaml.dump(as_dict, default_flow_style=False))"')
+command! YamlToDict        call RunWithErrorHandling('% ! python -c "import yaml; import sys; as_dict = yaml.load(sys.stdin); print(as_dict)"')
 
 command! -range Sort <line1>,<line2>!sort
 command! -range SortCommaSeparated <line1>,<line2>python3 apply_on_one_line_selection(sort_comma_separated)
