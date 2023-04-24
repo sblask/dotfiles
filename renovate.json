@@ -3,6 +3,16 @@
   "extends": [
     "config:base"
   ],
+  "packageRules": [
+    {
+      "extends": [
+        "schedule:monthly"
+      ],
+      "matchPackageNames": [
+        "renovatebot/pre-commit-hooks"
+      ]
+    }
+  ],
   "pip_requirements": {
     "fileMatch": [
       "requirements-.+\\.txt"
