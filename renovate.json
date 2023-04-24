@@ -5,6 +5,12 @@
   ],
   "packageRules": [
     {
+      "groupName": "yamllint",
+      "matchPackagePatterns": [
+        "yamllint"
+      ]
+    },
+    {
       "extends": [
         "schedule:monthly"
       ],
