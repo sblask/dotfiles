@@ -16,10 +16,10 @@
   "rebaseWhen": "never",
   "regexManagers": [
     {
+      "datasourceTemplate": "github-tags",
       "fileMatch": [
         "^ansible/utils\\.yml$"
       ],
-      "datasourceTemplate": "github-tags",
       "matchStrings": [
         "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
       ]
