@@ -12,7 +12,7 @@
     terraform_version: v1.4.5  # hashicorp/terraform
     tflint_version: v0.46.1  # terraform-linters/tflint
     tfsec_version: v1.28.0  # aquasecurity/tfsec
-    trivy_version: v0.32.0  # aquasecurity/trivy
+    trivy_version: v0.40.0  # aquasecurity/trivy
 
   tasks:
 
