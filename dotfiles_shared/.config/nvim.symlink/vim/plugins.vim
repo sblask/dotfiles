@@ -28,7 +28,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
     Plug 'shumphrey/fugitive-gitlab.vim'
-    Plug 'sindrets/winshift.nvim'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
@@ -137,6 +136,3 @@ augroup visual_multi_autocommands
     autocmd!
     autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)
 augroup END
-
-
-lua require("winshift").setup()
