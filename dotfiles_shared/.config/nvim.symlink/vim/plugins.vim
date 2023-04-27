@@ -15,7 +15,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'lewis6991/spellsitter.nvim'
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
@@ -116,9 +115,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 
 let g:no_QuickFixCurrentNumber_maps = 1
-
-
-lua require('spellsitter').setup()
 
 
 let g:VM_maps = {}
