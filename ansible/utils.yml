@@ -8,7 +8,7 @@
     fzf_version: 0.39.0  # junegunn/fzf
     iamlive_version: v0.51.2  # iann0036/iamlive
     shfmt_version: v3.6.0  # mvdan/sh
-    terraform_ls_version: v0.31.0  # hashicorp/terraform-ls
+    terraform_ls_version: v0.31.1  # hashicorp/terraform-ls
     terraform_version: v1.4.6  # hashicorp/terraform
     tflint_version: v0.46.1  # terraform-linters/tflint
     tfsec_version: v1.28.1  # aquasecurity/tfsec
