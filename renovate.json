@@ -15,6 +15,7 @@
         "schedule:monthly"
       ],
       "matchPackageNames": [
+        "aws-cli",
         "renovatebot/pre-commit-hooks"
       ]
     }
