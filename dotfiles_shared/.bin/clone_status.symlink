@@ -14,7 +14,9 @@ for directory in $(find ~/Code -mindepth 2 -maxdepth 2 -type d -name "[a-zA-Z]*"
                 | grep --color=never -v "Your branch is up to date with" \
                 | grep --color=never -v "Your branch is up-to-date with" \
                 | grep --color=never -v "nothing to commit" \
+                | grep --color=never -v '  (use "git ' \
                 | grep --color=never -v '^$' \
+                | grep --color=never -v 'no changes added to commit' \
                 | grep --color=never -v --extended-regexp "On branch .*develop" \
                 | grep --color=never -v --extended-regexp "On branch .*main" \
                 | grep --color=never -v --extended-regexp "On branch .*master" \
