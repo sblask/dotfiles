@@ -5,6 +5,12 @@
   ],
   "packageRules": [
     {
+      "groupName": "ansible-lint",
+      "matchPackagePatterns": [
+        "ansible-lint"
+      ]
+    },
+    {
       "groupName": "yamllint",
       "matchPackagePatterns": [
         "yamllint"
