@@ -69,3 +69,5 @@ nnoremap <silent> ]q :<C-u>call JumpInList(v:count1, 0, 0)<CR>
 nnoremap <silent> [q :<C-u>call JumpInList(v:count1, 0, 1)<CR>
 nnoremap <silent> ]l :<C-u>call JumpInList(v:count1, 1, 0)<CR>
 nnoremap <silent> [l :<C-u>call JumpInList(v:count1, 1, 1)<CR>
+
+command! ToggleDiagnostics lua if (vim.diagnostic.is_disabled(0)) then vim.diagnostic.enable(0) else vim.diagnostic.disable(0) end
