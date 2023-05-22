@@ -48,7 +48,7 @@ repos:
         files: dotfiles_shared/.config/nvim.symlink/(init.vim|vim/.*\.vim)
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.31.0
+    rev: v1.32.0
     hooks:
       - id: yamllint
         args:
