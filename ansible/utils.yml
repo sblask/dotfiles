@@ -5,7 +5,7 @@
 
     actionlint_version: v1.6.24  # rhysd/actionlint
     editor_config_checker_version: 2.7.0  # editorconfig-checker/editorconfig-checker
-    fzf_version: 0.39.0  # junegunn/fzf
+    fzf_version: 0.41.1  # junegunn/fzf
     iamlive_version: v0.51.2  # iann0036/iamlive
     shfmt_version: v3.6.0  # mvdan/sh
     terraform_ls_version: v0.31.2  # hashicorp/terraform-ls
