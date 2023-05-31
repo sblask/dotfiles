@@ -39,6 +39,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tyru/open-browser.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'wsdjeg/vim-fetch'
 call plug#end()
 
 let g:ackprg = 'rg --color never --column'
