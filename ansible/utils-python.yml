@@ -17,6 +17,10 @@
       httpie:
         links:
           httpie: http
+      pipx:
+        links:
+          pipx: pipx
+          register-python-argcomplete: register-python-argcomplete
       pre-commit:
         links:
           pre-commit: pre-commit

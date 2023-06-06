@@ -5,6 +5,11 @@ if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
+# pipx bin folder
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # support tmux installed in home directory
 if [ -d "$HOME/.opt/tmux/bin" ]; then
     PATH="$HOME/.opt/tmux/bin:$PATH"
