@@ -6,6 +6,7 @@
     actionlint_version: v1.6.24  # rhysd/actionlint
     editor_config_checker_version: 2.7.0  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # junegunn/fzf
+    gh_version: v2.32.1  # cli/cli
     iamlive_version: v0.51.2  # iann0036/iamlive
     shfmt_version: v3.7.0  # mvdan/sh
     terraform_ls_version: v0.31.2  # hashicorp/terraform-ls
@@ -13,6 +14,8 @@
     tflint_version: v0.46.1  # terraform-linters/tflint
     tfsec_version: v1.28.1  # aquasecurity/tfsec
     trivy_version: v0.42.1  # aquasecurity/trivy
+
+    zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
 
   tasks:
 
@@ -37,6 +40,19 @@
         product: fzf
         url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ fzf_version }}"
+
+    - name: Install gh
+      include_tasks: includes/zipped_executable.yml
+      vars:
+        product: gh
+        zipped_binary_path: gh_{{ gh_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}/bin/gh
+        url: https://github.com/cli/cli/releases/download/{{ gh_version }}/gh_{{ gh_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
+        version: "{{ gh_version }}"
+
+    - name: Install gh zsh completions
+      shell: "{{ target_directory }}/.bin/gh completion -s zsh > {{ zsh_completion_directory }}/_gh"
+      args:
+        creates: "{{ zsh_completion_directory }}/_gh"
 
     - name: Install IAM live
       include_tasks: includes/zipped_executable.yml

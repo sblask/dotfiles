@@ -15,7 +15,6 @@
         - docker-credential-helper-ecr
         - entr
         - fd
-        - gh
         - gnu-sed
         - gnu-tar
         - gpg
