@@ -13,7 +13,7 @@
     terraform_version: v1.5.5  # hashicorp/terraform
     tflint_version: v0.47.0  # terraform-linters/tflint
     tfsec_version: v1.28.1  # aquasecurity/tfsec
-    trivy_version: v0.44.0  # aquasecurity/trivy
+    trivy_version: v0.44.1  # aquasecurity/trivy
 
     zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
 
