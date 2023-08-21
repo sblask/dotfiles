@@ -22,7 +22,7 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v6.17.2
+    rev: v6.18.0
     hooks:
       - id: ansible-lint
 
