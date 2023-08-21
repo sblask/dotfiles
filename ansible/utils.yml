@@ -4,7 +4,7 @@
   vars:
 
     actionlint_version: v1.6.25  # rhysd/actionlint
-    editor_config_checker_version: 2.7.0  # editorconfig-checker/editorconfig-checker
+    editor_config_checker_version: 2.7.1  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # junegunn/fzf
     gh_version: v2.32.1  # cli/cli
     iamlive_version: v0.51.2  # iann0036/iamlive
