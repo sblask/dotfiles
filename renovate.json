@@ -5,9 +5,9 @@
   ],
   "packageRules": [
     {
-      "groupName": "ansible-lint",
+      "groupName": "ansible",
       "matchPackagePatterns": [
-        "ansible-lint"
+        ".*ansible.*"
       ]
     },
     {
