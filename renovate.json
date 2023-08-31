@@ -41,6 +41,7 @@
     {
       "datasourceTemplate": "github-tags",
       "fileMatch": [
+        "^ansible/appimages\\.yml$",
         "^ansible/utils\\.yml$"
       ],
       "matchStrings": [
