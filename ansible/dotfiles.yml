@@ -7,6 +7,27 @@
 
   tasks:
 
+    - name: Find files to copy
+      find:
+        patterns: "*.copy"
+        paths: "{{ dotfiles_path }}"
+        recurse: true
+        file_type: any
+        hidden: true
+      register: files_to_copy
+    - name: Ensure directories for copies
+      file:
+        path: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').rsplit('/', 1)[0] }}"
+        state: directory
+        mode: 0755
+      with_items: "{{ files_to_copy.files }}"
+    - name: Copy files
+      copy:
+        src: "{{ item.path }}"
+        dest: "{{ target_directory }}/{{ item.path.replace(dotfiles_path, '').replace('.copy', '') }}"
+        mode: 0644
+      with_items: "{{ files_to_copy.files }}"
+
     - name: Find files to symlink
       find:
         patterns: "*.symlink"
