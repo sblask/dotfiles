@@ -32,3 +32,4 @@ data.location=~/.task
 report.minimal.sort=id
 
 verbose=no
+news.version=9.9.9
