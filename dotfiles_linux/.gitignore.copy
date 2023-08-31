@@ -2,9 +2,11 @@
 .Xauthority
 .Xdefaults
 .Xmodmap
+.ansible
 .base16_theme
 .bin/
 .cache/
+.cargo/
 .common_env
 .condarc
 .config/Thunar/uca.xml
@@ -28,6 +30,7 @@
 .gitconfig
 .gitignore
 .gitignore_global
+.local/share/nvim/
 .ipython/profile_default/ipython_config.py
 .isort.cfg
 .local/share/Trash/
