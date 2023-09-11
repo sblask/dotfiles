@@ -42,3 +42,5 @@
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/Code/work/"]
 	path = ~/.gitconfig-work
+[init]
+	defaultBranch = main
