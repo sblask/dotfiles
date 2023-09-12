@@ -31,6 +31,6 @@ if [ -f /opt/homebrew/bin/brew ]; then
 fi
 
 # setup direnv, see https://direnv.net/docs/hook.html
-if type direnv > /dev/null; then
+if [ "$(command -v direnv)" != "" ]; then
     eval "$(direnv hook zsh)"
 fi
