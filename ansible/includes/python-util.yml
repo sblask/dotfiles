@@ -24,7 +24,7 @@
 
 - name: "Python package {{ package.key }}: Install essential requirements"
   command: |
-    {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/../requirements-essential.txt
+    {{ target_directory }}/.opt/{{ package.key }}/bin/python -m pip install --requirement {{ playbook_dir }}/../requirements-essential.txt
   when: essential_requirements_check.rc != 0
   changed_when: true
 
