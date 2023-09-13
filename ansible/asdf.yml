@@ -11,9 +11,9 @@
 
     - name: Clone ASDF repository
       git:
-        repo: https://github.com/asdf-vm/asdf.git
+        repo: https://github.com/asdf-vm/asdf
         dest: "{{ target_directory }}/.asdf/"
-        version: v0.10.2
+        version: v0.10.2  # asdf-vm/asdf
 
     - name: Install ASDF plugins
       shell: |
