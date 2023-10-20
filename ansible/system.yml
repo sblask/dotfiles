@@ -28,6 +28,7 @@
         - inkscape
         - jo
         - jq
+        - kazam
         - lame
         - libreoffice
         - lolcat
@@ -44,6 +45,7 @@
         - ranger
         - rename
         - ripgrep
+        - screenkey
         - shellcheck
         - taskwarrior
         - texlive
