@@ -13,7 +13,7 @@
         - asunder  # cd ripper
         - audacity  # audio editor
         - autofs
-        - autokey
+        - autokey-gtk
         - baobab  # to analyze disk usage from Thunar context menu
         - bat
         - boxes
