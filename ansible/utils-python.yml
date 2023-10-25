@@ -12,7 +12,6 @@
           ansible: ansible
       aws:
       black:
-      docker-compose:
       grip:
       httpie:
         links:
