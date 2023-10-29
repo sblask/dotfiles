@@ -44,6 +44,8 @@
         repo: https://github.com/chriskempson/base16-shell
         dest: "{{ zsh_plugin_directory }}/base16-shell"
         update: false
+
+    # patch generated with: ~/.config/zsh/plugins/base16-shell $ git diff --no-prefix > ~/Code/personal/dotfiles/patches/base16-shell
     - name: Patch base16 plugin
       ansible.posix.patch:
         src: "{{ playbook_dir }}/../patches/base16-shell"
