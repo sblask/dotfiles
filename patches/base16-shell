@@ -1,17 +1,17 @@
 diff --git scripts/base16-eighties.sh scripts/base16-eighties.sh
-index f897eef..09d7d48 100644
+index 880faba..8effbf4 100644
 --- scripts/base16-eighties.sh
 +++ scripts/base16-eighties.sh
-@@ -8,7 +8,7 @@ if [ "${TERM%%-*}" = 'linux' ]; then
-     return 2>/dev/null || exit 0
- fi
+@@ -4,7 +4,7 @@
+ # Eighties scheme by Chris Kempson (http://chriskempson.com)
+ export BASE16_THEME=eighties
  
 -color00="2d/2d/2d" # Base 00 - Black
 +color00="11/11/11" # Base 00 - Black
  color01="f2/77/7a" # Base 08 - Red
  color02="99/cc/99" # Base 0B - Green
  color03="ff/cc/66" # Base 0A - Yellow
-@@ -30,8 +30,8 @@ color18="39/39/39" # Base 01
+@@ -26,8 +26,8 @@ color18="39/39/39" # Base 01
  color19="51/51/51" # Base 02
  color20="a0/9f/93" # Base 04
  color21="e8/e6/df" # Base 06
@@ -22,3 +22,14 @@ index f897eef..09d7d48 100644
  
  if [ -n "$TMUX" ]; then
    # Tell tmux to pass the escape sequences through
+@@ -79,8 +79,8 @@ put_template 21 $color21
+ # foreground / background / cursor color
+ if [ -n "$ITERM_SESSION_ID" ]; then
+   # iTerm2 proprietary escape codes
+-  put_template_custom Pg d3d0c8 # foreground
+-  put_template_custom Ph 2d2d2d # background
++  put_template_custom Pg b3b3b3 # foreground
++  put_template_custom Ph 111111 # background
+   put_template_custom Pi d3d0c8 # bold color
+   put_template_custom Pj 515151 # selection color
+   put_template_custom Pk d3d0c8 # selected text color
