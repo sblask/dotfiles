@@ -36,11 +36,6 @@ repos:
     hooks:
       - id: renovate-config-validator
 
-  - repo: https://github.com/johnnymorganz/stylua
-    rev: v0.18.0
-    hooks:
-      - id: stylua-github
-
   - repo: https://github.com/Vimjas/vint
     rev: v0.4a3
     hooks:
