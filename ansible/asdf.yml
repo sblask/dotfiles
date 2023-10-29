@@ -5,7 +5,7 @@
     packages:
       - {plugin: nodejs, version: 16}
       - {plugin: python, version: 3.9}
-      - {plugin: rust, version: 1.65, additional_option: https://github.com/asdf-community/asdf-rust.git}
+      - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
   tasks:
 
