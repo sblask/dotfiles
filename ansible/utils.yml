@@ -8,7 +8,7 @@
     editor_config_checker_version: 2.7.2  # editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # junegunn/fzf
     gh_version: v2.38.0  # cli/cli
-    iamlive_version: v1.1.0  # iann0036/iamlive
+    iamlive_version: v1.1.3  # iann0036/iamlive
     shfmt_version: v3.7.0  # mvdan/sh
     terraform_ls_version: v0.32.2  # hashicorp/terraform-ls
     terraform_version: v1.6.0  # hashicorp/terraform
