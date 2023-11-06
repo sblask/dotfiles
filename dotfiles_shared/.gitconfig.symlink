@@ -21,6 +21,7 @@
 	name = Sebastian Blask
 [push]
 	default = upstream
+	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = sed 's/\t/    /g' | nvim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
