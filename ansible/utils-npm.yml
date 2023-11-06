@@ -4,7 +4,7 @@
   tasks:
 
     - name: Install npm packages
-      community.general.packaging.language.npm:
+      community.general.npm:
         name: "{{ item }}"
         global: yes
       loop:

@@ -1,4 +1,4 @@
-localhost:
+localhost_group:
   hosts:
     localhost:
       ansible_connection: local
