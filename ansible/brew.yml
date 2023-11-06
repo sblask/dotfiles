@@ -7,11 +7,13 @@
       community.general.packaging.os.homebrew:
         name: "{{ item }}"
       loop:
+        - bash
         - bat
         - colima
         - colordiff
         - coreutils
-        - docker
+        - docker  # this is the docker cli (https://github.com/docker/cli), not docker desktop
+        - docker-compose
         - docker-credential-helper-ecr
         - entr
         - fd
@@ -40,7 +42,20 @@
         - aws-vault
         - firefox
         - inkscape
+        - iterm2
         - meld
         - postman
         - rectangle
         - redquits
+
+    - name: Create docker CLI plugin directory
+      file:
+        path: "{{ target_directory }}/.docker/cli-plugins"
+        state: directory
+        mode: 0755
+
+    - name: Create docker compose symlink
+      file:
+        src: /opt/homebrew/opt/docker-compose/bin/docker-compose
+        dest: "{{ target_directory }}/.docker/cli-plugins/docker-compose"
+        state: link
