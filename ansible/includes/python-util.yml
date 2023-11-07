@@ -1,7 +1,7 @@
 - name: "Python package {{ package.key }}: Create virtualenv"
   shell: |
     source {{ target_directory }}/.asdf/asdf.sh
-    python3.9 -m venv {{ target_directory }}/.opt/{{ package.key }}
+    python3.11 -m venv {{ target_directory }}/.opt/{{ package.key }}
   args:
     chdir: "{{ target_directory }}"  # make sure asdf config is picked up
     creates: "{{ target_directory }}/.opt/{{ package.key }}"
