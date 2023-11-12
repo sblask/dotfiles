@@ -12,7 +12,7 @@
     shfmt_version: v3.7.0  # mvdan/sh
     terraform_ls_version: v0.32.2  # hashicorp/terraform-ls
     terraform_version: v1.6.3  # hashicorp/terraform
-    tflint_version: v0.47.0  # terraform-linters/tflint
+    tflint_version: v0.49.0  # terraform-linters/tflint
     tfsec_version: v1.28.1  # aquasecurity/tfsec
     trivy_version: v0.44.0  # aquasecurity/trivy
 
