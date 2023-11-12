@@ -10,7 +10,7 @@ function __aws_profile {
     if [ "$AWS_PROFILE" = "" ]; then
         echo ""
     else
-        echo "$AWS_PROFILE "
+        echo "(AWS_PROFILE: $AWS_PROFILE) "
     fi
 }
 
