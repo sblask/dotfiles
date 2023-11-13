@@ -16,7 +16,6 @@ jobs:
       fail-fast: false
 
     env:
-      ACTIONLINT_VERSION: 1.6.21
       ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf/
       PLAYBOOK: ./ansible/ansible-test.yml
       TARGET_DIRECTORY: /tmp/dotfiles-ansible-test/
@@ -25,23 +24,10 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y colordiff
       - name: Install other dependencies
         run: |
-          pip install ansible-core pre-commit
+          pip install ansible-core
           ansible-galaxy collection install ansible.posix community.general
-      - name: Install actionlint
-        run: |
-          cd /tmp/
-          curl --location --output actionlint.tar.gz "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
-          tar --extract --gunzip --file actionlint.tar.gz
-          install actionlint /usr/local/bin/actionlint
-
-      - name: Run pre-commit
-        run: pre-commit run --all-files
 
       - name: Prepare Ansible test
         run: mkdir "${TARGET_DIRECTORY}"

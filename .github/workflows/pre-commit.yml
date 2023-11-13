@@ -1,0 +1,41 @@
+name: pre-commit
+
+on:
+  push:
+  schedule:
+    - cron: 0 0 * * 0  # weekly
+
+jobs:
+  pre-commit:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-22.04
+      fail-fast: false
+
+    env:
+      ACTIONLINT_VERSION: 1.6.21
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y colordiff
+      - name: Install other dependencies
+        run: |
+          pip install ansible-core pre-commit
+          ansible-galaxy collection install ansible.posix community.general
+      - name: Install actionlint
+        run: |
+          cd /tmp/
+          curl --location --output actionlint.tar.gz "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          tar --extract --gunzip --file actionlint.tar.gz
+          install actionlint /usr/local/bin/actionlint
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files
