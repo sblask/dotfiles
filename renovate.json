@@ -12,7 +12,8 @@
         "^ansible/utils\\.yml$"
       ],
       "matchStrings": [
-        "v?(?<currentValue>[.0-9]+)  # renovate: (?<depName>[^ \\n]+)"
+        "v?(?<currentValue>[.0-9]+)  # renovate: (?<depName>[^ \\n]+)",
+        "version: (?<currentValue>[.0-9]+)\\}  # renovate: (?<depName>[^ \\n]+)"
       ]
     }
   ],
