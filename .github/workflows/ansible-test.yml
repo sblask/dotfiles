@@ -1,4 +1,4 @@
-name: Test
+name: Ansible Test
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     - cron: 0 0 * * 0  # weekly
 
 jobs:
-  test:
+  ansible-test:
 
     runs-on: ${{ matrix.os }}
     strategy:
