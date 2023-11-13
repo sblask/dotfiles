@@ -4,7 +4,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
-      "extractVersionTemplate": "^v?(?<version>[0-9]+)$",
+      "extractVersionTemplate": "^?(?<version>[.0-9]+)$",
       "fileMatch": [
         "^.github/workflows/pre-commit\\.yml$",
         "^ansible/appimages\\.yml$",
