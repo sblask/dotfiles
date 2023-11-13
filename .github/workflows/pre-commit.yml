@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
 
     env:
-      ACTIONLINT_VERSION: 1.6.21  # rhysd/actionlint
+      ACTIONLINT_VERSION: 1.6.21  # renovate: rhysd/actionlint
 
     steps:
 
