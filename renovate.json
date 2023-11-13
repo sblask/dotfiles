@@ -1,5 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "fileMatch": [
+        "^ansible/appimages\\.yml$",
+        "^ansible/asdf\\.yml$",
+        "^ansible/utils\\.yml$"
+      ],
+      "matchStrings": [
+        "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
+      ]
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "fileMatch": [
+        "^ansible/asdf\\.yml$"
+      ],
+      "matchStrings": [
+        "version: (?<currentValue>[.0-9]+)\\}  # (?<depName>[^ \\n]+)"
+      ]
+    }
+  ],
   "extends": [
     "config:base"
   ],
@@ -36,18 +60,5 @@
   "pre-commit": {
     "enabled": true
   },
-  "rebaseWhen": "never",
-  "regexManagers": [
-    {
-      "datasourceTemplate": "github-tags",
-      "fileMatch": [
-        "^ansible/appimages\\.yml$",
-        "^ansible/asdf\\.yml$",
-        "^ansible/utils\\.yml$"
-      ],
-      "matchStrings": [
-        "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
-      ]
-    }
-  ]
+  "rebaseWhen": "never"
 }
