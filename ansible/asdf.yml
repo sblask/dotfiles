@@ -13,7 +13,7 @@
       git:
         repo: https://github.com/asdf-vm/asdf
         dest: "{{ target_directory }}/.asdf/"
-        version: v0.13.1  # renovate: asdf-vm/asdf
+        version: v1  # renovate: asdf-vm/asdf
 
     - name: Install ASDF plugins
       shell: |
