@@ -11,7 +11,7 @@
     iamlive_version: 1.1.0  # renovate: iann0036/iamlive
     shfmt_version: 3.7.0  # renovate: mvdan/sh
     terraform_ls_version: 0.32.2  # renovate: hashicorp/terraform-ls
-    terraform_version: 1.6.3  # renovate: hashicorp/terraform
+    terraform_version: 16  # renovate: hashicorp/terraform
     tflint_version: 0.49.0  # renovate: terraform-linters/tflint
     tfsec_version: 1.28.1  # renovate: aquasecurity/tfsec
     trivy_version: 0.44.0  # renovate: aquasecurity/trivy
