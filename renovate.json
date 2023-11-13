@@ -5,6 +5,7 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "fileMatch": [
+        "^.github/workflows/pre-commit\\.yml$",
         "^ansible/appimages\\.yml$",
         "^ansible/asdf\\.yml$",
         "^ansible/utils\\.yml$"
