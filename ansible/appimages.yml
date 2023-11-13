@@ -3,17 +3,17 @@
 
   vars:
 
-    neovim_version: v0.9.4  # neovim/neovim
+    neovim_version: 0.9.4  # renovate: neovim/neovim
 
   tasks:
 
     - name: Get neovim
       get_url:
-        url: https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim.appimage
-        dest: "{{ target_directory }}/.bin/nvim_{{ neovim_version | trim('v') | regex_replace('\\.', '_') }}"
+        url: https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage
+        dest: "{{ target_directory }}/.bin/nvim_{{ neovim_version | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link neovim
       file:
-        src: "{{ target_directory }}/.bin/nvim_{{ neovim_version | trim('v') | regex_replace('\\.', '_') }}"
+        src: "{{ target_directory }}/.bin/nvim_{{ neovim_version | regex_replace('\\.', '_') }}"
         dest: "{{ target_directory }}/.bin/nvim"
         state: link

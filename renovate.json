@@ -4,6 +4,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v?(?<version>[.0-9]+)$",
       "fileMatch": [
         "^.github/workflows/pre-commit\\.yml$",
         "^ansible/appimages\\.yml$",
@@ -11,7 +12,7 @@
         "^ansible/utils\\.yml$"
       ],
       "matchStrings": [
-        "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
+        "v?(?<currentValue>[.0-9]+)  # renovate: (?<depName>[^ \\n]+)"
       ]
     }
   ],
