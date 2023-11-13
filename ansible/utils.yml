@@ -13,7 +13,7 @@
     terraform_ls_version: 0.32.2  # renovate: hashicorp/terraform-ls
     terraform_version: 1.6.3  # renovate: hashicorp/terraform
     tflint_version: 0.49.0  # renovate: terraform-linters/tflint
-    tfsec_version: 1.28.1  # renovate: aquasecurity/tfsec
+    tfsec_version: 4  # renovate: aquasecurity/tfsec
     trivy_version: 0.44.0  # renovate: aquasecurity/trivy
 
     zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
