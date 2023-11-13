@@ -3,7 +3,7 @@
 
   vars:
 
-    actionlint_version: 1.6.25  # renovate: rhysd/actionlint
+    actionlint_version: 1.6.26  # renovate: rhysd/actionlint
     direnv_version: 2.32.3  # renovate: direnv/direnv
     editor_config_checker_version: 2.7.2  # renovate: editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # renovate: junegunn/fzf
