@@ -30,7 +30,6 @@
         - rename
         - ripgrep
         - shellcheck
-        - terraform-docs
         - tmux
         - tree
 

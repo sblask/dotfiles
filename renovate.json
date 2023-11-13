@@ -48,6 +48,15 @@
       "matchStrings": [
         "(?<currentValue>[v.0-9]+)  # (?<depName>[^ \\n]+)"
       ]
+    },
+    {
+      "datasourceTemplate": "github-tags",
+      "fileMatch": [
+        "^ansible/asdf\\.yml$"
+      ],
+      "matchStrings": [
+        "version: (?<currentValue>[.0-9]+)\\}  # (?<depName>[^ \\n]+)"
+      ]
     }
   ]
 }

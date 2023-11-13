@@ -6,6 +6,7 @@
       - {plugin: nodejs, version: 20}
       - {plugin: python, version: 3.11}
       - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
+      - {plugin: terraform-docs, version: 0.15.0}  # terraform-docs/terraform-docs
 
   tasks:
 
