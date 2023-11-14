@@ -7,7 +7,7 @@
     direnv_version: 2.32.3  # renovate: direnv/direnv
     editor_config_checker_version: 2.7.2  # renovate: editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # renovate: junegunn/fzf
-    gh_version: 2.38.0  # renovate: cli/cli
+    gh_version: 2.39.0  # renovate: cli/cli
     iamlive_version: 1.1.0  # renovate: iann0036/iamlive
     shfmt_version: 3.7.0  # renovate: mvdan/sh
     terraform_ls_version: 0.32.2  # renovate: hashicorp/terraform-ls
