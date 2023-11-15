@@ -9,7 +9,8 @@
         "^.github/workflows/pre-commit\\.yml$",
         "^ansible/appimages\\.yml$",
         "^ansible/asdf\\.yml$",
-        "^ansible/utils\\.yml$"
+        "^ansible/utils\\.yml$",
+        "^ansible/utils-rust\\.yml$"
       ],
       "matchStrings": [
         "v?(?<currentValue>[.0-9]+)  # renovate: (?<depName>[^ \\n]+)",

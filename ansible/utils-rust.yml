@@ -1,11 +1,15 @@
 - name: Play to install Cargo packages
   hosts: all
 
+  vars:
+    packages:
+      selene: 0.26.0  # renovate: Kampfkarren/selene
+      stylua: 0.19.1  # renovate: JohnnyMorganz/StyLua
+
   tasks:
 
     - name: Install Cargo packages
       community.general.cargo:
-        name: "{{ item }}"
-      loop:
-        - selene
-        - stylua
+        name: "{{ item.key }}"
+        version: "{{ item.value }}"
+      loop: "{{ packages | dict2items }}"
