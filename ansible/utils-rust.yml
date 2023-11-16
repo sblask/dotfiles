@@ -3,7 +3,7 @@
 
   vars:
     packages:
-      selene: 0.26.0  # renovate: Kampfkarren/selene
+      selene: 0.26.1  # renovate: Kampfkarren/selene
       stylua: 0.19.1  # renovate: JohnnyMorganz/StyLua
 
   tasks:
