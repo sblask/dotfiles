@@ -2,11 +2,26 @@
   hosts: all
 
   vars:
+
     packages:
       - {plugin: nodejs, version: 20}
       - {plugin: python, version: 3.11}
       - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
+
+      - {plugin: direnv, version: 2.32.3}  # renovate: direnv/direnv
+      - {plugin: editorconfig-checker, version: 2.7.2}  # renovate: editorconfig-checker/editorconfig-checker
+      - {plugin: github-cli, version: 2.39.1}  # renovate: cli/cli
+      - {plugin: iamlive, version: 1.1.0}  # renovate: iann0036/iamlive
+      - {plugin: pre-commit, version: 3.5.0}  # renovate: iann0036/iamlive
+      - {plugin: shfmt, version: 3.7.0}  # renovate: mvdan/sh
+      - {plugin: terraform, version: 1.6.4}  # renovate: hashicorp/terraform
       - {plugin: terraform-docs, version: 0.16.0}  # renovate: terraform-docs/terraform-docs
+      - {plugin: tflint, version: 0.49.0}  # renovate: terraform-linters/tflint
+      - {plugin: tfsec, version: 1.28.1}  # renovate: aquasecurity/tfsec
+      - {plugin: trivy, version: 0.44.0}  # renovate: aquasecurity/trivy
+
+
+    zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
 
   tasks:
 
@@ -68,3 +83,14 @@
         src: "{{ target_directory }}/.asdf/installs/nodejs/{{ package_versions.results[0].stdout }}/.npm/lib/node_modules"
         dest: "{{ target_directory }}/.node_modules"
         state: link
+
+    - name: Ensure directory for ZSH completions
+      file:
+        path: "{{ zsh_completion_directory }}"
+        state: directory
+        mode: 0755
+
+    - name: Install gh zsh completions
+      shell: gh completion -s zsh > {{ zsh_completion_directory }}/_gh
+      args:
+        creates: "{{ zsh_completion_directory }}/_gh"

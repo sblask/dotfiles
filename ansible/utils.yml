@@ -4,19 +4,8 @@
   vars:
 
     actionlint_version: 1.6.26  # renovate: rhysd/actionlint
-    direnv_version: 2.32.3  # renovate: direnv/direnv
-    editor_config_checker_version: 2.7.2  # renovate: editorconfig-checker/editorconfig-checker
     fzf_version: 0.39.0  # renovate: junegunn/fzf
-    gh_version: 2.39.1  # renovate: cli/cli
-    iamlive_version: 1.1.0  # renovate: iann0036/iamlive
-    shfmt_version: 3.7.0  # renovate: mvdan/sh
     terraform_ls_version: 0.32.2  # renovate: hashicorp/terraform-ls
-    terraform_version: 1.6.3  # renovate: hashicorp/terraform
-    tflint_version: 0.49.0  # renovate: terraform-linters/tflint
-    tfsec_version: 1.28.1  # renovate: aquasecurity/tfsec
-    trivy_version: 0.44.0  # renovate: aquasecurity/trivy
-
-    zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
 
   tasks:
 
@@ -27,14 +16,6 @@
         url: https://github.com/rhysd/actionlint/releases/download/v{{ actionlint_version }}/actionlint_{{ actionlint_version }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ actionlint_version }}"
 
-    - name: Install Editor Config Checker
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: ec
-        zipped_binary_path: bin/ec-{{ os }}-{{ architecture | default('amd64') }}
-        url: https://github.com/editorconfig-checker/editorconfig-checker/releases/download/{{ editor_config_checker_version }}/ec-{{ os }}-{{ architecture | default('amd64') }}.tar.gz
-        version: "{{ editor_config_checker_version }}"
-
     - name: Install fzf
       include_tasks: includes/zipped_executable.yml
       vars:
@@ -42,85 +23,9 @@
         url: https://github.com/junegunn/fzf/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ fzf_version }}"
 
-    - name: Install gh
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: gh
-        zipped_binary_path: gh_{{ gh_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}/bin/gh
-        url: https://github.com/cli/cli/releases/download/v{{ gh_version }}/gh_{{ gh_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
-        version: v{{ gh_version }}
-
-    - name: Install gh zsh completions
-      shell: "{{ target_directory }}/.bin/gh completion -s zsh > {{ zsh_completion_directory }}/_gh"
-      args:
-        creates: "{{ zsh_completion_directory }}/_gh"
-
-    - name: Install IAM live
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: iamlive
-        url: https://github.com/iann0036/iamlive/releases/download/v{{ iamlive_version }}/iamlive-v{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
-        version: "{{ iamlive_version }}"
-
-    - name: Install Terraform
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: terraform
-        url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ terraform_version }}"
-
     - name: Install Terraform LS
       include_tasks: includes/zipped_executable.yml
       vars:
         product: terraform-ls
         url: https://releases.hashicorp.com/terraform-ls/{{ terraform_ls_version | trim('v') }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version | trim('v') }}"
-
-    - name: Install Tflint
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: tflint
-        url: https://github.com/terraform-linters/tflint/releases/download/v{{ tflint_version }}/tflint_{{ os }}_{{ architecture | default('amd64') }}.zip
-        version: "{{ tflint_version }}"
-
-    - name: Install Trivy
-      include_tasks: includes/zipped_executable.yml
-      vars:
-        product: trivy
-        url: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}-{{ architecture | default('64bit') }}.tar.gz
-        version: "{{ trivy_version }}"
-
-    # non-zipped utils
-
-    - name: Get direnv
-      get_url:
-        url: https://github.com/direnv/direnv/releases/download/v{{ direnv_version }}/direnv.{{ os }}-{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
-        mode: 0755
-    - name: Link direnv
-      file:
-        src: "{{ target_directory }}/.bin/direnv_{{ direnv_version | regex_replace('\\.', '_') }}"
-        dest: "{{ target_directory }}/.bin/direnv"
-        state: link
-
-    - name: Get shfmt
-      get_url:
-        url: https://github.com/mvdan/sh/releases/download/v{{ shfmt_version }}/shfmt_v{{ shfmt_version }}_{{ os }}_{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
-        mode: 0755
-    - name: Link shfmt
-      file:
-        src: "{{ target_directory }}/.bin/shfmt_{{ shfmt_version | regex_replace('\\.', '_') }}"
-        dest: "{{ target_directory }}/.bin/shfmt"
-        state: link
-
-    - name: Get tfsec
-      get_url:
-        url: https://github.com/aquasecurity/tfsec/releases/download/v{{ tfsec_version }}/tfsec-{{ os }}-{{ architecture | default('amd64') }}
-        dest: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
-        mode: 0755
-    - name: Link tfsec
-      file:
-        src: "{{ target_directory }}/.bin/tfsec_{{ tfsec_version | regex_replace('\\.', '_') }}"
-        dest: "{{ target_directory }}/.bin/tfsec"
-        state: link
