@@ -20,10 +20,6 @@
         links:
           pipx: pipx
           register-python-argcomplete: register-python-argcomplete
-      pre-commit:
-        links:
-          pre-commit: pre-commit
-          identify-cli: identify-cli
       pylsp:
       systemdlint:
       tldr:
