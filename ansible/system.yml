@@ -4,8 +4,13 @@
   become: true
   tasks:
 
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: yes
+      changed_when: false
+
     - name: Ensure useful packages are installed
-      apt:
+      ansible.builtin.apt:
         state: present
         name: "{{ item }}"
       loop:
@@ -62,7 +67,7 @@
         - zsh
 
     - name: Ensure useless/unwanted packages are removed
-      apt:
+      ansible.builtin.apt:
         state: absent
         name: "{{ item }}"
       loop:
