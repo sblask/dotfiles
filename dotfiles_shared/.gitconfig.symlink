@@ -45,3 +45,5 @@
 	path = ~/.gitconfig-work
 [init]
 	defaultBranch = main
+[commit]
+	verbose = true
