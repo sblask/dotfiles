@@ -12,18 +12,18 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'inkarkat/vim-GrepCommands'
     Plug 'inkarkat/vim-QuickFixCurrentNumber'
     Plug 'inkarkat/vim-ingo-library'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mg979/vim-visual-multi'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'mileszs/ack.vim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'  " for null-ls
+    Plug 'nvim-lua/plenary.nvim'  " for none-ls
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
+    Plug 'nvimtools/none-ls.nvim'
     Plug 'pearofducks/ansible-vim'
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'rickhowe/diffchar.vim'
