@@ -24,7 +24,6 @@ set noswapfile
 set nrformats=alpha,bin,octal,hex " allow increment/decrement for letters too
 set number " show line numbers
 set scrolloff=3 " keep three lines at end of the file
-set shada="NONE"
 set shiftwidth=4
 set softtabstop=4
 set spell
