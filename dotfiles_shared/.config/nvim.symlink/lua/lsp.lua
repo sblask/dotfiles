@@ -135,6 +135,7 @@ local null_ls_sources = {
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.diagnostics.terraform_validate,
+    null_ls.builtins.diagnostics.trivy,
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
