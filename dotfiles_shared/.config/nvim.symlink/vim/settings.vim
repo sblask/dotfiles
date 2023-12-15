@@ -15,6 +15,7 @@ set fileignorecase " ignore case when completing filenames
 set foldmethod=manual
 set inccommand=split " enable nvim live substitution
 set laststatus=3 " only show one statusline
+set linebreak " do not wrap in the middle of words, see set wrap
 set list listchars=tab:»»,trail:· " show tabs and trailing whitespace
 set nobackup " no backup files
 set nocursorline " disable highlighting of current line
