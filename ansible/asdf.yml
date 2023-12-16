@@ -11,7 +11,7 @@
       - {plugin: direnv, version: 2.33.0}  # renovate: direnv/direnv
       - {plugin: editorconfig-checker, version: 2.7.2}  # renovate: editorconfig-checker/editorconfig-checker
       - {plugin: github-cli, version: 2.39.1}  # renovate: cli/cli
-      - {plugin: iamlive, version: 1.1.0}  # renovate: iann0036/iamlive
+      - {plugin: iamlive, version: 1.1.6}  # renovate: iann0036/iamlive
       - {plugin: pre-commit, version: 3.5.0}  # renovate: iann0036/iamlive
       - {plugin: shfmt, version: 3.7.0}  # renovate: mvdan/sh
       - {plugin: terraform, version: 1.6.6}  # renovate: hashicorp/terraform
