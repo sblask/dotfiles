@@ -68,3 +68,8 @@ require("treesitter-context").setup({
     },
     mode = "topline",
 })
+
+-- supposedly this can be done with custom_captures under highlight in the
+-- treesitter config setup, but I couldn't get it to work
+vim.cmd([[highlight def link @text.diff.add DiffAdded]])
+vim.cmd([[highlight def link @text.diff.delete DiffRemoved]])
