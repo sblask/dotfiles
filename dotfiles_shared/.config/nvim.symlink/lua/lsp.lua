@@ -76,6 +76,7 @@ end
 
 local servers = {
     "pylsp",
+    "tsserver",
 }
 
 local lspconfig = require("lspconfig")
