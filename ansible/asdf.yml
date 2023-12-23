@@ -16,7 +16,7 @@
       - {plugin: shfmt, version: 3.7.0}  # renovate: mvdan/sh
       - {plugin: terraform, version: 1.6.6}  # renovate: hashicorp/terraform
       - {plugin: terraform-docs, version: 0.16.0}  # renovate: terraform-docs/terraform-docs
-      - {plugin: tflint, version: 0.49.0}  # renovate: terraform-linters/tflint
+      - {plugin: tflint, version: 0.50.0}  # renovate: terraform-linters/tflint
       - {plugin: tfsec, version: 1.28.4}  # renovate: aquasecurity/tfsec
       - {plugin: trivy, version: 0.44.0}  # renovate: aquasecurity/trivy
 
