@@ -32,7 +32,7 @@ repos:
       - id: markdownlint
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 37.77.1
+    rev: 37.115.0
     hooks:
       - id: renovate-config-validator
 
