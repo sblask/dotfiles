@@ -8,6 +8,7 @@
         name: "{{ item }}"
         global: yes
       loop:
+        - eslint_d
         - fixjson
         - jsonlint
         - markdownlint-cli
