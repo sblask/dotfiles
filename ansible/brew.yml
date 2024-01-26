@@ -27,6 +27,7 @@
         - moreutils
         - neovim
         - oath-toolkit
+        - pv
         - rename
         - ripgrep
         - shellcheck
