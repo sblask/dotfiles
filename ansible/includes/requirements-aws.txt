@@ -1,1 +1,1 @@
-git+https://github.com/aws/aws-cli.git@2.14.5
+git+https://github.com/aws/aws-cli.git@2.15.16
