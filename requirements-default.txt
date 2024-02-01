@@ -1,4 +1,4 @@
-ipython==8.17.2
+ipython==8.21.0
 isort==5.13.2
 mypy==1.8.0
 neovim==0.3.1
