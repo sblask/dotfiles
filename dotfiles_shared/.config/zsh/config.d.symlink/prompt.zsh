@@ -70,7 +70,7 @@ function __terraform_workspace {
     fi
 
     local TERRAFORM_WORKSPACE=$(terraform workspace show 2> /dev/null)
-    if [ "$TERRAFORM_WORKSPACE" = "default" ]; then
+    if [ "$TERRAFORM_WORKSPACE" = "" ] || [ "$TERRAFORM_WORKSPACE" = "default" ]; then
         echo ""
         return
     fi
