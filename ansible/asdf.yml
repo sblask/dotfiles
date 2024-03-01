@@ -8,7 +8,7 @@
       - {plugin: python, version: 3.11}
       - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
-      - {plugin: direnv, version: 2.33.0}  # renovate: direnv/direnv
+      - {plugin: direnv, version: 2.34.0}  # renovate: direnv/direnv
       - {plugin: editorconfig-checker, version: 2.7.2}  # renovate: editorconfig-checker/editorconfig-checker
       - {plugin: github-cli, version: 2.40.1}  # renovate: cli/cli
       - {plugin: iamlive, version: 1.1.6}  # renovate: iann0036/iamlive
