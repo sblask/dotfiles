@@ -3,7 +3,7 @@
 
   vars:
 
-    actionlint_version: 1.6.26  # renovate: rhysd/actionlint
+    actionlint_version: 1.6.27  # renovate: rhysd/actionlint
     fzf_version: 0.46.1  # renovate: junegunn/fzf
     terraform_ls_version: 0.32.7  # renovate: hashicorp/terraform-ls
 
