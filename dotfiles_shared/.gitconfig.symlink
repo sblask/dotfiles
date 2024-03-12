@@ -8,15 +8,15 @@
 	prompt = false
 	trustExitCode = true
 [difftool "vimdiff2"]
-	cmd = nvim -f -d \"$LOCAL\" \"$REMOTE\" -c \"windo set nofoldenable\"
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"windo set nofoldenable\"
 [merge]
 	tool = vimdiff3
 [mergetool]
 	trustExitCode = true
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+	cmd = nvim -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool "vimdiff3"]
-	cmd = nvim -f -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"windo set nofoldenable\"
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"windo set nofoldenable\"
 [user]
 	name = Sebastian Blask
 [push]
