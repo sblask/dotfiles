@@ -16,7 +16,7 @@
 [mergetool "fugitive"]
 	cmd = nvim -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool "vimdiff3"]
-	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"windo set nofoldenable\"
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c \"windo set nofoldenable\" -c \"autocmd VimEnter * wincmd W\"
 [user]
 	name = Sebastian Blask
 [push]
