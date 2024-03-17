@@ -20,6 +20,8 @@ augroup autocommands
     autocmd BufEnter     *                 :syntax sync fromstart
     " highlight yanked text
     autocmd TextYankPost *                 au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=1000 }
+    " trim newlines at the end of the file - uses \v to avoid regex escaping
+    autocmd BufWritePre  *                 silent! :%s#\v($\n)+%$##
     " exit vim-visual-multi on save
     autocmd BufWrite     *                 try | silent call vm#reset() | catch | endtry
 augroup END
