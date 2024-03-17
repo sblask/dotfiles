@@ -4,6 +4,7 @@
 	status = always
 [diff]
 	tool = vimdiff2
+	algorithm = histogram
 [difftool]
 	prompt = false
 	trustExitCode = true
@@ -11,6 +12,7 @@
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"windo set nofoldenable\"
 [merge]
 	tool = vimdiff3
+	conflictstyle = diff3
 [mergetool]
 	trustExitCode = true
 [mergetool "fugitive"]
@@ -47,3 +49,7 @@
 	defaultBranch = main
 [commit]
 	verbose = true
+[help]
+	autocorrect = prompt
+[rerere]
+	enabled = true
