@@ -41,6 +41,7 @@
         - meld
         - moreutils  # contains sponge command
         - neovim
+        - ntp
         - oathtool
         - parcellite  # keeps copied text in the clipboard even after applications have been closed
         - pdfchain
