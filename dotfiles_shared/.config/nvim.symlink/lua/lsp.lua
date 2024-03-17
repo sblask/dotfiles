@@ -123,8 +123,29 @@ lspconfig["tflint"].setup({
 -- Configure null-ls
 --
 
+local null_ls_helpers = require("null-ls.helpers")
+local null_ls_methods = require("null-ls.methods")
+
+local FORMATTING = null_ls_methods.internal.FORMATTING
+
+local fixjson = null_ls_helpers.make_builtin({
+    name = "fixjson",
+    meta = {
+        url = "https://github.com/rhysd/fixjson",
+        description = "A JSON file fixer/formatter for humans using (relaxed) JSON5.",
+    },
+    method = FORMATTING,
+    filetypes = { "json" },
+    generator_opts = {
+        command = "fixjson",
+        to_stdin = true,
+    },
+    factory = null_ls_helpers.formatter_factory,
+})
+
 local null_ls = require("null-ls")
 local null_ls_sources = {
+    fixjson,
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
     null_ls.builtins.diagnostics.markdownlint,
