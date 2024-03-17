@@ -75,6 +75,7 @@ end
 --
 
 local servers = {
+    "jsonls",
     "pylsp",
     "tsserver",
 }
