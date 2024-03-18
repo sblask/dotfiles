@@ -17,8 +17,9 @@ How to get started on Linux:
 How to get started on Mac:
 
 - install [brew](https://brew.sh/)
-- `/opt/homebrew/bin/brew install ansible`
-- `/opt/homebrew/Cellar/ansible/x.x.x/bin/ansible-playbook ansible/ansible-mac.yml`
+- make sure you have the right architecture in ansible/ansible-mac.yml
+- `/usr/local/bin/brew install ansible`
+- `/usr/local/bin/ansible-playbook ansible/ansible-mac.yml`
 
 Improving keyboard shortcuts on Mac:
 
