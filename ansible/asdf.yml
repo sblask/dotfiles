@@ -90,7 +90,15 @@
         state: directory
         mode: 0755
 
-    - name: Install gh zsh completions
-      shell: gh completion -s zsh > {{ zsh_completion_directory }}/_gh
+    - name: Generate gh zsh completions
+      command: gh completion -s zsh
       args:
         creates: "{{ zsh_completion_directory }}/_gh"
+      register: generate_gh_completions
+
+    - name: Save gh zsh completions
+      copy:
+        content: "{{ generate_gh_completions.stdout }}"
+        dest: "{{ zsh_completion_directory }}/_gh"
+        mode: 0644
+        force: false
