@@ -110,8 +110,6 @@ for _, lsp in ipairs(servers) do
         on_attach = function(_client, buffer)
             setup_format_on_save(buffer)
         end,
-        flags = {
-            debounce_text_changes = 150,
         },
     })
 end
@@ -121,18 +119,12 @@ lspconfig["terraformls"].setup({
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
-    flags = {
-        debounce_text_changes = 150,
-    },
     root_dir = function(_startpath)
         return vim.fn.getcwd()
     end,
 })
 
 lspconfig["tflint"].setup({
-    flags = {
-        debounce_text_changes = 150,
-    },
     root_dir = lspconfig.util.root_pattern(".git", ".tflint.hcl"),
 })
 
