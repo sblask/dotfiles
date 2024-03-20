@@ -46,24 +46,8 @@ local map_keys = function(buffer)
     end, opts)
 end
 
--- See https://neovim.io/doc/user/lsp.html#LspAttach
--- and https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#suggested-configuration
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp-attach-config", {}),
-    callback = function(args)
-        local buffer = args.buf
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-        if client.server_capabilities.completionProvider then
-            vim.bo[buffer].omnifunc = "v:lua.vim.lsp.omnifunc"
-        end
-
-        map_keys(buffer)
-    end,
-})
-
 local setup_format_on_save = function(buffer)
-    local augroup_name = "lsp-format-on-save" .. buffer
+    local augroup_name = "lsp-format-on-save-" .. buffer
     vim.api.nvim_create_augroup(augroup_name, { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = buffer,
@@ -75,7 +59,7 @@ local setup_format_on_save = function(buffer)
 end
 
 local setup_location_list_updates = function(buffer)
-    local augroup_name = "lsp-location-list-updates" .. buffer
+    local augroup_name = "lsp-location-list-updates-" .. buffer
     vim.api.nvim_create_augroup(augroup_name, { clear = true })
     vim.api.nvim_create_autocmd("DiagnosticChanged", {
         buffer = buffer,
@@ -93,6 +77,23 @@ local setup_location_list_updates = function(buffer)
     })
 end
 
+-- See https://neovim.io/doc/user/lsp.html#LspAttach
+-- and https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#suggested-configuration
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp-attach-config", {}),
+    callback = function(args)
+        local buffer = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+        if client.server_capabilities.completionProvider then
+            vim.bo[buffer].omnifunc = "v:lua.vim.lsp.omnifunc"
+        end
+
+        map_keys(buffer)
+        setup_location_list_updates(buffer)
+    end,
+})
+
 --
 -- Configure LSP
 --
@@ -108,7 +109,6 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = function(_client, buffer)
             setup_format_on_save(buffer)
-            setup_location_list_updates(buffer)
         end,
         flags = {
             debounce_text_changes = 150,
@@ -118,7 +118,6 @@ end
 
 lspconfig["terraformls"].setup({
     on_attach = function(client, buffer)
-        setup_location_list_updates(buffer)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
@@ -131,9 +130,6 @@ lspconfig["terraformls"].setup({
 })
 
 lspconfig["tflint"].setup({
-    on_attach = function(_client, buffer)
-        setup_location_list_updates(buffer)
-    end,
     flags = {
         debounce_text_changes = 150,
     },
@@ -192,7 +188,6 @@ null_ls.setup({
     debug = false,
     on_attach = function(_client, buffer)
         setup_format_on_save(buffer)
-        setup_location_list_updates(buffer)
         vim.api.nvim_buf_set_option(buffer, "formatexpr", "")
     end,
     sources = null_ls_sources,
