@@ -19,7 +19,6 @@ sign({ name = "DiagnosticSignWarn", text = "▲" })
 sign({ name = "DiagnosticSignHint", text = "⚑" })
 sign({ name = "DiagnosticSignInfo", text = "ⓘ" })
 
-
 local map_keys = function(buffer)
     local opts = { buffer = buffer }
 
@@ -97,25 +96,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --
 -- Configure LSP
 --
-
-local servers = {
-    "jsonls",
-    "pylsp",
-    "tsserver",
-}
-
 local lspconfig = require("lspconfig")
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        on_attach = function(_client, buffer)
-            setup_format_on_save(buffer)
-        end,
-        },
-    })
-end
+
+lspconfig["jsonls"].setup({
+    on_attach = function(_client, buffer)
+        setup_format_on_save(buffer)
+    end,
+})
+
+lspconfig["pylsp"].setup({
+    on_attach = function(_client, buffer)
+        setup_format_on_save(buffer)
+    end,
+})
+
+lspconfig["tsserver"].setup({
+    on_attach = function(_client, buffer)
+        setup_format_on_save(buffer)
+    end,
+})
 
 lspconfig["terraformls"].setup({
-    on_attach = function(client, buffer)
+    on_attach = function(client, _buffer)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
