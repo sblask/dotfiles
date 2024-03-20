@@ -13,6 +13,7 @@
         - colordiff
         - coreutils
         - docker  # this is the docker cli (https://github.com/docker/cli), not docker desktop
+        - docker-buildx
         - docker-compose
         - docker-credential-helper-ecr
         - entr
