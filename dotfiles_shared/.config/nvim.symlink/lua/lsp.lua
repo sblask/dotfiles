@@ -19,32 +19,39 @@ sign({ name = "DiagnosticSignWarn", text = "▲" })
 sign({ name = "DiagnosticSignHint", text = "⚑" })
 sign({ name = "DiagnosticSignInfo", text = "ⓘ" })
 
--- See https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
-local map_keys = function(buffer)
-    vim.api.nvim_buf_set_option(buffer, "omnifunc", "v:lua.vim.lsp.omnifunc")
+-- See https://neovim.io/doc/user/lsp.html#LspAttach
+-- and https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#suggested-configuration
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.server_capabilities.completionProvider then
+            vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+        end
+        local opts = { buffer = bufnr }
 
-    local opts = { noremap = true, silent = true }
-
-    -- stylua: ignore start
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>D",  "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>d",  "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>h",  "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>i",  "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>s",  "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>t",  "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>rf", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>e",  "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "[d",         "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "]d",         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>q",  "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(buffer, "n", "<leader>f",  "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    -- stylua: ignore end
-end
+        -- stylua: ignore start
+        vim.keymap.set('n', "<leader>D",  vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', "<leader>d",  vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', "<leader>h",  vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', "<leader>i",  vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', "<leader>s",  vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+        vim.keymap.set('n', "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set('n', "<leader>t",  vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', "<leader>rf", vim.lsp.buf.references, opts)
+        vim.keymap.set('n', "<leader>e",  vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', "[d",         vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', "]d",         vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', "<leader>f",  vim.lsp.buf.format, opts)
+        -- stylua: ignore end
+        vim.keymap.set("n", "<leader>wl", function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders))
+        end, opts)
+    end,
+})
 
 local setup_format_on_save = function(buffer)
     local augroup_name = "lsp-format-on-save" .. buffer
@@ -84,7 +91,6 @@ local lspconfig = require("lspconfig")
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = function(_client, buffer)
-            map_keys(buffer)
             setup_format_on_save(buffer)
             setup_location_list_updates(buffer)
         end,
@@ -96,7 +102,6 @@ end
 
 lspconfig["terraformls"].setup({
     on_attach = function(client, buffer)
-        map_keys(buffer)
         setup_location_list_updates(buffer)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
@@ -111,7 +116,6 @@ lspconfig["terraformls"].setup({
 
 lspconfig["tflint"].setup({
     on_attach = function(_client, buffer)
-        map_keys(buffer)
         setup_location_list_updates(buffer)
     end,
     flags = {
@@ -171,7 +175,6 @@ local null_ls_sources = {
 null_ls.setup({
     debug = false,
     on_attach = function(_client, buffer)
-        map_keys(buffer)
         setup_format_on_save(buffer)
         setup_location_list_updates(buffer)
         vim.api.nvim_buf_set_option(buffer, "formatexpr", "")
