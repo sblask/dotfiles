@@ -19,37 +19,46 @@ sign({ name = "DiagnosticSignWarn", text = "▲" })
 sign({ name = "DiagnosticSignHint", text = "⚑" })
 sign({ name = "DiagnosticSignInfo", text = "ⓘ" })
 
+
+local map_keys = function(buffer)
+    local opts = { buffer = buffer }
+
+    -- stylua: ignore start
+    vim.keymap.set('n', "<leader>D",  vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', "<leader>d",  vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', "<leader>h",  vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', "<leader>i",  vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', "<leader>s",  vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', "<leader>t",  vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', "<leader>rf", vim.lsp.buf.references, opts)
+    vim.keymap.set('n', "<leader>e",  vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', "[d",         vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', "]d",         vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', "<leader>f",  vim.lsp.buf.format, opts)
+    -- stylua: ignore end
+
+    vim.keymap.set("n", "<leader>wl", function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders))
+    end, opts)
+end
+
 -- See https://neovim.io/doc/user/lsp.html#LspAttach
 -- and https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file#suggested-configuration
 vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp-attach-config", {}),
     callback = function(args)
-        local bufnr = args.buf
+        local buffer = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.completionProvider then
-            vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-        end
-        local opts = { buffer = bufnr }
 
-        -- stylua: ignore start
-        vim.keymap.set('n', "<leader>D",  vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', "<leader>d",  vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', "<leader>h",  vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', "<leader>i",  vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', "<leader>s",  vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', "<leader>t",  vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', "<leader>rf", vim.lsp.buf.references, opts)
-        vim.keymap.set('n', "<leader>e",  vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', "[d",         vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', "]d",         vim.diagnostic.goto_next, opts)
-        vim.keymap.set('n', "<leader>f",  vim.lsp.buf.format, opts)
-        -- stylua: ignore end
-        vim.keymap.set("n", "<leader>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders))
-        end, opts)
+        if client.server_capabilities.completionProvider then
+            vim.bo[buffer].omnifunc = "v:lua.vim.lsp.omnifunc"
+        end
+
+        map_keys(buffer)
     end,
 })
 
