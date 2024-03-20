@@ -75,6 +75,13 @@ local setup_location_list_updates = function(buffer)
         end,
         group = augroup_name,
     })
+    vim.api.nvim_create_autocmd("BufEnter", {
+        buffer = buffer,
+        callback = function()
+            vim.diagnostic.setloclist({ open = false })
+        end,
+        group = augroup_name,
+    })
 end
 
 --
