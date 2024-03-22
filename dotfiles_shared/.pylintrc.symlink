@@ -1,26 +1,14 @@
-[BASIC]
-good-names=id,ip
-const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|app|logger)$
-
-[Format]
-max-line-length=79
-
 [MESSAGES CONTROL]
-# Use `pylint --help-msg=` to check the meaning of these
+# See https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html
 disable=
-    broad-except,
+    broad-exception-caught,
+    design,
     fixme,
+    format,
     logging-fstring-interpolation,
     missing-docstring,
     no-else-raise,
     no-else-return,
-    similarities,
-    too-few-public-methods,
-    too-many-public-methods,
-    unused-wildcard-import,
 
 [REPORTS]
-msg-template={path}:{line} [{symbol}] {msg}
-
-[VARIABLES]
-dummy-variables-rgx=_.*
+msg-template={path}:{line}:{column} [{symbol}] {msg}
