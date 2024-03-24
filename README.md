@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line -->
-[![Test Status](https://github.com/sblask/dotfiles/actions/workflows/test.yml/badge.svg)](https://github.com/sblask/dotfiles/actions/workflows/test.yml)
-[![Autoupdate pre-commit Status](https://github.com/sblask/dotfiles/actions/workflows/pre-commit-autoupdate.yml/badge.svg)](https://github.com/sblask/dotfiles/actions/workflows/pre-commit-autoupdate.yml)
+[![Pre-commit Status](https://github.com/sblask/dotfiles/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/sblask/dotfiles/actions/workflows/pre-commit.yml)
+[![Ansible Status](https://github.com/sblask/dotfiles/actions/workflows/ansible-test.yml/badge.svg)](https://github.com/sblask/dotfiles/actions/workflows/ansible-test.yml)
 
 My Dotfiles
 ===========
