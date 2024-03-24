@@ -206,4 +206,5 @@ null_ls.setup({
         vim.api.nvim_buf_set_option(buffer, "formatexpr", "")
     end,
     sources = null_ls_sources,
+    default_timeout = 10000,
 })
