@@ -9,7 +9,6 @@
       - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
       - {plugin: direnv, version: 2.34.0}  # renovate: direnv/direnv
-      - {plugin: editorconfig-checker, version: 3.0.0}  # renovate: editorconfig-checker/editorconfig-checker
       - {plugin: github-cli, version: 2.40.1}  # renovate: cli/cli
       - {plugin: iamlive, version: 1.1.6}  # renovate: iann0036/iamlive
       - {plugin: pre-commit, version: 3.5.0}  # renovate: iann0036/iamlive
