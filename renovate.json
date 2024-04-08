@@ -23,6 +23,8 @@
   ],
   "packageRules": [
     {
+      "automerge": true,
+      "automergeType": "branch",
       "groupName": "ansible",
       "matchPackagePatterns": [
         ".*ansible.*"
