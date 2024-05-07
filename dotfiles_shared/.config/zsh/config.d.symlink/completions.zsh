@@ -28,7 +28,7 @@ setopt AUTO_MENU
 
 # general options
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'm:{a-zA-Z}={A-Za-z} l:|=.' # complete case insensitive and allow for the initial dot to be omitted
+zstyle ':completion:*' matcher-list 'l:|=. m:{[:lower:]}={[:upper:]}' # complete case insensitive and allow for the initial dot to be omitted
 zstyle ':completion:*' menu select # highlight current selection and make suggestions navigable
 
 # highlight prefix that is being completed
