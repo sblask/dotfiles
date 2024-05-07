@@ -2,6 +2,7 @@
 # See https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html
 disable=
     broad-exception-caught,
+    broad-exception-raised,
     design,
     fixme,
     format,
