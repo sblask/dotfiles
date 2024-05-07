@@ -154,11 +154,10 @@ lspconfig["tflint"].setup({
 --
 -- Configure null-ls
 --
-
+local null_ls = require("null-ls")
 local null_ls_helpers = require("null-ls.helpers")
-local null_ls_methods = require("null-ls.methods")
 
-local FORMATTING = null_ls_methods.internal.FORMATTING
+local FORMATTING = null_ls.methods.FORMATTING
 
 local fixjson = null_ls_helpers.make_builtin({
     name = "fixjson",
@@ -175,14 +174,13 @@ local fixjson = null_ls_helpers.make_builtin({
     factory = null_ls_helpers.formatter_factory,
 })
 
-local null_ls = require("null-ls")
 local null_ls_sources = {
     fixjson,
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.mypy,
-    null_ls.builtins.diagnostics.pylint,
+    null_ls.builtins.diagnostics.mypy.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
+    null_ls.builtins.diagnostics.pylint.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
     null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.diagnostics.terraform_validate,
@@ -197,6 +195,7 @@ local null_ls_sources = {
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint"),
+    require("none-ls.diagnostics.flake8").with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
 }
 
 null_ls.setup({
