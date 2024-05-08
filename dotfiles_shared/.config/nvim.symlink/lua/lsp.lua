@@ -121,8 +121,6 @@ end
 
 lspconfig["tsserver"].setup({
     on_attach = function(_client, buffer)
-        setup_format_on_save(buffer)
-
         local function goto_source_definition()
             local position_params = vim.lsp.util.make_position_params()
             vim.lsp.buf.execute_command({
@@ -206,6 +204,7 @@ local null_ls_sources = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.packer,
+    null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
