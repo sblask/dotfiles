@@ -110,6 +110,15 @@ lspconfig["pylsp"].setup({
     end,
 })
 
+local function organize_typescript_imports()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = "",
+    }
+    vim.lsp.buf.execute_command(params)
+end
+
 lspconfig["tsserver"].setup({
     on_attach = function(_client, buffer)
         setup_format_on_save(buffer)
@@ -124,6 +133,12 @@ lspconfig["tsserver"].setup({
         local opts = { buffer = buffer }
         vim.keymap.set("n", "<leader>ds", goto_source_definition, opts)
     end,
+    commands = {
+        OrganizeImports = {
+            organize_typescript_imports,
+            description = "Organize Imports",
+        },
+    },
     handlers = {
         ["workspace/executeCommand"] = function(_err, result, ctx, _config)
             if ctx.params.command ~= "_typescript.goToSourceDefinition" then
