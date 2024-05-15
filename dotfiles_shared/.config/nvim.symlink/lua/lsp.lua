@@ -191,7 +191,11 @@ local null_ls_sources = {
     fixjson,
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.diagnostics.markdownlint.with({
+        condition = function(utils)
+            return utils.root_has_file(".markdownlintrc")
+        end,
+    }),
     null_ls.builtins.diagnostics.mypy.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
     null_ls.builtins.diagnostics.pylint.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
     null_ls.builtins.diagnostics.selene,
@@ -204,12 +208,21 @@ local null_ls_sources = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.packer,
-    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettier.with({
+        condition = function(utils)
+            return utils.root_has_file(".prettierrc.cjs") or utils.root_has_file(".prettierrc.js")
+        end,
+    }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint"),
-    require("none-ls.diagnostics.flake8").with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
+    require("none-ls.diagnostics.flake8").with({
+        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+        condition = function(utils)
+            return utils.root_has_file(".flake8")
+        end,
+    }),
 }
 
 null_ls.setup({
