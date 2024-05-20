@@ -1,4 +1,5 @@
 .clj-kondo
 .conda_env
+.ropeproject
 .venv/
 .venv_off/
