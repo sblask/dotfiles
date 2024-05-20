@@ -10,6 +10,7 @@ disable=
     missing-docstring,
     no-else-raise,
     no-else-return,
+    wrong-import-order,
 
 [REPORTS]
 msg-template={path}:{line}:{column} [{symbol}] {msg}
