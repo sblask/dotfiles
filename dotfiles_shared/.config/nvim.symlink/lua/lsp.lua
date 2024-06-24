@@ -38,6 +38,7 @@ local map_keys = function(buffer)
     vim.keymap.set('n', "[d",         vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', "]d",         vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', "<leader>f",  vim.lsp.buf.format, opts)
+    vim.keymap.set('v', "<leader>ca", vim.lsp.buf.code_action, opts)
     -- stylua: ignore end
 
     vim.keymap.set("n", "<leader>wl", function()
