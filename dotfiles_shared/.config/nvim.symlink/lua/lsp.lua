@@ -135,7 +135,6 @@ lspconfig["tsserver"].setup({
     commands = {
         OrganizeImports = {
             organize_typescript_imports,
-            description = "Organize Imports",
         },
     },
     handlers = {
