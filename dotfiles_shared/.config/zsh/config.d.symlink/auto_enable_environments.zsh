@@ -3,11 +3,11 @@ function __maybe-install-requirements {
     REQUIREMENTS_FILES=( "$@" )
     REQUIREMENTS_FILES=( $(__filter-existing "${REQUIREMENTS_FILES[@]}") )
 
-    local REQUIREMENTS_STRING=$(cat ${REQUIREMENTS_FILES[*]})
-    if ! python -c "import pkg_resources; pkg_resources.require(\"\"\"${REQUIREMENTS_STRING}\"\"\")" 2>/dev/null; then
-        python -c "import pkg_resources; pkg_resources.require(\"\"\"${REQUIREMENTS_STRING}\"\"\")"
-        echo -e "$fg[yellow]Installing requirements from ${REQUIREMENTS_FILES[*]}:\n${REQUIREMENTS_STRING}${reset_color}"
-        pip install --upgrade $(for filename in ${REQUIREMENTS_FILES[@]}; do echo "--requirement $filename"; done)
+    local REQUIREMENTS_STRING=$(cat ${REQUIREMENTS_FILES[*]} | sort --unique)
+    if diff <(pip freeze --all | sort --unique) <(cat ${REQUIREMENTS_FILES[*]} | sort --unique) | grep \>; then
+        pip install --upgrade \
+            $(for filename in ${REQUIREMENTS_FILES[@]}; do echo "--requirement $filename"; done) \
+            | grep -v "Requirement already satisfied"
     fi
 }
 
