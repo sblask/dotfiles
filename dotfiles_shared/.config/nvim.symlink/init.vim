@@ -1,6 +1,8 @@
 " load plugins first as other configs require parts of them
 source ~/.config/nvim/vim/plugins.vim
 
+let g:python3_host_prog = '~/.opt/pynvim/bin/python'
+
 set wildignore+=plugins.vim
 for g:fpath in split(glob('~/.config/nvim/vim/*.vim'), '\n')
     exe 'source' g:fpath

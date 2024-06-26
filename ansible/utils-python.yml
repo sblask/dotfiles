@@ -22,6 +22,8 @@
           register-python-argcomplete: register-python-argcomplete
       poetry:
       pylsp:
+      pynvim:
+        links: {}
       systemdlint:
       tldr:
       vim-vint:
