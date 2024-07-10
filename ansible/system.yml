@@ -22,6 +22,7 @@
         - baobab  # to analyze disk usage from Thunar context menu
         - bat
         - boxes
+        - colordiff
         - entr  # do stuff when files change
         - fd-find
         - feh
