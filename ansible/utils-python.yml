@@ -12,18 +12,23 @@
           ansible: ansible
       aws:
       black:
+      flake8:
       grip:
       httpie:
         links:
           httpie: http
+      isort:
+      mypy:
       pipx:
         links:
           pipx: pipx
           register-python-argcomplete: register-python-argcomplete
       poetry:
+      pylint:
       pylsp:
       pynvim:
         links: {}
+      pyright:
       systemdlint:
       tldr:
       vim-vint:

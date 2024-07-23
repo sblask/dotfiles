@@ -1,4 +1,1 @@
 ipython==8.21.0
-isort==5.13.2
-mypy==1.11.0
-pylint==3.2.6
