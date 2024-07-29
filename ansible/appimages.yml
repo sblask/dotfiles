@@ -3,7 +3,7 @@
 
   vars:
 
-    neovim_version: 0.10.0  # renovate: neovim/neovim
+    neovim_version: 0.10.1  # renovate: neovim/neovim
 
   tasks:
 
