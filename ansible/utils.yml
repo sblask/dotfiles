@@ -4,7 +4,7 @@
   vars:
 
     actionlint_version: 1.7.1  # renovate: rhysd/actionlint
-    fzf_version: 0.54.3  # renovate: junegunn/fzf
+    fzf_version: 0.55.0  # renovate: junegunn/fzf
     terraform_ls_version: 0.34.3  # renovate: hashicorp/terraform-ls
 
   tasks:
@@ -20,7 +20,7 @@
       include_tasks: includes/zipped_executable.yml
       vars:
         product: fzf
-        url: https://github.com/junegunn/fzf/releases/download/v{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
+        url: https://github.com/junegunn/fzf/releases/download/v{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ fzf_version }}"
 
     - name: Install Terraform LS
