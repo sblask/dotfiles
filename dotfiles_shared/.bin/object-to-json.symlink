@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+
+const objString = fs.readFileSync("/dev/stdin", "utf-8");
+const obj = new Function("return " + objString + ";")();
+const jsonString = JSON.stringify(obj)
+console.log(jsonString)
