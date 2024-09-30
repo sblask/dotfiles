@@ -3,3 +3,4 @@
 .ropeproject
 .venv/
 .venv_off/
+node_modules/
