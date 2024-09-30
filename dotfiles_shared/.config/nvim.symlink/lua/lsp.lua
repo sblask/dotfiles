@@ -99,11 +99,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --
 local lspconfig = require("lspconfig")
 
-lspconfig["jsonls"].setup({
-    on_attach = function(_client, buffer)
-        setup_format_on_save(buffer)
-    end,
-})
+lspconfig["jsonls"].setup({})
 
 lspconfig["pylsp"].setup({
     on_attach = function(_client, buffer)
