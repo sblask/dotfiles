@@ -19,20 +19,23 @@
     }
   ],
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "packageRules": [
     {
       "automerge": true,
       "automergeType": "branch",
       "groupName": "ansible",
-      "matchPackagePatterns": [
-        ".*ansible.*"
+      "matchPackageNames": [
+        "ansible-core",
+        "ansible-lint",
+        "ansible/ansible-lint"
       ]
     },
     {
       "groupName": "yamllint",
-      "matchPackagePatterns": [
+      "matchPackageNames": [
+        "adrienverge/yamllint",
         "yamllint"
       ]
     },
