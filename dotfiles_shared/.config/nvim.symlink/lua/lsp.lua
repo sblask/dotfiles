@@ -217,7 +217,11 @@ local null_ls_sources = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
-    require("none-ls.diagnostics.eslint"),
+    require("none-ls.diagnostics.eslint").with({
+        condition = function(utils)
+            return utils.root_has_file("eslint.config.js")
+        end,
+    }),
     require("none-ls.diagnostics.flake8").with({
         method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         condition = function(utils)
