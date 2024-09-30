@@ -13,6 +13,7 @@
         - fixjson
         - jsonlint
         - markdownlint-cli
+        - prettier
         - serverless
         - stylelint
         - stylelint-config-standard
