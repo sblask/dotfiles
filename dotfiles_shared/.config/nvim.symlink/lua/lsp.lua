@@ -144,6 +144,11 @@ lspconfig["tsserver"].setup({
             vim.lsp.util.jump_to_location(result[1], "utf-8")
         end,
     },
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        },
+    },
 })
 
 lspconfig["terraformls"].setup({
