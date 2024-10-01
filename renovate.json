@@ -45,6 +45,8 @@
       ]
     },
     {
+      "automerge": true,
+      "automergeType": "branch",
       "extends": [
         "schedule:monthly"
       ],
