@@ -21,6 +21,11 @@
   "extends": [
     "config:recommended"
   ],
+  "ignoreDeps": [
+    "aquasecurity/tfsec",
+    "aquasecurity/trivy",
+    "terraform-linters/tflint"
+  ],
   "packageRules": [
     {
       "automerge": true,
