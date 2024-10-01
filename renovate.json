@@ -50,6 +50,9 @@
       ],
       "matchPackageNames": [
         "aws-cli",
+        "cli/cli",
+        "ipython",
+        "pyright",
         "renovatebot/pre-commit-hooks"
       ]
     }
