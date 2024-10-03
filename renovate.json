@@ -53,6 +53,7 @@
       ],
       "matchPackageNames": [
         "aws-cli",
+        "aws/aws-cli",
         "cli/cli",
         "ipython",
         "pyright",
