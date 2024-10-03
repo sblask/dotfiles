@@ -6,8 +6,11 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[{*.js,*.lua}]
+[{*.js,*.json,*.lua}]
 indent_size = 2
+
+[{.gitconfig.symlink,uca.xml.symlink}]
+indent_style = tab
 
 [{*.sh,*zsh}]
 indent_size = 4
