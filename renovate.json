@@ -53,8 +53,8 @@
       ],
       "matchPackageNames": [
         "aws-cli",
-        "aws/aws-cli",
         "cli/cli",
+        "https://github.com/aws/aws-cli.git",
         "ipython",
         "pyright",
         "renovatebot/pre-commit-hooks"
