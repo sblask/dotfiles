@@ -17,6 +17,7 @@
         - docker-compose
         - docker-credential-helper-ecr
         - entr
+        - eza
         - fd
         - gnu-sed
         - gnu-tar
