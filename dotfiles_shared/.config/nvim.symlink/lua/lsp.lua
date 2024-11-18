@@ -210,8 +210,8 @@ local null_ls_sources = {
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.packer,
     null_ls.builtins.formatting.prettier.with({
-        condition = function(utils)
-            return utils.root_has_file(".prettierrc.cjs") or utils.root_has_file(".prettierrc.js")
+        condition = function(_utils)
+            return lspconfig.util.root_pattern(".prettierrc.*")(vim.api.nvim_buf_get_name(0) or vim.loop.cwd())
         end,
     }),
     null_ls.builtins.formatting.stylua,
