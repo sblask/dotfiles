@@ -13,7 +13,7 @@
       - {plugin: iamlive, version: 1.1.6}  # renovate: iann0036/iamlive
       - {plugin: pre-commit, version: 3.5.0}  # renovate: iann0036/iamlive
       - {plugin: shfmt, version: 3.10.0}  # renovate: mvdan/sh
-      - {plugin: terraform, version: 1.10.1}  # renovate: hashicorp/terraform
+      - {plugin: terraform, version: 1.10.3}  # renovate: hashicorp/terraform
       - {plugin: terraform-docs, version: 0.18.0}  # renovate: terraform-docs/terraform-docs
       - {plugin: tflint, version: 0.51.1}  # renovate: terraform-linters/tflint
       - {plugin: tfsec, version: 1.28.4}  # renovate: aquasecurity/tfsec
