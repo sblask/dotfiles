@@ -6,7 +6,7 @@
     packages:
       - {plugin: nodejs, version: 20}
       - {plugin: python, version: 3.11}
-      - {plugin: rust, version: 1.73, additional_option: https://github.com/asdf-community/asdf-rust.git}
+      - {plugin: rust, version: 1.75, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
       - {plugin: direnv, version: 2.35.0}  # renovate: direnv/direnv
       - {plugin: github-cli, version: 2.57.0}  # renovate: cli/cli
