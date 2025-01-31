@@ -58,18 +58,6 @@
         dest: "{{ zsh_plugin_directory }}/zsh-autosuggestions"
 
 
-    - name: Install ZSH fzf completion plugin
-      get_url:
-        url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh
-        dest: "{{ zsh_plugin_directory }}/fzf-completion.plugin.zsh"
-        mode: 0644
-    - name: Install ZSH fzf key bindings plugin
-      get_url:
-        url: https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
-        dest: "{{ zsh_plugin_directory }}/fzf-key-bindings.plugin.zsh"
-        mode: 0644
-
-
     - name: Install ZSH git prompt plugin
       git:
         repo: https://github.com/zsh-git-prompt/zsh-git-prompt
