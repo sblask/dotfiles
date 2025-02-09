@@ -17,7 +17,7 @@
       - {plugin: terraform-docs, version: 0.18.0}  # renovate: terraform-docs/terraform-docs
       - {plugin: tflint, version: 0.51.1}  # renovate: terraform-linters/tflint
       - {plugin: tfsec, version: 1.28.4}  # renovate: aquasecurity/tfsec
-      - {plugin: trivy, version: 0.44.0}  # renovate: aquasecurity/trivy
+      - {plugin: trivy, version: 0.59.1}  # renovate: aquasecurity/trivy
 
 
     zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
