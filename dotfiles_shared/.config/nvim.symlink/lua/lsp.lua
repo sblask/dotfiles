@@ -117,7 +117,7 @@ local function organize_typescript_imports()
 end
 
 lspconfig["tsserver"].setup({
-    on_attach = function(_client, buffer)
+    on_attach = function(client, buffer)
         local function goto_source_definition()
             local position_params = vim.lsp.util.make_position_params()
             vim.lsp.buf.execute_command({
@@ -127,6 +127,8 @@ lspconfig["tsserver"].setup({
         end
         local opts = { buffer = buffer }
         vim.keymap.set("n", "<leader>ds", goto_source_definition, opts)
+        -- disable formatting so prettier/null-ls can do it
+        client.server_capabilities.documentFormattingProvider = false
     end,
     commands = {
         OrganizeImports = {
