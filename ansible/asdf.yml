@@ -10,7 +10,7 @@
 
       - {plugin: direnv, version: 2.35.0}  # renovate: direnv/direnv
       - {plugin: github-cli, version: 2.67.0}  # renovate: cli/cli
-      - {plugin: iamlive, version: 1.1.16}  # renovate: iann0036/iamlive
+      - {plugin: iamlive, version: 1.1.22}  # renovate: iann0036/iamlive
       - {plugin: pre-commit, version: 4.1.0}  # renovate: pre-commit/pre-commit
       - {plugin: shfmt, version: 3.10.0}  # renovate: mvdan/sh
       - {plugin: terraform, version: 1.10.5}  # renovate: hashicorp/terraform
