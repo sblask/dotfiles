@@ -26,13 +26,14 @@
         - htop
         - jo
         - jq
-        - moreutils
         - neovim
         - oath-toolkit
+        - parallel  # conflicts with moreutils
         - pv
         - rename
         - ripgrep
         - shellcheck
+        - sponge  # install this instead of moreutils to avoid conflict with parallel
         - tmux
         - tree
 
