@@ -22,6 +22,7 @@ set nocursorline " disable highlighting of current line
 set nofoldenable " disable folding
 set nostartofline " try to keep column when scrolling
 set noswapfile
+set notermguicolors " use terminal colors
 set nrformats=alpha,bin,octal,hex " allow increment/decrement for letters too
 set number " show line numbers
 set scrolloff=3 " keep three lines at end of the file
