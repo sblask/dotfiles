@@ -116,7 +116,7 @@ local function organize_typescript_imports()
     vim.lsp.buf.execute_command(params)
 end
 
-lspconfig["tsserver"].setup({
+lspconfig["ts_ls"].setup({
     on_attach = function(client, buffer)
         local function goto_source_definition()
             local position_params = vim.lsp.util.make_position_params()
