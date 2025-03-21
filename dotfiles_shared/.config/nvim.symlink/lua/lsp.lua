@@ -102,6 +102,9 @@ local lspconfig = require("lspconfig")
 lspconfig["jsonls"].setup({})
 
 lspconfig["pylsp"].setup({
+    cmd_env = {
+        VIRTUAL_ENV = ".venv",
+    },
     on_attach = function(_client, buffer)
         setup_format_on_save(buffer)
     end,
@@ -199,8 +202,14 @@ local null_ls_sources = {
             return utils.root_has_file(".markdownlintrc")
         end,
     }),
-    null_ls.builtins.diagnostics.mypy.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
-    null_ls.builtins.diagnostics.pylint.with({ method = null_ls.methods.DIAGNOSTICS_ON_SAVE }),
+    null_ls.builtins.diagnostics.mypy.with({
+        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+        prefer_local = ".venv/bin",
+    }),
+    null_ls.builtins.diagnostics.pylint.with({
+        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+        prefer_local = ".venv/bin",
+    }),
     null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.diagnostics.terraform_validate,
