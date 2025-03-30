@@ -4,6 +4,7 @@
   vars:
 
     actionlint_version: 1.7.7  # renovate: rhysd/actionlint
+    asdf_version: 0.16.7  # renovate: asdf-vm/asdf
     fzf_version: 0.60.3  # renovate: junegunn/fzf
     terraform_ls_version: 0.36.0  # renovate: hashicorp/terraform-ls
 
@@ -15,6 +16,13 @@
         product: actionlint
         url: https://github.com/rhysd/actionlint/releases/download/v{{ actionlint_version }}/actionlint_{{ actionlint_version }}_{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ actionlint_version }}"
+
+    - name: Install ASDF
+      include_tasks: includes/zipped_executable.yml
+      vars:
+        product: asdf
+        url: https://github.com/asdf-vm/asdf/releases/download/v{{ asdf_version }}/asdf-v{{ asdf_version }}-{{ os }}-{{ architecture | default('amd64') }}.tar.gz
+        version: "{{ asdf_version }}"
 
     - name: Install fzf
       include_tasks: includes/zipped_executable.yml

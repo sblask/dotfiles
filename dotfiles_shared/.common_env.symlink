@@ -5,6 +5,11 @@ if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
+# asdf from dotfiles
+if [ -d "$HOME/.asdf/shims" ]; then
+    PATH="$HOME/.asdf/shims:$PATH"
+fi
+
 # pipx bin folder
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"

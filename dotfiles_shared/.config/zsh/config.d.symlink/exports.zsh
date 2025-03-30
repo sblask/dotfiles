@@ -1,3 +1,4 @@
+export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
 export AWS_CLI_AUTO_PROMPT=on-partial
 export EDITOR=nvim
 export LS_COLORS='di=34:ln=33:or=31:ex=32'
