@@ -12,7 +12,6 @@
           ansible: ansible
       aws:
       black:
-      flake8:
       grip:
       httpie:
         links:
