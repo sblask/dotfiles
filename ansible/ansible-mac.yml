@@ -1,3 +1,8 @@
+- import_playbook: utils.yml
+  vars:
+    architecture: amd64
+    os: darwin
+    tar: /opt/homebrew/bin/gtar
 - import_playbook: asdf.yml
 - import_playbook: brew.yml
 - import_playbook: completions.yml
@@ -5,11 +10,6 @@
   vars:
     dotfiles_directory: dotfiles_shared
 - import_playbook: plugins.yml
-- import_playbook: utils.yml
-  vars:
-    architecture: amd64
-    os: darwin
-    tar: /opt/homebrew/bin/gtar
 - import_playbook: utils-npm.yml
 - import_playbook: utils-python.yml
 - import_playbook: utils-rust.yml

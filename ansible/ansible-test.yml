@@ -1,3 +1,6 @@
+- import_playbook: utils.yml
+  vars:
+    os: linux
 - import_playbook: asdf.yml
 - import_playbook: completions.yml
 - import_playbook: dotfiles.yml
@@ -8,9 +11,6 @@
     dotfiles_directory: dotfiles_linux
 - import_playbook: plugins.yml
 - import_playbook: system.yml
-- import_playbook: utils.yml
-  vars:
-    os: linux
 - import_playbook: utils-npm.yml
 - import_playbook: utils-python.yml
 - import_playbook: utils-rust.yml
