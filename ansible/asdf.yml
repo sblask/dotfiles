@@ -27,7 +27,7 @@
       git:
         repo: https://github.com/asdf-vm/asdf
         dest: "{{ target_directory }}/.asdf/"
-        version: v0.15.0  # renovate: asdf-vm/asdf
+        version: v0.16.7  # renovate: asdf-vm/asdf
 
     - name: Install ASDF plugins
       shell: |
