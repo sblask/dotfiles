@@ -2,6 +2,9 @@
   hosts: all
 
   become: true
+  environment:
+    PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
+
   tasks:
 
     - name: Echo path
