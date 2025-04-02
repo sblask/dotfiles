@@ -6,6 +6,17 @@
   become_flags: PATH=\\$PATH
   tasks:
 
+    - name: Echo path
+      command: echo $PATH
+      environment:
+        PATH: "{{ ansible_env.PATH }}"
+      register: output
+      changed_when: False
+
+    - name: Display fixed output
+      debug:
+        msg: "{{ output.stdout }}"
+
     - name: Update APT cache
       ansible.builtin.apt:
         update_cache: yes
