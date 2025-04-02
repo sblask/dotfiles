@@ -1,15 +1,15 @@
 - name: Play to install Linux packages
   hosts: all
 
-  # become_method: ansible.builtin.sudo
-  # become_flags: PATH=$PATH
+  become: true
+  become_method: ansible.builtin.sudo
+  become_flags: PATH=\\$PATH
   tasks:
 
     - name: Update APT cache
       ansible.builtin.apt:
         update_cache: yes
       changed_when: false
-      become: true
 
     - name: Ensure useful packages are installed
       ansible.builtin.apt:
@@ -71,7 +71,6 @@
         # - xclip
         # - xfce4-terminal
         # - zsh
-      become: true
 
     - name: Ensure useless/unwanted packages are removed
       ansible.builtin.apt:
@@ -86,10 +85,8 @@
         - pidgin
         - ristretto
         - snapd
-      become: true
 
     - name: Make ZSH default shell
       user:
         name: sebastian
         shell: /bin/zsh
-      become: true
