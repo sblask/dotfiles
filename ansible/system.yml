@@ -3,7 +3,7 @@
 
   become: true
   become_method: ansible.builtin.sudo
-  become_flags: --preserve-env=PATH
+  become_flags: PATH=$PATH
   tasks:
 
     - name: Update APT cache
