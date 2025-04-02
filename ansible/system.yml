@@ -1,10 +1,6 @@
 - name: Play to install Linux packages
   hosts: all
 
-  become: true
-  environment:
-    PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
-
   tasks:
 
     - name: Echo path
@@ -22,6 +18,9 @@
       ansible.builtin.apt:
         update_cache: yes
       changed_when: false
+      become: true
+      environment:
+        PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
 
     - name: Ensure useful packages are installed
       ansible.builtin.apt:
@@ -83,6 +82,9 @@
         # - xclip
         # - xfce4-terminal
         # - zsh
+      become: true
+      environment:
+        PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
 
     - name: Ensure useless/unwanted packages are removed
       ansible.builtin.apt:
@@ -97,8 +99,14 @@
         - pidgin
         - ristretto
         - snapd
+      become: true
+      environment:
+        PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
 
     - name: Make ZSH default shell
       user:
         name: sebastian
         shell: /bin/zsh
+      become: true
+      environment:
+        PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
