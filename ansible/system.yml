@@ -2,8 +2,6 @@
   hosts: all
 
   become: true
-  become_method: ansible.builtin.sudo
-  become_flags: PATH=\\$PATH
   tasks:
 
     - name: Echo path
