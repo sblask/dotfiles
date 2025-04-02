@@ -1,7 +1,6 @@
 - name: Play to install Linux packages
   hosts: all
 
-  become: true
   # become_method: ansible.builtin.sudo
   # become_flags: PATH=$PATH
   tasks:
@@ -10,67 +9,69 @@
       ansible.builtin.apt:
         update_cache: yes
       changed_when: false
+      become: true
 
-    # - name: Ensure useful packages are installed
-    #   ansible.builtin.apt:
-    #     state: present
-    #     name: "{{ item }}"
-    #   loop:
-    #     - amazon-ecr-credential-helper
-    #     - asunder  # cd ripper
-    #     - audacity  # audio editor
-    #     - autofs
-    #     - autokey-gtk
-    #     - baobab  # to analyze disk usage from Thunar context menu
-    #     - bat
-    #     - boxes
-    #     - colordiff
-    #     - entr  # do stuff when files change
-    #     - fd-find
-    #     - feh
-    #     - geary
-    #     - gimp
-    #     - git
-    #     - gnome-font-viewer
-    #     - gparted
-    #     - htop
-    #     - inkscape
-    #     - jo
-    #     - jq
-    #     - kazam
-    #     - lame
-    #     - libreoffice
-    #     - lolcat
-    #     - meld
-    #     - moreutils  # contains sponge command
-    #     - neovim
-    #     - ntp
-    #     - oathtool
-    #     - parcellite  # keeps copied text in the clipboard even after applications have been closed
-    #     - pdfchain
-    #     - pinta
-    #     - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
-    #     - pv
-    #     - python-is-python3
-    #     - python3-dev
-    #     - python3-venv
-    #     - ranger
-    #     - rename
-    #     - ripgrep
-    #     - screenkey
-    #     - shellcheck
-    #     - taskwarrior
-    #     - texlive
-    #     - texlive-lang-german
-    #     - tmux  # use 'CTRL-B' + 'I' to install the plugins
-    #     - trash-cli
-    #     - tree
-    #     - usb-creator-gtk
-    #     - vlc
-    #     - xbacklight
-    #     - xclip
-    #     - xfce4-terminal
-    #     - zsh
+    - name: Ensure useful packages are installed
+      ansible.builtin.apt:
+        state: present
+        name: "{{ item }}"
+      loop:
+        - amazon-ecr-credential-helper
+        # - asunder  # cd ripper
+        # - audacity  # audio editor
+        # - autofs
+        # - autokey-gtk
+        # - baobab  # to analyze disk usage from Thunar context menu
+        # - bat
+        # - boxes
+        # - colordiff
+        # - entr  # do stuff when files change
+        # - fd-find
+        # - feh
+        # - geary
+        # - gimp
+        # - git
+        # - gnome-font-viewer
+        # - gparted
+        # - htop
+        # - inkscape
+        # - jo
+        # - jq
+        # - kazam
+        # - lame
+        # - libreoffice
+        # - lolcat
+        # - meld
+        # - moreutils  # contains sponge command
+        # - neovim
+        # - ntp
+        # - oathtool
+        # - parcellite  # keeps copied text in the clipboard even after applications have been closed
+        # - pdfchain
+        # - pinta
+        # - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
+        # - pv
+        # - python-is-python3
+        # - python3-dev
+        # - python3-venv
+        # - ranger
+        # - rename
+        # - ripgrep
+        # - screenkey
+        # - shellcheck
+        # - taskwarrior
+        # - texlive
+        # - texlive-lang-german
+        # - tmux  # use 'CTRL-B' + 'I' to install the plugins
+        # - trash-cli
+        # - tree
+        # - usb-creator-gtk
+        # - vlc
+        # - xbacklight
+        # - xclip
+        # - xfce4-terminal
+        # - zsh
+      become: true
 
     - name: Ensure useless/unwanted packages are removed
       ansible.builtin.apt:
@@ -85,8 +86,10 @@
         - pidgin
         - ristretto
         - snapd
+      become: true
 
     - name: Make ZSH default shell
       user:
         name: sebastian
         shell: /bin/zsh
+      become: true
