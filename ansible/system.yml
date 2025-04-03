@@ -6,13 +6,25 @@
     - name: Echo path
       command: echo $PATH
       environment:
-        PATH: "{{ ansible_env.PATH }}"
-      register: output
+        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
+      register: output1
       changed_when: False
 
-    - name: Display fixed output
+    - name: Display echo output1
       debug:
-        msg: "{{ output.stdout }}"
+        msg: "{{ output1.stdout }}"
+
+    - name: Sudo
+      command: python --version
+      changed_when: false
+      become: true
+      environment:
+        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
+      register: output2
+
+    - name: Display sudo output2
+      debug:
+        msg: "{{ output2.stdout }}"
 
     - name: Update APT cache
       ansible.builtin.apt:
@@ -20,7 +32,7 @@
       changed_when: false
       become: true
       environment:
-        PATH: "{{ target_directory }}/.asdf:{{ ansible_env.PATH }}"
+        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
 
     - name: Ensure useful packages are installed
       ansible.builtin.apt:
