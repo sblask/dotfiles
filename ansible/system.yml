@@ -14,6 +14,28 @@
       debug:
         msg: "{{ outputp.stdout }}"
 
+
+    - name: Path
+      command: echo $PATH
+      register: output_path
+      changed_when: False
+
+    - name: Display path
+      debug:
+        msg: "{{ output_path.stdout }}"
+
+    - name: Path modified
+      command: echo $PATH
+      environment:
+        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
+      register: output_path
+      changed_when: False
+
+    - name: Display path modified
+      debug:
+        msg: "{{ output_path.stdout }}"
+
+
     - name: Sudo non path
       command: echo $PATH
       changed_when: false
@@ -26,6 +48,7 @@
       debug:
         msg: "{{ output3.stdout }}"
 
+
     - name: Sudo path
       command: echo $PATH
       environment:
@@ -37,6 +60,7 @@
     - name: Display sudo path
       debug:
         msg: "{{ output1.stdout }}"
+
 
     - name: Sudo which python
       command: which python
