@@ -30,10 +30,6 @@ jobs:
 
       - name: Prepare Ansible test
         run: mkdir "${TARGET_DIRECTORY}"
-      - name: Update PATH for ASDF
-        run: |
-          echo "${TARGET_DIRECTORY}/.bin" >> "$GITHUB_PATH"
-          echo "${TARGET_DIRECTORY}/.asdf/shims" >> "$GITHUB_PATH"
       - name: Run Ansible playbook
         run: |
           echo "$PATH"

@@ -25,7 +25,7 @@
 
     - name: Install ASDF plugins
       shell: |
-        asdf plugin add {{ item.plugin }} {{ item.additional_option | default('') }}
+        {{ target_directory }}/.bin/asdf plugin add {{ item.plugin }} {{ item.additional_option | default('') }}
       args:
         creates: "{{ target_directory }}/.asdf/plugins/{{ item.plugin }}"
         executable: /bin/bash
@@ -34,7 +34,7 @@
     - name: Get latest package versions with ASDF
       shell: |
         set -o pipefail
-        asdf latest {{ item.plugin }} {{ item.version }}
+        {{ target_directory }}/.bin/asdf latest {{ item.plugin }} {{ item.version }}
       args:
         executable: /bin/bash
       loop: "{{ packages }}"
@@ -50,8 +50,8 @@
 
     - name: Install packages with ASDF
       shell: |
-        asdf install {{ item.plugin }} {{ package_versions.results[index].stdout }}
-        asdf set --home {{ item.plugin }} {{ package_versions.results[index].stdout }}
+        {{ target_directory }}/.bin/asdf install {{ item.plugin }} {{ package_versions.results[index].stdout }}
+        {{ target_directory }}/.bin/asdf set --home {{ item.plugin }} {{ package_versions.results[index].stdout }}
       args:
         creates: "{{ target_directory }}/.asdf/installs/{{ item.plugin }}/{{ package_versions.results[index].stdout }}"
         executable: /bin/bash
