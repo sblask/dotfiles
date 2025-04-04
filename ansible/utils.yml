@@ -10,6 +10,15 @@
 
   tasks:
 
+    - name: Path before
+      command: echo $PATH
+      register: output_path
+      changed_when: False
+
+    - name: Display path before
+      debug:
+        msg: "{{ output_path.stdout }}"
+
     - name: Install Actionlint
       include_tasks: includes/zipped_executable.yml
       vars:
@@ -37,3 +46,12 @@
         product: terraform-ls
         url: https://releases.hashicorp.com/terraform-ls/{{ terraform_ls_version | trim('v') }}/terraform-ls_{{ terraform_ls_version | trim('v') }}_{{ os }}_{{ architecture | default('amd64') }}.zip
         version: "{{ terraform_ls_version | trim('v') }}"
+
+    - name: Path after
+      command: echo $PATH
+      register: output_path
+      changed_when: False
+
+    - name: Display path after
+      debug:
+        msg: "{{ output_path.stdout }}"

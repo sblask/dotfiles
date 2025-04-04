@@ -17,7 +17,6 @@ jobs:
 
     env:
       ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf
-      PLAYBOOK: ./ansible/ansible-test.yml
       TARGET_DIRECTORY: /tmp/dotfiles-ansible-test
 
     steps:
@@ -37,20 +36,17 @@ jobs:
           echo "${TARGET_DIRECTORY}/.asdf/shims" >> "$GITHUB_PATH"
       - name: Run Ansible playbook
         run: |
-          env
           echo "$PATH"
           python --version
-          ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}"
+          ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" ./ansible/ansible-test.yml
       - name: Run Ansible playbook again
         run: |
-          env
-          ls /tmp/dotfiles-ansible-test/.bin/asdf
           echo "$PATH"
           python --version
           asdf --version
           /tmp/dotfiles-ansible-test/.asdf/shims/python3 --version
           /tmp/dotfiles-ansible-test/.asdf/shims/python3.11 --version
-          ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}" | tee ansible_result
+          ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" ./ansible/ansible-test.yml | tee ansible_result
       - name: Check Ansible idempotency
         run: |
           if grep --quiet 'changed=0.*failed=0' ansible_result
