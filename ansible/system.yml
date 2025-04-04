@@ -3,45 +3,12 @@
 
   tasks:
 
-    - name: Echo which python
-      command: which python
-      environment:
-        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
-      register: outputp
-      changed_when: False
-
-    - name: Display which python
-      debug:
-        msg: "{{ outputp.stdout }}"
-
-
-    - name: Path
-      command: echo $PATH
-      register: output_path
-      changed_when: False
-
-    - name: Display path
-      debug:
-        msg: "{{ output_path.stdout }}"
-
-    - name: Path modified
-      command: echo $PATH
-      environment:
-        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
-      register: output_path
-      changed_when: False
-
-    - name: Display path modified
-      debug:
-        msg: "{{ output_path.stdout }}"
-
-
     - name: Sudo non path
       command: echo $PATH
       changed_when: false
       become: true
       environment:
-        FOOBAR: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
+        PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
       register: output3
 
     - name: Display sudo non path
