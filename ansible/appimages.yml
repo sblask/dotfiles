@@ -9,7 +9,7 @@
 
     - name: Get neovim
       get_url:
-        url: https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim.appimage
+        url: https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim-linux-x86_64.appimage
         dest: "{{ target_directory }}/.bin/nvim_{{ neovim_version | regex_replace('\\.', '_') }}"
         mode: 0755
     - name: Link neovim
