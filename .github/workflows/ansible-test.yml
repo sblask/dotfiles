@@ -16,9 +16,8 @@ jobs:
       fail-fast: false
 
     env:
-      ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf/
-      PLAYBOOK: ./ansible/ansible-test.yml
-      TARGET_DIRECTORY: /tmp/dotfiles-ansible-test/
+      ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf
+      TARGET_DIRECTORY: /tmp/dotfiles-ansible-test
 
     steps:
 
@@ -32,9 +31,9 @@ jobs:
       - name: Prepare Ansible test
         run: mkdir "${TARGET_DIRECTORY}"
       - name: Run Ansible playbook
-        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}"
+        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" ./ansible/ansible-test.yml
       - name: Run Ansible playbook again
-        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" "${PLAYBOOK}" | tee ansible_result
+        run: ansible-playbook --extra-vars "target_directory=${TARGET_DIRECTORY}" ./ansible/ansible-test.yml | tee ansible_result
       - name: Check Ansible idempotency
         run: |
           if grep --quiet 'changed=0.*failed=0' ansible_result

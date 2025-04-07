@@ -33,3 +33,13 @@
       with_items:
         - url: https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
           name: _hub
+
+    - name: Generate ASDF completion
+      command: "{{ target_directory }}/.bin/asdf completion zsh"
+      changed_when: false
+      register: asdf_completion
+    - name: Write ASDF completion
+      copy:
+        content: "{{ asdf_completion.stdout }}"
+        dest: "{{ zsh_completion_directory }}/_asdf"
+        mode: 0644

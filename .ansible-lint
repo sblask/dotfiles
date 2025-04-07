@@ -1,8 +1,5 @@
 exclude_paths:
   - .cache/
-  - ansible/ansible-linux.yml
-  - ansible/ansible-mac.yml
-  - ansible/ansible-test.yml
   - dotfiles_linux/
   - dotfiles_shared/
 

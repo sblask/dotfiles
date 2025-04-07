@@ -1,12 +1,15 @@
 - name: Play to install ASDF
   hosts: all
 
+  environment:
+    PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
+
   vars:
 
     packages:
       - {plugin: nodejs, version: 20}
       - {plugin: python, version: 3.11}
-      - {plugin: rust, version: 1.75, additional_option: https://github.com/asdf-community/asdf-rust.git}
+      - {plugin: rust, version: 1.81, additional_option: https://github.com/asdf-community/asdf-rust.git}
 
       - {plugin: direnv, version: 2.35.0}  # renovate: direnv/direnv
       - {plugin: github-cli, version: 2.69.0}  # renovate: cli/cli
@@ -23,16 +26,9 @@
 
   tasks:
 
-    - name: Clone ASDF repository
-      git:
-        repo: https://github.com/asdf-vm/asdf
-        dest: "{{ target_directory }}/.asdf/"
-        version: v0.15.0  # renovate: asdf-vm/asdf
-
     - name: Install ASDF plugins
       shell: |
-        source {{ target_directory }}/.asdf/asdf.sh
-        asdf plugin-add {{ item.plugin }} {{ item.additional_option | default('') }}
+        asdf plugin add {{ item.plugin }} {{ item.additional_option | default('') }}
       args:
         creates: "{{ target_directory }}/.asdf/plugins/{{ item.plugin }}"
         executable: /bin/bash
@@ -41,7 +37,6 @@
     - name: Get latest package versions with ASDF
       shell: |
         set -o pipefail
-        source {{ target_directory }}/.asdf/asdf.sh
         asdf latest {{ item.plugin }} {{ item.version }}
       args:
         executable: /bin/bash
@@ -58,9 +53,8 @@
 
     - name: Install packages with ASDF
       shell: |
-        source {{ target_directory }}/.asdf/asdf.sh
         asdf install {{ item.plugin }} {{ package_versions.results[index].stdout }}
-        asdf global {{ item.plugin }} {{ package_versions.results[index].stdout }}
+        asdf set --home {{ item.plugin }} {{ package_versions.results[index].stdout }}
       args:
         creates: "{{ target_directory }}/.asdf/installs/{{ item.plugin }}/{{ package_versions.results[index].stdout }}"
         executable: /bin/bash

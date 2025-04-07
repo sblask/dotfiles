@@ -1,17 +1,28 @@
-- import_playbook: appimages.yml
-- import_playbook: asdf.yml
-- import_playbook: completions.yml
-- import_playbook: dotfiles.yml
-  vars:
-    dotfiles_directory: dotfiles_shared
-- import_playbook: dotfiles.yml
-  vars:
-    dotfiles_directory: dotfiles_linux
-- import_playbook: plugins.yml
-- import_playbook: system.yml
-- import_playbook: utils.yml
+- name: Utils
+  import_playbook: utils.yml
   vars:
     os: linux
-- import_playbook: utils-npm.yml
-- import_playbook: utils-python.yml
-- import_playbook: utils-rust.yml
+- name: App Images
+  import_playbook: appimages.yml
+- name: ASDF
+  import_playbook: asdf.yml
+- name: Completions
+  import_playbook: completions.yml
+- name: Shared dotfiles
+  import_playbook: dotfiles.yml
+  vars:
+    dotfiles_directory: dotfiles_shared
+- name: Linux dotfiles
+  import_playbook: dotfiles.yml
+  vars:
+    dotfiles_directory: dotfiles_linux
+- name: Plugins
+  import_playbook: plugins.yml
+- name: System
+  import_playbook: system.yml
+- name: Node utils
+  import_playbook: utils-npm.yml
+- name: Python utils
+  import_playbook: utils-python.yml
+- name: Rust utils
+  import_playbook: utils-rust.yml

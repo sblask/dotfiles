@@ -1,17 +1,15 @@
 - name: "Python package {{ package.key }}: Create virtualenv"
   shell: |
-    source {{ target_directory }}/.asdf/asdf.sh
     python3.11 -m venv {{ target_directory }}/.opt/{{ package.key }}
   args:
-    chdir: "{{ target_directory }}"  # make sure asdf config is picked up
     creates: "{{ target_directory }}/.opt/{{ package.key }}"
     executable: /bin/bash
   environment:
     PATH: |
       {%- if "VIRTUAL_ENV" in ansible_env -%}
-        {{ ansible_env.PATH | replace(ansible_env.VIRTUAL_ENV + "/bin:", "") }}
+        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH | replace(ansible_env.VIRTUAL_ENV + "/bin:", "") }}
       {%- else -%}
-        {{ ansible_env.PATH }}
+        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}
       {%- endif -%}
   register: virtual_env_creation
 
