@@ -17,6 +17,7 @@
         - serverless
         - stylelint
         - stylelint-config-standard
+        - tree-sitter-cli
         - typescript
         - typescript-language-server
         - vscode-langservers-extracted
