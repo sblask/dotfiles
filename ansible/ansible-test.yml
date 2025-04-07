@@ -2,6 +2,8 @@
   import_playbook: utils.yml
   vars:
     os: linux
+- name: App Images
+  import_playbook: appimages.yml
 - name: ASDF
   import_playbook: asdf.yml
 - name: Completions
