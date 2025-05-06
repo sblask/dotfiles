@@ -50,7 +50,7 @@ command! IgnoreWhitespaceOn  set diffopt+=iwhite
 command! RelativeNumber      set relativenumber!
 
 command! ReloadConfig source $MYVIMRC
-command! SudoWrite w !sudo tee % > /dev/null
+command! SudoWrite w !SUDO_ASKPASS=`which /usr/lib/openssh/gnome-ssh-askpass` sudo tee % > /dev/null
 command! Todo Gcd | Ack! "TODO|FIXME"
 command! WindowsToLinux :%s/$//
 

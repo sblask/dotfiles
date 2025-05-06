@@ -57,6 +57,7 @@
         - ripgrep
         - screenkey
         - shellcheck
+        - ssh-askpass-gnome
         - taskwarrior
         - texlive
         - texlive-lang-german
