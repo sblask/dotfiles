@@ -70,7 +70,7 @@ set-option -g mouse on
 set-option -g renumber-windows on
 set-option -g pane-active-border-style fg=colour24
 set-option -g status-bg colour24
-set-option -g status-left "#{prefix_highlight} #[fg=white]#H_session_#S #[fg=black]| "
+set-option -g status-left "#{cpu_bg_color}CPU: #{cpu_percentage} #{prefix_highlight} #[fg=white]#H_session_#S #[fg=black]| "
 set-option -g status-left-length 50
 set-option -g status-right "#{?pane_synchronized,#[bg=yellow] SYNCHRONIZED #[bg=colour24],}"
 set-window-option -g window-status-current-format '#[fg=white]#I: #W #(cd #{pane_current_path}; dirs +0)#[fg=black] |'
@@ -81,11 +81,13 @@ set-window-option -g window-status-separator ' '
 bind-key -T root WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "select-pane -t = \; send-keys -M" "select-pane -t = \; if -F -t = '#{pane_in_mode}' 'send-keys -M' 'copy-mode -t='"
 bind-key -T root WheelDownPane select-pane -t = \; send-keys -M
 
+set -g @cpu_percentage_format "%4.1f%%" # Add left padding
 set -g @yank_action 'copy-pipe'
 
 set -g @plugin 'tmux-plugins/tpm'
 
 set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
