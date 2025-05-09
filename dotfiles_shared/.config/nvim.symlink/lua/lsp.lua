@@ -229,8 +229,8 @@ local null_ls_sources = {
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint").with({
-        condition = function(utils)
-            return utils.root_has_file("eslint.config.js")
+        condition = function(_utils)
+            return lspconfig.util.root_pattern("eslint.config.js")(vim.api.nvim_buf_get_name(0) or vim.loop.cwd())
         end,
     }),
     require("none-ls.diagnostics.flake8").with({
