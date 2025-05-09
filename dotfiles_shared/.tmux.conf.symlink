@@ -82,10 +82,18 @@ bind-key -T root WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "select-pane -
 bind-key -T root WheelDownPane select-pane -t = \; send-keys -M
 
 set -g @cpu_percentage_format "%4.1f%%" # Add left padding
+
+set -g @fzf-links-browser-open-cmd "open '%url'"
+set -g @fzf-links-editor-open-cmd "tmux popup -E -w 100% -h 100% nvim +%line '%file'"
+set -g @fzf-links-fzf-display-options "--maxnum-displayed 20 --multi --track --no-preview --bind 'ctrl-y:print(COPY_TO_CLIPBOARD)+accept'"
+set -g @fzf-links-hide-fzf-header "on"
+set -g @fzf-links-key C-h
+
 set -g @yank_action 'copy-pipe'
 
 set -g @plugin 'tmux-plugins/tpm'
 
+set -g @plugin 'alberti42/tmux-fzf-links'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-logging'
