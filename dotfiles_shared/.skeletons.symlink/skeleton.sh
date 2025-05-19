@@ -7,6 +7,13 @@ declare -r SCRIPT_DIRECTORY
 
 echo "$SCRIPT_DIRECTORY"
 
+function cleanup() {
+    rm -rf stuff_to_cleanup;
+}
+
+cleanup
+trap cleanup EXIT
+
 function do-something {
     if [ "$1" = "something" ]; then
         echo "if"
