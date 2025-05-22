@@ -247,6 +247,19 @@ null_ls.setup({
         setup_format_on_save(buffer)
         vim.api.nvim_buf_set_option(buffer, "formatexpr", "")
     end,
+    should_attach = function(bufnr)
+        local fname = vim.api.nvim_buf_get_name(bufnr)
+        if
+            vim.fn.filereadable(fname) == 0 -- checks cannot be run when file does not exist
+            or fname:match("/.venv/") -- do not check other people's code and prevent `".venv/lib/python3.13/site-packages/mypy_extensions.py" shadows library module "mypy_extensions"` error
+            or fname:match("/node_modules/") -- do not check other people's code
+            or fname:match("^fugitive://") --  do not check fugitive buffer
+            or fname:match("git%-blob") -- do not check git difftool buffer (path contains "git-blob", - has to be escaped with %)
+        then
+            return false
+        end
+        return true
+    end,
     sources = null_ls_sources,
     default_timeout = 10000,
 })
