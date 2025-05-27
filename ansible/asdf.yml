@@ -24,7 +24,7 @@
       - plugin: pre-commit
         version: 4.2.0  # renovate: pre-commit/pre-commit
       - plugin: terraform
-        version: 1.12.0  # renovate: hashicorp/terraform
+        version: 1.12.1  # renovate: hashicorp/terraform
       - plugin: terraform-docs
         version: 0.18.0  # renovate: terraform-docs/terraform-docs
       - plugin: tflint
