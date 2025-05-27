@@ -12,7 +12,7 @@
       - plugin: python
         version: 3.11
       - plugin: rust
-        version: 1.81
+        version: 1.81  # renovate: rust-lang/rust
         additional_option: https://github.com/asdf-community/asdf-rust.git
 
       - plugin: direnv
