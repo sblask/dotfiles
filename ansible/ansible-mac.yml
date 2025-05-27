@@ -1,7 +1,7 @@
 - name: Utils
   import_playbook: utils.yml
   vars:
-    architecture: amd64
+    architecture: arm64
     os: darwin
     tar: /opt/homebrew/bin/gtar
 - name: ASDF
