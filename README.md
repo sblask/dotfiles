@@ -29,7 +29,7 @@ How to get started on Mac
 Improving keyboard shortcuts on Mac
 -----------------------------------
 
-- swap command and function key under:
+- swap command and function (Globe) key, and disable caps lock under:
   Keyboard -> Keyboard Shortcuts -> Modifier Keys
 - configure Show Desktop shortcut under:
   Keyboard -> Keyboard Shortcuts -> Mission Control
