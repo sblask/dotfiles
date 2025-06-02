@@ -9,7 +9,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'gbprod/none-ls-shellcheck.nvim'
-    Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
     Plug 'inkarkat/vim-GrepCommands'
     Plug 'inkarkat/vim-QuickFixCurrentNumber'
     Plug 'inkarkat/vim-ingo-library'
@@ -101,10 +100,6 @@ call camelcasemotion#CreateMotionMappings('<leader>')
 
 
 let g:fzf_nvim_statusline = 0
-
-
-lua require("lsp_lines").setup()
-command! LspLinesToggle :lua require("lsp_lines").toggle()
 
 
 let g:netrw_banner = 0 " no header, toggle with I

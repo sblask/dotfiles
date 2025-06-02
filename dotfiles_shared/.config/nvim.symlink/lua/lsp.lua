@@ -8,6 +8,7 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.INFO] = "»",
         },
     },
+    virtual_lines = { current_line = true },
 })
 
 local map_keys = function(buffer)
