@@ -8,6 +8,7 @@
         name: "{{ item }}"
         global: yes
       loop:
+        - aws-cdk
         - cdktf-cli
         - eslint
         - fixjson
