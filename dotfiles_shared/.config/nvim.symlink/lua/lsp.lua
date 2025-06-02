@@ -1,23 +1,14 @@
 vim.diagnostic.config({
     severity_sort = true,
-    virtual_text = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "✘",
+            [vim.diagnostic.severity.WARN] = "▲",
+            [vim.diagnostic.severity.HINT] = "⚑",
+            [vim.diagnostic.severity.INFO] = "»",
+        },
+    },
 })
-
---
--- Change sign column highlighting
---
-
-local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-        texthl = opts.name,
-        text = opts.text,
-    })
-end
-
-sign({ name = "DiagnosticSignError", text = "✘" })
-sign({ name = "DiagnosticSignWarn", text = "▲" })
-sign({ name = "DiagnosticSignHint", text = "⚑" })
-sign({ name = "DiagnosticSignInfo", text = "ⓘ" })
 
 local map_keys = function(buffer)
     local opts = { buffer = buffer }
