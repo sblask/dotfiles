@@ -36,7 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-unimpaired'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
