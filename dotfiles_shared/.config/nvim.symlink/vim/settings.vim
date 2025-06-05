@@ -39,4 +39,5 @@ set ttimeoutlen=0 " no delay for esc
 set wildignore=.git,*.pyc
 set wildmenu " enable zsh-like command completion
 set wildmode=longest,full
+set winborder=rounded
 set wrap " wrap long lines

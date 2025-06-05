@@ -1,3 +1,14 @@
+local diagnostic_format = function(diagnostic)
+    return diagnostic.source
+        .. ": "
+        .. diagnostic.message
+        .. " ["
+        .. (diagnostic.code or "none")
+        .. "/"
+        .. (diagnostic.message_id or "none")
+        .. "]"
+end
+
 vim.diagnostic.config({
     severity_sort = true,
     signs = {
@@ -8,8 +19,27 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.INFO] = "»",
         },
     },
-    virtual_lines = { current_line = true },
+    virtual_lines = false,
+    float = {
+        format = diagnostic_format,
+        suffix = "",
+    },
 })
+
+local open_float = function()
+    vim.diagnostic.open_float({ scope = "cursor" })
+end
+
+local toggle_virtual_lines = function()
+    local config = {
+        current_line = false,
+        format = diagnostic_format,
+    }
+    local virtual_lines_disabled = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({
+        virtual_lines = virtual_lines_disabled and config or false,
+    })
+end
 
 local map_keys = function(buffer)
     local opts = { buffer = buffer }
@@ -26,7 +56,8 @@ local map_keys = function(buffer)
     vim.keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', "<leader>rf", vim.lsp.buf.references, opts)
-    vim.keymap.set('n', "<leader>e",  vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', "<leader>e",  open_float, opts)
+    vim.keymap.set("n", "<leader>l",  toggle_virtual_lines, opts)
     vim.keymap.set('n', "[d",         vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', "]d",         vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', "<leader>f",  vim.lsp.buf.format, opts)
