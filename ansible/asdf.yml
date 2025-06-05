@@ -8,7 +8,7 @@
 
     packages:
       - plugin: nodejs
-        version: 20
+        version: 22
       - plugin: python
         version: 3.11
       - plugin: rust
