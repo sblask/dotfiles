@@ -2,6 +2,7 @@
   hosts: all
 
   environment:
+    ASDF_NODEJS_AUTO_ENABLE_COREPACK: "true"
     PATH: "{{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}"
 
   vars:
