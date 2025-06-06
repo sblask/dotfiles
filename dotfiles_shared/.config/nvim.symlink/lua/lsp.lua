@@ -145,8 +145,8 @@ end
 lspconfig["ts_ls"].setup({
     on_attach = function(client, buffer)
         local function goto_source_definition()
-            local position_params = vim.lsp.util.make_position_params()
-            vim.lsp.buf.execute_command({
+            local position_params = vim.lsp.util.make_position_params(0, "utf-8")
+            client:exec_cmd({
                 command = "_typescript.goToSourceDefinition",
                 arguments = { vim.api.nvim_buf_get_name(0), position_params.position },
             })
@@ -169,7 +169,7 @@ lspconfig["ts_ls"].setup({
             if result == nil or #result == 0 then
                 return
             end
-            vim.lsp.util.jump_to_location(result[1], "utf-8")
+            vim.lsp.util.show_document(result[1], "utf-8")
         end,
     },
     init_options = {
