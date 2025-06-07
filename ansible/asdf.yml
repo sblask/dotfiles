@@ -21,7 +21,7 @@
       - plugin: github-cli
         version: 2.74.0  # renovate: cli/cli
       - plugin: iamlive
-        version: 1.1.24  # renovate: iann0036/iamlive
+        version: 1.1.25  # renovate: iann0036/iamlive
       - plugin: pre-commit
         version: 4.2.0  # renovate: pre-commit/pre-commit
       - plugin: terraform
