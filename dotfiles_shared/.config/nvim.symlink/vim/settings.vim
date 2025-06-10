@@ -36,6 +36,7 @@ set splitright " vertical splits are opened to the right
 set switchbuf=useopen " if quickfix list jump wants to go to a file that is already open in a split, switch to that split instead of opening the file in the current split
 set tabstop=4
 set ttimeoutlen=0 " no delay for esc
+set updatetime=1000
 set wildignore=.git,*.pyc
 set wildmenu " enable zsh-like command completion
 set wildmode=longest,full

@@ -24,4 +24,6 @@ augroup autocommands
     autocmd BufWritePre  *                 silent! :%s#\v($\n)+%$##
     " exit vim-visual-multi on save
     autocmd BufWrite     *                 try | silent call vm#reset() | catch | endtry
+    " show diagnostic after `updatetime` milliseconds
+    autocmd CursorHold   *                 lua vim.diagnostic.open_float({focus=false, scope="cursor"})
 augroup END
