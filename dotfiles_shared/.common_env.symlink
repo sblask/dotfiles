@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# make sure first day of week is Monday (it's not set in en_NZ, so defaults to Sunday)
+export LC_TIME="en_GB.UTF-8"
 
 # .bin from dotfiles
 if [ -d "$HOME/.bin" ]; then
