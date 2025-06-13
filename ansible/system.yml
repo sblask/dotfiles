@@ -46,7 +46,6 @@
         - oathtool
         - parcellite  # keeps copied text in the clipboard even after applications have been closed
         - pdfchain
-        - pinta
         - pulseaudio-module-bluetooth  # enable bluetooth (fixes Connection Failed: blueman.bluez.errors.DBusFailedError: Protocol not available...)
         - pv
         - python-is-python3
@@ -83,9 +82,13 @@
         - parole
         - pidgin
         - ristretto
-        - snapd
 
     - name: Make ZSH default shell
       user:
         name: sebastian
         shell: /bin/zsh
+
+    - name: Install snap packages
+      community.general.snap:
+        name:
+          - pinta
