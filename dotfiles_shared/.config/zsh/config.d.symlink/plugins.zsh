@@ -4,8 +4,8 @@ for file in ~/.config/zsh/plugins/**/*.plugin.zsh; do
     source "$file"
 done
 
-# set color scheme
-base16_eighties
+# set color scheme, see https://github.com/tmux/tmux/issues/3218#issuecomment-1153042412 for TMUX explanation
+TMUX="" base16_eighties
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#333333"
 
