@@ -216,6 +216,35 @@ local fixjson = null_ls_helpers.make_builtin({
     factory = null_ls_helpers.formatter_factory,
 })
 
+local escape_lua_pattern = function(s)
+    return (s:gsub("([%%%^%$%(%)%.%[%]%*%+%-%?])", "%%%1"))
+end
+
+local find_project_file = function(filename)
+    local startpath = vim.api.nvim_buf_get_name(0) or vim.loop.cwd()
+    local root_dir = lspconfig.util.root_pattern(filename)(startpath)
+    if root_dir ~= nil then
+        return root_dir .. "/" .. filename
+    end
+end
+
+local no_pyproject_toml_or_has_line = function(required_line)
+    local wrapped = function(_utils)
+        local pyproject_toml = find_project_file("pyproject.toml")
+        if not pyproject_toml then
+            return true
+        end
+
+        for line in io.lines(pyproject_toml) do
+            if line:match(escape_lua_pattern(required_line)) then
+                return true
+            end
+        end
+        return false
+    end
+    return wrapped
+end
+
 local null_ls_sources = {
     fixjson,
     null_ls.builtins.diagnostics.actionlint,
@@ -240,12 +269,16 @@ local null_ls_sources = {
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.black.with({
+        condition = no_pyproject_toml_or_has_line("[tool.black]"),
+    }),
+    null_ls.builtins.formatting.isort.with({
+        condition = no_pyproject_toml_or_has_line("[tool.black]"),
+    }),
     null_ls.builtins.formatting.packer,
     null_ls.builtins.formatting.prettier.with({
         condition = function(_utils)
-            return lspconfig.util.root_pattern(".prettierrc.*")(vim.api.nvim_buf_get_name(0) or vim.loop.cwd())
+            return find_project_file(".prettierrc.*")
         end,
     }),
     null_ls.builtins.formatting.stylua,
@@ -253,7 +286,7 @@ local null_ls_sources = {
     require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint").with({
         condition = function(_utils)
-            return lspconfig.util.root_pattern("eslint.config.js")(vim.api.nvim_buf_get_name(0) or vim.loop.cwd())
+            return find_project_file("eslint.config.js")
         end,
     }),
     require("none-ls.diagnostics.flake8").with({
