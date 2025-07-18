@@ -2,6 +2,9 @@
 	ui = true
 	branch = always
 	status = always
+	diff = no
+	log = always
+	show = no
 [diff]
 	tool = vimdiff2
 	algorithm = histogram
@@ -26,8 +29,11 @@
 	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = sed 's/\t/    /g' | nvim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
 	editor = nvim
+[pager]
+	diff = nvim -c 'set nolist nomodified nomodifiable nospell nowrap ft=git' -
+	log = sed 's/\t/    /g' | nvim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -
+	show = nvim -c 'set nolist nomodified nomodifiable nospell nowrap ft=git' -
 [tag]
 	sort = version:refname
 [color "status"]

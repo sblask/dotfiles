@@ -1,5 +1,5 @@
 GIT_LOG_FORMAT='%C(blue) %h%Creset %C(yellow)%d%Creset %s %C(blue)(%ad) %C(bold blue)<%an (%ae)>%Creset'
-alias glog='git log --graph --decorate --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=format-local:"%F %T %z" --abbrev=8'
+alias glog='git log --graph --decorate --color --pretty=format:$GIT_LOG_FORMAT --abbrev-commit --date=format-local:"%F %T %z" --abbrev=8'
 
 alias ga='git add'
 alias gap='git add --patch'
