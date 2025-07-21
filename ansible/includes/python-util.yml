@@ -13,31 +13,17 @@
       {%- endif -%}
   register: virtual_env_creation
 
-- name: "Python package {{ package.key }}: Check essential requirements"
-  command: |
-    {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/../requirements-essential.txt'))"
-  changed_when: false
-  failed_when: false
-  register: essential_requirements_check
-
 - name: "Python package {{ package.key }}: Install essential requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/python -m pip install --requirement {{ playbook_dir }}/../requirements-essential.txt
-  when: essential_requirements_check.rc != 0
-  changed_when: true
-
-- name: "Python package {{ package.key }}: Check requirements"
-  command: |
-    {{ target_directory }}/.opt/{{ package.key }}/bin/python -c "import pkg_resources; pkg_resources.require(open('{{ playbook_dir }}/includes/requirements-{{ package.key }}.txt'))"
-  changed_when: false
-  failed_when: false
-  register: requirements_check
+  register: essential_requirements_install
+  changed_when: essential_requirements_install.stdout_lines[-1] is match("Successfully installed .*")
 
 - name: "Python package {{ package.key }}: Install requirements"
   command: |
     {{ target_directory }}/.opt/{{ package.key }}/bin/pip install --requirement {{ playbook_dir }}/includes/requirements-{{ package.key }}.txt
-  when: not (virtual_env_creation.stdout | regex_search("skipped")) or requirements_check.stderr | regex_search("pkg_resources.DistributionNotFound|pkg_resources.VersionConflict")
-  changed_when: true
+  register: requirements_install
+  changed_when: requirements_install.stdout_lines[-1] is match("Successfully installed .*")
 
 - name: "Python package {{ package.key }}: Add link in .bin"
   file:
