@@ -17,7 +17,7 @@
         additional_option: https://github.com/asdf-community/asdf-rust.git
 
       - plugin: direnv
-        version: 2.36.0  # renovate: direnv/direnv
+        version: 2.37.1  # renovate: direnv/direnv
       - plugin: github-cli
         version: 2.76.0  # renovate: cli/cli
       - plugin: iamlive
