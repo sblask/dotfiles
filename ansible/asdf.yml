@@ -9,9 +9,9 @@
 
     packages:
       - plugin: nodejs
-        version: 22
+        version: latest:22
       - plugin: python
-        version: 3.11
+        version: latest:3.11
       - plugin: rust
         version: 1.88.0  # renovate: rust-lang/rust
         additional_option: https://github.com/asdf-community/asdf-rust.git
@@ -48,30 +48,58 @@
         executable: /bin/bash
       loop: "{{ packages }}"
 
-    - name: Get latest package versions with ASDF
+    - name: Install configured versions with ASDF
       shell: |
-        set -o pipefail
-        asdf latest {{ item.plugin }} {{ item.version }}
+        asdf install {{ item.plugin }} {{ item.version }}
       args:
         executable: /bin/bash
-      loop: "{{ packages }}"
-      register: package_versions
-      changed_when: false
-
-    - name: Print latest package versions from ASDF
-      debug:
-        msg: Latest package version of {{ item.plugin }} is {{ package_versions.results[index].stdout }}
+      register: installation
+      changed_when: not installation.stderr_lines or installation.stderr_lines[-1] is not match(".* is already installed")
       loop: "{{ packages }}"
       loop_control:
         index_var: index
 
-    - name: Install packages with ASDF
+    - name: Get installed version with ASDF
       shell: |
-        asdf install {{ item.plugin }} {{ package_versions.results[index].stdout }}
-        asdf set --home {{ item.plugin }} {{ package_versions.results[index].stdout }}
+        set -o pipefail
+        # another `asdf install` should give: `version x.x.x of <PLUGIN> is already installed` on stderr
+        asdf install {{ item.plugin }} {{ item.version }} 2>&1 1>/dev/null | awk '{print $2}'
       args:
-        creates: "{{ target_directory }}/.asdf/installs/{{ item.plugin }}/{{ package_versions.results[index].stdout }}"
         executable: /bin/bash
+      register: installed_version
+      changed_when: false
+      loop: "{{ packages }}"
+
+    - name: Check ~/.tool-versions exists
+      ansible.builtin.stat:
+        path: ~/.tool-versions
+      register: tool_versions_status
+
+    - name: Create ~/.tool-versions
+      ansible.builtin.file:
+        path: ~/.tool-versions
+        state: touch
+        mode: 0644
+      when: not tool_versions_status.stat.exists
+
+    - name: Check whether installed version is set with ASDF
+      lineinfile:
+        name: ~/.tool-versions
+        line: "{{ item.plugin }} {{ installed_version.results[index].stdout }}"
+        state: present
+      check_mode: yes
+      register: installed_version_set
+      loop: "{{ packages }}"
+      loop_control:
+        index_var: index
+
+    - name: Set installed version with ASDF
+      shell: |
+        asdf set --home {{ item.plugin }} {{ installed_version.results[index].stdout }}
+      args:
+        executable: /bin/bash
+      when: installed_version_set.results[index].changed  # noqa: no-handler
+      changed_when: installed_version_set.results[index].changed
       loop: "{{ packages }}"
       loop_control:
         index_var: index
@@ -79,14 +107,14 @@
     # this is created when installing packages, but the nodejs install is brand new
     - name: Create node_modules directory
       file:
-        path: "{{ target_directory }}/.asdf/installs/nodejs/{{ package_versions.results[0].stdout }}/.npm/lib/node_modules"
+        path: "{{ target_directory }}/.asdf/installs/nodejs/{{ installed_version.results[0].stdout }}/.npm/lib/node_modules"
         state: directory
         mode: 0755
 
     # see https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
     - name: Create ~/.node_modules link
       file:
-        src: "{{ target_directory }}/.asdf/installs/nodejs/{{ package_versions.results[0].stdout }}/.npm/lib/node_modules"
+        src: "{{ target_directory }}/.asdf/installs/nodejs/{{ installed_version.results[0].stdout }}/.npm/lib/node_modules"
         dest: "{{ target_directory }}/.node_modules"
         state: link
 
