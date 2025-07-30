@@ -11,7 +11,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=True
 
 if [ "$OS" = linux ]
 then
-    export MANPAGER="/bin/sh -c \"col -b | nvim --appimage-extract-and-run -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nospell nonumber' -\""
+    export MANPAGER="nvim --appimage-extract-and-run +Man!"
 else
-    export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set filetype=man tabstop=8 nomodified nomodifiable nolist nospell nonumber' -\""
+    export MANPAGER="nvim +Man!"
 fi
