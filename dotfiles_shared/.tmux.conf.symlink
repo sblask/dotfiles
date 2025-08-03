@@ -88,6 +88,7 @@ set -g @fzf-links-editor-open-cmd "tmux popup -E -w 100% -h 100% nvim +%line '%f
 set -g @fzf-links-fzf-display-options "--maxnum-displayed 20 --multi --track --no-preview --bind 'ctrl-y:print(COPY_TO_CLIPBOARD)+accept'"
 set -g @fzf-links-hide-fzf-header "on"
 set -g @fzf-links-key C-h
+set -g @fzf-links-use-colors off
 
 set -g @yank_action 'copy-pipe'
 
