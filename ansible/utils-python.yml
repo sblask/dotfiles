@@ -22,6 +22,7 @@
         links:
           pipx: pipx
           register-python-argcomplete: register-python-argcomplete
+      poe:
       poetry:
       pylint:
       pylsp:
