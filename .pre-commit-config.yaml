@@ -27,7 +27,7 @@ repos:
       - id: ansible-lint
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.3.0
+    rev: 3.4.0
     hooks:
       - id: editorconfig-checker
         exclude: (^(patches|test_files)/|^.+/commands.vim)
