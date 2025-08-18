@@ -7,6 +7,7 @@
       community.general.homebrew:
         name: "{{ item }}"
       loop:
+        - awscli  # install this with brew as well as the manually installed on keeps on throwing segmentation fault
         - bash
         - bat
         - colima
