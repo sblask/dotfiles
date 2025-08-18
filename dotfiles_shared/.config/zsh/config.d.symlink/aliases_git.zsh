@@ -42,3 +42,6 @@ alias gun='git restore --staged'
 alias gurl='git remote -v | grep origin | head -n 1 | awk "{ print \$2 }" | gnu-sed --regexp-extended "s|[^@]+@([^:]+):[0-9]*(.+)\.git|https://\1/\2|"'
 alias gurlo='gurl | xargs open'
 alias gvh='git show HEAD'
+
+alias prb='gh pr view --web'
+alias prc='gh pr comment --body'
