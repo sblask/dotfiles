@@ -1,25 +1,53 @@
 function c {
-    local query=$(echo "$1" | sed 's|/$||')
-    if [[ "${query}" == "" ]]
+    if [[ "${1}" == "" ]]
     then
-        cd ~/Code
-    else
-        local directory
-        directory=$(find ~/Code -mindepth 2 -maxdepth 2 -type d | grep "${query}" | head --lines 1)
+        cd ~/Code/
+        return
+    fi
 
-        if [[ "${directory}" == "" ]]
-        then
-            RED='\033[0;31m'
-            NC='\033[0m'
-            printf "${RED}No match found for '${query}'${NC}\n"
-            return 1
-        else
-            cd ${directory}
-        fi
+    match=$(cd ~/Code/ && find */ -type d -mindepth 1 -maxdepth 1 | fzf --query "$1" --select-1 --cycle)
+
+    if [[ "${match}" != "" ]]
+    then
+        cd ~/Code/${match}
     fi
 }
-# complete with ~/Code prefix
+# complete with ~/Code/ prefix
 compctl -/ -W ~/Code/ c
+
+function ce {
+    if [[ "${1}" == "" ]]
+    then
+        cd ~/Code/personal/
+        return
+    fi
+
+    match=$(ls ~/Code/personal | fzf --query "$1" --select-1 --cycle)
+
+    if [[ "${match}" != "" ]]
+    then
+        cd ~/Code/personal/${match}
+    fi
+}
+# complete with ~/Code/personal/ prefix
+compctl -/ -W ~/Code/personal/ ce
+
+function cw {
+    if [[ "${1}" == "" ]]
+    then
+        cd ~/Code/work/
+        return
+    fi
+
+    match=$(ls ~/Code/work | fzf --query "$1" --select-1 --cycle)
+
+    if [[ "${match}" != "" ]]
+    then
+        cd ~/Code/work/${match}
+    fi
+}
+# complete with ~/Code/work/ prefix
+compctl -/ -W ~/Code/work/ cw
 
 function mcd {
     mkdir $1 && cd $1
