@@ -220,8 +220,8 @@ local escape_lua_pattern = function(s)
     return (s:gsub("([%%%^%$%(%)%.%[%]%*%+%-%?])", "%%%1"))
 end
 
-local find_project_file = function(filename)
-    local startpath = vim.api.nvim_buf_get_name(0) or vim.loop.cwd()
+local find_project_file = function(bufname, filename)
+    local startpath = bufname
     local root_dir = lspconfig.util.root_pattern(filename)(startpath)
     if root_dir ~= nil then
         return root_dir .. "/" .. filename
@@ -229,8 +229,8 @@ local find_project_file = function(filename)
 end
 
 local no_pyproject_toml_or_has_line = function(required_line)
-    local wrapped = function(_utils)
-        local pyproject_toml = find_project_file("pyproject.toml")
+    local wrapped = function(params)
+        local pyproject_toml = find_project_file(params.bufname, "pyproject.toml")
         if not pyproject_toml then
             return true
         end
@@ -250,8 +250,8 @@ local null_ls_sources = {
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
     null_ls.builtins.diagnostics.markdownlint.with({
-        condition = function(utils)
-            return utils.root_has_file(".markdownlintrc")
+        runtime_condition = function(params)
+            return find_project_file(params.bufname, ".markdownlintrc")
         end,
     }),
     null_ls.builtins.diagnostics.mypy.with({
@@ -270,29 +270,29 @@ local null_ls_sources = {
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
     null_ls.builtins.formatting.black.with({
-        condition = no_pyproject_toml_or_has_line("[tool.black]"),
+        runtime_condition = no_pyproject_toml_or_has_line("[tool.black]"),
     }),
     null_ls.builtins.formatting.isort.with({
-        condition = no_pyproject_toml_or_has_line("[tool.black]"),
+        runtime_condition = no_pyproject_toml_or_has_line("[tool.isort]"),
     }),
     null_ls.builtins.formatting.packer,
     null_ls.builtins.formatting.prettier.with({
-        condition = function(_utils)
-            return find_project_file(".prettierrc.*")
+        runtime_condition = function(params)
+            return find_project_file(params.bufname, ".prettierrc.*")
         end,
     }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
     require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint").with({
-        condition = function(_utils)
-            return find_project_file("eslint.config.js")
+        runtime_condition = function(params)
+            return find_project_file(params.bufname, "eslint.config.js")
         end,
     }),
     require("none-ls.diagnostics.flake8").with({
         method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-        condition = function(utils)
-            return utils.root_has_file(".flake8")
+        runtime_condition = function(params)
+            return find_project_file(params.bufname, ".flake8")
         end,
     }),
 }
