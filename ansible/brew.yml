@@ -26,6 +26,7 @@
         - gpg
         - grep
         - htop
+        - imagemagick  # for image conversion with `convert`
         - jo
         - jq
         - neovim
