@@ -10,5 +10,6 @@ alias -g LC="| awk '{print \$NF}'" # print last column
 alias -g FC="| awk '{print \$1}'" # print first column
 
 alias -g AWSEXPORT="| jq '.Credentials.AccessKeyId, .Credentials.SecretAccessKey, .Credentials.SessionToken, .Credentials.Expiration, .AssumedRoleUser.Arn' --raw-output | paste --delimiters='\0' <( echo 'export AWS_ACCESS_KEY_ID=\nexport AWS_SECRET_ACCESS_KEY=\nexport AWS_SESSION_TOKEN=\nexport AWS_SESSION_EXPIRATION=\nexport AWS_ROLE_ARN=') -"
+alias -g MD2TXT="| sed -r 's/\[.+\]\((.+)\)/\1/' | sed -r '/\[/{ N; s/\[.+\]\((.+)\)/\n\1/ }' | sed -r '/\`\`\`/,/\`\`\`/d'"
 
 alias -g HELP="--help | bat --plain --language=help"
