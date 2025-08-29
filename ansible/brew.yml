@@ -39,6 +39,7 @@
         - sponge  # install this instead of moreutils to avoid conflict with parallel
         - tmux
         - tree
+        - yq
 
     - name: Install homebrew casks
       community.general.homebrew_cask:
