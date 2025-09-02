@@ -24,6 +24,8 @@
   "ignoreDeps": [
     "aquasecurity/tfsec",
     "aquasecurity/trivy",
+    "hashicorp/terraform",
+    "hashicorp/terraform-ls",
     "terraform-doc",
     "terraform-linters/tflint"
   ],
