@@ -278,7 +278,7 @@ local null_ls_sources = {
     null_ls.builtins.formatting.packer,
     null_ls.builtins.formatting.prettier.with({
         runtime_condition = function(params)
-            return find_project_file(params.bufname, ".prettierrc.*")
+            return find_project_file(params.bufname, ".prettierrc*")
         end,
     }),
     null_ls.builtins.formatting.stylua,
