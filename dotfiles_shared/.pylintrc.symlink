@@ -1,3 +1,6 @@
+[BASIC]
+module-naming-style=any
+
 [MESSAGES CONTROL]
 # See https://pylint.pycqa.org/en/latest/user_guide/checkers/features.html
 disable=
