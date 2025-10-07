@@ -22,9 +22,10 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v25.9.0
+    rev: v25.9.1
     hooks:
       - id: ansible-lint
+        language_version: python3.12
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 3.4.0
