@@ -1,0 +1,2 @@
+# don't warn if there is no shebang
+disable=SC2148
