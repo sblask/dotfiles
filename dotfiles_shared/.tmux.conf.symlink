@@ -52,10 +52,11 @@ bind-key V copy-mode
 set-option -g word-separators " -_@"
 
 # select with mouse clicks
-bind-key -T root         DoubleClick1Pane copy-mode -M \; set-option -g word-separators ' ()[]:/"' \; send-keys -X select-word \; set-option -g word-separators " -_@"
-bind-key -T copy-mode-vi DoubleClick1Pane                 set-option -g word-separators ' ()[]:/"' \; send-keys -X select-word \; set-option -g word-separators " -_@"
-bind-key -T root         TripleClick1Pane copy-mode -M \; set-option -g word-separators ' ()[]"' \;   send-keys -X select-word \; set-option -g word-separators " -_@"
-bind-key -T copy-mode-vi TripleClick1Pane                 set-option -g word-separators ' ()[]"' \;   send-keys -X select-word \; set-option -g word-separators " -_@"
+# double "other-end" to switch back to character mode
+bind-key -T root         DoubleClick1Pane copy-mode -M \; set-option -g word-separators ' ()[]:/"' \; send-keys -X select-word \; send-keys -X other-end \; send-keys -X other-end \; set-option -g word-separators " -_@"
+bind-key -T copy-mode-vi DoubleClick1Pane                 set-option -g word-separators ' ()[]:/"' \; send-keys -X select-word \; send-keys -X other-end \; send-keys -X other-end \; set-option -g word-separators " -_@"
+bind-key -T root         TripleClick1Pane copy-mode -M \; set-option -g word-separators ' ()[]"' \;   send-keys -X select-word \; send-keys -X other-end \; send-keys -X other-end \; set-option -g word-separators " -_@"
+bind-key -T copy-mode-vi TripleClick1Pane                 set-option -g word-separators ' ()[]"' \;   send-keys -X select-word \; send-keys -X other-end \; send-keys -X other-end \; set-option -g word-separators " -_@"
 
 # copy and paste from/to clipboard
 bind-key -T copy-mode-vi v send-keys -X begin-selection
