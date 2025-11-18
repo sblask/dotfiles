@@ -287,6 +287,7 @@ local null_ls_sources = {
     require("none-ls.diagnostics.eslint").with({
         runtime_condition = function(params)
             return find_project_file(params.bufname, "eslint.config.js")
+                or find_project_file(params.bufname, ".eslintrc")
         end,
     }),
     require("none-ls.diagnostics.flake8").with({
