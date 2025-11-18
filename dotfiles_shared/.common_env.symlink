@@ -7,11 +7,6 @@ if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
-# asdf from dotfiles
-if [ -d "$HOME/.asdf/shims" ]; then
-    PATH="$HOME/.asdf/shims:$PATH"
-fi
-
 # pipx bin folder
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
@@ -40,6 +35,11 @@ if [ -f /opt/homebrew/bin/brew ]; then
     PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
     PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
     PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+fi
+
+# asdf from dotfiles - after homebrew to take precedence
+if [ -d "$HOME/.asdf/shims" ]; then
+    PATH="$HOME/.asdf/shims:$PATH"
 fi
 
 
