@@ -118,13 +118,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 --
--- Configure LSP
+-- Configure LSP servers
 --
-local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 
-lspconfig["jsonls"].setup({})
+vim.lsp.enable("jsonls")
 
-lspconfig["pylsp"].setup({
+vim.lsp.enable("pylsp")
+vim.lsp.config("pylsp", {
     cmd_env = {
         VIRTUAL_ENV = ".venv",
     },
@@ -133,16 +134,8 @@ lspconfig["pylsp"].setup({
     end,
 })
 
-local function organize_typescript_imports()
-    local params = {
-        command = "_typescript.organizeImports",
-        arguments = { vim.api.nvim_buf_get_name(0) },
-        title = "",
-    }
-    vim.lsp.buf.execute_command(params)
-end
-
-lspconfig["ts_ls"].setup({
+vim.lsp.enable("ts_ls")
+vim.lsp.config("ts_ls", {
     on_attach = function(client, buffer)
         local function goto_source_definition()
             local position_params = vim.lsp.util.make_position_params(0, "utf-8")
@@ -155,12 +148,14 @@ lspconfig["ts_ls"].setup({
         vim.keymap.set("n", "<leader>ds", goto_source_definition, opts)
         -- disable formatting so prettier/null-ls can do it
         client.server_capabilities.documentFormattingProvider = false
+
+        vim.api.nvim_buf_create_user_command(buffer, "OrganizeImports", function()
+            client:exec_cmd({
+                command = "_typescript.organizeImports",
+                arguments = { vim.api.nvim_buf_get_name(buffer) },
+            }, { bufnr = buffer })
+        end, { desc = "Organize imports" })
     end,
-    commands = {
-        OrganizeImports = {
-            organize_typescript_imports,
-        },
-    },
     handlers = {
         ["workspace/executeCommand"] = function(_err, result, ctx, _config)
             if ctx.params.command ~= "_typescript.goToSourceDefinition" then
@@ -179,7 +174,8 @@ lspconfig["ts_ls"].setup({
     },
 })
 
-lspconfig["terraformls"].setup({
+vim.lsp.enable("terraformls")
+vim.lsp.config("terraformls", {
     on_attach = function(client, _buffer)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
@@ -189,8 +185,9 @@ lspconfig["terraformls"].setup({
     end,
 })
 
-lspconfig["tflint"].setup({
-    root_dir = lspconfig.util.root_pattern(".git", ".tflint.hcl"),
+vim.lsp.enable("tflint")
+vim.lsp.config("tflint", {
+    root_dir = util.root_pattern(".git", ".tflint.hcl"),
 })
 
 --
@@ -222,7 +219,7 @@ end
 
 local find_project_file = function(bufname, filename)
     local startpath = bufname
-    local root_dir = lspconfig.util.root_pattern(filename)(startpath)
+    local root_dir = util.root_pattern(filename)(startpath)
     if root_dir ~= nil then
         return root_dir .. "/" .. filename
     end
