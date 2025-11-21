@@ -11,7 +11,7 @@
       - plugin: nodejs
         version: latest:22
       - plugin: python
-        version: latest:3.11
+        version: latest:3.12
       - plugin: rust
         version: 1.90.0  # renovate: rust-lang/rust
         additional_option: https://github.com/asdf-community/asdf-rust.git

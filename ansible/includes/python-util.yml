@@ -1,6 +1,6 @@
 - name: "Python package {{ package.key }}: Create virtualenv"
   shell: |
-    python3.11 -m venv {{ target_directory }}/.opt/{{ package.key }}
+    python3.12 -m venv {{ target_directory }}/.opt/{{ package.key }}
   args:
     creates: "{{ target_directory }}/.opt/{{ package.key }}"
     executable: /bin/bash
