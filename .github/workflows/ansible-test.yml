@@ -16,6 +16,7 @@ jobs:
       fail-fast: false
 
     env:
+      ANSIBLE_PYTHON_INTERPRETER: /usr/bin/python3
       ASDF_DATA_DIR: /tmp/dotfiles-ansible-test/.asdf
       TARGET_DIRECTORY: /tmp/dotfiles-ansible-test
 
