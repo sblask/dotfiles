@@ -25,6 +25,10 @@ How to get started on Mac
 - `/usr/local/bin/brew install ansible`
 - `/usr/local/bin/brew install gnu-tar`
 - `/usr/local/bin/ansible-playbook ansible/ansible-mac.yml`
+- in iTerm2 under `Settings` -> `Profiles`
+  - under `General`, set `/opt/homebrew/bin/tmux new` as command
+  - under `Colors`, configure preset using
+    `https://github.com/tinted-theming/tinted-terminal/raw/refs/heads/main/themes/iterm2/base16-eighties.itermcolors`
 
 Improving keyboard shortcuts on Mac
 -----------------------------------
