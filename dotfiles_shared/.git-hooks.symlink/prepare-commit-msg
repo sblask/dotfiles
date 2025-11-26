@@ -20,7 +20,7 @@ def main():
             "log",
             "-n",
             str(NUMBER_OF_COMMITS),
-            "--pretty=format:%h: %s %d",
+            "--pretty=format:%h: %s%d",
             "--abbrev-commit",
             '--date=format-local:"%F %T %z"',
         ],
