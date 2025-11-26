@@ -30,7 +30,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
-	hooksPath = ~/.git-hooks
 [pager]
 	diff = nvim -c 'set nolist nomodified nomodifiable nospell nowrap ft=git' -
 	log = sed 's/\t/    /g' | nvim -c 'set nolist nomodified nomodifiable nospell nowrap' -c 'AnsiEsc' -

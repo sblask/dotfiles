@@ -1,0 +1,17 @@
+#!/bin/sh
+
+current_directory=$PWD
+
+for directory in ~/Code/*/*/
+    do
+        echo "${directory}"
+        cd "${directory}.git/hooks" || exit
+
+        for hook in ~/.git-hooks/*
+            do
+                ln -s "${hook}" .
+            done
+
+    done
+
+cd "${current_directory}" || exit
