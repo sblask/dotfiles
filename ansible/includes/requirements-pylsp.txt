@@ -1,2 +1,2 @@
-python-lsp-server==1.13.2
+python-lsp-server==1.14.0
 pylsp-rope==0.1.17
