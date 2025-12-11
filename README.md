@@ -72,37 +72,44 @@ Improving keyboard shortcuts on Mac
   - 0x19 -> command-Y
   - 0x1a -> command-Z
 
+- setup iterm Keys (Settings -> Keys) to send escape codes for Ctrl-Tab and Ctrl-Shift-Tab
+
+  - [27;5;9~ -> Ctrl-Tab
+  - [27;6;9~ -> Ctrl-Shift-Tab
+
 The corresponding preset looks like this:
 
 ```json
 {
     "Key Mappings":{
-        "0x61-0x100000-0x0":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x01","Escaping":2},
-        "0x62-0x100000-0xb":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x02","Escaping":2},
-        "0x63-0x100000-0x8":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x03","Escaping":2},
-        "0x64-0x100000-0x2":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x04","Escaping":2},
-        "0x65-0x100000-0xe":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x05","Escaping":2},
-        "0x66-0x100000-0x3":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x06","Escaping":2},
-        "0x67-0x100000-0x5":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x07","Escaping":2},
-        "0x68-0x100000-0x4":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x08","Escaping":2},
-        "0x69-0x100000-0x22":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x09","Escaping":2},
-        "0x6a-0x100000-0x26":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0a","Escaping":2},
-        "0x6b-0x100000-0x28":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0b","Escaping":2},
-        "0x6c-0x100000-0x25":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0c","Escaping":2},
-        "0x6d-0x100000-0x2e":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0d","Escaping":2},
-        "0x6e-0x100000-0x2d":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0e","Escaping":2},
-        "0x6f-0x100000-0x1f":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0f","Escaping":2},
-        "0x70-0x100000-0x23":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x10","Escaping":2},
-        "0x71-0x100000-0xc":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x11","Escaping":2},
-        "0x72-0x100000-0xf":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x12","Escaping":2},
-        "0x73-0x100000-0x1":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x13","Escaping":2},
-        "0x74-0x100000-0x11":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x14","Escaping":2},
-        "0x75-0x100000-0x20":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x15","Escaping":2},
-        "0x76-0x100000-0x9":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x16","Escaping":2},
-        "0x77-0x100000-0xd":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x17","Escaping":2},
-        "0x78-0x100000-0x7":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x18","Escaping":2},
-        "0x79-0x100000-0x10":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x19","Escaping":2},
-        "0x7a-0x100000-0x6":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x1a","Escaping":2}
+        "0x61-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x01","Escaping":2},
+        "0x62-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x02","Escaping":2},
+        "0x63-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x03","Escaping":2},
+        "0x64-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x04","Escaping":2},
+        "0x65-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x05","Escaping":2},
+        "0x66-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x06","Escaping":2},
+        "0x67-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x07","Escaping":2},
+        "0x68-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x08","Escaping":2},
+        "0x69-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x09","Escaping":2},
+        "0x6a-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0a","Escaping":2},
+        "0x6b-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0b","Escaping":2},
+        "0x6c-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0c","Escaping":2},
+        "0x6d-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0d","Escaping":2},
+        "0x6e-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0e","Escaping":2},
+        "0x6f-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x0f","Escaping":2},
+        "0x70-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x10","Escaping":2},
+        "0x71-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x11","Escaping":2},
+        "0x72-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x12","Escaping":2},
+        "0x73-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x13","Escaping":2},
+        "0x74-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x14","Escaping":2},
+        "0x75-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x15","Escaping":2},
+        "0x76-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x16","Escaping":2},
+        "0x77-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x17","Escaping":2},
+        "0x78-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x18","Escaping":2},
+        "0x79-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x19","Escaping":2},
+        "0x7a-0x100000":{"Version":2,"Apply Mode":0,"Action":11,"Text":"0x1a","Escaping":2},
+        "0x19-0x60000":{"Version":2,"Apply Mode":0,"Action":10,"Text":"[27;6;9~","Escaping":2},
+        "0x9-0x40000":{"Version":2,"Apply Mode":0,"Action":10,"Text":"[27;5;9~","Escaping":2}
     },
     "Touch Bar Items":{}
 }

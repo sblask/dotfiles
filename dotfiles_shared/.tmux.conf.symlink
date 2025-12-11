@@ -11,9 +11,11 @@ bind-key -r | split-window -h -c "#{pane_current_path}"
 bind-key -r d split-window -h -c ~/Code/personal/dotfiles/
 bind-key -r D new-window -c ~/Code/personal/dotfiles/
 
-bind-key -r C-S-Tab previous-window
+bind-key -n C-Tab next-window
+bind-key -n C-S-Tab previous-window
+bind-key -n C-BTab previous-window
 bind-key -r S-Tab previous-window
-bind-key -r C-Tab next-window
+bind-key -r BTab previous-window
 bind-key -r Tab next-window
 
 bind-key -r H previous-window
