@@ -116,5 +116,5 @@ function __print_first_line {
     print -rP $(IFS=; echo "${lines[*]}")
 }
 
-PS1="%~ $ "
+PS1="%~ %(?.$ .%F{red}[Last command ^ failed with exit code %?] $%f )"
 add-zsh-hook precmd __print_first_line
