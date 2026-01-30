@@ -27,7 +27,7 @@
       - plugin: terraform
         version: 1.12.2  # renovate: hashicorp/terraform
       - plugin: terraform-docs
-        version: 0.18.0  # renovate: terraform-docs/terraform-docs
+        version: 0.21.0  # renovate: terraform-docs/terraform-docs
       - plugin: tflint
         version: 0.51.1  # renovate: terraform-linters/tflint
       - plugin: tfsec
