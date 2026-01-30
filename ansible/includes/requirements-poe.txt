@@ -1,1 +1,1 @@
-poethepoet==0.38.0
+poethepoet==0.40.0
