@@ -23,7 +23,7 @@
       - plugin: iamlive
         version: 1.1.26  # renovate: iann0036/iamlive
       - plugin: pre-commit
-        version: 4.5.0  # renovate: pre-commit/pre-commit
+        version: 4.5.1  # renovate: pre-commit/pre-commit
       - plugin: terraform
         version: 1.12.2  # renovate: hashicorp/terraform
       - plugin: terraform-docs
