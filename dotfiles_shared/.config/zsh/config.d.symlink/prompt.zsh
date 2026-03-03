@@ -1,19 +1,3 @@
-function __aws_region {
-    if [ "$AWS_DEFAULT_REGION" = "" ]; then
-        echo ""
-    else
-        echo "$AWS_DEFAULT_REGION "
-    fi
-}
-
-function __aws_profile {
-    if [ "$AWS_PROFILE" = "" ]; then
-        echo ""
-    else
-        echo "(AWS_PROFILE: $AWS_PROFILE) "
-    fi
-}
-
 function __aws_session {
     if [ "$AWS_SESSION_EXPIRATION" = "" ]; then
         echo ""
@@ -39,27 +23,11 @@ function __git_no_mail_warning {
     fi
 }
 
-function __history {
-    if [ "$_per_directory_history_is_global" == true ]; then
-        echo "G"
-    else
-        echo "L"
-    fi
-}
-
 function __my_ip {
     if [ "$OS" = mac ]; then
         ipconfig getifaddr en0
     else
         hostname --all-ip-addresses | awk '{print $1}'
-    fi
-}
-
-function __imsa_profile {
-    if [ "$IMSA_PROFILE" = "" ]; then
-        echo ""
-    else
-        echo "($IMSA_PROFILE until $(date --date $IMSA_PROFILE_EXPIRATION +%H:%M)) "
     fi
 }
 
@@ -78,14 +46,6 @@ function __terraform_workspace {
     echo "(terraform: $TERRAFORM_WORKSPACE) "
 }
 
-function __vault_profile {
-    if [ "$AWS_VAULT" = "" ]; then
-        echo ""
-    else
-        echo "($AWS_VAULT until $(date --date $AWS_SESSION_EXPIRATION +%H:%M)) "
-    fi
-}
-
 function __virtual_env {
     if [ "$VIRTUAL_ENV" = "" ]; then
         echo ""
@@ -94,27 +54,51 @@ function __virtual_env {
     fi
 }
 
+prompt_aws_region=""
+prompt_aws_profile=""
 
-function __print_first_line {
-    print
-    lines=(
-        "$(date +'[%a, %e %b %Y, %H:%M:%S]') "
-        "[$(__history)] "
-        "$fg[yellow]$(__aws_region)$reset_color"
-        "$fg[yellow]$(__imsa_profile)$reset_color"
-        "$fg[yellow]$(__vault_profile)$reset_color"
-        "$fg[yellow]$(__terraform_workspace)$reset_color"
-        "$fg[yellow]$(__aws_session)$reset_color"
-        "$fg[yellow]$(__aws_profile)$reset_color"
-        "$fg[blue]$(__virtual_env)$(__conda_env)$reset_color"
-        "%n " # username
-        "$fg[blue]%m$reset_color " # hostname
-        "$(__my_ip) "
-        "$(git_super_status) "
-        "$fg[red]$(__git_no_mail_warning)$reset_color"
-    )
-    print -rP $(IFS=; echo "${lines[*]}")
+prompt_second_line=""
+
+function precmd {
+    local exit_code=$?
+
+    if [ "$AWS_DEFAULT_REGION" = "" ]; then
+        prompt_aws_region=""
+    else
+        prompt_aws_region="$AWS_DEFAULT_REGION "
+    fi
+
+    if [ "$AWS_PROFILE" = "" ]; then
+        prompt_aws_profile=""
+    else
+        prompt_aws_profile="(AWS_PROFILE: $AWS_PROFILE) "
+    fi
+
+    if [[ $exit_code -eq 0 ]]; then
+        prompt_second_line="%~ $ "
+    # consider all signal-based exits as success
+    elif [[ $exit_code -gt 128 ]]; then
+        prompt_second_line="%~ $ "
+    else
+        prompt_second_line="%~ %F{red}[Last command ^ failed with exit code $exit_code] $ %f"
+    fi
 }
 
-PS1="%~ %(?.$ .%F{red}[Last command ^ failed with exit code %?] $%f )"
-add-zsh-hook precmd __print_first_line
+PROMPT=$'\n'
+PROMPT+='[%D{%a, %e %b %Y, %H:%M:%S}] '
+PROMPT+='${${_per_directory_history_is_global:#true}:+[L] }'
+PROMPT+='${${_per_directory_history_is_global:#false}:+[G] }'
+PROMPT+='%F{yellow}${prompt_aws_region}%f'
+PROMPT+='%F{yellow}${prompt_aws_profile}%f'
+# PROMPT+='%F{yellow}$(__aws_session)%f'
+# PROMPT+='%F{yellow}$(__terraform_workspace)%f'
+PROMPT+='%F{blue}$(__virtual_env)%f'
+# PROMPT+='%F{blue}$(__conda_env)%f'
+# PROMPT+='%n ' # username
+# PROMPT+='%F{blue}%m%f ' # hostname
+# PROMPT+='$(__my_ip) '
+PROMPT+='$(git_super_status) '
+PROMPT+='%F{red}$(__git_no_mail_warning)%f'
+
+PROMPT+=$'\n'
+PROMPT+='${prompt_second_line}'
