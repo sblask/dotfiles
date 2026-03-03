@@ -5,12 +5,12 @@
       "customType": "regex",
       "datasourceTemplate": "github-tags",
       "extractVersionTemplate": "^v?(?<version>[.0-9]+)$",
-      "fileMatch": [
-        "^.github/workflows/pre-commit\\.yml$",
-        "^ansible/appimages\\.yml$",
-        "^ansible/asdf\\.yml$",
-        "^ansible/utils\\.yml$",
-        "^ansible/utils-rust\\.yml$"
+      "managerFilePatterns": [
+        "/^.github/workflows/pre-commit\\.yml$/",
+        "/^ansible/appimages\\.yml$/",
+        "/^ansible/asdf\\.yml$/",
+        "/^ansible/utils\\.yml$/",
+        "/^ansible/utils-rust\\.yml$/"
       ],
       "matchStrings": [
         "v?(?<currentValue>[.0-9]+)  # renovate: (?<depName>[^ \\n]+)",
@@ -64,8 +64,8 @@
     }
   ],
   "pip_requirements": {
-    "fileMatch": [
-      "requirements-.+\\.txt"
+    "managerFilePatterns": [
+      "/requirements-.+\\.txt/"
     ]
   },
   "prConcurrentLimit": 0,
