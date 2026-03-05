@@ -47,6 +47,8 @@ repos:
     rev: v0.4a3
     hooks:
       - id: vint
+        additional_dependencies:
+          - chardet<7
         files: dotfiles_shared/.config/nvim.symlink/(init.vim|vim/.*\.vim)
 
   - repo: https://github.com/adrienverge/yamllint
