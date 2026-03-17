@@ -29,6 +29,9 @@
     "terraform-doc",
     "terraform-linters/tflint"
   ],
+  "ignorePaths": [
+    "ansible/includes/requirements-poetry-1.8.5.txt"
+  ],
   "packageRules": [
     {
       "automerge": true,

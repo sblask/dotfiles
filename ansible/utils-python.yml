@@ -24,6 +24,9 @@
           register-python-argcomplete: register-python-argcomplete
       poe:
       poetry:
+      poetry-1.8.5:
+        links:
+          poetry_1_8_5: poetry
       pylint:
       pylsp:
       pynvim:
