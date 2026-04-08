@@ -1,5 +1,6 @@
 # pylint: disable=import-outside-toplevel
 
+
 # https://jvanz.com/hacking-your-vim-with-python.html
 def apply_on_one_line_selection(function):
     import vim  # pylint: disable=import-error
@@ -76,12 +77,11 @@ def dict_to_json():
     import datetime
     import json
     import sys
+    import zoneinfo
 
     import vim  # pylint: disable=import-error
     from dateutil.tz import tzlocal, tzutc
 
     as_dict = eval("".join(vim.current.buffer[:]))  # pylint: disable=eval-used
-    as_json = json.dumps(
-        as_dict, default=lambda something: something.isoformat()
-    )
+    as_json = json.dumps(as_dict, default=lambda something: something.isoformat())
     vim.current.buffer[:] = [as_json]
