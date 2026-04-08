@@ -81,6 +81,21 @@ local setup_format_on_save = function(buffer)
     })
 end
 
+local function came_from_quickfix_window()
+    local prev_winnr = vim.fn.winnr("#")
+    if prev_winnr == 0 then
+        return false
+    end
+
+    local prev_winid = vim.fn.win_getid(prev_winnr)
+    if prev_winid == 0 then
+        return false
+    end
+
+    local info = vim.fn.getwininfo(prev_winid)[1]
+    return info and info.quickfix == 1 or false
+end
+
 local setup_location_list_updates = function(buffer)
     local augroup_name = "lsp-location-list-updates-" .. buffer
     vim.api.nvim_create_augroup(augroup_name, { clear = true })
@@ -94,6 +109,9 @@ local setup_location_list_updates = function(buffer)
     vim.api.nvim_create_autocmd("BufEnter", {
         buffer = buffer,
         callback = function()
+            if came_from_quickfix_window() then
+                return
+            end
             vim.diagnostic.setloclist({ open = false })
         end,
         group = augroup_name,
