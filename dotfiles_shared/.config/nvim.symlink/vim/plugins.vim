@@ -27,7 +27,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvimtools/none-ls.nvim'
     Plug 'pearofducks/ansible-vim'
     Plug 'powerman/vim-plugin-AnsiEsc'
-    Plug 'rickhowe/diffchar.vim'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tpope/vim-commentary'

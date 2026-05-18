@@ -9,6 +9,7 @@ set diffopt+=algorithm:minimal
 set diffopt+=context:9999 " disable folding
 set diffopt+=filler
 set diffopt+=indent-heuristic
+set diffopt+=inline:word
 set diffopt+=internal
 set expandtab
 set fileignorecase " ignore case when completing filenames
