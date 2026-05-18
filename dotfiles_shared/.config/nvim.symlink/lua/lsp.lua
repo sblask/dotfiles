@@ -67,6 +67,16 @@ local map_keys = function(buffer)
     vim.keymap.set("n", "<leader>wl", function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders))
     end, opts)
+
+    vim.keymap.set("n", "<leader>oi", function()
+        vim.lsp.buf.code_action({
+            apply = true,
+            context = {
+                only = { "source.organizeImports" },
+                diagnostics = {},
+            },
+        })
+    end, { desc = "Organize Imports" })
 end
 
 local setup_format_on_save = function(buffer)
