@@ -1,80 +1,120 @@
-require("nvim-treesitter.configs").setup({
-    -- A list of parser names, or "all"
-    ensure_installed = "all",
+require("ansible").setup()
+require("nvim-treesitter").setup({})
+require("nvim-treesitter").install({
+    "bash",
+    "c",
+    "cpp",
+    "css",
+    "diff",
+    "go",
+    "html",
+    "javascript",
+    "jinja",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "rust",
+    "terraform",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+})
 
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = { "phpdoc" },
-
-    highlight = {
-        -- `false` will disable the whole extension
-        enable = true,
-
-        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-        -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-        -- the name of the parser)
-        -- list of language that will be disabled
-        disable = {},
-
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "ansible",
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "diff",
+        "go",
+        "html",
+        "javascript",
+        "jinja",
+        "json",
+        "lua",
+        "markdown",
+        "python",
+        "rust",
+        "terraform",
+        "typescript",
+        "typescriptreact",
+        "vim",
+        "yaml",
+        "yaml.ansible",
     },
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
 
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gss",
-            node_incremental = "gsi",
-            node_decremental = "gsd",
-        },
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "c",
+        "cpp",
+        "go",
+        "lua",
+        "python",
+        "rust",
+        "typescript",
+        "typescriptreact",
     },
+    callback = function()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+})
 
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["aa"] = "@parameter.outer",
-                ["ia"] = "@parameter.inner",
-            },
+require("nvim-treesitter-textobjects").setup({
+    select = {
+        lookahead = true,
+        selection_modes = {
+            ["@class.outer"] = "V",
+            ["@class.inner"] = "V",
+            ["@function.outer"] = "V",
+            ["@function.inner"] = "V",
+            ["@parameter.outer"] = "v",
+            ["@parameter.inner"] = "v",
         },
-        swap = {
-            enable = true,
-            swap_next = {
-                ["<leader>p"] = "@parameter.inner",
-            },
-            swap_previous = {
-                ["<leader>P"] = "@parameter.inner",
-            },
-        },
+        include_surrounding_whitespace = true,
     },
 })
+
+vim.keymap.set({ "x", "o" }, "ac", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ic", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "af", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "aa", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
+end)
+
+vim.keymap.set({ "x", "o" }, "ia", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
+end)
+
+vim.keymap.set("n", "<leader>p", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+end)
+
+vim.keymap.set("n", "<leader>P", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+end)
 
 require("treesitter-context").setup({
     enable = true,
-    patterns = {
-        default = {
-            "class",
-            "function",
-            "method",
-        },
-        terraform = {
-            "block",
-        },
-    },
     mode = "topline",
 })
 
--- supposedly this can be done with custom_captures under highlight in the
--- treesitter config setup, but I couldn't get it to work
-vim.cmd([[highlight def link @text.diff.add DiffAdded]])
-vim.cmd([[highlight def link @text.diff.delete DiffRemoved]])
+vim.api.nvim_set_hl(0, "@text.diff.add", { link = "DiffAdded" })
+vim.api.nvim_set_hl(0, "@text.diff.delete", { link = "DiffRemoved" })
