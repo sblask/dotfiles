@@ -4,7 +4,6 @@ vim.filetype.add({
         jsm = "javascript",
         sls = "yaml",
         template = "json",
-        ["tf.j2"] = "terraform",
     },
     filename = {
         [".ansible-lint"] = "yaml",
@@ -13,11 +12,10 @@ vim.filetype.add({
         [".pylintrc"] = "dosini",
         [".pylintrc.symlink"] = "dosini",
         [".tmux.conf.symlink"] = "tmux",
+        [vim.fn.expand("~/.aws/config")] = "dosini",
     },
     pattern = {
-        [".*/%.aws/config"] = "dosini",
         [".*/ansible/.*"] = "ansible",
-        ["~/%.aws/config"] = "dosini",
     },
 })
 
