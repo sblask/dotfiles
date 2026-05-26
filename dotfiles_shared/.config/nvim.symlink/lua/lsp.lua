@@ -148,7 +148,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --
 -- Configure LSP servers
 --
-local util = require("lspconfig.util")
 
 vim.lsp.enable("jsonls")
 
@@ -215,7 +214,7 @@ vim.lsp.config("terraformls", {
 
 vim.lsp.enable("tflint")
 vim.lsp.config("tflint", {
-    root_dir = util.root_pattern(".git", ".tflint.hcl"),
+    root_dir = vim.fs.root(0, { ".git", ".tflint.hcl" }),
 })
 
 --
@@ -247,7 +246,7 @@ end
 
 local find_project_file = function(bufname, filename)
     local startpath = bufname
-    local root_dir = util.root_pattern(filename)(startpath)
+    local root_dir = vim.fs.root(startpath, { filename })
     if root_dir ~= nil then
         return root_dir .. "/" .. filename
     end
