@@ -83,33 +83,27 @@ require("nvim-treesitter-textobjects").setup({
     },
 })
 
-vim.keymap.set({ "x", "o" }, "ac", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
-end)
-vim.keymap.set({ "x", "o" }, "ic", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
-end)
-vim.keymap.set({ "x", "o" }, "af", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "x", "o" }, "if", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
-end)
-vim.keymap.set({ "x", "o" }, "aa", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
-end)
+local textobjects_select = require("nvim-treesitter-textobjects.select")
+local function select_textobject(query_string)
+    return function()
+        textobjects_select.select_textobject(query_string, "textobjects")
+    end
+end
+vim.keymap.set({ "x", "o" }, "ac", select_textobject("@class.outer"))
+vim.keymap.set({ "x", "o" }, "ic", select_textobject("@class.inner"))
+vim.keymap.set({ "x", "o" }, "af", select_textobject("@function.outer"))
+vim.keymap.set({ "x", "o" }, "if", select_textobject("@function.inner"))
+vim.keymap.set({ "x", "o" }, "aa", select_textobject("@parameter.outer"))
+vim.keymap.set({ "x", "o" }, "ia", select_textobject("@parameter.inner"))
 
-vim.keymap.set({ "x", "o" }, "ia", function()
-    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
-end)
-
-vim.keymap.set("n", "<leader>p", function()
-    require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
-end)
-
-vim.keymap.set("n", "<leader>P", function()
-    require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
-end)
+local textobjects_swap = require("nvim-treesitter-textobjects.swap")
+local function swap(direction)
+    return function()
+        textobjects_swap["swap_" .. direction]("@parameter.inner")
+    end
+end
+vim.keymap.set("n", "<leader>p", swap("next"))
+vim.keymap.set("n", "<leader>P", swap("previous"))
 
 require("treesitter-context").setup({
     enable = true,
