@@ -36,3 +36,5 @@ end
 for _, add_file in ipairs(vim.fn.glob(config_dir .. "/spell/*.add", true, true)) do
     update_spellfile(add_file)
 end
+
+require("vim._core.ui2").enable({})
