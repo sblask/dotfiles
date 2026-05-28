@@ -54,20 +54,4 @@ command! SudoWrite w !SUDO_ASKPASS=`which /usr/lib/openssh/gnome-ssh-askpass` su
 command! Todo Gcd | Ack! "TODO|FIXME"
 command! WindowsToLinux :%s/$//
 
-
-function! JumpInList(count, isLocationList, isBackward) abort
-    if ! QuickFixCurrentNumber#Next(a:count, a:isLocationList, a:isBackward) && ! QuickFixCurrentNumber#Border(a:count, a:isLocationList, a:isBackward)
-        if ingo#err#IsSet()
-            call ingo#msg#ErrorMsg(ingo#err#Get())
-        else
-            call ingo#msg#WarningMsg('Nothing in list')
-        endif
-    endif
-endfunction
-
-nnoremap <silent> ]q :<C-u>call JumpInList(v:count1, 0, 0)<CR>
-nnoremap <silent> [q :<C-u>call JumpInList(v:count1, 0, 1)<CR>
-nnoremap <silent> ]l :<C-u>call JumpInList(v:count1, 1, 0)<CR>
-nnoremap <silent> [l :<C-u>call JumpInList(v:count1, 1, 1)<CR>
-
 command! ToggleDiagnostics lua if (vim.diagnostic.is_disabled(0)) then vim.diagnostic.enable(0) else vim.diagnostic.disable(0) end

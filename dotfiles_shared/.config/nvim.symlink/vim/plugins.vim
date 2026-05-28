@@ -1,17 +1,10 @@
 scriptencoding utf-8
 
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'AndrewRadev/bufferize.vim'
     Plug 'AndrewRadev/inline_edit.vim'
     Plug 'AndrewRadev/linediff.vim'
-    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-    Plug 'bkad/CamelCaseMotion'
     Plug 'chriskempson/base16-vim'
-    Plug 'editorconfig/editorconfig-vim'
     Plug 'gbprod/none-ls-shellcheck.nvim'
-    Plug 'inkarkat/vim-GrepCommands'
-    Plug 'inkarkat/vim-QuickFixCurrentNumber'
-    Plug 'inkarkat/vim-ingo-library'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mg979/vim-visual-multi'
@@ -22,20 +15,17 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'nvim-treesitter/playground'
     Plug 'nvimtools/none-ls-extras.nvim'
     Plug 'nvimtools/none-ls.nvim'
     Plug 'pearofducks/ansible-vim'
     Plug 'powerman/vim-plugin-AnsiEsc'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'tmux-plugins/vim-tmux'
-    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-surround'
-    Plug 'tyru/open-browser.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'wsdjeg/vim-fetch'
@@ -94,22 +84,11 @@ augroup END
 colorscheme base16-eighties
 
 
-call camelcasemotion#CreateMotionMappings('<leader>')
-
-
 let g:fzf_nvim_statusline = 0
 
 
 let g:netrw_banner = 0 " no header, toggle with I
 let g:netrw_liststyle = 3 " tree view
-let g:netrw_nogx = 1 " disable gx mapping
-
-
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
-
-let g:no_QuickFixCurrentNumber_maps = 1
 
 
 let g:VM_maps = {}
