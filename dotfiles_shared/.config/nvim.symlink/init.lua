@@ -7,6 +7,7 @@ end
 local config_dir = "~/.config/nvim/"
 
 -- Load plugins first as other configs require parts of them
+vim.cmd.source(config_dir .. "vim/plugins.lua")
 vim.cmd.source(config_dir .. "vim/plugins.vim")
 
 local vim_files = vim.fn.glob(config_dir .. "/vim/*.vim", true, true)
@@ -17,9 +18,11 @@ for _, fpath in ipairs(vim_files) do
 end
 
 local lua_files = vim.fn.glob(config_dir .. "lua/*.lua", true, true)
-for _, lua_file in ipairs(lua_files) do
-    local module = vim.fs.basename(lua_file):gsub("%.lua$", "")
-    require(module)
+for _, fpath in ipairs(lua_files) do
+    if not fpath:match("/plugins%.lua$") then
+        local module = vim.fs.basename(fpath):gsub("%.lua$", "")
+        require(module)
+    end
 end
 
 local function update_spellfile(add_file)
