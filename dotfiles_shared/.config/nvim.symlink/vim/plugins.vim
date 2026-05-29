@@ -1,36 +1,5 @@
 scriptencoding utf-8
 
-call plug#begin('~/.config/nvim/plugged')
-    Plug 'AndrewRadev/inline_edit.vim'
-    Plug 'AndrewRadev/linediff.vim'
-    Plug 'chriskempson/base16-vim'
-    Plug 'gbprod/none-ls-shellcheck.nvim'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'mg979/vim-visual-multi'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'mileszs/ack.vim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'  " for none-ls
-    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-    Plug 'nvim-treesitter/nvim-treesitter-context'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'nvimtools/none-ls-extras.nvim'
-    Plug 'nvimtools/none-ls.nvim'
-    Plug 'pearofducks/ansible-vim'
-    Plug 'powerman/vim-plugin-AnsiEsc'
-    Plug 'shumphrey/fugitive-gitlab.vim'
-    Plug 'tmux-plugins/vim-tmux'
-    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'tpope/vim-surround'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'wsdjeg/vim-fetch'
-call plug#end()
-
 let g:ackprg = 'rg --color never --column'
 cnoreabbrev rg Gcd <bar> Ack!
 
