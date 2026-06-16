@@ -72,16 +72,24 @@ def base64_decode():
 
 
 def dict_to_json():
-    # some import are used by eval
+    # some imports are used by eval
     # pylint: disable=unused-import
     import datetime
     import json
     import sys
     import zoneinfo
+    from decimal import Decimal
 
     import vim  # pylint: disable=import-error
     from dateutil.tz import tzlocal, tzutc
 
+    def type_dependent_serializer(obj):
+        if isinstance(obj, datetime.datetime):
+            return obj.isoformat()
+        if isinstance(obj, Decimal):
+            return str(obj)
+        raise TypeError(f"Type {type(obj).__name__} not JSON serializable")
+
     as_dict = eval("".join(vim.current.buffer[:]))  # pylint: disable=eval-used
-    as_json = json.dumps(as_dict, default=lambda something: something.isoformat())
+    as_json = json.dumps(as_dict, default=type_dependent_serializer)
     vim.current.buffer[:] = [as_json]
