@@ -9,6 +9,7 @@
         global: yes
       loop:
         - aws-cdk
+        - bash-language-server
         - cdktf-cli
         - eslint
         - fixjson

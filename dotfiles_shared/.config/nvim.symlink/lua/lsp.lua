@@ -149,6 +149,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Configure LSP servers
 --
 
+vim.lsp.enable("bashls")
+
 vim.lsp.enable("jsonls")
 
 vim.lsp.enable("pylsp")
@@ -307,7 +309,6 @@ local null_ls_sources = {
     }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
-    require("none-ls-shellcheck.diagnostics"),
     require("none-ls.diagnostics.eslint").with({
         runtime_condition = function(params)
             return find_project_file(params.bufname, "eslint.config.js")
