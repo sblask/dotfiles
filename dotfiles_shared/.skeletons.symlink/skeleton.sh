@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail -o xtrace -o errtrace
 
-SCRIPT_DIRECTORY=$(dirname "${BASH_SOURCE:-$0}" | xargs realpath)
+SCRIPT_DIRECTORY=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 declare -r SCRIPT_DIRECTORY
 
 echo "$SCRIPT_DIRECTORY"
