@@ -271,6 +271,13 @@ local no_pyproject_toml_or_has_line = function(required_line)
     return wrapped
 end
 
+local eslint_config = {
+    runtime_condition = function(params)
+        return find_project_file(params.bufname, "eslint.config.js")
+            or find_project_file(params.bufname, ".eslintrc")
+    end,
+}
+
 local null_ls_sources = {
     fixjson,
     null_ls.builtins.diagnostics.actionlint,
@@ -309,12 +316,8 @@ local null_ls_sources = {
     }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt,
-    require("none-ls.diagnostics.eslint").with({
-        runtime_condition = function(params)
-            return find_project_file(params.bufname, "eslint.config.js")
-                or find_project_file(params.bufname, ".eslintrc")
-        end,
-    }),
+    require("none-ls.diagnostics.eslint").with(eslint_config),
+    require("none-ls.formatting.eslint").with(eslint_config),
     require("none-ls.diagnostics.flake8").with({
         method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
         runtime_condition = function(params)
