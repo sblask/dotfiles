@@ -78,7 +78,7 @@ set-option -g status-bg colour24
 set-option -g status-left "#{cpu_bg_color}CPU: #{cpu_percentage} #{prefix_highlight} "
 set-option -g status-left-length 50
 set-option -g status-right "#{?pane_synchronized,#[bg=yellow] SYNCHRONIZED #[bg=colour24],}"
-set-window-option -g window-status-current-format '#[fg=white]#I: #W #(cd #{pane_current_path}; dirs +0)#[fg=black]'
+set-window-option -g window-status-current-format '#[fg=white]#I: #W #(cd #{pane_current_path}; dirs +0) #[fg=black]#{?window_zoomed_flag,#[bg=yellow] ZOOMED #[bg=colour24],}'
 set-window-option -g window-status-format                    '#I: #W #(cd #{pane_current_path}; dirs +0)'
 set-window-option -g window-status-separator ' | '
 
