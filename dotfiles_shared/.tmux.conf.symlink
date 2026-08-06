@@ -82,7 +82,7 @@ set-window-option -g window-status-current-format '#[fg=white]#I: #W #(cd #{pane
 set-window-option -g window-status-format                    '#I: #W #(cd #{pane_current_path}; dirs +0)'
 set-window-option -g window-status-separator ' | '
 
-# when entering copy mode by scrolling, scrolling down exists copy mode by default - this keeps it in copy mode
+# when entering copy mode by scrolling, scrolling down exits copy mode by default - this keeps it in copy mode
 bind-key -T root WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "select-pane -t = \; send-keys -M" "select-pane -t = \; if -F -t = '#{pane_in_mode}' 'send-keys -M' 'copy-mode -t='"
 bind-key -T root WheelDownPane select-pane -t = \; send-keys -M
 
