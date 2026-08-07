@@ -5,7 +5,7 @@
 
     actionlint_version: 1.7.12  # renovate: rhysd/actionlint
     asdf_version: 0.19.0  # renovate: asdf-vm/asdf
-    fzf_version: 0.73.1  # renovate: junegunn/fzf
+    fzf_version: 0.74.2  # renovate: junegunn/fzf
     gh_version: v2.95.0  # cli/cli
     iamlive_version: v1.1.26  # iann0036/iamlive
     terraform_ls_version: 0.36.5  # renovate: hashicorp/terraform-ls
