@@ -6,9 +6,19 @@
     actionlint_version: 1.7.12  # renovate: rhysd/actionlint
     asdf_version: 0.19.0  # renovate: asdf-vm/asdf
     fzf_version: 0.73.1  # renovate: junegunn/fzf
+    gh_version: v2.95.0  # cli/cli
+    iamlive_version: v1.1.26  # iann0036/iamlive
     terraform_ls_version: 0.36.5  # renovate: hashicorp/terraform-ls
 
+    zsh_completion_directory: "{{ target_directory }}/.config/zsh/completions.d"
+
   tasks:
+
+    - name: Ensure directory for ZSH completions
+      file:
+        path: "{{ zsh_completion_directory }}"
+        state: directory
+        mode: 0755
 
     - name: Install Actionlint
       include_tasks: includes/zipped_executable.yml
@@ -30,6 +40,26 @@
         product: fzf
         url: https://github.com/junegunn/fzf/releases/download/v{{ fzf_version }}/fzf-{{ fzf_version }}-{{ os }}_{{ architecture | default('amd64') }}.tar.gz
         version: "{{ fzf_version }}"
+
+    - name: Install gh
+      include_tasks: includes/zipped_executable.yml
+      vars:
+        product: gh
+        zipped_binary_path: gh_{{ gh_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}/bin/gh
+        url: https://github.com/cli/cli/releases/download/{{ gh_version }}/gh_{{ gh_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
+        version: "{{ gh_version }}"
+
+    - name: Install gh zsh completions
+      shell: "{{ target_directory }}/.bin/gh completion -s zsh > {{ zsh_completion_directory }}/_gh"
+      args:
+        creates: "{{ zsh_completion_directory }}/_gh"
+
+    - name: Install IAM live
+      include_tasks: includes/zipped_executable.yml
+      vars:
+        product: iamlive
+        url: https://github.com/iann0036/iamlive/releases/download/{{ iamlive_version }}/iamlive-{{ iamlive_version }}-{{ os }}-{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
+        version: "{{ iamlive_version | trim('v') }}"
 
     - name: Install Terraform LS
       include_tasks: includes/zipped_executable.yml
