@@ -77,6 +77,12 @@ unbind-key -T copy-mode-vi MouseDragEnd1Pane
 # switch to insert mode
 bind-key -T copy-mode-vi i send-keys -X cancel
 
+# search URLs
+bind-key C-u {
+    copy-mode
+    send-keys -X search-backward "(https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]?=%/_.:,;~@!#$&()*+-]*"
+}
+
 set-option -sa terminal-features ',xterm-256color:RGB'
 
 set-option -g base-index 1
@@ -110,7 +116,6 @@ set -g @fzf-links-use-colors off
 set -g @plugin 'tmux-plugins/tpm'
 
 set -g @plugin 'alberti42/tmux-fzf-links'
-set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-open'
