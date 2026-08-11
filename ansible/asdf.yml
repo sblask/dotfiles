@@ -19,7 +19,7 @@
       - plugin: direnv
         version: 2.37.1  # renovate: direnv/direnv
       - plugin: pre-commit
-        version: 4.6.1  # renovate: pre-commit/pre-commit
+        version: 4.6.2  # renovate: pre-commit/pre-commit
       - plugin: terraform
         version: 1.12.2  # renovate: hashicorp/terraform
       - plugin: tflint
