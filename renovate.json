@@ -32,7 +32,16 @@
   "ignorePaths": [
     "ansible/includes/requirements-poetry-1.8.5.txt"
   ],
+  "minimumReleaseAge": "1 week",
   "packageRules": [
+    {
+      "automerge": true,
+      "automergeType": "branch",
+      "groupName": "actions",
+      "matchPackageNames": [
+        "actions/*"
+      ]
+    },
     {
       "automerge": true,
       "automergeType": "branch",
@@ -41,6 +50,10 @@
         "ansible-core",
         "ansible-lint",
         "ansible/ansible-lint"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
       ]
     },
     {
@@ -48,6 +61,21 @@
       "matchPackageNames": [
         "adrienverge/yamllint",
         "yamllint"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "automerge": true,
+      "automergeType": "branch",
+      "matchPackageNames": [
+        "pip"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
       ]
     },
     {
@@ -57,12 +85,22 @@
         "schedule:monthly"
       ],
       "matchPackageNames": [
+        "JohnnyMorganz/StyLua",
+        "Kampfkarren/selene",
         "aws-cli",
         "cli/cli",
+        "editorconfig-checker/editorconfig-checker",
         "https://github.com/aws/aws-cli.git",
+        "igorshubovych/markdownlint-cli",
         "ipython",
+        "junegunn/fzf",
+        "pre-commit/pre-commit",
         "pyright",
         "renovatebot/pre-commit-hooks"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
       ]
     }
   ],
