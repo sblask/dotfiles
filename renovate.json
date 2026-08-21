@@ -71,7 +71,8 @@
       "automerge": true,
       "automergeType": "branch",
       "matchPackageNames": [
-        "pip"
+        "pip",
+        "wheel"
       ],
       "matchUpdateTypes": [
         "minor",
@@ -94,6 +95,7 @@
         "igorshubovych/markdownlint-cli",
         "ipython",
         "junegunn/fzf",
+        "pipx",
         "pre-commit/pre-commit",
         "pyright",
         "renovatebot/pre-commit-hooks"
