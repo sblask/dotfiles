@@ -80,49 +80,9 @@ function __print-path-argument {
     fi
 }
 
-function agi {
-    local lines=$(command ag --color --group --literal $@)
-    local restricted=false
-    if [ $(echo $lines | wc --lines) -gt 99 ]; then
-        lines="$(echo $lines | head --lines 99)"
-        restricted=true
-    fi
-
-    echo $lines                                             | add-index --input-type ag         --print-indexables | set-index-variables
-    if $restricted; then
-        echo "\n\n..."
-    fi
-}
-compdef _ag agi
-
-function agiu {
-    command ag --color --group --literal $@                 | add-index --input-type ag         --print-indexables | set-index-variables
-}
-compdef _ag agiu
-
 function clone_status {
     command clone_status                                    | add-index --input-type mixed      --print-indexables | set-index-variables
 }
-
-function findi {
-    local lines=$(find $@)
-    local restricted=false
-    if [ $(echo $lines | wc --lines) -gt 99 ]; then
-        lines="$(echo $lines | head --lines 99)"
-        restricted=true
-    fi
-
-    echo $lines                                             | add-index --input-type list       --print-indexables | set-index-variables
-    if $restricted; then
-        echo "\n\n..."
-    fi
-}
-compdef _find find
-
-function findu {
-    find $@                                                 | add-index --input-type list       --print-indexables | set-index-variables
-}
-compdef _find findu
 
 function gashp {
     git stash pop                                           | add-index --input-type git_status --print-indexables | set-index-variables
