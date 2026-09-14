@@ -81,27 +81,10 @@ function __print-path-argument {
 }
 
 function clone_status {
-    command clone_status                                    | add-index --input-type mixed      --print-indexables | set-index-variables
+    command clone_status                                        | add-index --input-type mixed      --print-indexables | set-index-variables
 }
 
-function gashp {
-    git stash pop                                           | add-index --input-type git_status --print-indexables | set-index-variables
-}
 
-function gb {
-    git branch $@                                           | add-index --input-type git_branch --print-indexables | set-index-variables
-}
-compdef _git gb=git-branch
-
-function gba {
-    git branch --all --sort=-committerdate $@               | add-index --input-type git_branch --print-indexables | set-index-variables
-}
-compdef _git gba=git-branch
-
-function gs {
-    git status --untracked-files=all $@                     | add-index --input-type git_status --print-indexables | set-index-variables
-}
-compdef _git gs=git-status
 
 function la {
     { __print-path-argument $@; gnu-ls -lhA --color=always $@ } | add-index --input-type ls_list    --print-indexables | set-index-variables
