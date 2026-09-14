@@ -11,7 +11,7 @@
       - plugin: nodejs
         version: latest:22
       - plugin: python
-        version: latest:3.12
+        version: latest:3.12  # if this gets updated, the install step can get cleaned up (see issue in comment)
       - plugin: rust
         version: 1.98.1  # renovate: rust-lang/rust
         additional_option: https://github.com/asdf-community/asdf-rust.git
@@ -47,6 +47,12 @@
         asdf install {{ item.plugin }} {{ item.version }}
       args:
         executable: /bin/bash
+      environment:
+        # This issue in CPython: https://github.com/python/cpython/issues/153711
+        # requires these two variables as workaround in the latest macOS/Xcode for
+        # Python 3.12:
+        ac_cv_func_pipe2: "no"
+        ac_cv_func_dup3: "no"
       register: installation
       changed_when: not installation.stderr_lines or installation.stderr_lines[-1] is not match(".* is already installed")
       loop: "{{ packages }}"
