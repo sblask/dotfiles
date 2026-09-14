@@ -49,6 +49,13 @@
         url: https://github.com/cli/cli/releases/download/{{ gh_version }}/gh_{{ gh_version | trim('v') }}_{% if os == "darwin" %}macOS{% else %}linux{% endif %}_{{ architecture | default('amd64') }}.{% if os == "darwin" %}zip{% else %}tar.gz{% endif %}
         version: "{{ gh_version }}"
 
+    - name: Install gh stack extension
+      command: "{{ target_directory }}/.bin/gh extension install github/gh-stack"
+      environment:
+        XDG_DATA_HOME: "{{ target_directory }}/.local/share"
+      args:
+        creates: "{{ target_directory }}/.local/share/gh/extensions/gh-stack"
+
     - name: Install gh zsh completions
       shell: "{{ target_directory }}/.bin/gh completion -s zsh > {{ zsh_completion_directory }}/_gh"
       args:
