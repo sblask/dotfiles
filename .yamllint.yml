@@ -1,6 +1,11 @@
 extends: default  # https://yamllint.readthedocs.io/en/latest/configuration.html
 
 rules:
+  braces:
+    max-spaces-inside: 1
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: false
   document-start: disable
   indentation:
     indent-sequences: consistent
