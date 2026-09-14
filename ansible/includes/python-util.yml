@@ -6,10 +6,10 @@
     executable: /bin/bash
   environment:
     PATH: |
-      {%- if "VIRTUAL_ENV" in ansible_env -%}
-        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH | replace(ansible_env.VIRTUAL_ENV + "/bin:", "") }}
+      {%- if "VIRTUAL_ENV" in ansible_facts["env"] -%}
+        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_facts["env"]["PATH"] | replace(ansible_facts["env"]["VIRTUAL_ENV"] + "/bin:", "") }}
       {%- else -%}
-        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_env.PATH }}
+        {{ target_directory }}/.bin:{{ target_directory }}/.asdf/shims:{{ ansible_facts["env"]["PATH"] }}
       {%- endif -%}
   register: virtual_env_creation
 
