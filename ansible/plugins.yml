@@ -18,7 +18,7 @@
       file:
         path: "{{ zsh_plugin_directory }}"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
 
     - name: Install ZSH base16 plugin
@@ -57,7 +57,7 @@
       get_url:
         url: https://raw.githubusercontent.com/jimhester/per-directory-history/master/per-directory-history.zsh
         dest: "{{ zsh_plugin_directory }}/per-directory-history.plugin.zsh"
-        mode: 0644
+        mode: u=rw,g=r,o=r
 
 
     - name: Install ZSH syntax highlighting plugin

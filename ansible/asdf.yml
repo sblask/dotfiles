@@ -73,7 +73,7 @@
       ansible.builtin.file:
         path: ~/.tool-versions
         state: touch
-        mode: 0644
+        mode: u=rw,g=r,o=r
       when: not tool_versions_status.stat.exists
 
     - name: Check whether installed version is set with ASDF
@@ -103,7 +103,7 @@
       file:
         path: "{{ target_directory }}/.asdf/installs/nodejs/{{ installed_version.results[0].stdout }}/.npm/lib/node_modules"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     # see https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
     - name: Create ~/.node_modules link
@@ -116,7 +116,7 @@
       file:
         path: "{{ zsh_completion_directory }}"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     - name: Generate gh zsh completions
       command: gh completion -s zsh
@@ -128,5 +128,5 @@
       copy:
         content: "{{ generate_gh_completions.stdout }}"
         dest: "{{ zsh_completion_directory }}/_gh"
-        mode: 0644
+        mode: u=rw,g=r,o=r
         force: false

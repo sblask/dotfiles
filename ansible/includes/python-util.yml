@@ -30,5 +30,5 @@
     dest: "{{ target_directory }}/.bin/{{ item.key }}"
     src: "{{ target_directory }}/.opt/{{ package.key }}/bin/{{ item.value }}"
     state: link
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
   loop: "{{ package.value.links | default({package.key: package.key}) | dict2items }}"

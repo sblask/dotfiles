@@ -11,13 +11,13 @@
       file:
         path: "{{ zsh_completion_directory }}"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     - name: Install ZSH completions
       get_url:
         url: "{{ item }}"
         dest: "{{ zsh_completion_directory }}/{{ item.split('/') | last }}"
-        mode: 0644
+        mode: u=rw,g=r,o=r
       with_items:
         - https://raw.githubusercontent.com/hashicorp/packer/master/contrib/zsh-completion/_packer
         - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/pip/_pip
@@ -29,7 +29,7 @@
       get_url:
         url: "{{ item.url }}"
         dest: "{{ zsh_completion_directory }}/{{ item.name }}"
-        mode: 0644
+        mode: u=rw,g=r,o=r
       with_items:
         - url: https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion
           name: _hub
@@ -42,4 +42,4 @@
       copy:
         content: "{{ asdf_completion.stdout }}"
         dest: "{{ zsh_completion_directory }}/_asdf"
-        mode: 0644
+        mode: u=rw,g=r,o=r

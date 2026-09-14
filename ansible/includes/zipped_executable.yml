@@ -2,7 +2,7 @@
   file:
     path: "{{ target_directory }}/.bin"
     state: directory
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
 
 - name: Check for {{ product | title }}
   stat:
@@ -16,7 +16,7 @@
       get_url:
         url: "{{ url }}"
         dest: /tmp/{{ product }}{{ version }}.zip
-        mode: 0644
+        mode: u=rw,g=r,o=r
       register: download
     - name: Unpack {{ product | title }}
       unarchive:
@@ -28,7 +28,7 @@
       copy:
         src: /tmp/{{ zipped_binary_path | default(product) }}
         dest: "{{ target_directory }}/.bin/{{ product }}_{{ version | regex_replace('\\.', '_') }}"
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
         remote_src: true
 
 - name: Link {{ product | title }}

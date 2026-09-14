@@ -46,7 +46,7 @@
       file:
         path: "{{ target_directory }}/.opt"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     - name: Install {{ package }}
       include_tasks: includes/python-util.yml
@@ -58,7 +58,7 @@
       file:
         path: "{{ bash_completion_directory }}"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     - name: Install aws completions
       file:

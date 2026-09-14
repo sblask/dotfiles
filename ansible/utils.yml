@@ -18,7 +18,7 @@
       file:
         path: "{{ zsh_completion_directory }}"
         state: directory
-        mode: 0755
+        mode: u=rwx,g=rx,o=rx
 
     - name: Install Actionlint
       include_tasks: includes/zipped_executable.yml
