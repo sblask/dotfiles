@@ -16,6 +16,25 @@ function __conda_env {
     fi
 }
 
+function __gh_stack {
+    local GH_STACK_FILE CURRENT_BRANCH STACK_BRANCHES INDEX TOTAL
+    GH_STACK_FILE=$(git rev-parse --git-path gh-stack 2>/dev/null) || return
+    [ -f "$GH_STACK_FILE" ] || return
+    CURRENT_BRANCH=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) || return
+
+    STACK_BRANCHES=$(jq --raw-output --arg current_branch "$CURRENT_BRANCH" '
+        .stacks[]?
+        | select([.branches[].branch] | index($current_branch))
+        | .branches[].branch
+    ' "$GH_STACK_FILE" 2>/dev/null)
+    [ -n "$STACK_BRANCHES" ] || return
+
+    INDEX=$(echo "$STACK_BRANCHES" | awk -v branch="$CURRENT_BRANCH" '$0 == branch { print NR; exit }')
+    TOTAL=$(echo "$STACK_BRANCHES" | wc -l | tr -d ' ')
+
+    echo "(Stack $INDEX/$TOTAL) "
+}
+
 function __git_no_mail_warning {
     git status 1>/dev/null 2>/dev/null
     if [ $? -ne 128 -a $? -ne 127 -a "$(git config user.email)" = "" -a "$EMAIL" = "" ]; then
@@ -98,6 +117,7 @@ PROMPT+='%F{blue}$(__virtual_env)%f'
 # PROMPT+='%F{blue}%m%f ' # hostname
 # PROMPT+='$(__my_ip) '
 PROMPT+='$(git_super_status) '
+PROMPT+='%F{yellow}$(__gh_stack)%f'
 PROMPT+='%F{red}$(__git_no_mail_warning)%f'
 
 PROMPT+=$'\n'
