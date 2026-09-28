@@ -6,8 +6,11 @@ local hooks = {
 
     ["https://github.com/nvim-treesitter/nvim-treesitter"] = function()
         vim.schedule(function()
-            vim.cmd.packadd("nvim-treesitter") -- TSUpdate is not available without this
-            vim.cmd.TSUpdate()
+            vim.cmd.packadd("nvim-treesitter")
+            -- Block until parsers AND queries finish updating. The async
+            -- :TSUpdate is fire-and-forget and leaves a broken install
+            -- (stale parsers, missing highlight queries) if nvim exits first.
+            require("nvim-treesitter").update(nil, { summary = true }):wait(300000)
         end)
     end,
 }
