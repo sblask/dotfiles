@@ -13,7 +13,7 @@
       - plugin: python
         version: latest:3.12  # if this gets updated, the install step can get cleaned up (see issue in comment)
       - plugin: rust
-        version: 1.98.1  # renovate: rust-lang/rust
+        version: 1.99.0  # renovate: rust-lang/rust
         additional_option: https://github.com/asdf-community/asdf-rust.git
 
       - plugin: direnv
