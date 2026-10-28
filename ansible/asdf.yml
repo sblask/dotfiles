@@ -17,7 +17,7 @@
         additional_option: https://github.com/asdf-community/asdf-rust.git
 
       - plugin: direnv
-        version: 2.37.1  # renovate: direnv/direnv
+        version: 2.38.2  # renovate: direnv/direnv
       - plugin: pre-commit
         version: 4.6.2  # renovate: pre-commit/pre-commit
       - plugin: terraform
