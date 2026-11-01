@@ -4,7 +4,7 @@
   vars:
     packages:
       selene: 0.31.0  # renovate: Kampfkarren/selene
-      stylua: 2.5.2  # renovate: JohnnyMorganz/StyLua
+      stylua: 2.6.0  # renovate: JohnnyMorganz/StyLua
 
   tasks:
 
