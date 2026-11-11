@@ -89,7 +89,10 @@
         shell: /bin/zsh
 
     - name: Install snap packages
-      community.general.snap:
-        name:
-          - pinta
-          - yq
+      command: snap install {{ item }}
+      register: snap_install
+      # snap prints already installed snaps to stderr, only new ones to stdout
+      changed_when: snap_install.stdout != ""
+      loop:
+        - pinta
+        - yq
