@@ -155,9 +155,18 @@ vim.lsp.enable("jsonls")
 
 vim.lsp.enable("pylsp")
 vim.lsp.config("pylsp", {
-    cmd_env = {
-        VIRTUAL_ENV = ".venv",
-    },
+    -- Configure jedi to use the venv of the project (according to Python root
+    -- markers, e.g. pyproject.toml) the current buffer belongs to
+    on_init = function(client)
+        local venv = client.root_dir and (client.root_dir .. "/.venv")
+        if not venv or vim.fn.isdirectory(venv) == 0 then
+            return
+        end
+        client.settings = vim.tbl_deep_extend("force", client.settings or {}, {
+            pylsp = { plugins = { jedi = { environment = venv } } },
+        })
+        client:notify("workspace/didChangeConfiguration", { settings = client.settings })
+    end,
     on_attach = function(_client, buffer)
         setup_format_on_save(buffer)
     end,
